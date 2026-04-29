@@ -13,7 +13,7 @@ if (!token) {
 const input = JSON.parse(readFileSync(0, 'utf8'))
 
 const parseRepo = url => {
-    const m = url.match(/^https:\/\/github\.com\/([^/]+)\/([^/.]+)(?:\.git)?$/)
+    const m = url.match(/^https:\/\/github\.com\/([^/]+)\/(.+?)(?:\.git)?$/)
     return m ? {owner: m[1], repo: m[2]} : null
 }
 
