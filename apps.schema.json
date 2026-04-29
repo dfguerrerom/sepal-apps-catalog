@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/openforis/sepal-apps-catalog/apps.schema.json",
+  "title": "SEPAL Apps Catalog",
+  "type": "object",
+  "required": ["apps"],
+  "additionalProperties": false,
+  "properties": {
+    "apps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "endpoint", "label", "repository", "branch", "commit"],
+        "additionalProperties": true,
+        "properties": {
+          "id": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+$"},
+          "endpoint": {"const": "docker"},
+          "label": {"type": "string", "minLength": 1},
+          "path": {"type": "string"},
+          "repository": {
+            "type": "string",
+            "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+(?:\\.git)?$"
+          },
+          "branch": {"type": "string", "minLength": 1},
+          "commit": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$",
+            "description": "Full 40-character lowercase Git commit SHA — branch tips are not accepted"
+          },
+          "port": {"type": "integer", "minimum": 1, "maximum": 65535},
+          "pinned": {"type": "boolean"},
+          "googleAccountRequired": {"type": "boolean"},
+          "logoRef": {"type": "string"},
+          "author": {"type": "string"},
+          "description": {"type": "string"},
+          "tagline": {"type": "string"},
+          "projectLink": {"type": "string", "format": "uri"},
+          "tags": {"type": "array", "items": {"type": "string"}},
+          "apps": {
+            "type": "array",
+            "description": "Sub-apps for bundle containers (e.g. sepal-gee-bundle)",
+            "items": {
+              "type": "object",
+              "required": ["id", "label"],
+              "additionalProperties": true,
+              "properties": {
+                "id": {"type": "string"},
+                "route": {"type": "string"},
+                "label": {"type": "string"},
+                "description": {"type": "string"},
+                "tagline": {"type": "string"},
+                "tags": {"type": "array", "items": {"type": "string"}},
+                "pinned": {"type": "boolean"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
