@@ -1,0 +1,48 @@
+name: Validate catalog
+
+on:
+  pull_request:
+    paths:
+      - 'apps.test.json'
+      - 'apps.prod.json'
+      - 'apps.schema.json'
+  push:
+    branches: [main]
+    paths:
+      - 'apps.test.json'
+      - 'apps.prod.json'
+      - 'apps.schema.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate schema
+        run: |
+          npx -y ajv-cli@5 validate --spec=draft2020 -s apps.schema.json -d 'apps.test.json' --strict=false
+          npx -y ajv-cli@5 validate --spec=draft2020 -s apps.schema.json -d 'apps.prod.json' --strict=false
+
+      - name: Verify each commit exists in its repo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          for file in apps.test.json apps.prod.json; do
+            jq -c '.apps[]' "$file" | while read -r app; do
+              repo=$(echo "$app" | jq -r '.repository')
+              commit=$(echo "$app" | jq -r '.commit')
+              label=$(echo "$app" | jq -r '.label')
+              echo "Checking $label: $repo @ $commit"
+              ownerRepo=$(echo "$repo" | sed -E 's#^https://github\.com/##; s#\.git$##')
+              status=$(curl -sS -o /dev/null -w '%{http_code}' \
+                -H "Authorization: Bearer $GH_TOKEN" \
+                -H "Accept: application/vnd.github+json" \
+                "https://api.github.com/repos/$ownerRepo/commits/$commit")
+              if [ "$status" != "200" ]; then
+                echo "::error file=$file::$label: commit $commit not found in $repo (HTTP $status)"
+                exit 1
+              fi
+            done
+          done
