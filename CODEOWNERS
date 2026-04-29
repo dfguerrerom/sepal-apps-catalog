@@ -1,0 +1,5 @@
+# Catalog files — require maintainer review
+apps.test.json   @dfguerrerom
+apps.prod.json   @dfguerrerom
+apps.schema.json @dfguerrerom
+.github/         @dfguerrerom
