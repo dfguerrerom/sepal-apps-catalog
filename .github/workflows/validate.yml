@@ -24,13 +24,13 @@ jobs:
           npx -y ajv-cli@5 validate --spec=draft2020 -s apps.schema.json -d 'apps.test.json' --strict=false
           npx -y ajv-cli@5 validate --spec=draft2020 -s apps.schema.json -d 'apps.prod.json' --strict=false
 
-      - name: Verify each commit exists in its repo
+      - name: Verify each docker commit exists in its repo
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           for file in apps.test.json apps.prod.json; do
-            jq -c '.apps[]' "$file" | while read -r app; do
+            jq -c '.apps[] | select(.endpoint == "docker")' "$file" | while read -r app; do
               repo=$(echo "$app" | jq -r '.repository')
               commit=$(echo "$app" | jq -r '.commit')
               label=$(echo "$app" | jq -r '.label')

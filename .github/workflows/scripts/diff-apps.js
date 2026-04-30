@@ -1,6 +1,9 @@
 // .github/workflows/scripts/diff-apps.js
 // Usage: node diff-apps.js <oldFile> <newFile>
 // Emits JSON to stdout: {added: [...], removed: [...], updated: [{label, repository, branch, oldCommit, newCommit}, ...]}
+//
+// Scope: only docker entries are tracked for "updated" (SHA bumps need upstream review).
+// Non-docker added/removed entries are still surfaced; non-docker metadata edits are not.
 
 import {readFileSync} from 'node:fs'
 
@@ -17,7 +20,7 @@ const load = path => {
 const oldApps = load(oldPath)
 const newApps = load(newPath)
 
-const key = a => `${a.repository}@@${a.label}`
+const key = a => a.id
 const oldByKey = new Map(oldApps.map(a => [key(a), a]))
 const newByKey = new Map(newApps.map(a => [key(a), a]))
 
@@ -28,7 +31,7 @@ const updated = []
 for (const [k, a] of newByKey) {
     if (!oldByKey.has(k)) {
         added.push(a)
-    } else {
+    } else if (a.endpoint === 'docker') {
         const prev = oldByKey.get(k)
         if (prev.commit !== a.commit || prev.branch !== a.branch) {
             updated.push({

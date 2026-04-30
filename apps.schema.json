@@ -6,26 +6,42 @@
   "required": ["apps"],
   "additionalProperties": false,
   "properties": {
+    "tags": {
+      "type": "array",
+      "description": "Top-level tag definitions used to group apps in the UI.",
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "additionalProperties": true,
+        "properties": {
+          "value": {"type": "string"},
+          "label": {
+            "type": "object",
+            "additionalProperties": {"type": "string"}
+          }
+        }
+      }
+    },
     "apps": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "endpoint", "label", "repository", "branch", "commit"],
+        "required": ["id", "label"],
         "additionalProperties": true,
         "properties": {
           "id": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+$"},
-          "endpoint": {"const": "docker"},
+          "endpoint": {"enum": ["docker", "shiny", "jupyter", "rstudio"]},
           "label": {"type": "string", "minLength": 1},
           "path": {"type": "string"},
           "repository": {
             "type": "string",
-            "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+(?:\\.git)?$"
+            "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/.+$"
           },
           "branch": {"type": "string", "minLength": 1},
           "commit": {
             "type": "string",
             "pattern": "^[0-9a-f]{40}$",
-            "description": "Full 40-character lowercase Git commit SHA — branch tips are not accepted"
+            "description": "Full 40-character lowercase Git commit SHA. Mandatory for endpoint=docker."
           },
           "port": {"type": "integer", "minimum": 1, "maximum": 65535},
           "pinned": {"type": "boolean"},
@@ -34,27 +50,23 @@
           "author": {"type": "string"},
           "description": {"type": "string"},
           "tagline": {"type": "string"},
-          "projectLink": {"type": "string", "format": "uri"},
+          "projectLink": {"type": "string"},
           "tags": {"type": "array", "items": {"type": "string"}},
-          "apps": {
-            "type": "array",
-            "description": "Sub-apps for bundle containers (e.g. sepal-gee-bundle)",
-            "items": {
-              "type": "object",
-              "required": ["id", "label"],
-              "additionalProperties": true,
-              "properties": {
-                "id": {"type": "string"},
-                "route": {"type": "string"},
-                "label": {"type": "string"},
-                "description": {"type": "string"},
-                "tagline": {"type": "string"},
-                "tags": {"type": "array", "items": {"type": "string"}},
-                "pinned": {"type": "boolean"}
-              }
+          "hidden": {"type": "boolean"},
+          "skip": {"type": "boolean"},
+          "single": {"type": "boolean"}
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {"endpoint": {"const": "docker"}},
+              "required": ["endpoint"]
+            },
+            "then": {
+              "required": ["endpoint", "repository", "branch", "commit"]
             }
           }
-        }
+        ]
       }
     }
   }

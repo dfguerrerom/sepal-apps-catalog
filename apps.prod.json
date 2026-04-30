@@ -1,6 +1,425 @@
 {
   "apps": [
     {
+      "id": "rstudio",
+      "label": "RStudio",
+      "path": "/sandbox/rstudio/",
+      "endpoint": "rstudio",
+      "single": true,
+      "tags": [
+        "TOOLS"
+      ],
+      "pinned": true,
+      "logoRef": "rstudio-ball.svg",
+      "author": "RStudio",
+      "description": "RStudio is an integrated development environment (IDE) for R. It includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management.",
+      "tagline": "Tools for R and professional software for data science teams to develop and share their work at scale.",
+      "projectLink": "https://rstudio.com/products/rstudio/"
+    },
+    {
+      "id": "jupyter-notebook",
+      "label": "Jupyter Notebook",
+      "path": "/sandbox/jupyter/tree",
+      "endpoint": "jupyter",
+      "single": true,
+      "tags": [
+        "TOOLS"
+      ],
+      "pinned": true,
+      "logoRef": "jupyter-notebook.svg",
+      "author": "Project Jupyter",
+      "description": "The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.",
+      "tagline": "Create and share documents containing live code, equations, visualizations and narrative text.",
+      "projectLink": "https://jupyter.org/"
+    },
+    {
+      "id": "jupyter-lab",
+      "label": "Jupyter Lab",
+      "path": "/sandbox/jupyter/lab",
+      "endpoint": "jupyter",
+      "single": true,
+      "tags": [
+        "TOOLS"
+      ],
+      "pinned": true,
+      "logoRef": "jupyter-lab.png",
+      "author": "Project Jupyter",
+      "description": "JupyterLab is a web-based interactive development environment for Jupyter notebooks, code, and data. JupyterLab is flexible: configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine learning. JupyterLab is extensible and modular: write plugins that add new components and integrate with existing ones.",
+      "tagline": "Interactive development environment for Jupyter notebooks, code, and data.",
+      "projectLink": "https://jupyter.org/"
+    },
+    {
+      "id": "sae-design",
+      "label": "Stratified area estimator - Design",
+      "path": "/sandbox/shiny/accuracy-assessment/aa_design",
+      "endpoint": "shiny",
+      "tags": [
+        "CLASSIFICATION"
+      ],
+      "pinned": false,
+      "logoRef": "sepal.png",
+      "author": "the SEPAL team",
+      "description": "",
+      "tagline": "",
+      "projectLink": "https://github.com/openforis/accuracy-assessment/",
+      "repository": "https://github.com/openforis/accuracy-assessment"
+    },
+    {
+      "id": "sae-analysis",
+      "label": "Stratified area estimator - Analysis",
+      "path": "/sandbox/shiny/accuracy-assessment/aa_analysis",
+      "endpoint": "shiny",
+      "tags": [
+        "CLASSIFICATION"
+      ],
+      "pinned": false,
+      "logoRef": "sepal.png",
+      "author": "the SEPAL team",
+      "description": "",
+      "tagline": "",
+      "projectLink": "https://github.com/openforis/accuracy-assessment/",
+      "repository": "https://github.com/openforis/accuracy-assessment"
+    },
+    {
+      "id": "bfastspatial",
+      "label": "Time-series analysis",
+      "path": "/sandbox/shiny/bfastspatial",
+      "endpoint": "shiny",
+      "tags": [
+        "TIME_SERIES"
+      ],
+      "pinned": false,
+      "logoRef": "sepal.png",
+      "author": "the SEPAL team",
+      "description": "Applies BFAST algorithm to analyze the dynamics of satellite dense time series to distinguish land-cover change from seasonal phenological variations",
+      "tagline": "Applies BFAST algorithm to analyze the dynamics of satellite dense time series to distinguish land-cover change from seasonal phenological variations",
+      "projectLink": "https://github.com/openforis/bfastspatial",
+      "repository": "https://github.com/openforis/bfastspatial"
+    },
+    {
+      "id": "bfast-explorer",
+      "label": "BFAST Explorer",
+      "path": "/sandbox/shiny/bfast-explorer",
+      "endpoint": "shiny",
+      "googleAccountRequired": false,
+      "tags": [
+        "TIME_SERIES"
+      ],
+      "pinned": false,
+      "logoRef": "bfast.jpg",
+      "author": "Alexandre Almeida",
+      "description": "",
+      "tagline": "Performs analysis of Landsat Surface Reflectance time series pixel data using the BFAST algorithm.",
+      "projectLink": "https://github.com/openforis/bfast-explorer",
+      "repository": "https://github.com/openforis/bfast-explorer"
+    },
+    {
+      "id": "sepal_pysmm",
+      "label": "Soil Moisture Mapping",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/sepal_pysmm/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "googleAccountRequired": true,
+      "tags": [
+        "RESTORATION"
+      ],
+      "pinned": false,
+      "logoRef": "sepal.png",
+      "author": "sepal-contrib",
+      "description": "Tool for mapping surface soil moisture based on Copernicus Sentinel-1 intensity data",
+      "tagline": "Tool for mapping surface soil moisture based on Copernicus Sentinel-1 intensity data.",
+      "projectLink": "https://github.com/sepal-contrib/sepal_pysmm",
+      "repository": "https://github.com/sepal-contrib/sepal_pysmm",
+      "branch": "release"
+    },
+    {
+      "id": "planet_active_fires_explorer",
+      "label": "FIRMS/Planet Active Fires Explorer",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/planet_active_fires_explorer/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [
+        "PLANET"
+      ],
+      "pinned": false,
+      "logoRef": "openforis.png",
+      "author": "the Sepal team",
+      "description": "Display active and past fire events from the Fire Information for Resource Management System (FIRMS) using Planet daily data",
+      "tagline": "Display active and past fire events from the Fire Information for Resource Management System (FIRMS) using Planet daily data",
+      "projectLink": "https://github.com/sepal-contrib/planet_active_fires_explorer",
+      "repository": "https://github.com/sepal-contrib/planet_active_fires_explorer",
+      "branch": "release"
+    },
+    {
+      "id": "deforestation-alerts-module",
+      "label": "Deforestation alert analysis",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/deforestation-alerts-module/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": true,
+      "logoRef": "sepal.png",
+      "author": "the SEPAL team",
+      "description": "Deforestation alert processing and analysis module",
+      "tagline": "Deforestation alert processing and analysis module",
+      "projectLink": "https://github.com/sepal-contrib/deforestation-alerts-module",
+      "repository": "https://github.com/sepal-contrib/deforestation-alerts-module",
+      "branch": "release"
+    },
+    {
+      "id": "gfc_wrapper",
+      "label": "Forest change mask (Shiny)",
+      "path": "/sandbox/shiny/gfc_wrapper",
+      "endpoint": "shiny",
+      "tags": [],
+      "pinned": false,
+      "logoRef": "sepal.png",
+      "author": "the SEPAL team",
+      "description": "",
+      "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
+      "projectLink": "https://github.com/openforis/gfc_wrapper",
+      "repository": "https://github.com/openforis/gfc_wrapper"
+    },
+    {
+      "id": "gfc_wrapper_python",
+      "label": "Forest change mask",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/gfc_wrapper_python/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "the SEPAL team",
+      "description": "",
+      "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
+      "projectLink": "https://github.com/sepal-contrib/gfc_wrapper_python",
+      "repository": "https://github.com/sepal-contrib/gfc_wrapper_python",
+      "branch": "release"
+    },
+    {
+      "id": "vector_manager",
+      "label": "Vector file manager",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/vector_manager/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "the SEPAL team",
+      "description": "Tool to manage vector files in SEPAL (upload, download, export to GEE and grid generation)",
+      "tagline": "Tool to manage vector files in SEPAL (upload, download, export to GEE and grid generation)",
+      "projectLink": "https://github.com/sepal-contrib/vector_manager",
+      "repository": "https://github.com/sepal-contrib/vector_manager",
+      "branch": "release"
+    },
+    {
+      "id": "clip-time-series",
+      "label": "Time series clip (beta)",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/clip-time-series/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [
+        "RESTORATION"
+      ],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "the SEPAL team",
+      "description": "",
+      "tagline": "Generate a .pdf file containing time series clip on a given set of points",
+      "projectLink": "https://github.com/sepal-contrib/clip-time-series",
+      "repository": "https://github.com/sepal-contrib/clip-time-series",
+      "branch": "release"
+    },
+    {
+      "id": "sepal_smfm_biota",
+      "label": "SMFM Biota",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/sepal_smfm_biota/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [
+        "SMFM"
+      ],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "SMFM_Logo_4.png",
+      "author": "Sam Bowers and SEPAL team",
+      "description": "Runs the SMFM toolkit BIOTA method of change detection",
+      "tagline": "Calculate biomass change over time using ALOS Palsar data",
+      "projectLink": "https://github.com/sepal-contrib/sepal_smfm_biota",
+      "repository": "https://github.com/sepal-contrib/sepal_smfm_biota",
+      "branch": "release"
+    },
+    {
+      "id": "SMFM_deforest_sepal",
+      "label": "SMFM Deforest",
+      "path": "/sandbox/jupyter/notebooks/shared/apps/deforest/sepal/SMFM_deforest_sepal.ipynb",
+      "endpoint": "jupyter",
+      "tags": [
+        "SMFM"
+      ],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "SMFM_Logo_4.png",
+      "author": "Sam Bowers and SEPAL team",
+      "description": "Runs the SMFM toolkit DEFOREST module",
+      "tagline": "Detect deforestation using a time-series of forest probabilities",
+      "projectLink": "https://github.com/smfm-project/deforest",
+      "repository": "https://github.com/smfm-project/deforest"
+    },
+    {
+      "id": "alos_mosaics",
+      "label": "ALOS KC Mosaics",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/alos_mosaics/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Create and manipulate ALOS K&C Mosaics",
+      "tagline": "Create and manipulate ALOS K&C Mosaics",
+      "projectLink": "https://github.com/sepal-contrib/alos_mosaics",
+      "repository": "https://github.com/sepal-contrib/alos_mosaics",
+      "branch": "release"
+    },
+    {
+      "id": "sdg_15.3.1",
+      "label": "SDG 15.3.1 indicator",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/sdg_15.3.1/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [
+        "RESTORATION"
+      ],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Monitor SDG 15.3.1 Land Degradation in line with the Good Practice Guidance v2",
+      "tagline": "Monitor SDG indicators at plot level",
+      "projectLink": "https://github.com/sepal-contrib/sdg_15.3.1",
+      "repository": "https://github.com/sepal-contrib/sdg_15.3.1",
+      "branch": "release"
+    },
+    {
+      "id": "gwb",
+      "label": "GuidosToolbox Workbench (GWB) Analysis",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/gwb/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [
+        "RESTORATION"
+      ],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "A suite of various geospatial image analysis tools",
+      "tagline": "A suite of various geospatial image analysis tools",
+      "projectLink": "https://github.com/sepal-contrib/gwb",
+      "repository": "https://github.com/sepal-contrib/gwb",
+      "branch": "release"
+    },
+    {
+      "id": "tmf_sepal",
+      "label": "Tropical Moist Forest (TMF)",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/tmf_sepal/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Wrapper for TMF",
+      "tagline": "Interface to clip and download the TMF product (EC JRC)",
+      "projectLink": "https://github.com/sepal-contrib/tmf_sepal",
+      "repository": "https://github.com/sepal-contrib/tmf_sepal",
+      "branch": "release"
+    },
+    {
+      "id": "planet-order",
+      "label": "PlanetLab mosaics order",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/planet-order/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [
+        "PLANET"
+      ],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Order and download imagery from PlanetLab mosaics",
+      "tagline": "Order and download imagery from PlanetLab mosaics",
+      "projectLink": "https://github.com/sepal-contrib/planet-order",
+      "repository": "https://github.com/sepal-contrib/planet-order",
+      "branch": "release"
+    },
+    {
+      "id": "coverage_analysis",
+      "label": "Coverage Analysis",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/coverage_analysis/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine",
+      "tagline": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine",
+      "projectLink": "https://github.com/sepal-contrib/coverage_analysis",
+      "repository": "https://github.com/sepal-contrib/coverage_analysis",
+      "branch": "release"
+    },
+    {
+      "hidden": true,
+      "id": "damage_proxy_maps",
+      "label": "Damage Proxy Maps (beta)",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/damage_proxy_maps/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [
+        "DISASTER"
+      ],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Sentinel-1 based change detection for damage estimation",
+      "tagline": "Damage estimation from Sentinel-1",
+      "projectLink": "https://github.com/sepal-contrib/damage_proxy_maps",
+      "repository": "https://github.com/sepal-contrib/damage_proxy_maps",
+      "branch": "release"
+    },
+    {
+      "id": "fcdm",
+      "label": "Forest Canopy Disturbance Monitoring (FCDM)",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/fcdm/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Mapping all kind of canopy disturbances (natural or human induced) within (semi-)evergreen forests",
+      "tagline": "Mapping all kind of canopy disturbances (natural or human induced) within (semi-)evergreen forests",
+      "projectLink": "https://github.com/sepal-contrib/fcdm/",
+      "repository": "https://github.com/sepal-contrib/fcdm",
+      "branch": "release"
+    },
+    {
+      "id": "cumsum_change",
+      "label": "CUSUM time-series change detection",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/cumsum_change/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [
+        "TIME_SERIES",
+        "RESTORATION"
+      ],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Spatially cumulative sum algorithm for change detection within univariate time-series (GPU powered)",
+      "tagline": "Spatially cumulative sum algorithm for change detection within univariate time-series (GPU powered)",
+      "projectLink": "https://github.com/sepal-contrib/cumsum_change",
+      "repository": "https://github.com/sepal-contrib/cumsum_change",
+      "branch": "release"
+    },
+    {
       "id": "sepal_mgci",
       "label": "SEPAL-SDG 15.4.2",
       "path": "/api/app-launcher/sepal_mgci",
@@ -21,6 +440,104 @@
       "commit": "744d8ca97e8b92f4d6b6b5bae6cb0b6608706b12"
     },
     {
+      "id": "basin-rivers",
+      "label": " Resilient rivers and basins",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/basin-rivers/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": true,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Get Forest Cover Change by upstream sub-catchment",
+      "tagline": "Get Forest Cover Change by upstream sub-catchment",
+      "projectLink": "https://github.com/sepal-contrib/basin-rivers",
+      "repository": "https://github.com/sepal-contrib/basin-rivers",
+      "branch": "release"
+    },
+    {
+      "id": "gee_source",
+      "label": "Earth Engine app reader",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/gee_source/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": " Extract source code from any GEE app URL",
+      "tagline": " Extract source code from any GEE app URL",
+      "projectLink": "https://github.com/sepal-contrib/gee_source",
+      "repository": "https://github.com/sepal-contrib/gee_source",
+      "branch": "release"
+    },
+    {
+      "id": "weplan",
+      "label": "WePlan - Forests",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/weplan/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Explore restoration planning solution provided by WePlan - Forests",
+      "tagline": "Explore restoration planning solution provided by WePlan - Forests",
+      "projectLink": "https://github.com/sepal-contrib/weplan",
+      "repository": "https://github.com/sepal-contrib/weplan",
+      "branch": "release"
+    },
+    {
+      "hidden": true,
+      "id": "sepal-leafmap",
+      "label": "Leafmap",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/sepal-leafmap/ui.ipynb",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "leafmap.png",
+      "author": "Leafmap",
+      "description": "Provide access to the power of Leafmap in a SEPAL application",
+      "tagline": "Provide access to the power of Leafmap in a SEPAL application",
+      "projectLink": "https://github.com/sepal-contrib/sepal-leafmap",
+      "repository": "https://github.com/sepal-contrib/sepal-leafmap",
+      "branch": "release"
+    },
+    {
+      "hidden": true,
+      "id": "eSBAE_notebooks",
+      "label": "Sample Based Area Estimation",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/eSBAE_notebooks/00-Introduction-to-Jupyter and Python.ipynb",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": true,
+      "logoRef": "sepal.png",
+      "author": "the SEPAL team",
+      "description": "",
+      "tagline": "",
+      "projectLink": "https://github.com/sepal-contrib/eSBAE_notebooks",
+      "repository": "https://github.com/sepal-contrib/eSBAE_notebooks",
+      "branch": "release"
+    },
+    {
+      "hidden": true,
+      "id": "pyeo",
+      "label": "Python for Earth Observation (PyEO)",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/pyeo",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "Matthew-J-Payne",
+      "description": "",
+      "tagline": "",
+      "projectLink": "https://github.com/clcr/pyeo",
+      "repository": "https://github.com/clcr/pyeo"
+    },
+    {
       "id": "se.plan",
       "label": "se.plan",
       "path": "/api/app-launcher/se.plan",
@@ -39,6 +556,77 @@
       "port": 8765,
       "branch": "solara",
       "commit": "58f3946983d1cba2a2a66301e85802ecbbcab413"
+    },
+    {
+      "hidden": true,
+      "id": "alerts-viewer",
+      "label": "Fire alerts viewer",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/alerts-viewer/ipywidgets_app/1_filter_by_firms.ipynb",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": true,
+      "logoRef": "sepal.png",
+      "author": "the SEPAL team",
+      "description": "",
+      "tagline": "",
+      "projectLink": "https://github.com/dfguerrerom/alerts-viewer",
+      "repository": "https://github.com/dfguerrerom/alerts-viewer",
+      "branch": "release"
+    },
+    {
+      "id": "sbae-design",
+      "label": "Sampling Based Area Estimation Design",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/sbae-design/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Designing statistically sound area estimation and accuracy assessment sampling strategies for land monitoring.",
+      "tagline": "Designing statistically sound area estimation and accuracy assessment sampling strategies for land monitoring.",
+      "projectLink": "https://github.com/sepal-contrib/sbae-design",
+      "repository": "https://github.com/sepal-contrib/sbae-design",
+      "branch": "release"
+    }
+  ],
+  "tags": [
+    {
+      "value": "TOOLS",
+      "label": {
+        "en": "Tools"
+      }
+    },
+    {
+      "value": "TIME_SERIES",
+      "label": {
+        "en": "Time-series"
+      }
+    },
+    {
+      "value": "PLANET",
+      "label": {
+        "en": "Planet"
+      }
+    },
+    {
+      "value": "SMFM",
+      "label": {
+        "en": "SMFM"
+      }
+    },
+    {
+      "value": "DISASTER",
+      "label": {
+        "en": "Disaster"
+      }
+    },
+    {
+      "value": "RESTORATION",
+      "label": {
+        "en": "Restoration"
+      }
     }
   ]
 }
