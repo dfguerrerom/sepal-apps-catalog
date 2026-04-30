@@ -1,27 +1,6 @@
 {
   "apps": [
     {
-      "id": "se.plan",
-      "label": "se.plan",
-      "path": "/api/app-launcher/se.plan",
-      "endpoint": "docker",
-      "tags": [
-        "RESTORATION",
-        "INSTANT"
-      ],
-      "pinned": true,
-      "googleAccountRequired": true,
-      "logoRef": "sepal.png",
-      "author": "The SEPAL team",
-      "description": "Restoration planning tool using a weighted-sum approach",
-      "tagline": "Restoration planning tool using a weighted-sum approach",
-      "projectLink": "https://github.com/sepal-contrib/se.plan/",
-      "repository": "https://github.com/sepal-contrib/se.plan",
-      "port": 8765,
-      "branch": "solara",
-      "commit": "58f3946983d1cba2a2a66301e85802ecbbcab413"
-    },
-    {
       "id": "sepal_mgci",
       "label": "SEPAL-SDG 15.4.2",
       "path": "/api/app-launcher/sepal_mgci",
@@ -42,89 +21,24 @@
       "commit": "744d8ca97e8b92f4d6b6b5bae6cb0b6608706b12"
     },
     {
-      "id": "sepal-gee-bundle",
-      "label": "SEPAL GEE Bundle (backend)",
-      "path": "/api/app-launcher/sepal-gee-bundle",
+      "id": "se.plan",
+      "label": "se.plan",
+      "path": "/api/app-launcher/se.plan",
       "endpoint": "docker",
-      "repository": "https://github.com/sepal-contrib/sepal-gee-bundle",
-      "branch": "main",
-      "port": 8767,
+      "tags": [
+        "RESTORATION"
+      ],
+      "pinned": true,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "projectLink": "https://github.com/sepal-contrib/sepal-gee-bundle",
-      "tags": [
-        "INSTANT"
-      ],
-      "apps": [
-        {
-          "id": "gfc",
-          "route": "gfc",
-          "label": "Global Forest Change",
-          "tags": [
-            "FOREST"
-          ],
-          "pinned": false,
-          "description": "Hansen Global Forest Change visualization, statistics and export, served by the sepal-gee-bundle Solara container",
-          "tagline": "Hansen Global Forest Change visualization and export"
-        },
-        {
-          "id": "basin-rivers",
-          "route": "basin-rivers",
-          "label": "Resilient rivers and basin",
-          "description": "Upstream watershed delineation (HydroSHEDS) combined with Hansen GFC to compute forest cover change per sub-catchment",
-          "tagline": "Upstream watershed forest change"
-        },
-        {
-          "id": "fcdm",
-          "route": "fcdm",
-          "label": "Forest Canopy Disturbance Monitoring (FCDM)",
-          "description": "Mapping all kinds of canopy disturbances (natural or human induced) within (semi-)evergreen forests using Delta-NBR change detection",
-          "tagline": "Delta-NBR forest canopy disturbance detection"
-        },
-        {
-          "id": "coverage-analysis",
-          "route": "coverage-analysis",
-          "label": "Coverage Analysis",
-          "description": "Create maps of cloud-free observations for major optical satellites as available on Google Earth Engine",
-          "tagline": "Cloud-free coverage maps for major optical satellite collections"
-        },
-        {
-          "id": "tmf-sepal",
-          "route": "tmf-sepal",
-          "label": "Tropical Moist Forests (TMF)",
-          "tags": [
-            "FOREST"
-          ],
-          "description": "JRC TMF Degradation, Deforestation and Annual Change visualization and export",
-          "tagline": "JRC Tropical Moist Forests visualization and export"
-        },
-        {
-          "id": "alos-mosaics",
-          "route": "alos-mosaics",
-          "label": "ALOS PALSAR mosaics",
-          "tags": [
-            "SAR",
-            "LAND_COVER"
-          ],
-          "description": "JAXA ALOS PALSAR / PALSAR-2 yearly mosaics and FNF visualization and export",
-          "tagline": "ALOS PALSAR yearly mosaics and forest/non-forest map"
-        },
-        {
-          "id": "gee-source",
-          "route": "gee-source",
-          "label": "Earth Engine app reader",
-          "tags": [
-            "INSTANT",
-            "TOOLS"
-          ],
-          "logoRef": "sepal.png",
-          "author": "The SEPAL team",
-          "description": " Extract source code from any GEE app URL",
-          "tagline": " Extract source code from any GEE app URL"
-        }
-      ],
-      "commit": "6dc659efdea0934dd49d2ac2460fee6e1ea58323"
+      "description": "Restoration planning tool using a weighted-sum approach",
+      "tagline": "Restoration planning tool using a weighted-sum approach",
+      "projectLink": "https://github.com/sepal-contrib/se.plan/",
+      "repository": "https://github.com/sepal-contrib/se.plan",
+      "port": 8765,
+      "branch": "solara",
+      "commit": "58f3946983d1cba2a2a66301e85802ecbbcab413"
     }
   ]
 }
