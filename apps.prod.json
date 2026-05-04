@@ -589,6 +589,23 @@
       "projectLink": "https://github.com/sepal-contrib/sbae-design",
       "repository": "https://github.com/sepal-contrib/sbae-design",
       "branch": "release"
+    },
+    {
+      "hidden": true,
+      "id": "sepal-sam",
+      "label": "Sepal SAM",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/sepal-sam/sepal_phenology_sam_forestsat.ipynb",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": true,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "SAM environment",
+      "tagline": "SAM environment",
+      "projectLink": "https://github.com/dfguerrerom/sepal-sam",
+      "repository": "https://github.com/dfguerrerom/sepal-sam",
+      "brach": "release"
     }
   ],
   "tags": [
