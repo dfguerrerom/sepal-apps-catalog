@@ -6,7 +6,9 @@
       "path": "/sandbox/rstudio/",
       "endpoint": "rstudio",
       "single": true,
-      "tags": ["TOOLS"],
+      "tags": [
+        "TOOLS"
+      ],
       "pinned": true,
       "logoRef": "rstudio-ball.svg",
       "author": "RStudio",
@@ -20,7 +22,9 @@
       "path": "/sandbox/jupyter/tree",
       "endpoint": "jupyter",
       "single": true,
-      "tags": ["TOOLS"],
+      "tags": [
+        "TOOLS"
+      ],
       "pinned": true,
       "logoRef": "jupyter-notebook.svg",
       "author": "Project Jupyter",
@@ -34,7 +38,9 @@
       "path": "/sandbox/jupyter/lab",
       "endpoint": "jupyter",
       "single": true,
-      "tags": ["TOOLS"],
+      "tags": [
+        "TOOLS"
+      ],
       "pinned": true,
       "logoRef": "jupyter-lab.png",
       "author": "Project Jupyter",
@@ -63,7 +69,9 @@
       "label": "Stratified area estimator - Design",
       "path": "/sandbox/shiny/accuracy-assessment/aa_design",
       "endpoint": "shiny",
-      "tags": ["CLASSIFICATION"],
+      "tags": [
+        "CLASSIFICATION"
+      ],
       "pinned": false,
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
@@ -78,7 +86,9 @@
       "label": "Stratified area estimator - Analysis",
       "path": "/sandbox/shiny/accuracy-assessment/aa_analysis",
       "endpoint": "shiny",
-      "tags": ["CLASSIFICATION"],
+      "tags": [
+        "CLASSIFICATION"
+      ],
       "pinned": false,
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
@@ -93,7 +103,9 @@
       "label": "Time-series analysis",
       "path": "/sandbox/shiny/bfastspatial",
       "endpoint": "shiny",
-      "tags": ["TIME_SERIES"],
+      "tags": [
+        "TIME_SERIES"
+      ],
       "pinned": false,
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
@@ -108,7 +120,9 @@
       "path": "/sandbox/shiny/bfast-explorer",
       "endpoint": "shiny",
       "googleAccountRequired": true,
-      "tags": ["TIME_SERIES"],
+      "tags": [
+        "TIME_SERIES"
+      ],
       "pinned": false,
       "logoRef": "bfast.jpg",
       "author": "Alexandre Almeida",
@@ -123,7 +137,9 @@
       "path": "/sandbox/jupyter/voila/render/shared/apps/sepal_pysmm/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
       "endpoint": "jupyter",
       "googleAccountRequired": true,
-      "tags": ["RESTORATION"],
+      "tags": [
+        "RESTORATION"
+      ],
       "pinned": false,
       "logoRef": "sepal.png",
       "author": "sepal-contrib",
@@ -137,7 +153,9 @@
       "label": "FIRMS/Planet Active Fires Explorer",
       "path": "/sandbox/jupyter/voila/render/shared/apps/planet_active_fires_explorer/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
       "endpoint": "jupyter",
-      "tags": ["PLANET"],
+      "tags": [
+        "PLANET"
+      ],
       "pinned": false,
       "logoRef": "openforis.png",
       "author": "the Sepal team",
@@ -195,7 +213,9 @@
       "label": "Time series clip (beta)",
       "path": "/sandbox/jupyter/voila/render/shared/apps/clip-time-series/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
       "endpoint": "jupyter",
-      "tags": ["RESTORATION"],
+      "tags": [
+        "RESTORATION"
+      ],
       "pinned": false,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
@@ -210,7 +230,9 @@
       "label": "SMFM Biota",
       "path": "/sandbox/jupyter/voila/render/shared/apps/sepal_smfm_biota/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
       "endpoint": "jupyter",
-      "tags": ["SMFM"],
+      "tags": [
+        "SMFM"
+      ],
       "pinned": false,
       "googleAccountRequired": false,
       "logoRef": "SMFM_Logo_4.png",
@@ -225,7 +247,9 @@
       "label": "SMFM Deforest",
       "path": "/sandbox/jupyter/notebooks/shared/apps/deforest/sepal/SMFM_deforest_sepal.ipynb",
       "endpoint": "jupyter",
-      "tags": ["SMFM"],
+      "tags": [
+        "SMFM"
+      ],
       "pinned": false,
       "googleAccountRequired": false,
       "logoRef": "SMFM_Logo_4.png",
@@ -240,7 +264,9 @@
       "label": "SDG 15.3.1 indicator",
       "path": "/sandbox/jupyter/voila/render/shared/apps/sdg_15.3.1/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
       "endpoint": "jupyter",
-      "tags": ["RESTORATION"],
+      "tags": [
+        "RESTORATION"
+      ],
       "pinned": false,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
@@ -255,7 +281,9 @@
       "label": "GuidosToolbox Workbench (GWB) Analysis",
       "path": "/sandbox/jupyter/voila/render/shared/apps/gwb/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
       "endpoint": "jupyter",
-      "tags": ["RESTORATION"],
+      "tags": [
+        "RESTORATION"
+      ],
       "pinned": false,
       "googleAccountRequired": false,
       "logoRef": "sepal.png",
@@ -270,7 +298,9 @@
       "label": "PlanetLab mosaics order",
       "path": "/sandbox/jupyter/voila/render/shared/apps/planet-order/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
       "endpoint": "jupyter",
-      "tags": ["PLANET"],
+      "tags": [
+        "PLANET"
+      ],
       "pinned": false,
       "googleAccountRequired": false,
       "logoRef": "sepal.png",
@@ -286,7 +316,9 @@
       "label": "Damage Proxy Maps (beta)",
       "path": "/sandbox/jupyter/voila/render/shared/apps/damage_proxy_maps/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
       "endpoint": "jupyter",
-      "tags": ["DISASTER"],
+      "tags": [
+        "DISASTER"
+      ],
       "pinned": false,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
@@ -301,7 +333,10 @@
       "label": "CUSUM time-series change detection",
       "path": "/sandbox/jupyter/voila/render/shared/apps/cumsum_change/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
       "endpoint": "jupyter",
-      "tags": ["TIME_SERIES", "RESTORATION"],
+      "tags": [
+        "TIME_SERIES",
+        "RESTORATION"
+      ],
       "pinned": false,
       "googleAccountRequired": false,
       "logoRef": "sepal.png",
@@ -316,7 +351,9 @@
       "label": "SEPAL-SDG 15.4.2",
       "path": "/api/app-launcher/sepal_mgci",
       "endpoint": "docker",
-      "tags": ["RESTORATION"],
+      "tags": [
+        "RESTORATION"
+      ],
       "pinned": false,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
@@ -393,7 +430,9 @@
       "label": "se.plan",
       "path": "/api/app-launcher/se.plan",
       "endpoint": "docker",
-      "tags": ["RESTORATION"],
+      "tags": [
+        "RESTORATION"
+      ],
       "pinned": true,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
@@ -413,18 +452,23 @@
       "endpoint": "docker",
       "repository": "https://github.com/sepal-contrib/sepal-gee-bundle",
       "branch": "main",
+      "commit": "6dc659efdea0934dd49d2ac2460fee6e1ea58323",
       "port": 8768,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
       "projectLink": "https://github.com/sepal-contrib/sepal-gee-bundle",
-      "tags": ["INSTANT"],
+      "tags": [
+        "INSTANT"
+      ],
       "apps": [
         {
           "id": "gfc",
           "route": "gfc",
           "label": "Forest change mask",
-          "tags": ["FOREST"],
+          "tags": [
+            "FOREST"
+          ],
           "pinned": false,
           "description": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
           "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map"
@@ -454,7 +498,9 @@
           "id": "tmf-sepal",
           "route": "tmf-sepal",
           "label": "Tropical Moist Forests (TMF)",
-          "tags": ["FOREST"],
+          "tags": [
+            "FOREST"
+          ],
           "description": "JRC TMF Degradation, Deforestation and Annual Change visualization and export",
           "tagline": "JRC Tropical Moist Forests visualization and export"
         },
@@ -462,7 +508,10 @@
           "id": "alos-mosaics",
           "route": "alos-mosaics",
           "label": "ALOS PALSAR mosaics",
-          "tags": ["SAR", "LAND_COVER"],
+          "tags": [
+            "SAR",
+            "LAND_COVER"
+          ],
           "description": "Create and manipulate ALOS K&C Mosaics",
           "tagline": "Create and manipulate ALOS K&C Mosaics"
         },
@@ -470,7 +519,10 @@
           "id": "gee-source",
           "route": "gee-source",
           "label": "Earth Engine app reader",
-          "tags": ["INSTANT", "TOOLS"],
+          "tags": [
+            "INSTANT",
+            "TOOLS"
+          ],
           "logoRef": "sepal.png",
           "author": "The SEPAL team",
           "description": "Extract source code from any GEE app URL",
