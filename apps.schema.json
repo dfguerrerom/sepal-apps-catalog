@@ -3,7 +3,9 @@
   "$id": "https://github.com/openforis/sepal-apps-catalog/apps.schema.json",
   "title": "SEPAL Apps Catalog",
   "type": "object",
-  "required": ["apps"],
+  "required": [
+    "apps"
+  ],
   "additionalProperties": false,
   "properties": {
     "tags": {
@@ -11,13 +13,19 @@
       "description": "Top-level tag definitions used to group apps in the UI.",
       "items": {
         "type": "object",
-        "required": ["value"],
+        "required": [
+          "value"
+        ],
         "additionalProperties": true,
         "properties": {
-          "value": {"type": "string"},
+          "value": {
+            "type": "string"
+          },
           "label": {
             "type": "object",
-            "additionalProperties": {"type": "string"}
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         }
       }
@@ -26,44 +34,105 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "label"],
+        "required": [
+          "id",
+          "label"
+        ],
         "additionalProperties": true,
         "properties": {
-          "id": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+$"},
-          "endpoint": {"enum": ["docker", "shiny", "jupyter", "rstudio"]},
-          "label": {"type": "string", "minLength": 1},
-          "path": {"type": "string"},
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.-]+$"
+          },
+          "endpoint": {
+            "enum": [
+              "docker",
+              "shiny",
+              "jupyter",
+              "rstudio"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string"
+          },
           "repository": {
             "type": "string",
             "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/.+$"
           },
-          "branch": {"type": "string", "minLength": 1},
+          "branch": {
+            "type": "string",
+            "minLength": 1
+          },
           "commit": {
             "type": "string",
             "pattern": "^[0-9a-f]{40}$",
             "description": "Full 40-character lowercase Git commit SHA. Mandatory for endpoint=docker."
           },
-          "port": {"type": "integer", "minimum": 1, "maximum": 65535},
-          "pinned": {"type": "boolean"},
-          "googleAccountRequired": {"type": "boolean"},
-          "logoRef": {"type": "string"},
-          "author": {"type": "string"},
-          "description": {"type": "string"},
-          "tagline": {"type": "string"},
-          "projectLink": {"type": "string"},
-          "tags": {"type": "array", "items": {"type": "string"}},
-          "hidden": {"type": "boolean"},
-          "skip": {"type": "boolean"},
-          "single": {"type": "boolean"}
+          "port": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 65535
+          },
+          "pinned": {
+            "type": "boolean"
+          },
+          "googleAccountRequired": {
+            "type": "boolean"
+          },
+          "logoRef": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "tagline": {
+            "type": "string"
+          },
+          "projectLink": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "hidden": {
+            "type": "boolean"
+          },
+          "skip": {
+            "type": "boolean"
+          },
+          "single": {
+            "type": "boolean"
+          }
         },
         "allOf": [
           {
             "if": {
-              "properties": {"endpoint": {"const": "docker"}},
-              "required": ["endpoint"]
+              "properties": {
+                "endpoint": {
+                  "const": "docker"
+                }
+              },
+              "required": [
+                "endpoint"
+              ]
             },
             "then": {
-              "required": ["endpoint", "repository", "branch", "commit"]
+              "required": [
+                "endpoint",
+                "repository",
+                "branch",
+                "commit"
+              ]
             }
           }
         ]

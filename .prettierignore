@@ -1,0 +1,7 @@
+# Catalog files use canonical JSON.stringify(..., 2) formatting.
+# Prettier collapses short arrays onto one line, which causes diff churn
+# every time a different editor saves the file. CI enforces the canonical
+# format via .github/workflows/scripts/check-format.js — keep prettier off.
+apps.test.json
+apps.prod.json
+apps.schema.json
