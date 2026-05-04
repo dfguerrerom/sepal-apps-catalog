@@ -194,21 +194,6 @@
       "repository": "https://github.com/openforis/gfc_wrapper"
     },
     {
-      "id": "gfc_wrapper_python",
-      "label": "Forest change mask",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/gfc_wrapper_python/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": true,
-      "logoRef": "sepal.png",
-      "author": "the SEPAL team",
-      "description": "",
-      "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
-      "projectLink": "https://github.com/sepal-contrib/gfc_wrapper_python",
-      "repository": "https://github.com/sepal-contrib/gfc_wrapper_python"
-    },
-    {
       "id": "vector_manager",
       "label": "Vector file manager",
       "path": "/sandbox/jupyter/voila/render/shared/apps/vector_manager/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
@@ -275,21 +260,6 @@
       "repository": "https://github.com/smfm-project/deforest"
     },
     {
-      "id": "alos_mosaics",
-      "label": "ALOS KC Mosaics",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/alos_mosaics/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": true,
-      "logoRef": "sepal.png",
-      "author": "The SEPAL team",
-      "description": "Create and manipulate ALOS K&C Mosaics",
-      "tagline": "Create and manipulate ALOS K&C Mosaics",
-      "projectLink": "https://github.com/sepal-contrib/alos_mosaics",
-      "repository": "https://github.com/sepal-contrib/alos_mosaics"
-    },
-    {
       "id": "sdg_15.3.1",
       "label": "SDG 15.3.1 indicator",
       "path": "/sandbox/jupyter/voila/render/shared/apps/sdg_15.3.1/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
@@ -324,21 +294,6 @@
       "repository": "https://github.com/sepal-contrib/gwb"
     },
     {
-      "id": "tmf_sepal",
-      "label": "Tropical Moist Forest (TMF)",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/tmf_sepal/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": true,
-      "logoRef": "sepal.png",
-      "author": "The SEPAL team",
-      "description": "Wrapper for TMF",
-      "tagline": "Interface to clip and download the TMF product (EC JRC)",
-      "projectLink": "https://github.com/sepal-contrib/tmf_sepal",
-      "repository": "https://github.com/sepal-contrib/tmf_sepal"
-    },
-    {
       "id": "planet-order",
       "label": "PlanetLab mosaics order",
       "path": "/sandbox/jupyter/voila/render/shared/apps/planet-order/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
@@ -354,21 +309,6 @@
       "tagline": "Order and download imagery from PlanetLab mosaics",
       "projectLink": "https://github.com/sepal-contrib/planet-order",
       "repository": "https://github.com/sepal-contrib/planet-order"
-    },
-    {
-      "id": "coverage_analysis",
-      "label": "Coverage Analysis",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/coverage_analysis/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": true,
-      "logoRef": "sepal.png",
-      "author": "The SEPAL team",
-      "description": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine",
-      "tagline": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine",
-      "projectLink": "https://github.com/sepal-contrib/coverage_analysis",
-      "repository": "https://github.com/sepal-contrib/coverage_analysis"
     },
     {
       "hidden": true,
@@ -387,21 +327,6 @@
       "tagline": "Damage estimation from Sentinel-1",
       "projectLink": "https://github.com/sepal-contrib/damage_proxy_maps",
       "repository": "https://github.com/sepal-contrib/damage_proxy_maps"
-    },
-    {
-      "id": "fcdm",
-      "label": "Forest Canopy Disturbance Monitoring (FCDM)",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/fcdm/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": true,
-      "logoRef": "sepal.png",
-      "author": "The SEPAL team",
-      "description": "Mapping all kind of canopy disturbances (natural or human induced) within (semi-)evergreen forests",
-      "tagline": "Mapping all kind of canopy disturbances (natural or human induced) within (semi-)evergreen forests",
-      "projectLink": "https://github.com/sepal-contrib/fcdm/",
-      "repository": "https://github.com/sepal-contrib/fcdm"
     },
     {
       "id": "cumsum_change",
@@ -440,36 +365,6 @@
       "port": 8766,
       "branch": "solara",
       "commit": "744d8ca97e8b92f4d6b6b5bae6cb0b6608706b12"
-    },
-    {
-      "id": "basin-rivers",
-      "label": " Resilient rivers and basin",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/basin-rivers/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": true,
-      "logoRef": "sepal.png",
-      "author": "The SEPAL team",
-      "description": "Get Forest Cover Change by upstream sub-catchment",
-      "tagline": "Get Forest Cover Change by upstream sub-catchment",
-      "projectLink": "https://github.com/sepal-contrib/basin-rivers",
-      "repository": "https://github.com/sepal-contrib/basin-rivers"
-    },
-    {
-      "id": "gee_source",
-      "label": "Earth Engine app reader",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/gee_source/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": true,
-      "logoRef": "sepal.png",
-      "author": "The SEPAL team",
-      "description": " Extract source code from any GEE app URL",
-      "tagline": " Extract source code from any GEE app URL",
-      "projectLink": "https://github.com/sepal-contrib/gee_source",
-      "repository": "https://github.com/sepal-contrib/gee_source"
     },
     {
       "id": "earthmap",
@@ -549,6 +444,91 @@
       "port": 8765,
       "branch": "solara",
       "commit": "58f3946983d1cba2a2a66301e85802ecbbcab413"
+    },
+    {
+      "id": "sepal-gee-bundle",
+      "label": "SEPAL GEE Bundle (backend)",
+      "path": "/api/app-launcher/sepal-gee-bundle",
+      "endpoint": "docker",
+      "repository": "https://github.com/sepal-contrib/sepal-gee-bundle",
+      "branch": "main",
+      "commit": "6dc659efdea0934dd49d2ac2460fee6e1ea58323",
+      "port": 8768,
+      "googleAccountRequired": true,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "projectLink": "https://github.com/sepal-contrib/sepal-gee-bundle",
+      "tags": [
+        "INSTANT"
+      ],
+      "apps": [
+        {
+          "id": "gfc",
+          "route": "gfc",
+          "label": "Forest change mask",
+          "tags": [
+            "FOREST"
+          ],
+          "pinned": false,
+          "description": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
+          "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map"
+        },
+        {
+          "id": "basin-rivers",
+          "route": "basin-rivers",
+          "label": "Resilient rivers and basin",
+          "description": "Upstream watershed delineation (HydroSHEDS) combined with Hansen GFC to compute forest cover change per sub-catchment",
+          "tagline": "Get Forest Cover Change by upstream sub-catchment"
+        },
+        {
+          "id": "fcdm",
+          "route": "fcdm",
+          "label": "Forest Canopy Disturbance Monitoring (FCDM)",
+          "description": "Mapping all kind of canopy disturbances (natural or human induced) within (semi-)evergreen forests",
+          "tagline": "Mapping all kind of canopy disturbances (natural or human induced) within (semi-)evergreen forests"
+        },
+        {
+          "id": "coverage-analysis",
+          "route": "coverage-analysis",
+          "label": "Coverage Analysis",
+          "description": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine",
+          "tagline": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine"
+        },
+        {
+          "id": "tmf-sepal",
+          "route": "tmf-sepal",
+          "label": "Tropical Moist Forests (TMF)",
+          "tags": [
+            "FOREST"
+          ],
+          "description": "JRC TMF Degradation, Deforestation and Annual Change visualization and export",
+          "tagline": "JRC Tropical Moist Forests visualization and export"
+        },
+        {
+          "id": "alos-mosaics",
+          "route": "alos-mosaics",
+          "label": "ALOS PALSAR mosaics",
+          "tags": [
+            "SAR",
+            "LAND_COVER"
+          ],
+          "description": "Create and manipulate ALOS K&C Mosaics",
+          "tagline": "Create and manipulate ALOS K&C Mosaics"
+        },
+        {
+          "id": "gee-source",
+          "route": "gee-source",
+          "label": "Earth Engine app reader",
+          "tags": [
+            "INSTANT",
+            "TOOLS"
+          ],
+          "logoRef": "sepal.png",
+          "author": "The SEPAL team",
+          "description": "Extract source code from any GEE app URL",
+          "tagline": "Extract source code from any GEE app URL"
+        }
+      ]
     }
   ],
   "tags": [

@@ -2,5 +2,8 @@
   "name": "sepal-apps-catalog-scripts",
   "private": true,
   "version": "0.0.0",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "ajv": "^8.17.1"
+  }
 }

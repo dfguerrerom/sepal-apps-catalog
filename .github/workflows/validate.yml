@@ -19,10 +19,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install validator deps
+        run: npm install --silent --no-audit --no-fund --prefix .github/workflows/scripts
+
       - name: Validate schema
-        run: |
-          npx -y ajv-cli@5 validate --spec=draft2020 -s apps.schema.json -d 'apps.test.json' --strict=false
-          npx -y ajv-cli@5 validate --spec=draft2020 -s apps.schema.json -d 'apps.prod.json' --strict=false
+        run: node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json
 
       - name: Verify each docker commit exists in its repo
         env:
