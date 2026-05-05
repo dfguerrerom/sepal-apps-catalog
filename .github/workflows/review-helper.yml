@@ -35,11 +35,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           {
-            echo "## 🧪 test.sepal.io changes"
+            echo "## test.sepal.io changes"
             echo
             cat /tmp/diff.test.json | node .github/workflows/scripts/risk-flags.js
             echo
-            echo "## 🚀 sepal.io changes"
+            echo "## sepal.io changes"
             echo
             cat /tmp/diff.prod.json | node .github/workflows/scripts/risk-flags.js
           } > /tmp/comment.md

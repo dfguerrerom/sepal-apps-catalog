@@ -39,6 +39,8 @@ const RISK_PATTERNS = [
 
 const INFRA_FILES = /^(Dockerfile|docker-compose\.ya?ml|requirements\.txt|package\.json|Pipfile|environment\.ya?ml)$/
 
+const repoLink = (label, url) => url ? `[${label}](${url})` : `\`${label}\``
+
 const out = []
 
 for (const upd of input.updated) {
@@ -71,12 +73,10 @@ for (const upd of input.updated) {
 
     out.push(`### ${upd.label}`)
     out.push(``)
-    out.push(`- 🔗 [Compare upstream](${compareUrl})`)
-    out.push(`- 📊 ${files.length} files changed (${cmp.ahead_by} commits ahead, ${cmp.behind_by} behind)`)
+    out.push(`- [Compare upstream](${compareUrl})`)
+    out.push(`- ${files.length} files changed (${cmp.ahead_by} commits ahead, ${cmp.behind_by} behind)`)
     if (infraFiles.length) {
         out.push(`- ⚠️ **Infra/dependency files touched:** ${infraFiles.map(f => `\`${f.filename}\``).join(', ')}`)
-    } else {
-        out.push(`- ✅ No infra/dependency files touched (app-logic-only change)`)
     }
     if (flags.length) {
         out.push(`- 🚨 **Risk flags:**`)
@@ -86,15 +86,17 @@ for (const upd of input.updated) {
 }
 
 for (const a of input.added) {
-    out.push(`### ➕ NEW APP: ${a.label}`)
-    out.push(`- Repo: \`${a.repository}\` @ \`${a.commit}\``)
+    out.push(`### NEW APP: ${a.label}`)
+    const repo = repoLink(a.repository || '(no repository)', a.repository)
+    const commitSuffix = a.commit ? ` @ \`${a.commit}\`` : ''
+    out.push(`- Repo: ${repo}${commitSuffix}`)
     out.push(`- ⚠️ First-time addition — review the entire Dockerfile and docker-compose.yml manually.`)
     out.push(``)
 }
 
 for (const a of input.removed) {
-    out.push(`### ➖ REMOVED: ${a.label}`)
-    out.push(`- Repo: \`${a.repository}\``)
+    out.push(`### REMOVED: ${a.label}`)
+    out.push(`- Repo: ${repoLink(a.repository || '(no repository)', a.repository)}`)
     out.push(``)
 }
 
