@@ -605,7 +605,7 @@
       "tagline": "SAM environment",
       "projectLink": "https://github.com/dfguerrerom/sepal-sam",
       "repository": "https://github.com/dfguerrerom/sepal-sam",
-      "brach": "release"
+      "branch": "release"
     }
   ],
   "tags": [
