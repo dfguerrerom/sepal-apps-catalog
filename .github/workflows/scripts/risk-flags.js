@@ -110,4 +110,9 @@ for (const a of input.removed) {
     out.push(``)
 }
 
+if (!input.updated.length && !input.added.length && !input.removed.length) {
+    out.push('_No changes._')
+    out.push(``)
+}
+
 process.stdout.write(out.join('\n'))
