@@ -606,6 +606,91 @@
       "projectLink": "https://github.com/dfguerrerom/sepal-sam",
       "repository": "https://github.com/dfguerrerom/sepal-sam",
       "branch": "release"
+    },
+    {
+      "id": "sepal-gee-bundle",
+      "label": "SEPAL GEE Bundle (backend)",
+      "path": "/api/app-launcher/sepal-gee-bundle",
+      "endpoint": "docker",
+      "repository": "https://github.com/sepal-contrib/sepal-gee-bundle",
+      "branch": "main",
+      "commit": "98d0b7e97463adbf6dd9f1d966cde6452e221545",
+      "port": 8768,
+      "googleAccountRequired": true,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "projectLink": "https://github.com/sepal-contrib/sepal-gee-bundle",
+      "tags": [
+        "INSTANT"
+      ],
+      "apps": [
+        {
+          "id": "gfc",
+          "route": "gfc",
+          "label": "Forest change mask",
+          "tags": [
+            "FOREST"
+          ],
+          "pinned": false,
+          "description": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
+          "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map"
+        },
+        {
+          "id": "basin-rivers",
+          "route": "basin-rivers",
+          "label": "Resilient rivers and basin",
+          "description": "Upstream watershed delineation (HydroSHEDS) combined with Hansen GFC to compute forest cover change per sub-catchment",
+          "tagline": "Get Forest Cover Change by upstream sub-catchment"
+        },
+        {
+          "id": "fcdm",
+          "route": "fcdm",
+          "label": "Forest Canopy Disturbance Monitoring (FCDM)",
+          "description": "Mapping all kind of canopy disturbances (natural or human induced) within (semi-)evergreen forests",
+          "tagline": "Mapping all kind of canopy disturbances (natural or human induced) within (semi-)evergreen forests"
+        },
+        {
+          "id": "coverage-analysis",
+          "route": "coverage-analysis",
+          "label": "Coverage Analysis",
+          "description": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine",
+          "tagline": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine"
+        },
+        {
+          "id": "tmf-sepal",
+          "route": "tmf-sepal",
+          "label": "Tropical Moist Forests (TMF)",
+          "tags": [
+            "FOREST"
+          ],
+          "description": "JRC TMF Degradation, Deforestation and Annual Change visualization and export",
+          "tagline": "JRC Tropical Moist Forests visualization and export"
+        },
+        {
+          "id": "alos-mosaics",
+          "route": "alos-mosaics",
+          "label": "ALOS PALSAR mosaics",
+          "tags": [
+            "SAR",
+            "LAND_COVER"
+          ],
+          "description": "Create and manipulate ALOS K&C Mosaics",
+          "tagline": "Create and manipulate ALOS K&C Mosaics"
+        },
+        {
+          "id": "gee-source",
+          "route": "gee-source",
+          "label": "Earth Engine app reader",
+          "tags": [
+            "INSTANT",
+            "TOOLS"
+          ],
+          "logoRef": "sepal.png",
+          "author": "The SEPAL team",
+          "description": "Extract source code from any GEE app URL",
+          "tagline": "Extract source code from any GEE app URL"
+        }
+      ]
     }
   ],
   "tags": [
