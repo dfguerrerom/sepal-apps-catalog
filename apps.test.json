@@ -364,7 +364,7 @@
       "repository": "https://github.com/sepal-contrib/sepal_mgci",
       "port": 8766,
       "branch": "solara",
-      "commit": "744d8ca97e8b92f4d6b6b5bae6cb0b6608706b12"
+      "commit": "c45eac806f0787cffc7618fe9c80be70a2e1e244"
     },
     {
       "id": "earthmap",
