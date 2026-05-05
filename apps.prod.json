@@ -437,7 +437,7 @@
       "repository": "https://github.com/sepal-contrib/sepal_mgci",
       "port": 8766,
       "branch": "solara",
-      "commit": "744d8ca97e8b92f4d6b6b5bae6cb0b6608706b12"
+      "commit": "cd25c9238a9684320ea65ce2f6aeffcba172b317"
     },
     {
       "id": "basin-rivers",
@@ -614,7 +614,7 @@
       "endpoint": "docker",
       "repository": "https://github.com/sepal-contrib/sepal-gee-bundle",
       "branch": "main",
-      "commit": "98d0b7e97463adbf6dd9f1d966cde6452e221545",
+      "commit": "86456103dea0e22e5cd18ca2246333fc2e9c8e97",
       "port": 8768,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
