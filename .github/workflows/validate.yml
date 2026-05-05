@@ -6,12 +6,16 @@ on:
       - 'apps.test.json'
       - 'apps.prod.json'
       - 'apps.schema.json'
+      - '.github/workflows/validate.yml'
+      - '.github/workflows/scripts/**'
   push:
     branches: [main]
     paths:
       - 'apps.test.json'
       - 'apps.prod.json'
       - 'apps.schema.json'
+      - '.github/workflows/validate.yml'
+      - '.github/workflows/scripts/**'
 
 jobs:
   validate:
