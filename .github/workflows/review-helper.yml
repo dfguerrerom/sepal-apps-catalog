@@ -5,6 +5,8 @@ on:
     paths:
       - 'apps.test.json'
       - 'apps.prod.json'
+      - '.github/workflows/review-helper.yml'
+      - '.github/workflows/scripts/**'
 
 permissions:
   contents: read

@@ -49,6 +49,16 @@ for (const upd of input.updated) {
         out.push(`- ⚠️ **${upd.label}**: cannot parse repo URL \`${upd.repository}\``)
         continue
     }
+    if (!upd.oldCommit || !upd.newCommit) {
+        const missing = !upd.oldCommit && !upd.newCommit ? 'oldCommit and newCommit'
+            : !upd.oldCommit ? 'oldCommit'
+            : 'newCommit'
+        out.push(`### ${upd.label}`)
+        out.push(``)
+        out.push(`- ⚠️ Missing ${missing} — cannot generate upstream compare. Fix the catalog entry's \`commit\` field.`)
+        out.push(``)
+        continue
+    }
     let cmp
     try {
         cmp = await compare(r.owner, r.repo, upd.oldCommit, upd.newCommit)
