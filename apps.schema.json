@@ -133,6 +133,13 @@
                 "branch",
                 "commit"
               ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "commit"
+                ]
+              }
             }
           }
         ]
