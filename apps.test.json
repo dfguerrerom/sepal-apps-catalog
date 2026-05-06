@@ -358,7 +358,7 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "Calculates the SDG 15.4.2 subindicator A and B at national/sub-regional scale (test PR)",
+      "description": "Calculates the SDG 15.4.2 subindicator A and B at national/sub-regional scale (demo bot)",
       "tagline": "Calculates the SDG 15.4.2 subindicator A and B at national/sub-regional scale",
       "projectLink": "https://github.com/sepal-contrib/sepal_mgci",
       "repository": "https://github.com/sepal-contrib/sepal_mgci",
