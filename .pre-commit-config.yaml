@@ -1,0 +1,25 @@
+# Pre-commit hooks for sepal-apps-catalog.
+# Mirrors the JSON checks in .github/workflows/validate.yml so problems are
+# caught locally before they fail CI. The docker-commit-existence check is
+# only run in CI (it needs network and a GitHub token).
+#
+# One-time setup after cloning:
+#   pip install pre-commit  # or pipx install pre-commit
+#   pre-commit install
+#   npm install --prefix .github/workflows/scripts
+repos:
+  - repo: local
+    hooks:
+      - id: catalog-format
+        name: Check canonical JSON formatting
+        entry: node .github/workflows/scripts/check-format.js
+        language: system
+        files: ^apps\.(test|prod|schema)\.json$
+        pass_filenames: true
+
+      - id: catalog-schema
+        name: Validate catalogs against apps.schema.json
+        entry: node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json
+        language: system
+        files: ^apps\.(test|prod|schema)\.json$
+        pass_filenames: false
