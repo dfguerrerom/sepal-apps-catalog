@@ -180,20 +180,6 @@
       "repository": "https://github.com/sepal-contrib/deforestation-alerts-module"
     },
     {
-      "id": "gfc_wrapper",
-      "label": "Forest change mask (Shiny)",
-      "path": "/sandbox/shiny/gfc_wrapper",
-      "endpoint": "shiny",
-      "tags": [],
-      "pinned": false,
-      "logoRef": "sepal.png",
-      "author": "the SEPAL team",
-      "description": "",
-      "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
-      "projectLink": "https://github.com/openforis/gfc_wrapper",
-      "repository": "https://github.com/openforis/gfc_wrapper"
-    },
-    {
       "id": "vector_manager",
       "label": "Vector file manager",
       "path": "/sandbox/jupyter/voila/render/shared/apps/vector_manager/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
