@@ -49,3 +49,71 @@ test('happy path: updates commit for the matching docker app', () => {
         cleanup()
     }
 })
+
+test('app id not found → throws', () => {
+    const {file, cleanup} = mkFile()
+    try {
+        assert.throws(
+            () => bumpApp({
+                appId: 'nope',
+                expectedRepository: 'https://github.com/x/nope',
+                newCommit: 'a'.repeat(40),
+                file
+            }),
+            /App not found: nope/
+        )
+    } finally {
+        cleanup()
+    }
+})
+
+test('endpoint is not docker → throws', () => {
+    const {file, cleanup} = mkFile()
+    try {
+        assert.throws(
+            () => bumpApp({
+                appId: 'bar',
+                expectedRepository: 'https://github.com/x/bar',
+                newCommit: 'a'.repeat(40),
+                file
+            }),
+            /endpoint is rstudio, not docker/
+        )
+    } finally {
+        cleanup()
+    }
+})
+
+test('repository mismatch → throws', () => {
+    const {file, cleanup} = mkFile()
+    try {
+        assert.throws(
+            () => bumpApp({
+                appId: 'foo',
+                expectedRepository: 'https://github.com/x/different',
+                newCommit: 'a'.repeat(40),
+                file
+            }),
+            /Repository mismatch for foo/
+        )
+    } finally {
+        cleanup()
+    }
+})
+
+test('invalid SHA → throws', () => {
+    const {file, cleanup} = mkFile()
+    try {
+        assert.throws(
+            () => bumpApp({
+                appId: 'foo',
+                expectedRepository: 'https://github.com/x/foo',
+                newCommit: 'nothex',
+                file
+            }),
+            /Invalid SHA/
+        )
+    } finally {
+        cleanup()
+    }
+})
