@@ -15,6 +15,7 @@ concurrency:
 jobs:
   bump:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
@@ -25,7 +26,7 @@ jobs:
           node-version: '22'
 
       - name: Install script deps
-        run: npm install --silent --no-audit --no-fund --prefix .github/workflows/scripts
+        run: npm ci --silent --prefix .github/workflows/scripts
 
       - name: Validate dispatch payload
         env:
