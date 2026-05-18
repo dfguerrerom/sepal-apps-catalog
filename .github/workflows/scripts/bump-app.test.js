@@ -117,3 +117,18 @@ test('invalid SHA → throws', () => {
         cleanup()
     }
 })
+
+test('already at target SHA → returns changed=false and does not rewrite file', () => {
+    const {file, cleanup} = mkFile()
+    try {
+        const sha = 'a'.repeat(40)
+        bumpApp({appId: 'foo', expectedRepository: 'https://github.com/x/foo', newCommit: sha, file})
+        const before = readFileSync(file, 'utf8')
+        const result = bumpApp({appId: 'foo', expectedRepository: 'https://github.com/x/foo', newCommit: sha, file})
+        assert.equal(result.changed, false)
+        const after = readFileSync(file, 'utf8')
+        assert.equal(before, after, 'file content unchanged')
+    } finally {
+        cleanup()
+    }
+})

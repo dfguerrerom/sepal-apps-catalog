@@ -23,6 +23,9 @@ export function bumpApp({appId, expectedRepository, newCommit, file}) {
     if (app.repository !== expectedRepository) {
         throw new Error(`Repository mismatch for ${appId}: expected ${expectedRepository}, found ${app.repository}`)
     }
+    if (app.commit === newCommit) {
+        return {changed: false}
+    }
     app.commit = newCommit
     writeFileSync(file, JSON.stringify(data, null, 2) + '\n')
     return {changed: true}
