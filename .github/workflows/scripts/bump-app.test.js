@@ -132,3 +132,20 @@ test('already at target SHA → returns changed=false and does not rewrite file'
         cleanup()
     }
 })
+
+test('output is canonical (2-space indent + trailing newline)', () => {
+    const {file, cleanup} = mkFile()
+    try {
+        bumpApp({
+            appId: 'foo',
+            expectedRepository: 'https://github.com/x/foo',
+            newCommit: 'b'.repeat(40),
+            file
+        })
+        const written = readFileSync(file, 'utf8')
+        const expected = JSON.stringify(JSON.parse(written), null, 2) + '\n'
+        assert.equal(written, expected, 'file matches canonical form')
+    } finally {
+        cleanup()
+    }
+})
