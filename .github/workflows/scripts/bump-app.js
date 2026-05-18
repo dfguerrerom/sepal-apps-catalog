@@ -30,3 +30,27 @@ export function bumpApp({appId, expectedRepository, newCommit, file}) {
     writeFileSync(file, JSON.stringify(data, null, 2) + '\n')
     return {changed: true}
 }
+
+// CLI entry point: only run when invoked directly, not when imported by tests.
+if (import.meta.url === `file://${process.argv[1]}`) {
+    try {
+        const {APP_ID, EXPECTED_REPOSITORY, NEW_COMMIT, CATALOG_FILE = 'apps.test.json'} = process.env
+        if (!APP_ID || !EXPECTED_REPOSITORY || !NEW_COMMIT) {
+            throw new Error('Required env vars: APP_ID, EXPECTED_REPOSITORY, NEW_COMMIT (CATALOG_FILE optional)')
+        }
+        const result = bumpApp({
+            appId: APP_ID,
+            expectedRepository: EXPECTED_REPOSITORY,
+            newCommit: NEW_COMMIT,
+            file: CATALOG_FILE
+        })
+        console.log(
+            result.changed
+                ? `updated ${APP_ID} → ${NEW_COMMIT} in ${CATALOG_FILE}`
+                : `${APP_ID} already at ${NEW_COMMIT} in ${CATALOG_FILE}`
+        )
+    } catch (e) {
+        console.error(`bump-app: ${e.message}`)
+        process.exit(1)
+    }
+}
