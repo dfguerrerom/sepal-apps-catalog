@@ -33,9 +33,10 @@ jobs:
           REPOSITORY: ${{ github.event.client_payload.repository }}
           COMMIT: ${{ github.event.client_payload.commit }}
           TAG: ${{ github.event.client_payload.tag }}
+          RELEASE_URL: ${{ github.event.client_payload.release_url }}
         run: |
           set -euo pipefail
-          for v in APP_ID REPOSITORY COMMIT TAG; do
+          for v in APP_ID REPOSITORY COMMIT TAG RELEASE_URL; do
             if [ -z "${!v}" ]; then
               echo "::error::client_payload.$v is empty"
               exit 1
@@ -45,6 +46,19 @@ jobs:
             echo "::error::client_payload.commit is not a 40-char lowercase SHA: $COMMIT"
             exit 1
           fi
+
+      - name: Read current commit SHA from catalog
+        id: old
+        env:
+          APP_ID: ${{ github.event.client_payload.app_id }}
+        run: |
+          set -euo pipefail
+          OLD_SHA=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .commit // ""' apps.test.json)
+          if [ -z "$OLD_SHA" ]; then
+            echo "::error::App $APP_ID not found in apps.test.json or has no commit"
+            exit 1
+          fi
+          echo "sha=$OLD_SHA" >> "$GITHUB_OUTPUT"
 
       - name: Apply bump to apps.test.json
         env:
@@ -73,9 +87,14 @@ jobs:
 
             **App:** `${{ github.event.client_payload.app_id }}`
             **Tag:** `${{ github.event.client_payload.tag }}`
+            **Previous commit:** `${{ steps.old.outputs.sha }}`
             **New commit:** `${{ github.event.client_payload.commit }}`
 
-            - Updated: `apps.test.json`
-            - Unchanged: `apps.prod.json` (promote manually after testing)
+            | Environment | Status |
+            | --- | --- |
+            | `apps.test.json` | Updated to new commit |
+            | `apps.prod.json` | Unchanged |
+
+            - [ ] Promote to `apps.prod.json` after CI passes and manual review
 
             CI checks (`validate.yml`, `review-helper.yml`) will run on this PR.
