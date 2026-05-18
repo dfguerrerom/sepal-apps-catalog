@@ -1,0 +1,101 @@
+name: Update catalog from source-repo release
+
+on:
+  repository_dispatch:
+    types: [bump-app]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: bump-${{ github.event.client_payload.app_id }}
+  cancel-in-progress: false
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.CATALOG_PR_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install script deps
+        run: npm ci --silent --prefix .github/workflows/scripts
+
+      - name: Validate dispatch payload
+        env:
+          APP_ID: ${{ github.event.client_payload.app_id }}
+          REPOSITORY: ${{ github.event.client_payload.repository }}
+          COMMIT: ${{ github.event.client_payload.commit }}
+          TAG: ${{ github.event.client_payload.tag }}
+          RELEASE_URL: ${{ github.event.client_payload.release_url }}
+        run: |
+          set -euo pipefail
+          for v in APP_ID REPOSITORY COMMIT TAG RELEASE_URL; do
+            if [ -z "${!v}" ]; then
+              echo "::error::client_payload.$v is empty"
+              exit 1
+            fi
+          done
+          if ! [[ "$COMMIT" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::client_payload.commit is not a 40-char lowercase SHA: $COMMIT"
+            exit 1
+          fi
+
+      - name: Read current commit SHA from catalog
+        id: old
+        env:
+          APP_ID: ${{ github.event.client_payload.app_id }}
+        run: |
+          set -euo pipefail
+          OLD_SHA=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .commit // ""' apps.test.json)
+          if [ -z "$OLD_SHA" ]; then
+            echo "::error::App $APP_ID not found in apps.test.json or has no commit"
+            exit 1
+          fi
+          echo "sha=$OLD_SHA" >> "$GITHUB_OUTPUT"
+
+      - name: Apply bump to apps.test.json
+        env:
+          APP_ID: ${{ github.event.client_payload.app_id }}
+          EXPECTED_REPOSITORY: ${{ github.event.client_payload.repository }}
+          NEW_COMMIT: ${{ github.event.client_payload.commit }}
+          CATALOG_FILE: apps.test.json
+        run: node .github/workflows/scripts/bump-app.js
+
+      - name: Verify canonical format
+        run: node .github/workflows/scripts/check-format.js apps.test.json
+
+      - name: Open or update pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.CATALOG_PR_TOKEN }}
+          branch: auto-bump/${{ github.event.client_payload.app_id }}-${{ github.event.client_payload.tag }}
+          base: main
+          title: "chore(catalog): bump ${{ github.event.client_payload.app_id }} to ${{ github.event.client_payload.tag }}"
+          commit-message: "chore(catalog): bump ${{ github.event.client_payload.app_id }} to ${{ github.event.client_payload.tag }}"
+          labels: |
+            auto-bump
+            test
+          body: |
+            Automated bump from release in [${{ github.event.client_payload.repository }}](${{ github.event.client_payload.release_url }}).
+
+            **App:** `${{ github.event.client_payload.app_id }}`
+            **Tag:** `${{ github.event.client_payload.tag }}`
+            **Previous commit:** `${{ steps.old.outputs.sha }}`
+            **New commit:** `${{ github.event.client_payload.commit }}`
+
+            | Environment | Status |
+            | --- | --- |
+            | `apps.test.json` | Updated to new commit |
+            | `apps.prod.json` | Unchanged |
+
+            - [ ] Promote to `apps.prod.json` after CI passes and manual review
+
+            CI checks (`validate.yml`, `review-helper.yml`) will run on this PR.

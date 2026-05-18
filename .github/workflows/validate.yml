@@ -23,8 +23,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
       - name: Install validator deps
-        run: npm install --silent --no-audit --no-fund --prefix .github/workflows/scripts
+        run: npm ci --silent --prefix .github/workflows/scripts
+
+      - name: Run script unit tests
+        run: npm test --prefix .github/workflows/scripts
 
       - name: Check canonical JSON formatting
         run: node .github/workflows/scripts/check-format.js apps.test.json apps.prod.json apps.schema.json
