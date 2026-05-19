@@ -1,0 +1,135 @@
+name: Promote app to production
+
+on:
+  workflow_dispatch:
+    inputs:
+      app_id:
+        description: 'App to promote (copies SHA from apps.test.json to apps.prod.json)'
+        type: choice
+        required: true
+        default: se.plan
+        options:
+          - se.plan
+          - sepal_mgci
+          - sepal-gee-bundle
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: promote-${{ inputs.app_id }}
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.CATALOG_PR_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install script deps
+        run: npm ci --silent --prefix .github/workflows/scripts
+
+      - name: Read test entry
+        id: test
+        env:
+          APP_ID: ${{ inputs.app_id }}
+        run: |
+          set -euo pipefail
+          SHA=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .commit // ""' apps.test.json)
+          REPO=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .repository // ""' apps.test.json)
+          ENDPOINT=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .endpoint // ""' apps.test.json)
+          if [ -z "$SHA" ] || [ -z "$REPO" ]; then
+            echo "::error::App $APP_ID not found in apps.test.json or missing commit/repository"; exit 1
+          fi
+          if ! [[ "$SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::commit in apps.test.json is not a valid 40-char hex SHA: $SHA"; exit 1
+          fi
+          if [ "$ENDPOINT" != "docker" ]; then
+            echo "::error::App $APP_ID in apps.test.json has endpoint $ENDPOINT, not docker"; exit 1
+          fi
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+          echo "repo=$REPO" >> "$GITHUB_OUTPUT"
+
+      - name: Read prod entry
+        id: prod
+        env:
+          APP_ID: ${{ inputs.app_id }}
+          TEST_REPO: ${{ steps.test.outputs.repo }}
+        run: |
+          set -euo pipefail
+          SHA=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .commit // ""' apps.prod.json)
+          REPO=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .repository // ""' apps.prod.json)
+          ENDPOINT=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .endpoint // ""' apps.prod.json)
+          if [ -z "$SHA" ] || [ -z "$REPO" ]; then
+            echo "::error::App $APP_ID not found in apps.prod.json or missing commit/repository"; exit 1
+          fi
+          if [ "$ENDPOINT" != "docker" ]; then
+            echo "::error::App $APP_ID in apps.prod.json has endpoint $ENDPOINT, not docker"; exit 1
+          fi
+          if [ "$REPO" != "$TEST_REPO" ]; then
+            echo "::error::Repository mismatch: test=$TEST_REPO prod=$REPO for $APP_ID"; exit 1
+          fi
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+
+      - name: Detect no-op
+        id: check
+        env:
+          TEST_SHA: ${{ steps.test.outputs.sha }}
+          PROD_SHA: ${{ steps.prod.outputs.sha }}
+        run: |
+          if [ "$TEST_SHA" = "$PROD_SHA" ]; then
+            echo "::notice::App ${{ inputs.app_id }} prod already at $TEST_SHA. Nothing to promote."
+            echo "noop=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "noop=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Apply bump to apps.prod.json
+        if: steps.check.outputs.noop == 'false'
+        env:
+          APP_ID: ${{ inputs.app_id }}
+          EXPECTED_REPOSITORY: ${{ steps.test.outputs.repo }}
+          NEW_COMMIT: ${{ steps.test.outputs.sha }}
+          CATALOG_FILE: apps.prod.json
+        run: node .github/workflows/scripts/bump-app.js
+
+      - name: Verify canonical format
+        if: steps.check.outputs.noop == 'false'
+        run: node .github/workflows/scripts/check-format.js apps.prod.json
+
+      - name: Open or update pull request
+        if: steps.check.outputs.noop == 'false'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.CATALOG_PR_TOKEN }}
+          branch: promote/${{ inputs.app_id }}-${{ steps.test.outputs.sha }}
+          base: main
+          delete-branch: true
+          title: "chore(catalog): promote ${{ inputs.app_id }} to prod"
+          commit-message: "chore(catalog): promote ${{ inputs.app_id }} to prod (${{ steps.test.outputs.sha }})"
+          labels: |
+            promote
+            prod
+          body: |
+            Manual promotion of `${{ inputs.app_id }}` from test to prod.
+
+            **App:** `${{ inputs.app_id }}`
+            **Previous prod commit:** `${{ steps.prod.outputs.sha }}`
+            **New prod commit:** `${{ steps.test.outputs.sha }}` (copied from `apps.test.json`)
+
+            | Environment | Status |
+            | --- | --- |
+            | `apps.test.json` | Unchanged |
+            | `apps.prod.json` | Updated to test SHA |
+
+            - [ ] Verify diff and merge
+
+            CI checks (`validate.yml`, `review-helper.yml`) will run on this PR.
