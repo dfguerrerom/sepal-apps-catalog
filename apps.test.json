@@ -429,7 +429,7 @@
       "repository": "https://github.com/sepal-contrib/se.plan",
       "port": 8765,
       "branch": "solara",
-      "commit": "58f3946983d1cba2a2a66301e85802ecbbcab413"
+      "commit": "f1e5549a6fe0f67fdd627f48d3d63803e648362a"
     },
     {
       "hidden": true,
