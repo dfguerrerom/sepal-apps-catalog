@@ -11,8 +11,8 @@ repos:
   - repo: local
     hooks:
       - id: catalog-format
-        name: Check canonical JSON formatting
-        entry: node .github/workflows/scripts/check-format.js
+        name: Auto-format catalog JSON to canonical form
+        entry: node .github/workflows/scripts/fix-format.js
         language: system
         files: ^apps\.(test|prod|schema)\.json$
         pass_filenames: true
