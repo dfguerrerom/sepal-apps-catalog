@@ -349,7 +349,7 @@
       "projectLink": "https://github.com/sepal-contrib/sepal_mgci",
       "repository": "https://github.com/sepal-contrib/sepal_mgci",
       "port": 8766,
-      "branch": "solara",
+      "branch": "main",
       "commit": "cd25c9238a9684320ea65ce2f6aeffcba172b317"
     },
     {
