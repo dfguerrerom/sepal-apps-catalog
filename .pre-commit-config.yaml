@@ -1,6 +1,6 @@
 # Pre-commit hooks for sepal-apps-catalog.
 # Mirrors the JSON checks in .github/workflows/validate.yml so problems are
-# caught locally before they fail CI. The docker-commit-existence check is
+# caught locally before they fail CI. The docker-commit reachability check is
 # only run in CI (it needs network and a GitHub token).
 #
 # One-time setup after cloning:
