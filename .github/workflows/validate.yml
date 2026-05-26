@@ -39,7 +39,7 @@ jobs:
       - name: Validate schema
         run: node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json
 
-      - name: Verify each docker commit exists in its repo
+      - name: Verify each docker commit is reachable from its declared branch
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -48,15 +48,32 @@ jobs:
             jq -c '.apps[] | select(.endpoint == "docker")' "$file" | while read -r app; do
               repo=$(echo "$app" | jq -r '.repository')
               commit=$(echo "$app" | jq -r '.commit')
+              branch=$(echo "$app" | jq -r '.branch')
               label=$(echo "$app" | jq -r '.label')
-              echo "Checking $label: $repo @ $commit"
               ownerRepo=$(echo "$repo" | sed -E 's#^https://github\.com/##; s#\.git$##')
-              status=$(curl -sS -o /dev/null -w '%{http_code}' \
+              if [ "$branch" = "null" ] || [ -z "$branch" ]; then
+                echo "::error file=$file::$label: docker entry is missing a 'branch' (cannot verify commit $commit)"
+                exit 1
+              fi
+              echo "Checking $label: commit $commit reachable from branch $branch in $repo"
+              # Compare branch...commit. The app-launcher does `git fetch origin <branch>`
+              # then `git checkout --detach <commit>`, so the commit must be an ancestor of
+              # (or equal to) the branch tip. The GitHub compare API reports this as
+              # ahead_by == 0 (status "behind" or "identical"). A non-200 means the branch
+              # or commit does not exist; ahead_by > 0 means the commit is not on the branch.
+              response=$(curl -sS -w '\n%{http_code}' \
                 -H "Authorization: Bearer $GH_TOKEN" \
                 -H "Accept: application/vnd.github+json" \
-                "https://api.github.com/repos/$ownerRepo/commits/$commit")
+                "https://api.github.com/repos/$ownerRepo/compare/$branch...$commit")
+              status=$(echo "$response" | tail -n1)
+              body=$(echo "$response" | sed '$d')
               if [ "$status" != "200" ]; then
-                echo "::error file=$file::$label: commit $commit not found in $repo (HTTP $status)"
+                echo "::error file=$file::$label: cannot compare $branch...$commit in $repo (HTTP $status) — branch or commit may not exist"
+                exit 1
+              fi
+              aheadBy=$(echo "$body" | jq -r '.ahead_by')
+              if [ "$aheadBy" != "0" ]; then
+                echo "::error file=$file::$label: commit $commit is not reachable from branch $branch in $repo (ahead_by=$aheadBy). Update 'branch' or 'commit' so the pinned commit is an ancestor of the branch."
                 exit 1
               fi
             done
