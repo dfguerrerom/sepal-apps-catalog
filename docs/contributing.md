@@ -19,7 +19,7 @@ This catalog determines exactly which version of each app SEPAL will build and r
 }
 ```
 
-2. The `Validate catalog` and `Review helper` workflows will run automatically. The bot will post a compare link comment.
+2. The `Validate catalog` and `Review helper` workflows will run automatically. The bot will post a compare link comment. (See [ci.md](./ci.md) for what each check does.)
 3. A SEPAL maintainer will review and merge. Once merged, the app appears on test.sepal.io within minutes.
 4. Once you're happy with how it behaves on test.sepal.io, open a follow-up PR copying the entry into `apps.prod.json` to promote to sepal.io.
 

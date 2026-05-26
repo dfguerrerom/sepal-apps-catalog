@@ -15,6 +15,8 @@ To mitigate this, every entry in these catalogs pins to a specific commit SHA of
 
 Pull requests that change app entries are reviewed via an automated risk-flag workflow that inspects the diff between the previously pinned SHA and the proposed new SHA, surfacing notable changes (new dependencies, network calls, shell-outs, etc.) to help maintainers review safely. Maintainers still make the final call.
 
+For the full set of CI workflows, checks, scripts, and tests, see [docs/ci.md](./docs/ci.md).
+
 ## Local setup
 
 Install [pre-commit](https://pre-commit.com/) once and the validator dependencies for the CI scripts. The pre-commit hooks mirror the JSON checks in `.github/workflows/validate.yml` (canonical formatting + schema validation) so problems are caught before they fail CI.
