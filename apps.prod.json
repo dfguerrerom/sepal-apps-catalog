@@ -436,7 +436,7 @@
       "projectLink": "https://github.com/sepal-contrib/sepal_mgci",
       "repository": "https://github.com/sepal-contrib/sepal_mgci",
       "port": 8766,
-      "branch": "solara",
+      "branch": "main",
       "commit": "cd25c9238a9684320ea65ce2f6aeffcba172b317"
     },
     {
@@ -554,7 +554,7 @@
       "projectLink": "https://github.com/sepal-contrib/se.plan/",
       "repository": "https://github.com/sepal-contrib/se.plan",
       "port": 8765,
-      "branch": "solara",
+      "branch": "main",
       "commit": "f1e5549a6fe0f67fdd627f48d3d63803e648362a"
     },
     {
