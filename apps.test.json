@@ -350,7 +350,7 @@
       "repository": "https://github.com/sepal-contrib/sepal_mgci",
       "port": 8766,
       "branch": "main",
-      "commit": "cd25c9238a9684320ea65ce2f6aeffcba172b317"
+      "commit": "88f7e1014c01b21bde199afac4e37874d6daaf9c"
     },
     {
       "id": "earthmap",
