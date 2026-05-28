@@ -38,7 +38,7 @@ Open a PR changing the `commit` field (and optionally `branch`) of the entry in 
 
 Two options — pick whichever fits:
 
-- **Self-service `/promote` comment (recommended).** A SEPAL maintainer keeps one open issue in this repo labeled `promote-request`. Comment `/promote <app-id>` on it. The `Promote app on /promote comment` workflow verifies you own the app's source repo (User-type owner) or are a **public** member of its organization, then opens the promotion PR copying `commit` from `apps.test.json` to `apps.prod.json`. A maintainer still merges. If you're a private org member, make your membership public at `https://github.com/orgs/<org>/people` or use the manual-PR path. See issue #40 and [ci.md](./ci.md).
+- **Self-service `/promote` comment (recommended).** This repo has a single pinned issue titled "Promotion requests — comment `/promote <app-id>` here" (labeled `promote-request`). Find it in the [Issues tab](../../../issues?q=is%3Aissue+is%3Aopen+label%3Apromote-request) — there is only ever one. Comment `/promote <your-app-id>` on it. The `Promote app on /promote comment` workflow verifies you own the app's source repo (User-type owner) or are a **public** member of its organization, then copies the pinned `commit` from `apps.test.json` to `apps.prod.json` and opens the PR. A maintainer still merges. If your org membership is private, make it public at `https://github.com/orgs/<org>/people` or use the manual-PR path below. See issue #40 and [ci.md](./ci.md#self-service-promotion-one-time-maintainer-setup).
 - **Manual PR.** Open a PR copying the `commit` field of your entry from `apps.test.json` to `apps.prod.json`. Same CI runs; a maintainer merges.
 
 ## File formatting

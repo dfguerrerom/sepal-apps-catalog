@@ -12,6 +12,58 @@ This repository is guarded by a set of GitHub Actions workflows and Node scripts
 | Promote app on `/promote` comment | `.github/workflows/promote-request.yml` | `issue_comment` (`/promote <app-id>` on an issue labeled `promote-request`) | Self-service variant of the above. Any user can comment; the workflow verifies the commenter owns / is a public org member of the app's source repo, then opens the same PR. A maintainer still merges. See issue #40 |
 | Update catalog from source-repo release | `.github/workflows/update-from-release.yml` | `repository_dispatch` (`bump-app`) sent by a source repo on release | Bumps an app's `commit` in `apps.test.json` and opens a PR |
 
+## Self-service promotion: one-time maintainer setup
+
+The `promote-request.yml` workflow fires only on comments to issues that **already carry the `promote-request` label**. There is no auto-labeling — a maintainer creates the label once and creates one pinned issue that contributors can comment on forever.
+
+Run these once after the workflow lands:
+
+```bash
+# 1. Create the label
+gh label create promote-request \
+  --description "Self-service docker app promotion requests (see docs/ci.md)" \
+  --color BFD4F2
+
+# 2. Open the single pinned issue
+gh issue create \
+  --title "Promotion requests — comment /promote <app-id> here" \
+  --label promote-request \
+  --body-file - <<'EOF'
+This is the single, persistent intake for self-service production promotions.
+
+## How to use
+
+Comment on this issue with:
+
+```
+/promote <app-id>
+```
+
+(Example: `/promote se.plan`)
+
+The [`promote-request.yml`](../blob/main/.github/workflows/promote-request.yml) workflow will:
+
+1. Look up the app in `apps.test.json` and read the source repository.
+2. Verify you are the owner of that repository (User-owned repos) or a **public** member of its GitHub organization (org-owned repos). If your org membership is private, make it public at `https://github.com/orgs/<org>/people` or use the manual-PR path described in [docs/contributing.md](../blob/main/docs/contributing.md).
+3. Copy the pinned commit SHA from `apps.test.json` to `apps.prod.json` and open a PR.
+4. A SEPAL maintainer reviews and merges the PR. Once merged, the app updates on sepal.io within minutes.
+
+The workflow comments back on this issue with a link to the PR (or with the reason your request was denied).
+
+## What this does *not* do
+
+- It does **not** introduce new code. Only SHAs already merged into `apps.test.json` (and therefore already reviewed by a maintainer) can be promoted.
+- It does **not** auto-merge. A maintainer still has to approve the PR via CODEOWNERS.
+
+Do not close this issue — it is the long-lived intake. Open a separate issue for bugs, questions, or anything else.
+EOF
+
+# 3. Pin the issue so contributors can find it
+# (no gh shortcut — open the issue in the browser and click "Pin issue")
+```
+
+Once those three steps are done, the docs link from [contributing.md](./contributing.md) will resolve and contributors can self-serve.
+
 ## `Validate catalog` checks
 
 Every step is **blocking** — a failure fails the PR. Steps run in order:
