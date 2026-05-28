@@ -23,3 +23,10 @@ repos:
         language: system
         files: ^apps\.(test|prod|schema)\.json$
         pass_filenames: false
+
+      - id: catalog-docker-rules
+        name: Check docker app port uniqueness and path = /api/app-launcher/<id>
+        entry: node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json
+        language: system
+        files: ^apps\.(test|prod)\.json$
+        pass_filenames: false

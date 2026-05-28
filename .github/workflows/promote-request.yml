@@ -1,0 +1,243 @@
+name: Promote app on /promote comment
+
+# Self-service promotion: any GitHub user can comment "/promote <app-id>" on
+# an issue labeled "promote-request" in this repo. The workflow verifies the
+# commenter is authorized for the app's source repository, then opens the
+# same promotion PR that `promote-app.yml` opens manually. A maintainer
+# still has to merge the PR — this only removes the maintainer as the
+# bottleneck for the *request* step. See issue #40.
+#
+# Authorization rule (no extra token needed — uses public GitHub data):
+#   - source repo is a User repo: commenter must equal the owner login
+#   - source repo is an Organization repo: commenter must be a public member
+#     of that org (https://docs.github.com/rest/orgs/members#check-public-org-membership)
+#   - commenter is the catalog repo owner: always authorized
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: promote-request-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    if: >
+      github.event.issue.pull_request == null &&
+      contains(github.event.issue.labels.*.name, 'promote-request') &&
+      startsWith(github.event.comment.body, '/promote ')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Parse command
+        id: cmd
+        env:
+          BODY: ${{ github.event.comment.body }}
+        run: |
+          set -euo pipefail
+          # First line, drop the leading "/promote " token, trim spaces.
+          APP_ID=$(printf '%s' "$BODY" | head -n1 | sed -E 's#^/promote[[:space:]]+##; s#[[:space:]]+$##')
+          if [ -z "$APP_ID" ] || ! [[ "$APP_ID" =~ ^[A-Za-z0-9_.-]+$ ]]; then
+            echo "::error::Invalid app id in /promote command: '$APP_ID'"
+            exit 1
+          fi
+          echo "app_id=$APP_ID" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.CATALOG_PR_TOKEN }}
+
+      - name: Resolve app source repo from apps.test.json
+        id: src
+        env:
+          APP_ID: ${{ steps.cmd.outputs.app_id }}
+        run: |
+          set -euo pipefail
+          REPO=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .repository // ""' apps.test.json)
+          if [ -z "$REPO" ]; then
+            echo "::error::App $APP_ID not found in apps.test.json"
+            exit 1
+          fi
+          OWNER_REPO=$(echo "$REPO" | sed -E 's#^https://github\.com/##; s#\.git$##')
+          OWNER=$(echo "$OWNER_REPO" | cut -d/ -f1)
+          echo "owner=$OWNER" >> "$GITHUB_OUTPUT"
+          echo "repository=$REPO" >> "$GITHUB_OUTPUT"
+
+      - name: Verify commenter is authorized
+        id: auth
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENTER: ${{ github.event.comment.user.login }}
+          OWNER: ${{ steps.src.outputs.owner }}
+          REPO_OWNER: ${{ github.repository_owner }}
+        run: |
+          set -euo pipefail
+          if [ "$COMMENTER" = "$REPO_OWNER" ]; then
+            echo "::notice::$COMMENTER is the catalog repo owner — authorized."
+            exit 0
+          fi
+          # Is the source repo owner a User or an Organization?
+          OWNER_TYPE=$(curl -sS -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/users/$OWNER" | jq -r '.type // ""')
+          if [ "$OWNER_TYPE" = "User" ]; then
+            if [ "$COMMENTER" = "$OWNER" ]; then
+              echo "::notice::$COMMENTER owns the source repo — authorized."
+              exit 0
+            fi
+            echo "::error::$COMMENTER is not the owner of $OWNER (source repo type=User). Authorized users: $OWNER."
+            exit 1
+          fi
+          if [ "$OWNER_TYPE" = "Organization" ]; then
+            STATUS=$(curl -sS -o /dev/null -w '%{http_code}' \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/orgs/$OWNER/public_members/$COMMENTER")
+            if [ "$STATUS" = "204" ]; then
+              echo "::notice::$COMMENTER is a public member of $OWNER — authorized."
+              exit 0
+            fi
+            echo "::error::$COMMENTER is not a public member of organization $OWNER (HTTP $STATUS). Make your membership public at https://github.com/orgs/$OWNER/people or ask a maintainer to promote."
+            exit 1
+          fi
+          echo "::error::Could not determine type of source repo owner '$OWNER' (got '$OWNER_TYPE')."
+          exit 1
+
+      - name: Comment on issue (denied)
+        if: failure() && steps.auth.conclusion == 'failure'
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            @${{ github.event.comment.user.login }} — you are not authorized to promote `${{ steps.cmd.outputs.app_id }}`.
+
+            The commenter must be the owner of the source repo (`${{ steps.src.outputs.repository }}`) or a **public** member of its organization. See the workflow log for details.
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install script deps
+        run: npm ci --silent --prefix .github/workflows/scripts
+
+      - name: Read test entry
+        id: test
+        env:
+          APP_ID: ${{ steps.cmd.outputs.app_id }}
+        run: |
+          set -euo pipefail
+          SHA=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .commit // ""' apps.test.json)
+          REPO=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .repository // ""' apps.test.json)
+          ENDPOINT=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .endpoint // ""' apps.test.json)
+          if [ -z "$SHA" ] || [ -z "$REPO" ]; then
+            echo "::error::App $APP_ID not found in apps.test.json or missing commit/repository"; exit 1
+          fi
+          if ! [[ "$SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::commit in apps.test.json is not a valid 40-char hex SHA: $SHA"; exit 1
+          fi
+          if [ "$ENDPOINT" != "docker" ]; then
+            echo "::error::App $APP_ID in apps.test.json has endpoint $ENDPOINT, not docker"; exit 1
+          fi
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+          echo "repo=$REPO" >> "$GITHUB_OUTPUT"
+
+      - name: Read prod entry
+        id: prod
+        env:
+          APP_ID: ${{ steps.cmd.outputs.app_id }}
+          TEST_REPO: ${{ steps.test.outputs.repo }}
+        run: |
+          set -euo pipefail
+          SHA=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .commit // ""' apps.prod.json)
+          REPO=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .repository // ""' apps.prod.json)
+          ENDPOINT=$(jq -r --arg id "$APP_ID" '.apps[] | select(.id==$id) | .endpoint // ""' apps.prod.json)
+          if [ -z "$SHA" ] || [ -z "$REPO" ]; then
+            echo "::error::App $APP_ID not found in apps.prod.json or missing commit/repository"; exit 1
+          fi
+          if [ "$ENDPOINT" != "docker" ]; then
+            echo "::error::App $APP_ID in apps.prod.json has endpoint $ENDPOINT, not docker"; exit 1
+          fi
+          if [ "$REPO" != "$TEST_REPO" ]; then
+            echo "::error::Repository mismatch: test=$TEST_REPO prod=$REPO for $APP_ID"; exit 1
+          fi
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+
+      - name: Detect no-op
+        id: check
+        env:
+          TEST_SHA: ${{ steps.test.outputs.sha }}
+          PROD_SHA: ${{ steps.prod.outputs.sha }}
+        run: |
+          if [ "$TEST_SHA" = "$PROD_SHA" ]; then
+            echo "::notice::App ${{ steps.cmd.outputs.app_id }} prod already at $TEST_SHA. Nothing to promote."
+            echo "noop=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "noop=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Apply bump to apps.prod.json
+        if: steps.check.outputs.noop == 'false'
+        env:
+          APP_ID: ${{ steps.cmd.outputs.app_id }}
+          EXPECTED_REPOSITORY: ${{ steps.test.outputs.repo }}
+          NEW_COMMIT: ${{ steps.test.outputs.sha }}
+          CATALOG_FILE: apps.prod.json
+        run: node .github/workflows/scripts/bump-app.js
+
+      - name: Verify canonical format
+        if: steps.check.outputs.noop == 'false'
+        run: node .github/workflows/scripts/check-format.js apps.prod.json
+
+      - name: Open or update pull request
+        if: steps.check.outputs.noop == 'false'
+        id: pr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.CATALOG_PR_TOKEN }}
+          branch: promote/${{ steps.cmd.outputs.app_id }}-${{ steps.test.outputs.sha }}
+          base: main
+          delete-branch: true
+          title: "chore(catalog): promote ${{ steps.cmd.outputs.app_id }} to prod"
+          commit-message: "chore(catalog): promote ${{ steps.cmd.outputs.app_id }} to prod (${{ steps.test.outputs.sha }})"
+          labels: |
+            promote
+            prod
+            self-service
+          body: |
+            Self-service promotion of `${{ steps.cmd.outputs.app_id }}` from test to prod.
+
+            **Requested by:** @${{ github.event.comment.user.login }} (via issue #${{ github.event.issue.number }})
+            **App:** `${{ steps.cmd.outputs.app_id }}`
+            **Previous prod commit:** `${{ steps.prod.outputs.sha }}`
+            **New prod commit:** `${{ steps.test.outputs.sha }}` (copied from `apps.test.json`)
+
+            | Environment | Status |
+            | --- | --- |
+            | `apps.test.json` | Unchanged |
+            | `apps.prod.json` | Updated to test SHA |
+
+            - [ ] Maintainer: verify diff and merge
+
+            CI checks (`validate.yml`, `review-helper.yml`) will run on this PR.
+
+      - name: Comment on issue (PR opened)
+        if: steps.check.outputs.noop == 'false' && steps.pr.outputs.pull-request-url != ''
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Opened promotion PR for `${{ steps.cmd.outputs.app_id }}`: ${{ steps.pr.outputs.pull-request-url }}
+
+      - name: Comment on issue (no-op)
+        if: steps.check.outputs.noop == 'true'
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            `${{ steps.cmd.outputs.app_id }}` is already at the test SHA in prod (`${{ steps.test.outputs.sha }}`) — nothing to promote.

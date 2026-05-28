@@ -14,18 +14,32 @@ This catalog determines exactly which version of each app SEPAL will build and r
   "repository": "https://github.com/me/my-sepal-app",
   "branch": "main",
   "commit": "0123456789abcdef0123456789abcdef01234567",
+  "port": 8769,
+  "path": "/api/app-launcher/my-app",
   "description": "Optional short description",
   "tags": ["change-detection"]
 }
 ```
 
+### Docker app rules (enforced by CI)
+
+- **`port`** is mandatory and must be unique across `apps.test.json` and `apps.prod.json`. New apps take the next free port — `max(existing_ports) + 1`. To find it locally, run `node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json` — it prints `Next free port: N`.
+- **`path`** is mandatory and must equal exactly `/api/app-launcher/<id>` (same `<id>` as the entry's `id` field). The schema enforces the prefix; `check-docker-rules.js` enforces the id↔path coupling.
+
 2. The `Validate catalog` and `Review helper` workflows will run automatically. The bot will post a compare link comment. (See [ci.md](./ci.md) for what each check does.)
 3. A SEPAL maintainer will review and merge. Once merged, the app appears on test.sepal.io within minutes.
-4. Once you're happy with how it behaves on test.sepal.io, open a follow-up PR copying the entry into `apps.prod.json` to promote to sepal.io.
+4. Once you're happy with how it behaves on test.sepal.io, promote to prod — see [Promoting to production](#promoting-to-production) below.
 
 ## Updating an existing app
 
-Open a PR changing the `commit` field (and optionally `branch`) of the entry in `apps.test.json`. The bot will post a compare link showing exactly what changed upstream. Once reviewed and merged, the change is live on test.sepal.io. Promote to prod with a second PR against `apps.prod.json`.
+Open a PR changing the `commit` field (and optionally `branch`) of the entry in `apps.test.json`. The bot will post a compare link showing exactly what changed upstream. Once reviewed and merged, the change is live on test.sepal.io. Promote to prod with one of the methods below.
+
+## Promoting to production
+
+Two options — pick whichever fits:
+
+- **Self-service `/promote` comment (recommended).** This repo has a single pinned issue titled "Promotion requests — comment `/promote <app-id>` here" (labeled `promote-request`). Find it in the [Issues tab](../../../issues?q=is%3Aissue+is%3Aopen+label%3Apromote-request) — there is only ever one. Comment `/promote <your-app-id>` on it. The `Promote app on /promote comment` workflow verifies you own the app's source repo (User-type owner) or are a **public** member of its organization, then copies the pinned `commit` from `apps.test.json` to `apps.prod.json` and opens the PR. A maintainer still merges. If your org membership is private, make it public at `https://github.com/orgs/<org>/people` or use the manual-PR path below. See issue #40 and [ci.md](./ci.md#self-service-promotion-one-time-maintainer-setup).
+- **Manual PR.** Open a PR copying the `commit` field of your entry from `apps.test.json` to `apps.prod.json`. Same CI runs; a maintainer merges.
 
 ## File formatting
 
