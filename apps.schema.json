@@ -131,8 +131,16 @@
                 "endpoint",
                 "repository",
                 "branch",
-                "commit"
-              ]
+                "commit",
+                "port",
+                "path"
+              ],
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "pattern": "^/api/app-launcher/[A-Za-z0-9_.-]+$"
+                }
+              }
             },
             "else": {
               "not": {
