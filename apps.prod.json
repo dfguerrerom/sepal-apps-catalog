@@ -555,7 +555,7 @@
       "repository": "https://github.com/sepal-contrib/se.plan",
       "port": 8765,
       "branch": "main",
-      "commit": "1da65a00783693e24e81715894bd22ad2d4c0d13"
+      "commit": "79ca77dbd8d3d4654a293e29928e75d5ee0459d2"
     },
     {
       "hidden": true,
