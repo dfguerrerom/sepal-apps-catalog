@@ -456,22 +456,6 @@
       "branch": "release"
     },
     {
-      "id": "gee_source",
-      "label": "Earth Engine app reader",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/gee_source/ui.ipynb?voila-theme=dark",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": false,
-      "logoRef": "sepal.png",
-      "author": "The SEPAL team",
-      "description": " Extract source code from any GEE app URL",
-      "tagline": " Extract source code from any GEE app URL",
-      "projectLink": "https://github.com/sepal-contrib/gee_source",
-      "repository": "https://github.com/sepal-contrib/gee_source",
-      "branch": "release"
-    },
-    {
       "id": "weplan",
       "label": "WePlan - Forests",
       "path": "/sandbox/jupyter/voila/render/shared/apps/weplan/ui.ipynb?voila-theme=dark",
@@ -606,6 +590,38 @@
       "projectLink": "https://github.com/dfguerrerom/sepal-sam",
       "repository": "https://github.com/dfguerrerom/sepal-sam",
       "branch": "release"
+    },
+    {
+      "id": "sepal-gee-bundle",
+      "label": "SEPAL GEE Bundle (backend)",
+      "path": "/api/app-launcher/sepal-gee-bundle",
+      "endpoint": "docker",
+      "repository": "https://github.com/sepal-contrib/sepal-gee-bundle",
+      "branch": "main",
+      "commit": "e35f03db5c875e0d0292c20185dad33287763992",
+      "port": 8768,
+      "googleAccountRequired": true,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "projectLink": "https://github.com/sepal-contrib/sepal-gee-bundle",
+      "tags": [
+        "INSTANT"
+      ],
+      "apps": [
+        {
+          "id": "gee-source",
+          "route": "gee-source",
+          "label": "Earth Engine app reader",
+          "tags": [
+            "INSTANT",
+            "TOOLS"
+          ],
+          "logoRef": "sepal.png",
+          "author": "The SEPAL team",
+          "description": "Extract source code from any GEE app URL",
+          "tagline": "Extract source code from any GEE app URL"
+        }
+      ]
     }
   ],
   "tags": [
