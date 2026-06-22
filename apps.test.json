@@ -429,7 +429,7 @@
       "repository": "https://github.com/sepal-contrib/se.plan",
       "port": 8765,
       "branch": "main",
-      "commit": "79ca77dbd8d3d4654a293e29928e75d5ee0459d2"
+      "commit": "75c10b53aa91b3421d1f09c92a3840852b82cd5f"
     },
     {
       "hidden": true,
