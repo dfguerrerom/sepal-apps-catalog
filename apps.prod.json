@@ -165,36 +165,6 @@
       "branch": "release"
     },
     {
-      "id": "gfc_wrapper",
-      "label": "Forest change mask (Shiny)",
-      "path": "/sandbox/shiny/gfc_wrapper",
-      "endpoint": "shiny",
-      "tags": [],
-      "pinned": false,
-      "logoRef": "sepal.png",
-      "author": "the SEPAL team",
-      "description": "",
-      "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
-      "projectLink": "https://github.com/openforis/gfc_wrapper",
-      "repository": "https://github.com/openforis/gfc_wrapper"
-    },
-    {
-      "id": "gfc_wrapper_python",
-      "label": "Forest change mask",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/gfc_wrapper_python/ui.ipynb?voila-theme=dark",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": false,
-      "logoRef": "sepal.png",
-      "author": "the SEPAL team",
-      "description": "",
-      "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
-      "projectLink": "https://github.com/sepal-contrib/gfc_wrapper_python",
-      "repository": "https://github.com/sepal-contrib/gfc_wrapper_python",
-      "branch": "release"
-    },
-    {
       "id": "vector_manager",
       "label": "Vector file manager",
       "path": "/sandbox/jupyter/voila/render/shared/apps/vector_manager/ui.ipynb?voila-theme=dark",
@@ -598,7 +568,7 @@
       "endpoint": "docker",
       "repository": "https://github.com/sepal-contrib/sepal-gee-bundle",
       "branch": "main",
-      "commit": "34d9b8bbf9902e437fcadd60b1cee37030c427b1",
+      "commit": "196f73d1f27cc187537f2418aa4c267e26dbd111",
       "port": 8768,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
@@ -608,6 +578,17 @@
         "INSTANT"
       ],
       "apps": [
+        {
+          "id": "gfc",
+          "route": "gfc",
+          "label": "Forest change mask",
+          "tags": [
+            "FOREST"
+          ],
+          "pinned": false,
+          "description": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
+          "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map"
+        },
         {
           "id": "gee-source",
           "route": "gee-source",
