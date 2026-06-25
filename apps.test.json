@@ -455,7 +455,7 @@
       "endpoint": "docker",
       "repository": "https://github.com/sepal-contrib/sepal-gee-bundle",
       "branch": "main",
-      "commit": "34d9b8bbf9902e437fcadd60b1cee37030c427b1",
+      "commit": "196f73d1f27cc187537f2418aa4c267e26dbd111",
       "port": 8768,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
