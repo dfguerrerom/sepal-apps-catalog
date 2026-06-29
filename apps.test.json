@@ -65,23 +65,6 @@
       "skip": true
     },
     {
-      "id": "sae-design",
-      "label": "Stratified area estimator - Design",
-      "path": "/sandbox/shiny/accuracy-assessment/aa_design",
-      "endpoint": "shiny",
-      "tags": [
-        "CLASSIFICATION"
-      ],
-      "pinned": false,
-      "logoRef": "sepal.png",
-      "author": "the SEPAL team",
-      "description": "",
-      "tagline": "",
-      "projectLink": "https://github.com/openforis/accuracy-assessment/",
-      "repository": "https://github.com/openforis/accuracy-assessment",
-      "branch": "release/reenable-ceo-project-btn"
-    },
-    {
       "id": "sae-analysis",
       "label": "Stratified area estimator - Analysis",
       "path": "/sandbox/shiny/accuracy-assessment/aa_analysis",
