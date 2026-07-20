@@ -333,7 +333,7 @@
       "repository": "https://github.com/sepal-contrib/sepal_mgci",
       "port": 8766,
       "branch": "main",
-      "commit": "88f7e1014c01b21bde199afac4e37874d6daaf9c"
+      "commit": "e614f0beb5bfad856f3fe67a57cae3064f9b1843"
     },
     {
       "id": "earthmap",
