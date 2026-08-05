@@ -515,6 +515,24 @@
           "tagline": "Extract source code from any GEE app URL"
         }
       ]
+    },
+    {
+      "id": "spatial-risk-module",
+      "label": "Spatial Risk Modelling",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/spatial-risk-module/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "endpoint": "jupyter",
+      "tags": [
+        "RESTORATION"
+      ],
+      "pinned": false,
+      "googleAccountRequired": true,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Build and evaluate spatial risk maps for deforestation and forest degradation: assemble predictor variables from Earth Engine and local rasters, train and compare models (moving window, JNR, iCAR, machine learning) and export validated risk maps.",
+      "tagline": "Model and map deforestation risk from Earth Engine and local data",
+      "projectLink": "https://github.com/sepal-contrib/spatial-risk-module",
+      "repository": "https://github.com/sepal-contrib/spatial-risk-module",
+      "branch": "demo-gui"
     }
   ],
   "tags": [
