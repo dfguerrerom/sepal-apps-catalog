@@ -50,7 +50,7 @@
     },
     {
       "id": "sbae-design",
-      "label": "Sampling Based Area Estimation Design",
+      "label": "Sampling Based Area Estimation - Design and Analysis",
       "path": "/sandbox/jupyter/voila/render/shared/apps/sbae-design/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
       "endpoint": "jupyter",
       "tags": [],
@@ -58,28 +58,11 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "Designing statistically sound area estimation and accuracy assessment sampling strategies for land monitoring.",
-      "tagline": "Designing statistically sound area estimation and accuracy assessment sampling strategies for land monitoring.",
+      "description": "Designing statistically sound sampling strategies for area estimation and accuracy assessment, and analysing the collected reference data to produce bias-adjusted area estimates with confidence intervals.",
+      "tagline": "Designing statistically sound sampling strategies for area estimation and accuracy assessment, and analysing the collected reference data to produce bias-adjusted area estimates with confidence intervals.",
       "projectLink": "https://github.com/sepal-contrib/sbae-design",
       "repository": "https://github.com/sepal-contrib/sbae-design",
       "skip": true
-    },
-    {
-      "id": "sae-analysis",
-      "label": "Stratified area estimator - Analysis",
-      "path": "/sandbox/shiny/accuracy-assessment/aa_analysis",
-      "endpoint": "shiny",
-      "tags": [
-        "CLASSIFICATION"
-      ],
-      "pinned": false,
-      "logoRef": "sepal.png",
-      "author": "the SEPAL team",
-      "description": "",
-      "tagline": "",
-      "projectLink": "https://github.com/openforis/accuracy-assessment/",
-      "repository": "https://github.com/openforis/accuracy-assessment",
-      "branch": "release/reenable-ceo-project-btn"
     },
     {
       "id": "bfastspatial",
