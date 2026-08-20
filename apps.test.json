@@ -388,6 +388,7 @@
       "pinned": true,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
+      "logo": "https://raw.githubusercontent.com/sepal-contrib/se.plan/main/assets/seplan-logo.png",
       "author": "The SEPAL team",
       "description": "Restoration planning tool using a weighted-sum approach",
       "tagline": "Restoration planning tool using a weighted-sum approach",
