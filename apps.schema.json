@@ -86,6 +86,11 @@
           "logoRef": {
             "type": "string"
           },
+          "logo": {
+            "type": "string",
+            "description": "Absolute https URL of an externally hosted logo. Takes precedence over logoRef; SEPAL falls back to logoRef when it is absent or fails to load.",
+            "pattern": "^https://"
+          },
           "author": {
             "type": "string"
           },
