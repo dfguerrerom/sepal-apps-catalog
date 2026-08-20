@@ -378,22 +378,6 @@
       "commit": "88f7e1014c01b21bde199afac4e37874d6daaf9c"
     },
     {
-      "id": "basin-rivers",
-      "label": " Resilient rivers and basins",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/basin-rivers/ui.ipynb?voila-theme=dark",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": true,
-      "logoRef": "sepal.png",
-      "author": "The SEPAL team",
-      "description": "Get Forest Cover Change by upstream sub-catchment",
-      "tagline": "Get Forest Cover Change by upstream sub-catchment",
-      "projectLink": "https://github.com/sepal-contrib/basin-rivers",
-      "repository": "https://github.com/sepal-contrib/basin-rivers",
-      "branch": "release"
-    },
-    {
       "id": "weplan",
       "label": "WePlan - Forests",
       "path": "/sandbox/jupyter/voila/render/shared/apps/weplan/ui.ipynb?voila-theme=dark",
@@ -536,7 +520,7 @@
       "endpoint": "docker",
       "repository": "https://github.com/sepal-contrib/sepal-gee-bundle",
       "branch": "main",
-      "commit": "196f73d1f27cc187537f2418aa4c267e26dbd111",
+      "commit": "d82ad3ebd0711d27804216b15489ab4d4a61e6b1",
       "port": 8768,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
@@ -556,6 +540,13 @@
           "pinned": false,
           "description": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
           "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map"
+        },
+        {
+          "id": "basin-rivers",
+          "route": "basin-rivers",
+          "label": "Resilient rivers and basin",
+          "description": "Upstream watershed delineation (HydroSHEDS) combined with Hansen GFC to compute forest cover change per sub-catchment",
+          "tagline": "Get Forest Cover Change by upstream sub-catchment"
         },
         {
           "id": "gee-source",
