@@ -798,7 +798,7 @@
     },
     {
       "id": "spatial-risk-module",
-      "label": "Spatial Risk Modelling",
+      "label": "Spatial Risk Modelling (BETA)",
       "path": "/sandbox/jupyter/voila/render/shared/apps/spatial-risk-module/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
       "endpoint": "jupyter",
       "tags": [

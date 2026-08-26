@@ -858,6 +858,34 @@
           }
         }
       ]
+    },
+    {
+      "id": "spatial-risk-module",
+      "label": "Spatial Risk Modelling (BETA)",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/spatial-risk-module/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "endpoint": "jupyter",
+      "tags": [
+        "RESTORATION"
+      ],
+      "pinned": false,
+      "googleAccountRequired": true,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Build and evaluate spatial risk maps for deforestation and forest degradation: assemble predictor variables from Earth Engine and local rasters, train and compare models (moving window, JNR, iCAR, machine learning) and export validated risk maps.",
+      "tagline": "Model and map deforestation risk from Earth Engine and local data",
+      "projectLink": "https://github.com/sepal-contrib/spatial-risk-module",
+      "repository": "https://github.com/sepal-contrib/spatial-risk-module",
+      "branch": "demo-gui",
+      "translations": {
+        "es": {
+          "tagline": "Modele y cartografíe el riesgo de deforestación a partir de datos de Earth Engine y locales",
+          "description": "Construya y evalúe mapas de riesgo espacial de deforestación y degradación forestal: reúna variables predictoras a partir de Earth Engine y ráster locales, entrene y compare modelos (ventana móvil, JNR, iCAR, aprendizaje automático) y exporte mapas de riesgo validados."
+        },
+        "fr": {
+          "tagline": "Modélisez et cartographiez le risque de déforestation à partir de données Earth Engine et locales",
+          "description": "Construisez et évaluez des cartes de risque spatial de déforestation et de dégradation forestière : assemblez des variables prédictives à partir d'Earth Engine et de rasters locaux, entraînez et comparez des modèles (fenêtre mobile, JNR, iCAR, apprentissage automatique) et exportez des cartes de risque validées."
+        }
+      }
     }
   ],
   "tags": [
