@@ -553,6 +553,7 @@
       }
     },
     {
+      "hidden": true,
       "id": "eSBAE_notebooks",
       "label": "Sample Based Area Estimation",
       "path": "/sandbox/jupyter/voila/render/shared/apps/eSBAE_notebooks/00-Introduction-to-Jupyter and Python.ipynb",
