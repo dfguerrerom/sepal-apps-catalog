@@ -178,9 +178,9 @@
   "$defs": {
     "translations": {
       "type": "object",
-      "description": "Per-language overrides keyed by 2-letter language code. English stays in the entry's own `tagline`/`description`; any key left out here falls back to it.",
+      "description": "Per-language overrides keyed by 2-letter language code. English stays in the entry's own `tagline`/`description` and is the fallback for anything left out here, so `en` is not an accepted key.",
       "propertyNames": {
-        "pattern": "^[a-z]{2}$"
+        "pattern": "^(?!en$)[a-z]{2}$"
       },
       "additionalProperties": {
         "type": "object",

@@ -58,12 +58,12 @@ Open a PR changing the `commit` field (and optionally `branch`) of the entry in 
 }
 ```
 
-- **English stays where it is.** The flat `tagline` / `description` fields remain the source of truth; `translations` only overrides them. Don't move English into a `translations.en` block.
+- **English stays where it is.** The flat `tagline` / `description` fields remain the source of truth; `translations` only overrides them. An `en` key is **rejected by validation**, so an entry can never grow a second, diverging English text.
 - **Partial translations are fine.** Any field you leave out falls back to the English one — the `fr` block above translates the tagline and inherits the English description.
 - **Markdown must survive.** If the English `description` contains Markdown, the translation has to carry the same markup.
 - **Multiapp children** carry their own `translations`, overriding the child's own English `tagline` / `description`. Children do **not** inherit those two fields from their parent the way they inherit `author`, `projectLink` or the logo — SEPAL falls back to the child's `label` for a missing `tagline` and to an empty string for a missing `description`. So a child that needs translating must carry its own block.
 - **`label` is not translatable.** SEPAL's app-manager and app-launcher pass it through as a plain string. The block can grow to cover it later without breaking existing catalogs.
-- Language codes must be lowercase and two letters (`es`, not `ES` or `spa`), and `tagline` / `description` are the only fields allowed inside a language block. Anything else fails validation, with the offending app named in the error.
+- Language codes must be lowercase two-letter codes other than `en` (`es`, not `ES`, `spa` or `en`), and `tagline` / `description` are the only fields allowed inside a language block. Anything else fails validation, with the offending app named in the error.
 
 SEPAL's language selector currently offers `en`, `es` and `fr`, so those are the languages worth filling in. Other codes validate but nothing reads them yet.
 

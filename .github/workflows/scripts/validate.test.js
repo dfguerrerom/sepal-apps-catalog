@@ -37,6 +37,12 @@ test('uppercase language key is rejected, naming the key and the app', () => {
     assert.match(report({errors}), /id="foo" label="Foo"/)
 })
 
+test('an en key is rejected - English belongs at the entry root', () => {
+    const {valid, errors} = check(app({translations: {es: {tagline: 'Un lema'}, en: {tagline: 'A tagline'}}}))
+    assert.equal(valid, false)
+    assert.match(report({errors}), /invalid property name: en/)
+})
+
 test('three-letter language key is rejected and the app is identified', () => {
     const {valid, errors} = check(app({translations: {spa: {tagline: 'Un lema'}}}))
     assert.equal(valid, false)
