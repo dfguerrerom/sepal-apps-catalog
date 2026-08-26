@@ -7,6 +7,7 @@
 // transitive deps (inflight, glob@7) bundled with ajv-cli@5.
 
 import {readFileSync} from 'node:fs'
+import {pathToFileURL} from 'node:url'
 import Ajv2020 from 'ajv/dist/2020.js'
 
 export const describeApp = (data, instancePath) => {
@@ -51,7 +52,7 @@ export const validateCatalogs = (schema, filesWithData) => {
 }
 
 // CLI
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
     const [schemaPath, ...dataPaths] = process.argv.slice(2)
     if (!schemaPath || dataPaths.length === 0) {
         console.error('Usage: node validate.js <schemaPath> <dataPath> [<dataPath>...]')

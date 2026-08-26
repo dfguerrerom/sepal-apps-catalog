@@ -1,6 +1,8 @@
 import {test} from 'node:test'
 import assert from 'node:assert/strict'
-import {readFileSync} from 'node:fs'
+import {spawnSync} from 'node:child_process'
+import {copyFileSync, mkdtempSync, readFileSync, rmSync} from 'node:fs'
+import {dirname, join} from 'node:path'
 import {fileURLToPath} from 'node:url'
 import {describeApp, validateCatalogs} from './validate.js'
 
@@ -106,6 +108,24 @@ test('describeApp names the child for a nested translations path', () => {
 
 test('describeApp returns no context for a non-app path', () => {
     assert.equal(describeApp({apps: []}, '/tags/0/value'), '')
+})
+
+test('the validator CLI runs when its path contains spaces', () => {
+    const scriptsDir = dirname(fileURLToPath(import.meta.url))
+    const tempDir = mkdtempSync(join(scriptsDir, 'validate cli '))
+    const validatorPath = join(tempDir, 'validate.js')
+    try {
+        copyFileSync(fileURLToPath(new URL('./validate.js', import.meta.url)), validatorPath)
+        const result = spawnSync(process.execPath, [validatorPath], {encoding: 'utf8'})
+        assert.equal(
+            result.status,
+            2,
+            `expected missing CLI arguments to exit 2\nstdout: ${result.stdout}\nstderr: ${result.stderr}`
+        )
+        assert.match(result.stderr, /Usage: node validate\.js/)
+    } finally {
+        rmSync(tempDir, {recursive: true, force: true})
+    }
 })
 
 test('the shipped catalogs validate against the shipped schema', () => {
