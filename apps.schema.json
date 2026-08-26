@@ -100,6 +100,9 @@
           "tagline": {
             "type": "string"
           },
+          "translations": {
+            "$ref": "#/$defs/translations"
+          },
           "projectLink": {
             "type": "string"
           },
@@ -117,6 +120,19 @@
           },
           "single": {
             "type": "boolean"
+          },
+          "apps": {
+            "type": "array",
+            "description": "Sub-apps of a multiapp entry. SEPAL resolves a child field first, then the parent one.",
+            "items": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "translations": {
+                  "$ref": "#/$defs/translations"
+                }
+              }
+            }
           }
         },
         "allOf": [
@@ -156,6 +172,29 @@
             }
           }
         ]
+      }
+    }
+  },
+  "$defs": {
+    "translations": {
+      "type": "object",
+      "description": "Per-language overrides keyed by 2-letter language code. English stays in the entry's own `tagline`/`description` and is the fallback for anything left out here, so `en` is not an accepted key.",
+      "propertyNames": {
+        "pattern": "^(?!en$)[a-z]{2}$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "tagline": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
       }
     }
   }

@@ -7,49 +7,71 @@
 // transitive deps (inflight, glob@7) bundled with ajv-cli@5.
 
 import {readFileSync} from 'node:fs'
+import {pathToFileURL} from 'node:url'
 import Ajv2020 from 'ajv/dist/2020.js'
 
-const [schemaPath, ...dataPaths] = process.argv.slice(2)
-if (!schemaPath || dataPaths.length === 0) {
-    console.error('Usage: node validate.js <schemaPath> <dataPath> [<dataPath>...]')
-    process.exit(2)
-}
-
-const schema = JSON.parse(readFileSync(schemaPath, 'utf8'))
-const ajv = new Ajv2020({strict: false, allErrors: true})
-const validate = ajv.compile(schema)
-
-const describeApp = (data, instancePath) => {
-    const m = instancePath.match(/^\/apps\/(\d+)/)
+export const describeApp = (data, instancePath) => {
+    const m = instancePath.match(/^\/apps\/(\d+)(?:\/apps\/(\d+))?/)
     if (!m) return ''
     const idx = +m[1]
     const app = data.apps?.[idx]
     if (!app) return `[apps[${idx}] — not found in data]`
-    return `[apps[${idx}] id="${app.id ?? '?'}" label="${app.label ?? '?'}"]`
+    const name = (entry, i) => `apps[${i}] id="${entry.id ?? '?'}" label="${entry.label ?? '?'}"`
+    if (m[2] === undefined) return `[${name(app, idx)}]`
+    const childIdx = +m[2]
+    const child = app.apps?.[childIdx]
+    if (!child) return `[${name(app, idx)} → apps[${childIdx}] — not found in data]`
+    return `[${name(app, idx)} → ${name(child, childIdx)}]`
 }
 
-let hadErrors = false
-for (const dataPath of dataPaths) {
-    const data = JSON.parse(readFileSync(dataPath, 'utf8'))
-    if (validate(data)) {
-        console.log(`${dataPath}: valid`)
-        continue
-    }
-    hadErrors = true
-    const errors = validate.errors ?? []
-    console.error(`\n${dataPath}: INVALID (${errors.length} error${errors.length === 1 ? '' : 's'})`)
-    for (const err of errors) {
-        const where = err.instancePath || '(root)'
-        const ctx = describeApp(data, err.instancePath)
-        const head = ctx ? `${where}  ${ctx}` : where
-        console.error(`  • ${head}`)
-        console.error(`      ${err.message}`)
-        const p = err.params ?? {}
-        if (p.missingProperty) console.error(`      missing property: ${p.missingProperty}`)
-        if (p.additionalProperty) console.error(`      unexpected property: ${p.additionalProperty}`)
-        if (p.allowedValues) console.error(`      allowed values: ${JSON.stringify(p.allowedValues)}`)
-        if (p.pattern) console.error(`      pattern: ${p.pattern}`)
-        if (p.type) console.error(`      expected type: ${p.type}`)
-    }
+const formatError = (data, err) => {
+    const where = err.instancePath || '(root)'
+    const ctx = describeApp(data, err.instancePath)
+    const lines = [`  • ${ctx ? `${where}  ${ctx}` : where}`, `      ${err.message}`]
+    const p = err.params ?? {}
+    if (p.missingProperty) lines.push(`      missing property: ${p.missingProperty}`)
+    if (p.additionalProperty) lines.push(`      unexpected property: ${p.additionalProperty}`)
+    if (p.propertyName) lines.push(`      invalid property name: ${p.propertyName}`)
+    if (p.allowedValues) lines.push(`      allowed values: ${JSON.stringify(p.allowedValues)}`)
+    if (p.pattern) lines.push(`      pattern: ${p.pattern}`)
+    if (p.type) lines.push(`      expected type: ${p.type}`)
+    return lines.join('\n')
 }
-process.exit(hadErrors ? 1 : 0)
+
+export const validateCatalogs = (schema, filesWithData) => {
+    const ajv = new Ajv2020({strict: false, allErrors: true})
+    const validate = ajv.compile(schema)
+    return filesWithData.map(({file, data}) => {
+        const valid = validate(data)
+        return {
+            file,
+            valid,
+            errors: valid ? [] : (validate.errors ?? []).map((err) => formatError(data, err))
+        }
+    })
+}
+
+// CLI
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+    const [schemaPath, ...dataPaths] = process.argv.slice(2)
+    if (!schemaPath || dataPaths.length === 0) {
+        console.error('Usage: node validate.js <schemaPath> <dataPath> [<dataPath>...]')
+        process.exit(2)
+    }
+    const schema = JSON.parse(readFileSync(schemaPath, 'utf8'))
+    const filesWithData = dataPaths.map((file) => ({
+        file,
+        data: JSON.parse(readFileSync(file, 'utf8'))
+    }))
+    let hadErrors = false
+    for (const {file, valid, errors} of validateCatalogs(schema, filesWithData)) {
+        if (valid) {
+            console.log(`${file}: valid`)
+            continue
+        }
+        hadErrors = true
+        console.error(`\n${file}: INVALID (${errors.length} error${errors.length === 1 ? '' : 's'})`)
+        for (const e of errors) console.error(e)
+    }
+    process.exit(hadErrors ? 1 : 0)
+}

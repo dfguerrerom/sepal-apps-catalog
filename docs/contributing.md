@@ -21,6 +21,8 @@ This catalog determines exactly which version of each app SEPAL will build and r
 }
 ```
 
+Optional per-language `tagline` / `description` overrides go in a `translations` block — see [Translations](#translations) below.
+
 ### Docker app rules (enforced by CI)
 
 - **`port`** is mandatory and must be unique across `apps.test.json` and `apps.prod.json`. New apps take the next free port — `max(existing_ports) + 1`. To find it locally, run `node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json` — it prints `Next free port: N`.
@@ -33,6 +35,39 @@ This catalog determines exactly which version of each app SEPAL will build and r
 ## Updating an existing app
 
 Open a PR changing the `commit` field (and optionally `branch`) of the entry in `apps.test.json`. The bot will post a compare link showing exactly what changed upstream. Once reviewed and merged, the change is live on test.sepal.io. Promote to prod with one of the methods below.
+
+## Translations
+
+`tagline` and `description` can carry per-language overrides in an optional `translations` block, keyed by 2-letter language code. This is what lets SEPAL show an app in the language the user selected.
+
+```json
+{
+  "id": "my-app",
+  "label": "My App",
+  "tagline": "Short one-liner",
+  "description": "Longer **markdown** text",
+  "translations": {
+    "es": {
+      "tagline": "Frase corta",
+      "description": "Texto **markdown** más largo"
+    },
+    "fr": {
+      "tagline": "Phrase courte"
+    }
+  }
+}
+```
+
+- **English stays where it is.** The flat `tagline` / `description` fields remain the source of truth; `translations` only overrides them. An `en` key is **rejected by validation**, so an entry can never grow a second, diverging English text.
+- **Partial translations are fine.** Any field you leave out falls back to the English one — the `fr` block above translates the tagline and inherits the English description.
+- **Markdown must survive.** If the English `description` contains Markdown, the translation has to carry the same markup.
+- **Multiapp children** carry their own `translations`, overriding the child's own English `tagline` / `description`. Children do **not** inherit those two fields from their parent the way they inherit `author`, `projectLink` or the logo — SEPAL falls back to the child's `label` for a missing `tagline` and to an empty string for a missing `description`. So a child that needs translating must carry its own block.
+- **`label` is not translatable.** SEPAL's app-manager and app-launcher pass it through as a plain string. The block can grow to cover it later without breaking existing catalogs.
+- Language codes must be lowercase two-letter codes other than `en` (`es`, not `ES`, `spa` or `en`), and `tagline` / `description` are the only fields allowed inside a language block. Anything else fails validation, with the offending app named in the error.
+
+SEPAL's language selector currently offers `en`, `es` and `fr`, so those are the languages worth filling in. Other codes validate but nothing reads them yet.
+
+Translations are text metadata, so **no automation copies them between catalogs** — `/promote` and the auto-bump workflow only move `commit`. Edit `apps.test.json` and `apps.prod.json` in the same PR so the two stay in sync.
 
 ## Promoting to production
 
