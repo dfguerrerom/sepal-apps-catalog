@@ -70,7 +70,7 @@ Every step is **blocking** — a failure fails the PR. Steps run in order:
 
 1. **Run script unit tests** — `npm test` (`node --test`) over `.github/workflows/scripts`. See [Tests](#tests).
 2. **Check canonical JSON formatting** — `check-format.js` verifies each file is byte-identical to canonical `JSON.stringify(parsed, null, 2) + "\n"`. Prevents diff churn from editor formatters.
-3. **Validate schema** — `validate.js` validates `apps.test.json` and `apps.prod.json` against `apps.schema.json` (ajv, draft 2020-12). For `endpoint: docker` apps the schema requires `port` and `path`, and `path` must match `^/api/app-launcher/[A-Za-z0-9_.-]+$`.
+3. **Validate schema** — `validate.js` validates `apps.test.json` and `apps.prod.json` against `apps.schema.json` (ajv, draft 2020-12). For `endpoint: docker` apps the schema requires `port` and `path`, and `path` must match `^/api/app-launcher/[A-Za-z0-9_.-]+$`. Optional `translations` blocks are checked here too: language keys must be lowercase two-letter codes and may only hold `tagline` and `description` — see [contributing.md](./contributing.md#translations).
 4. **Check docker rules** — `check-docker-rules.js` enforces cross-cutting docker rules the schema can't: `path` must equal `/api/app-launcher/<id>` exactly, and every docker `port` must be unique across `apps.test.json` and `apps.prod.json` (same id appearing in both is fine; different ids sharing a port is not). On any violation it prints `Next free port: max(existing)+1` so contributors know which port to claim. See issue #41.
 5. **Verify each docker commit is reachable from its declared branch** — for every `endpoint: docker` entry, calls the GitHub compare API (`/repos/{owner}/{repo}/compare/{branch}...{commit}`) and requires `ahead_by == 0`. This guarantees the pinned `commit` is an ancestor of (or equal to) the `branch` tip — exactly what the app-launcher needs, since it does `git fetch origin <branch>` then `git checkout --detach <commit>`. A non-200 means the branch or commit does not exist; `ahead_by > 0` means the commit lives on a different branch.
 
@@ -90,9 +90,13 @@ All scripts live in `.github/workflows/scripts` (ESM, Node 22, only dependency i
 | `risk-flags.js` (stdin → stdout) | review-helper.yml | Turns a diff into a markdown risk report (needs `GITHUB_TOKEN`) |
 | `bump-app.js` | promote-app.yml, update-from-release.yml | Mutates one app's `commit` in a catalog file, preserving canonical format. **Note: only updates `commit`, never `branch`** |
 
+> **Text metadata is never copied between catalogs.** `bump-app.js` — and therefore both `/promote` and the auto-bump workflow — only touches `commit`. `label`, `description`, `tagline`, `tags` and `translations` must be edited in `apps.test.json` and `apps.prod.json` explicitly. This has always been true of every metadata field; `translations` is no exception.
+
 ## Tests
 
-Unit tests use the built-in Node test runner (`node --test`), run via `npm test --prefix .github/workflows/scripts`. They cover `bump-app.js`:
+Unit tests use the built-in Node test runner (`node --test`), run via `npm test --prefix .github/workflows/scripts`.
+
+`bump-app.js`:
 
 - happy path: updates `commit` for the matching docker app
 - app id not found → throws
@@ -101,6 +105,23 @@ Unit tests use the built-in Node test runner (`node --test`), run via `npm test 
 - invalid SHA → throws
 - already at target SHA → returns `changed=false`, file untouched
 - output is canonical (2-space indent + trailing newline)
+
+`validate.js`:
+
+- a catalog validates both with and without a `translations` block
+- a bad language key (`ES`, `spa`) is rejected, and the message names the key *and* the offending app
+- an unknown field inside a language block is rejected
+- empty and non-string translated values are rejected
+- an error on a multiapp child names both the parent and the child
+- the shipped `apps.test.json` and `apps.prod.json` validate against the shipped `apps.schema.json`
+
+`check-docker-rules.js`:
+
+- clean catalogs report no errors and suggest `max(port)+1`
+- duplicate ports are caught within a file and across files
+- the same id in both catalogs sharing a port is not a collision
+- `path` that does not equal `/api/app-launcher/<id>` is rejected
+- non-docker apps are ignored
 
 ## Run the checks locally
 

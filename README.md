@@ -17,6 +17,10 @@ Pull requests that change app entries are reviewed via an automated risk-flag wo
 
 For the full set of CI workflows, checks, scripts, and tests, see [docs/ci.md](./docs/ci.md).
 
+## Translations
+
+App `tagline` and `description` can carry per-language overrides in an optional `translations` block, so SEPAL can show them in the language the user selected. English stays in the existing flat fields and is the fallback for anything untranslated. See [docs/contributing.md](./docs/contributing.md#translations).
+
 ## Local setup
 
 Install [pre-commit](https://pre-commit.com/) once and the validator dependencies for the CI scripts. The pre-commit hooks mirror the JSON checks in `.github/workflows/validate.yml` (canonical formatting + schema validation) so problems are caught before they fail CI.
