@@ -36,9 +36,62 @@ Optional per-language `tagline` / `description` overrides go in a `translations`
 
 Open a PR changing the `commit` field (and optionally `branch`) of the entry in `apps.test.json`. The bot will post a compare link showing exactly what changed upstream. Once reviewed and merged, the change is live on test.sepal.io. Promote to prod with one of the methods below.
 
+## Copy style
+
+`label`, `tagline` and `description` do three different jobs. They are never the same text.
+
+**`label`** — the app's name on the card. Not translatable.
+
+**`tagline`** — the card subtitle, scanned rather than read, and truncated on narrow cards. Write a **noun phrase**: no finite verb, no subject, no terminal period. Sentence case. Name the thing the app produces, not the act of producing it, and put the distinguishing noun first so it survives truncation. 45–70 characters, hard cap 80 (`en`) or 90 (`es`, `fr`). Do not restate the `label`.
+
+**`description`** — the detail view, read once by someone deciding whether to open the app. Write **full sentences in the third-person present**, with the app itself as the explicit subject of the first sentence. Terminal periods. 1–3 sentences, 400 characters maximum — as long as it needs to be and no longer. Name at least one input (sensor, dataset, provider) and one output (map, table, export). Prose only — no headings or lists. The description must state at least one thing the tagline does not; if there is nothing more to say, leave it empty rather than padding it. There is no minimum length: a description that is honestly one sentence long stays one sentence long.
+
+```json
+{
+  "label": "Coverage Analysis",
+  "tagline": "Cloud-free observation counts for major optical satellites",
+  "description": "Coverage Analysis maps how many cloud-free observations are available over an area of interest for the main optical missions in Google Earth Engine. The resulting maps show data availability per pixel and per period."
+}
+```
+
+### Never use the second person
+
+Not in either field, in any language: no "you", no "your", no *usted*, *tú*, *vous* or *tu*. Use an impersonal construction instead (*se generan…*, *les cartes produites…*).
+
+This is the rule that keeps the Spanish and French catalogs in one register. An English imperative has no register-free rendering — a translator handed `Create maps of cloud-free observations` must choose between *cree* and *crea*, *créez* and *crée*, with nothing to guide them. A noun phrase has one obvious rendering and no register at all.
+
+A **bare** third-person verb has the same problem for the opposite reason: `Applies BFAST algorithm to…` translates to *Aplica…*, which is string-identical to the *tú* imperative. Naming the app as the subject is what closes the ambiguity, so do not drop it.
+
+Where the second person is genuinely unavoidable elsewhere in SEPAL, Spanish uses **usted** and French uses **vous** — FAO/UN institutional register.
+
+### Do
+
+- `Canopy disturbance maps for (semi-)evergreen tropical forests`
+- `Forest Canopy Disturbance Monitoring (FCDM) detects natural and human-induced canopy disturbances in dense (semi-)evergreen forests from optical time series.`
+- Start the description with the app's own name.
+- Name the dataset, the sensor, and what comes out.
+
+### Don't
+
+- Imperatives — `Create maps of…`, `Explore…`, `Monitor…`
+- Gerund headings — `Mapping all kind of canopy disturbances…`
+- Bare third-person verbs with no subject — `Applies BFAST algorithm to…`
+- Placeholders — `Wrapper for TMF`, `SAM environment`, `A suite of various geospatial image analysis tools`
+- Marketing copy pasted from an upstream project's website. State the upstream fact in one sentence, then say what it means inside SEPAL.
+- A `description` that repeats the `tagline`.
+- Anything about the catalog rather than the app — which bundle an entry belongs to, that it is one of several tools, how it is packaged or deployed.
+- Repeating what another field already carries. `author`, `projectLink` and `repository` are rendered separately; naming them in the description wastes the reader's time.
+- A closing sentence that could be deleted with no loss of meaning. If it exists only to make the text longer, cut it.
+
+### Which entries need what
+
+- `tagline` — every entry, including hidden ones.
+- `description` — every entry except backend, non-launchable ones.
+- `translations.es` / `translations.fr` — every visible entry. Skip for hidden and backend entries until they are published.
+
 ## Translations
 
-`tagline` and `description` can carry per-language overrides in an optional `translations` block, keyed by 2-letter language code. This is what lets SEPAL show an app in the language the user selected.
+`tagline` and `description` can carry per-language overrides in an optional `translations` block, keyed by 2-letter language code. Translations follow the same rules as the English — see [Copy style](#copy-style). This is what lets SEPAL show an app in the language the user selected.
 
 ```json
 {
