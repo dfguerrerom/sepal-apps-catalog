@@ -12,17 +12,17 @@
       "pinned": true,
       "logoRef": "rstudio-ball.svg",
       "author": "RStudio",
-      "description": "RStudio is an integrated development environment (IDE) for R. It includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management.",
-      "tagline": "Tools for R and professional software for data science teams to develop and share their work at scale.",
+      "description": "RStudio is an integrated development environment for R. It provides a console, a syntax-highlighting editor with direct code execution, and tools for plotting, history, debugging and workspace management.",
+      "tagline": "Integrated development environment for the R language",
       "projectLink": "https://rstudio.com/products/rstudio/",
       "translations": {
         "es": {
-          "tagline": "Herramientas para R y software profesional para que los equipos de ciencia de datos desarrollen y compartan su trabajo a gran escala.",
-          "description": "RStudio es un entorno de desarrollo integrado (IDE) para R. Incluye una consola, un editor con resaltado de sintaxis que permite ejecutar código directamente, así como herramientas de gráficos, historial, depuración y gestión del espacio de trabajo."
+          "tagline": "Entorno de desarrollo integrado para el lenguaje R",
+          "description": "RStudio es un entorno de desarrollo integrado para R. Incluye una consola, un editor con resaltado de sintaxis que ejecuta código directamente y herramientas de gráficos, historial, depuración y gestión del espacio de trabajo."
         },
         "fr": {
-          "tagline": "Outils pour R et logiciels professionnels permettant aux équipes de science des données de développer et de partager leur travail à grande échelle.",
-          "description": "RStudio est un environnement de développement intégré (IDE) pour R. Il comprend une console, un éditeur avec coloration syntaxique permettant l'exécution directe du code, ainsi que des outils de tracé, d'historique, de débogage et de gestion de l'espace de travail."
+          "tagline": "Environnement de développement intégré pour le langage R",
+          "description": "RStudio est un environnement de développement intégré pour R. Il comprend une console, un éditeur avec coloration syntaxique permettant l'exécution directe du code, ainsi que des outils de tracé, d'historique, de débogage et de gestion de l'espace de travail."
         }
       }
     },
@@ -38,17 +38,17 @@
       "pinned": true,
       "logoRef": "jupyter-notebook.svg",
       "author": "Project Jupyter",
-      "description": "The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.",
-      "tagline": "Create and share documents containing live code, equations, visualizations and narrative text.",
+      "description": "Jupyter Notebook is an open-source web application for documents that combine live code, equations, visualizations and narrative text. Typical uses include data cleaning and transformation, numerical simulation, statistical modelling, data visualization and machine learning.",
+      "tagline": "Notebook documents with live code, equations and visualizations",
       "projectLink": "https://jupyter.org/",
       "translations": {
         "es": {
-          "tagline": "Cree y comparta documentos que contengan código ejecutable, ecuaciones, visualizaciones y texto narrativo.",
-          "description": "Jupyter Notebook es una aplicación web de código abierto que permite crear y compartir documentos con código ejecutable, ecuaciones, visualizaciones y texto narrativo. Sus usos incluyen la limpieza y transformación de datos, la simulación numérica, la modelización estadística, la visualización de datos, el aprendizaje automático y mucho más."
+          "tagline": "Documentos con código ejecutable, ecuaciones y visualizaciones",
+          "description": "Jupyter Notebook es una aplicación web de código abierto para documentos que combinan código ejecutable, ecuaciones, visualizaciones y texto narrativo. Sus usos habituales incluyen la limpieza y transformación de datos, la simulación numérica, la modelización estadística, la visualización de datos y el aprendizaje automático."
         },
         "fr": {
-          "tagline": "Créez et partagez des documents contenant du code exécutable, des équations, des visualisations et du texte narratif.",
-          "description": "Jupyter Notebook est une application web open source qui permet de créer et de partager des documents contenant du code exécutable, des équations, des visualisations et du texte narratif. Ses usages incluent le nettoyage et la transformation de données, la simulation numérique, la modélisation statistique, la visualisation de données, l'apprentissage automatique et bien plus encore."
+          "tagline": "Documents contenant du code exécutable, des équations et des visualisations",
+          "description": "Jupyter Notebook est une application web open source pour des documents combinant code exécutable, équations, visualisations et texte narratif. Ses usages courants incluent le nettoyage et la transformation de données, la simulation numérique, la modélisation statistique, la visualisation de données et l'apprentissage automatique."
         }
       }
     },
@@ -64,17 +64,17 @@
       "pinned": true,
       "logoRef": "jupyter-lab.png",
       "author": "Project Jupyter",
-      "description": "JupyterLab is a web-based interactive development environment for Jupyter notebooks, code, and data. JupyterLab is flexible: configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine learning. JupyterLab is extensible and modular: write plugins that add new components and integrate with existing ones.",
-      "tagline": "Interactive development environment for Jupyter notebooks, code, and data.",
+      "description": "Jupyter Lab is a web-based interactive development environment for notebooks, code and data. Its user interface can be arranged to suit different data science, scientific computing and machine learning workflows, and it is extensible through plugins.",
+      "tagline": "Web-based workspace for notebooks, code and data",
       "projectLink": "https://jupyter.org/",
       "translations": {
         "es": {
-          "tagline": "Entorno de desarrollo interactivo para cuadernos Jupyter, código y datos.",
-          "description": "JupyterLab es un entorno de desarrollo interactivo basado en web para cuadernos Jupyter, código y datos. JupyterLab es flexible: configure y organice la interfaz de usuario para admitir una amplia variedad de flujos de trabajo en ciencia de datos, computación científica y aprendizaje automático. JupyterLab es extensible y modular: escriba complementos que añadan nuevos componentes y se integren con los existentes."
+          "tagline": "Entorno web de trabajo para cuadernos, código y datos",
+          "description": "Jupyter Lab es un entorno de desarrollo interactivo basado en web para cuadernos, código y datos. Su interfaz se puede organizar según distintos flujos de trabajo de ciencia de datos, computación científica y aprendizaje automático, y es extensible mediante complementos."
         },
         "fr": {
-          "tagline": "Environnement de développement interactif pour les notebooks Jupyter, le code et les données.",
-          "description": "JupyterLab est un environnement de développement interactif web pour les notebooks Jupyter, le code et les données. JupyterLab est flexible : configurez et organisez l'interface utilisateur pour prendre en charge un large éventail de flux de travail en science des données, calcul scientifique et apprentissage automatique. JupyterLab est extensible et modulaire : écrivez des extensions qui ajoutent de nouveaux composants et s'intègrent aux composants existants."
+          "tagline": "Environnement web pour les notebooks, le code et les données",
+          "description": "Jupyter Lab est un environnement de développement interactif web pour les notebooks, le code et les données. Son interface peut être organisée selon différents flux de travail en science des données, calcul scientifique et apprentissage automatique, et elle est extensible par des extensions."
         }
       }
     },
@@ -88,19 +88,19 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "Designing statistically sound sampling strategies for area estimation and accuracy assessment, and analysing the collected reference data to produce bias-adjusted area estimates with confidence intervals.",
-      "tagline": "Designing statistically sound sampling strategies for area estimation and accuracy assessment, and analysing the collected reference data to produce bias-adjusted area estimates with confidence intervals.",
+      "description": "Sampling Based Area Estimation designs statistically sound sampling strategies for area estimation and accuracy assessment. It then analyses the collected reference data to produce bias-adjusted area estimates with confidence intervals.",
+      "tagline": "Sampling design and bias-adjusted area estimates",
       "projectLink": "https://github.com/sepal-contrib/sbae-design",
       "repository": "https://github.com/sepal-contrib/sbae-design",
       "skip": true,
       "translations": {
         "es": {
-          "tagline": "Diseño de estrategias de muestreo estadísticamente robustas para la estimación de superficies y la evaluación de la exactitud, y análisis de los datos de referencia recopilados para producir estimaciones de superficie ajustadas por sesgo con intervalos de confianza.",
-          "description": "Diseño de estrategias de muestreo estadísticamente robustas para la estimación de superficies y la evaluación de la exactitud, y análisis de los datos de referencia recopilados para producir estimaciones de superficie ajustadas por sesgo con intervalos de confianza."
+          "tagline": "Diseño de muestreo y estimaciones de superficie ajustadas",
+          "description": "Sampling Based Area Estimation diseña estrategias de muestreo estadísticamente robustas para la estimación de superficies y la evaluación de la exactitud. Después analiza los datos de referencia recopilados para producir estimaciones de superficie ajustadas por sesgo con intervalos de confianza."
         },
         "fr": {
-          "tagline": "Conception de stratégies d'échantillonnage statistiquement rigoureuses pour l'estimation de superficies et l'évaluation de l'exactitude, et analyse des données de référence collectées afin de produire des estimations de superficie corrigées du biais avec intervalles de confiance.",
-          "description": "Conception de stratégies d'échantillonnage statistiquement rigoureuses pour l'estimation de superficies et l'évaluation de l'exactitude, et analyse des données de référence collectées afin de produire des estimations de superficie corrigées du biais avec intervalles de confiance."
+          "tagline": "Plan d'échantillonnage et estimations de superficie corrigées",
+          "description": "Sampling Based Area Estimation conçoit des stratégies d'échantillonnage statistiquement rigoureuses pour l'estimation de superficies et l'évaluation de l'exactitude. Elle analyse ensuite les données de référence collectées afin de produire des estimations de superficie corrigées du biais avec intervalles de confiance."
         }
       }
     },
@@ -115,18 +115,18 @@
       "pinned": false,
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
-      "description": "Applies BFAST algorithm to analyze the dynamics of satellite dense time series to distinguish land-cover change from seasonal phenological variations",
-      "tagline": "Applies BFAST algorithm to analyze the dynamics of satellite dense time series to distinguish land-cover change from seasonal phenological variations",
+      "description": "Time-series analysis applies the BFAST algorithm to the dynamics of dense satellite time series, separating genuine land-cover change from the seasonal phenological variation that would otherwise be mistaken for it.",
+      "tagline": "Land-cover change detection in dense satellite time series",
       "projectLink": "https://github.com/sepal-contrib/bfastspatial",
       "repository": "https://github.com/sepal-contrib/bfastspatial",
       "translations": {
         "es": {
-          "tagline": "Aplica el algoritmo BFAST para analizar la dinámica de series temporales satelitales densas y distinguir los cambios de cobertura del suelo de las variaciones fenológicas estacionales",
-          "description": "Aplica el algoritmo BFAST para analizar la dinámica de series temporales satelitales densas y distinguir los cambios de cobertura del suelo de las variaciones fenológicas estacionales"
+          "tagline": "Detección de cambios de cobertura en series temporales densas",
+          "description": "Time-series analysis aplica el algoritmo BFAST a la dinámica de series temporales satelitales densas y distingue los cambios reales de cobertura del suelo de las variaciones fenológicas estacionales que podrían confundirse con ellos."
         },
         "fr": {
-          "tagline": "Applique l'algorithme BFAST pour analyser la dynamique de séries temporelles satellitaires denses et distinguer les changements de couverture du sol des variations phénologiques saisonnières",
-          "description": "Applique l'algorithme BFAST pour analyser la dynamique de séries temporelles satellitaires denses et distinguer les changements de couverture du sol des variations phénologiques saisonnières"
+          "tagline": "Détection des changements de couverture dans des séries denses",
+          "description": "Time-series analysis applique l'algorithme BFAST à la dynamique de séries temporelles satellitaires denses et distingue les changements réels de couverture du sol des variations phénologiques saisonnières qui pourraient être prises pour eux."
         }
       }
     },
@@ -142,16 +142,18 @@
       "pinned": false,
       "logoRef": "bfast.jpg",
       "author": "Alexandre Almeida",
-      "description": "",
-      "tagline": "Performs analysis of Landsat Surface Reflectance time series pixel data using the BFAST algorithm.",
+      "description": "BFAST Explorer applies the BFAST algorithm to Landsat Surface Reflectance data at the level of individual pixels.",
+      "tagline": "BFAST analysis of Landsat surface reflectance time series",
       "projectLink": "https://github.com/sepal-contrib/bfast-explorer",
       "repository": "https://github.com/sepal-contrib/bfast-explorer",
       "translations": {
         "es": {
-          "tagline": "Analiza series temporales de reflectancia de superficie de Landsat a nivel de píxel mediante el algoritmo BFAST."
+          "tagline": "Análisis BFAST de series de reflectancia de Landsat",
+          "description": "BFAST Explorer aplica el algoritmo BFAST a datos de reflectancia de superficie de Landsat a nivel de píxeles individuales."
         },
         "fr": {
-          "tagline": "Analyse les séries temporelles de réflectance de surface Landsat au niveau du pixel à l'aide de l'algorithme BFAST."
+          "tagline": "Analyse BFAST des séries de réflectance de surface Landsat",
+          "description": "BFAST Explorer applique l'algorithme BFAST aux données de réflectance de surface Landsat au niveau de pixels individuels."
         }
       }
     },
@@ -167,18 +169,18 @@
       "pinned": false,
       "logoRef": "sepal.png",
       "author": "sepal-contrib",
-      "description": "Tool for mapping surface soil moisture based on Copernicus Sentinel-1 intensity data",
-      "tagline": "Tool for mapping surface soil moisture based on Copernicus Sentinel-1 intensity data.",
+      "description": "Soil Moisture Mapping derives surface soil moisture from Copernicus Sentinel-1 intensity data, producing soil moisture maps over a selected area.",
+      "tagline": "Surface soil moisture maps from Sentinel-1 intensity data",
       "projectLink": "https://github.com/sepal-contrib/sepal_pysmm",
       "repository": "https://github.com/sepal-contrib/sepal_pysmm",
       "translations": {
         "es": {
-          "tagline": "Herramienta para cartografiar la humedad superficial del suelo a partir de los datos de intensidad de Copernicus Sentinel-1.",
-          "description": "Herramienta para cartografiar la humedad superficial del suelo a partir de los datos de intensidad de Copernicus Sentinel-1"
+          "tagline": "Mapas de humedad superficial del suelo con datos Sentinel-1",
+          "description": "Soil Moisture Mapping estima la humedad superficial del suelo a partir de los datos de intensidad de Copernicus Sentinel-1 y genera mapas de humedad para el área seleccionada."
         },
         "fr": {
-          "tagline": "Outil de cartographie de l'humidité superficielle du sol à partir des données d'intensité Copernicus Sentinel-1.",
-          "description": "Outil de cartographie de l'humidité superficielle du sol à partir des données d'intensité Copernicus Sentinel-1"
+          "tagline": "Cartes d'humidité superficielle du sol à partir de Sentinel-1",
+          "description": "Soil Moisture Mapping estime l'humidité superficielle du sol à partir des données d'intensité Copernicus Sentinel-1 et produit des cartes d'humidité sur la zone sélectionnée."
         }
       }
     },
@@ -193,18 +195,18 @@
       "pinned": false,
       "logoRef": "openforis.png",
       "author": "the Sepal team",
-      "description": "Display active and past fire events from the Fire Information for Resource Management System (FIRMS) using Planet daily data",
-      "tagline": "Display active and past fire events from the Fire Information for Resource Management System (FIRMS) using Planet daily data",
+      "description": "FIRMS/Planet Active Fires Explorer displays active and past fire events from the Fire Information for Resource Management System (FIRMS), using Planet daily data as the imagery backdrop for the alerts.",
+      "tagline": "Active and historical fire events on Planet daily imagery",
       "projectLink": "https://github.com/sepal-contrib/planet_active_fires_explorer",
       "repository": "https://github.com/sepal-contrib/planet_active_fires_explorer",
       "translations": {
         "es": {
-          "tagline": "Muestra incendios activos e históricos del Fire Information for Resource Management System (FIRMS) utilizando datos diarios de Planet",
-          "description": "Muestra incendios activos e históricos del Fire Information for Resource Management System (FIRMS) utilizando datos diarios de Planet"
+          "tagline": "Incendios activos e históricos sobre imágenes diarias de Planet",
+          "description": "FIRMS/Planet Active Fires Explorer muestra los incendios activos e históricos del Fire Information for Resource Management System (FIRMS), utilizando los datos diarios de Planet como imagen de fondo para las alertas."
         },
         "fr": {
-          "tagline": "Affiche les incendies actifs et passés du Fire Information for Resource Management System (FIRMS) à partir des données quotidiennes de Planet",
-          "description": "Affiche les incendies actifs et passés du Fire Information for Resource Management System (FIRMS) à partir des données quotidiennes de Planet"
+          "tagline": "Incendies actifs et passés sur les images quotidiennes Planet",
+          "description": "FIRMS/Planet Active Fires Explorer affiche les incendies actifs et passés du Fire Information for Resource Management System (FIRMS), en utilisant les données quotidiennes de Planet comme fond d'image pour les alertes."
         }
       }
     },
@@ -218,18 +220,18 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
-      "description": "Deforestation alert processing and analysis module",
-      "tagline": "Deforestation alert processing and analysis module",
+      "description": "Deforestation alert analysis brings together forest cover loss alerts from GLAD-L, GLAD-S2, RADD and CCDC for a chosen area and period. A convolutional neural network refines the alerts, and the results can be turned into reports.",
+      "tagline": "Forest cover loss alerts from GLAD, RADD and CCDC",
       "projectLink": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "repository": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "translations": {
         "es": {
-          "tagline": "Módulo de procesamiento y análisis de alertas de deforestación",
-          "description": "Módulo de procesamiento y análisis de alertas de deforestación"
+          "tagline": "Alertas de pérdida de cobertura forestal de GLAD, RADD y CCDC",
+          "description": "Deforestation alert analysis reúne alertas de pérdida de cobertura forestal de GLAD-L, GLAD-S2, RADD y CCDC para un área y un período determinados. Una red neuronal convolucional depura las alertas, y los resultados pueden convertirse en informes."
         },
         "fr": {
-          "tagline": "Module de traitement et d'analyse des alertes de déforestation",
-          "description": "Module de traitement et d'analyse des alertes de déforestation"
+          "tagline": "Alertes de perte de couvert forestier GLAD, RADD et CCDC",
+          "description": "Deforestation alert analysis réunit les alertes de perte de couvert forestier de GLAD-L, GLAD-S2, RADD et CCDC pour une zone et une période données. Un réseau de neurones convolutif affine les alertes, et les résultats peuvent être convertis en rapports."
         }
       }
     },
@@ -243,18 +245,18 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
-      "description": "Tool to manage vector files in SEPAL (upload, download, export to GEE and grid generation)",
-      "tagline": "Tool to manage vector files in SEPAL (upload, download, export to GEE and grid generation)",
+      "description": "Vector file manager handles the vector data held in a SEPAL account. It covers upload and download, export to Google Earth Engine, and the generation of regular grids over an area of interest.",
+      "tagline": "Vector file handling and grid generation inside SEPAL",
       "projectLink": "https://github.com/sepal-contrib/vector_manager",
       "repository": "https://github.com/sepal-contrib/vector_manager",
       "translations": {
         "es": {
-          "tagline": "Herramienta para gestionar archivos vectoriales en SEPAL (carga, descarga, exportación a GEE y generación de cuadrículas)",
-          "description": "Herramienta para gestionar archivos vectoriales en SEPAL (carga, descarga, exportación a GEE y generación de cuadrículas)"
+          "tagline": "Gestión de archivos vectoriales y generación de cuadrículas",
+          "description": "Vector file manager gestiona los datos vectoriales alojados en una cuenta de SEPAL. Cubre la carga y la descarga, la exportación a Google Earth Engine y la generación de cuadrículas regulares sobre un área de interés."
         },
         "fr": {
-          "tagline": "Outil de gestion des fichiers vectoriels dans SEPAL (téléversement, téléchargement, export vers GEE et génération de grilles)",
-          "description": "Outil de gestion des fichiers vectoriels dans SEPAL (téléversement, téléchargement, export vers GEE et génération de grilles)"
+          "tagline": "Gestion des fichiers vectoriels et génération de grilles",
+          "description": "Vector file manager gère les données vectorielles hébergées dans un compte SEPAL. Il couvre le téléversement et le téléchargement, l'export vers Google Earth Engine et la génération de grilles régulières sur une zone d'intérêt."
         }
       }
     },
@@ -270,16 +272,18 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
-      "description": "",
-      "tagline": "Generate a .pdf file containing time series clip on a given set of points",
+      "description": "Time series clip produces a PDF file containing time-series image clips for a given set of points. Each point in the set gets its own sequence of clips, so a large number of locations can be reviewed in a single document.",
+      "tagline": "PDF sheets of time-series image clips for a set of points",
       "projectLink": "https://github.com/sepal-contrib/clip-time-series",
       "repository": "https://github.com/sepal-contrib/clip-time-series",
       "translations": {
         "es": {
-          "tagline": "Genera un archivo .pdf con recortes de series temporales para un conjunto de puntos dado"
+          "tagline": "Fichas PDF con recortes de series temporales por punto",
+          "description": "Time series clip genera un archivo PDF con recortes de series temporales para un conjunto de puntos dado. Cada punto del conjunto recibe su propia secuencia de recortes, de modo que muchas localizaciones pueden revisarse en un único documento."
         },
         "fr": {
-          "tagline": "Génère un fichier .pdf contenant des extraits de séries temporelles pour un ensemble de points donné"
+          "tagline": "Fiches PDF d'extraits de séries temporelles par point",
+          "description": "Time series clip génère un fichier PDF contenant des extraits de séries temporelles pour un ensemble de points donné. Chaque point reçoit sa propre séquence d'extraits, ce qui permet d'examiner de nombreux sites dans un seul document."
         }
       }
     },
@@ -295,18 +299,18 @@
       "googleAccountRequired": false,
       "logoRef": "SMFM_Logo_4.png",
       "author": "Sam Bowers and SEPAL team",
-      "description": "Runs the SMFM toolkit BIOTA method of change detection",
-      "tagline": "Calculate biomass change over time using ALOS Palsar data",
+      "description": "SMFM Biota runs the BIOTA change detection method from the SMFM toolkit on ALOS PALSAR radar data to measure how biomass changes over time.",
+      "tagline": "Biomass change over time from ALOS PALSAR data",
       "projectLink": "https://github.com/sepal-contrib/sepal_smfm_biota",
       "repository": "https://github.com/sepal-contrib/sepal_smfm_biota",
       "translations": {
         "es": {
-          "tagline": "Calcule el cambio de biomasa a lo largo del tiempo utilizando datos ALOS PALSAR",
-          "description": "Ejecuta el método de detección de cambios BIOTA del conjunto de herramientas SMFM"
+          "tagline": "Cambio de biomasa a lo largo del tiempo con ALOS PALSAR",
+          "description": "SMFM Biota ejecuta el método de detección de cambios BIOTA del conjunto de herramientas SMFM sobre datos de radar ALOS PALSAR para medir cómo varía la biomasa a lo largo del tiempo."
         },
         "fr": {
-          "tagline": "Calculez l'évolution de la biomasse dans le temps à partir des données ALOS PALSAR",
-          "description": "Exécute la méthode de détection de changements BIOTA de la boîte à outils SMFM"
+          "tagline": "Évolution de la biomasse dans le temps à partir d'ALOS PALSAR",
+          "description": "SMFM Biota exécute la méthode de détection de changements BIOTA de la boîte à outils SMFM sur des données radar ALOS PALSAR pour mesurer l'évolution de la biomasse dans le temps."
         }
       }
     },
@@ -322,18 +326,18 @@
       "googleAccountRequired": false,
       "logoRef": "SMFM_Logo_4.png",
       "author": "Sam Bowers and SEPAL team",
-      "description": "Runs the SMFM toolkit DEFOREST module",
-      "tagline": "Detect deforestation using a time-series of forest probabilities",
+      "description": "SMFM Deforest runs the DEFOREST module from the SMFM toolkit, detecting deforestation from a time series of forest probabilities.",
+      "tagline": "Deforestation detection from forest probability time series",
       "projectLink": "https://github.com/smfm-project/deforest",
       "repository": "https://github.com/smfm-project/deforest",
       "translations": {
         "es": {
-          "tagline": "Detecte la deforestación mediante una serie temporal de probabilidades de bosque",
-          "description": "Ejecuta el módulo DEFOREST del conjunto de herramientas SMFM"
+          "tagline": "Detección de deforestación a partir de probabilidades de bosque",
+          "description": "SMFM Deforest ejecuta el módulo DEFOREST del conjunto de herramientas SMFM y detecta la deforestación a partir de una serie temporal de probabilidades de bosque."
         },
         "fr": {
-          "tagline": "Détectez la déforestation à partir d'une série temporelle de probabilités de forêt",
-          "description": "Exécute le module DEFOREST de la boîte à outils SMFM"
+          "tagline": "Détection de la déforestation à partir de probabilités de forêt",
+          "description": "SMFM Deforest exécute le module DEFOREST de la boîte à outils SMFM et détecte la déforestation à partir d'une série temporelle de probabilités de forêt."
         }
       }
     },
@@ -349,18 +353,18 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "Monitor SDG 15.3.1 Land Degradation in line with the Good Practice Guidance v2",
-      "tagline": "Monitor SDG indicators at plot level",
+      "description": "SDG 15.3.1 indicator monitors land degradation following the Good Practice Guidance version 2, reporting the indicator at plot level.",
+      "tagline": "Land degradation indicator SDG 15.3.1 for national reporting",
       "projectLink": "https://github.com/sepal-contrib/sdg_15.3.1",
       "repository": "https://github.com/sepal-contrib/sdg_15.3.1",
       "translations": {
         "es": {
-          "tagline": "Monitoree los indicadores de los ODS a nivel de parcela",
-          "description": "Monitoree el indicador ODS 15.3.1 de degradación de tierras conforme a la Guía de Buenas Prácticas v2"
+          "tagline": "Indicador ODS 15.3.1 de degradación de tierras",
+          "description": "SDG 15.3.1 indicator hace seguimiento de la degradación de tierras conforme a la Guía de Buenas Prácticas versión 2 y presenta el indicador a nivel de parcela."
         },
         "fr": {
-          "tagline": "Suivez les indicateurs des ODD à l'échelle de la parcelle",
-          "description": "Suivez l'indicateur ODD 15.3.1 relatif à la dégradation des terres conformément au Guide de bonnes pratiques v2"
+          "tagline": "Indicateur ODD 15.3.1 de dégradation des terres",
+          "description": "SDG 15.3.1 indicator assure le suivi de la dégradation des terres conformément au Guide de bonnes pratiques version 2 et restitue l'indicateur à l'échelle de la parcelle."
         }
       }
     },
@@ -376,18 +380,18 @@
       "googleAccountRequired": false,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "A suite of various geospatial image analysis tools",
-      "tagline": "A suite of various geospatial image analysis tools",
+      "description": "GuidosToolbox Workbench (GWB) Analysis brings a subset of the desktop GuidosToolbox package to SEPAL, running its geospatial image analysis tools on raster data.",
+      "tagline": "Geospatial image analysis tools from GuidosToolbox",
       "projectLink": "https://github.com/sepal-contrib/gwb",
       "repository": "https://github.com/sepal-contrib/gwb",
       "translations": {
         "es": {
-          "tagline": "Un conjunto de herramientas variadas para el análisis de imágenes geoespaciales",
-          "description": "Un conjunto de herramientas variadas para el análisis de imágenes geoespaciales"
+          "tagline": "Herramientas de análisis de imágenes geoespaciales de GuidosToolbox",
+          "description": "GuidosToolbox Workbench (GWB) Analysis lleva a SEPAL un subconjunto del paquete de escritorio GuidosToolbox y ejecuta sus herramientas de análisis de imágenes geoespaciales sobre datos ráster."
         },
         "fr": {
-          "tagline": "Une suite d'outils variés d'analyse d'images géospatiales",
-          "description": "Une suite d'outils variés d'analyse d'images géospatiales"
+          "tagline": "Outils d'analyse d'images géospatiales de GuidosToolbox",
+          "description": "GuidosToolbox Workbench (GWB) Analysis apporte dans SEPAL un sous-ensemble du logiciel de bureau GuidosToolbox et exécute ses outils d'analyse d'images géospatiales sur des données raster."
         }
       }
     },
@@ -403,18 +407,18 @@
       "googleAccountRequired": false,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "Order and download imagery from PlanetLab mosaics",
-      "tagline": "Order and download imagery from PlanetLab mosaics",
+      "description": "PlanetLab mosaics order provides an interface to explore, order and download Planet Labs imagery from the Planet mosaics. Ordered imagery is delivered into the SEPAL workspace.",
+      "tagline": "Ordering and download of Planet Labs mosaic imagery",
       "projectLink": "https://github.com/sepal-contrib/planet-order",
       "repository": "https://github.com/sepal-contrib/planet-order",
       "translations": {
         "es": {
-          "tagline": "Solicite y descargue imágenes de los mosaicos de PlanetLab",
-          "description": "Solicite y descargue imágenes de los mosaicos de PlanetLab"
+          "tagline": "Solicitud y descarga de imágenes de mosaicos de Planet Labs",
+          "description": "PlanetLab mosaics order ofrece una interfaz para explorar, solicitar y descargar imágenes de Planet Labs a partir de los mosaicos de Planet. Las imágenes solicitadas se entregan en el espacio de trabajo de SEPAL."
         },
         "fr": {
-          "tagline": "Commandez et téléchargez des images des mosaïques PlanetLab",
-          "description": "Commandez et téléchargez des images des mosaïques PlanetLab"
+          "tagline": "Commande et téléchargement d'images des mosaïques Planet Labs",
+          "description": "PlanetLab mosaics order offre une interface pour explorer, commander et télécharger des images Planet Labs à partir des mosaïques Planet. Les images commandées sont déposées dans l'espace de travail SEPAL."
         }
       }
     },
@@ -431,18 +435,18 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "Sentinel-1 based change detection for damage estimation",
-      "tagline": "Damage estimation from Sentinel-1",
+      "description": "Damage Proxy Maps applies change detection to Sentinel-1 radar imagery to produce a proxy map of where damage has occurred.",
+      "tagline": "Damage proxy maps from Sentinel-1 change detection",
       "projectLink": "https://github.com/sepal-contrib/damage_proxy_maps",
       "repository": "https://github.com/sepal-contrib/damage_proxy_maps",
       "translations": {
         "es": {
-          "tagline": "Estimación de daños a partir de Sentinel-1",
-          "description": "Detección de cambios basada en Sentinel-1 para la estimación de daños"
+          "tagline": "Mapas indicativos de daños por detección de cambios Sentinel-1",
+          "description": "Damage Proxy Maps aplica detección de cambios sobre imágenes de radar Sentinel-1 para producir un mapa indicativo de dónde se han producido daños."
         },
         "fr": {
-          "tagline": "Estimation des dommages à partir de Sentinel-1",
-          "description": "Détection de changements basée sur Sentinel-1 pour l'estimation des dommages"
+          "tagline": "Cartes indicatives de dommages par détection de changements",
+          "description": "Damage Proxy Maps applique une détection de changements aux images radar Sentinel-1 pour produire une carte indicative des zones endommagées."
         }
       }
     },
@@ -459,18 +463,18 @@
       "googleAccountRequired": false,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "Spatially cumulative sum algorithm for change detection within univariate time-series (GPU powered)",
-      "tagline": "Spatially cumulative sum algorithm for change detection within univariate time-series (GPU powered)",
+      "description": "CUSUM time-series change detection applies a spatially cumulative sum algorithm to univariate time series in order to detect change.",
+      "tagline": "GPU-accelerated CUSUM change detection on time series",
       "projectLink": "https://github.com/sepal-contrib/cumsum_change",
       "repository": "https://github.com/sepal-contrib/cumsum_change",
       "translations": {
         "es": {
-          "tagline": "Algoritmo de suma acumulada espacial para la detección de cambios en series temporales univariantes (acelerado por GPU)",
-          "description": "Algoritmo de suma acumulada espacial para la detección de cambios en series temporales univariantes (acelerado por GPU)"
+          "tagline": "Detección de cambios CUSUM en series temporales, acelerada por GPU",
+          "description": "CUSUM time-series change detection aplica un algoritmo de suma acumulada espacial a series temporales univariantes para detectar cambios."
         },
         "fr": {
-          "tagline": "Algorithme de somme cumulée spatiale pour la détection de changements dans des séries temporelles univariées (accéléré par GPU)",
-          "description": "Algorithme de somme cumulée spatiale pour la détection de changements dans des séries temporelles univariées (accéléré par GPU)"
+          "tagline": "Détection de changements CUSUM accélérée par GPU",
+          "description": "CUSUM time-series change detection applique un algorithme de somme cumulée spatiale à des séries temporelles univariées afin de détecter des changements."
         }
       }
     },
@@ -486,8 +490,8 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "Calculates the SDG 15.4.2 subindicator A and B at national/sub-regional scale",
-      "tagline": "Calculates the SDG 15.4.2 subindicator A and B at national/sub-regional scale",
+      "description": "SEPAL-SDG 15.4.2 calculates sub-indicators A and B of SDG 15.4.2 at national and sub-regional scale. The results are produced for the reporting units of the selected country or region.",
+      "tagline": "Sub-indicators A and B of SDG 15.4.2 at national scale",
       "projectLink": "https://github.com/sepal-contrib/sepal_mgci",
       "repository": "https://github.com/sepal-contrib/sepal_mgci",
       "port": 8766,
@@ -495,12 +499,12 @@
       "commit": "244e2d50282a5d7e65c74825d262e6503847a5f4",
       "translations": {
         "es": {
-          "tagline": "Calcula los subindicadores A y B del ODS 15.4.2 a escala nacional y subregional",
-          "description": "Calcula los subindicadores A y B del ODS 15.4.2 a escala nacional y subregional"
+          "tagline": "Subindicadores A y B del ODS 15.4.2 a escala nacional",
+          "description": "SEPAL-SDG 15.4.2 calcula los subindicadores A y B del ODS 15.4.2 a escala nacional y subregional. Los resultados se generan para las unidades de reporte del país o la región seleccionada."
         },
         "fr": {
-          "tagline": "Calcule les sous-indicateurs A et B de l'ODD 15.4.2 à l'échelle nationale et sous-régionale",
-          "description": "Calcule les sous-indicateurs A et B de l'ODD 15.4.2 à l'échelle nationale et sous-régionale"
+          "tagline": "Sous-indicateurs A et B de l'ODD 15.4.2 à l'échelle nationale",
+          "description": "SEPAL-SDG 15.4.2 calcule les sous-indicateurs A et B de l'ODD 15.4.2 à l'échelle nationale et sous-régionale. Les résultats sont produits pour les unités de rapportage du pays ou de la région sélectionnée."
         }
       }
     },
@@ -513,17 +517,15 @@
       "googleAccountRequired": false,
       "logoRef": "openforis.png",
       "author": "The Open Foris team",
-      "description": "The power of Google Earth Engine without coding",
-      "tagline": "The power of Google Earth Engine without coding",
+      "description": "",
+      "tagline": "Google Earth Engine analysis without writing code",
       "projectLink": "https://github.com/openforis/earth-map",
       "translations": {
         "es": {
-          "tagline": "La potencia de Google Earth Engine sin programar",
-          "description": "La potencia de Google Earth Engine sin programar"
+          "tagline": "Análisis con Google Earth Engine sin programar"
         },
         "fr": {
-          "tagline": "La puissance de Google Earth Engine sans programmation",
-          "description": "La puissance de Google Earth Engine sans programmation"
+          "tagline": "Analyse avec Google Earth Engine sans programmation"
         }
       }
     },
@@ -537,18 +539,18 @@
       "googleAccountRequired": false,
       "logoRef": "leafmap.png",
       "author": "Leafmap",
-      "description": "Provide access to the power of Leafmap in a SEPAL application",
-      "tagline": "Provide access to the power of Leafmap in a SEPAL application",
+      "description": "Leafmap gives access to the Leafmap Python mapping library, whose interactive maps and geospatial analysis tools run directly in the browser.",
+      "tagline": "Interactive maps and geospatial analysis with Leafmap",
       "projectLink": "https://github.com/sepal-contrib/sepal-leafmap",
       "repository": "https://github.com/sepal-contrib/sepal-leafmap",
       "translations": {
         "es": {
-          "tagline": "Ofrece acceso a la potencia de Leafmap en una aplicación de SEPAL",
-          "description": "Ofrece acceso a la potencia de Leafmap en una aplicación de SEPAL"
+          "tagline": "Mapas interactivos y análisis geoespacial con Leafmap",
+          "description": "Leafmap da acceso a la biblioteca de mapas Leafmap de Python, cuyas herramientas de cartografía interactiva y análisis geoespacial se ejecutan directamente en el navegador."
         },
         "fr": {
-          "tagline": "Donne accès à la puissance de Leafmap dans une application SEPAL",
-          "description": "Donne accès à la puissance de Leafmap dans une application SEPAL"
+          "tagline": "Cartes interactives et analyse géospatiale avec Leafmap",
+          "description": "Leafmap donne accès à la bibliothèque cartographique Python Leafmap, dont les outils de cartographie interactive et d'analyse géospatiale s'exécutent directement dans le navigateur."
         }
       }
     },
@@ -563,8 +565,8 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
-      "description": "",
-      "tagline": "",
+      "description": "Sample Based Area Estimation holds a set of notebooks for producing sample based area estimates. It runs an ensemble classification over a dense set of points using several time-series and remote sensing products, with a Kozak-Neyman stratification.",
+      "tagline": "Sample-based area estimation with Kozak-Neyman stratification",
       "projectLink": "https://github.com/sepal-contrib/eSBAE_notebooks",
       "repository": "https://github.com/sepal-contrib/eSBAE_notebooks"
     },
@@ -579,8 +581,8 @@
       "googleAccountRequired": false,
       "logoRef": "sepal.png",
       "author": "Matthew-J-Payne",
-      "description": "",
-      "tagline": "",
+      "description": "Python for Earth Observation (PyEO) provides a modular set of Python scripts for machine learning applied to Earth observation and GIS data. It covers downloading, preprocessing, baseline composite creation, classification and validation.",
+      "tagline": "Python toolchain for machine learning on Earth observation data",
       "projectLink": "https://github.com/clcr/pyeo",
       "repository": "https://github.com/clcr/pyeo"
     },
@@ -597,8 +599,8 @@
       "logoRef": "sepal.png",
       "logo": "https://raw.githubusercontent.com/sepal-contrib/se.plan/main/assets/seplan-logo.png",
       "author": "The SEPAL team",
-      "description": "Restoration planning tool using a weighted-sum approach",
-      "tagline": "Restoration planning tool using a weighted-sum approach",
+      "description": "se.plan combines ecological data on forest restoration with data on its benefits, costs and risks, using a weighted-sum approach. It produces a restoration suitability index from 1 to 5 for each location in an area of interest.",
+      "tagline": "Forest restoration suitability and impact maps",
       "projectLink": "https://github.com/sepal-contrib/se.plan/",
       "repository": "https://github.com/sepal-contrib/se.plan",
       "port": 8765,
@@ -606,12 +608,12 @@
       "commit": "153299f436597e48b052c69e4eb836810e3f69e8",
       "translations": {
         "es": {
-          "tagline": "Herramienta de planificación de la restauración basada en un enfoque de suma ponderada",
-          "description": "Herramienta de planificación de la restauración basada en un enfoque de suma ponderada"
+          "tagline": "Mapas de aptitud e impacto de la restauración forestal",
+          "description": "se.plan combina datos ecológicos sobre restauración forestal con datos sobre sus beneficios, costes y riesgos, mediante un enfoque de suma ponderada. Produce un índice de aptitud para la restauración de 1 a 5 para cada localización del área de interés."
         },
         "fr": {
-          "tagline": "Outil de planification de la restauration fondé sur une approche de somme pondérée",
-          "description": "Outil de planification de la restauration fondé sur une approche de somme pondérée"
+          "tagline": "Cartes d'aptitude et d'impact de la restauration forestière",
+          "description": "se.plan combine des données écologiques sur la restauration forestière avec des données sur ses bénéfices, coûts et risques, selon une approche de somme pondérée. Il produit un indice d'aptitude à la restauration de 1 à 5 pour chaque site de la zone d'intérêt."
         }
       }
     },
@@ -626,19 +628,17 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "SAM environment",
+      "description": "",
       "tagline": "SAM environment",
       "projectLink": "https://github.com/dfguerrerom/sepal-sam",
       "repository": "https://github.com/dfguerrerom/sepal-sam",
       "brach": "main",
       "translations": {
         "es": {
-          "tagline": "Entorno SAM",
-          "description": "Entorno SAM"
+          "tagline": "Entorno SAM"
         },
         "fr": {
-          "tagline": "Environnement SAM",
-          "description": "Environnement SAM"
+          "tagline": "Environnement SAM"
         }
       }
     },
@@ -667,16 +667,16 @@
             "FOREST"
           ],
           "pinned": false,
-          "description": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
-          "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
+          "description": "Forest change mask combines the Global Forest Change (GFC) layers into a single forest change map.",
+          "tagline": "Forest change map built from Global Forest Change layers",
           "translations": {
             "es": {
-              "tagline": "Combine las capas de Global Forest Change (GFC) para producir un mapa de cambio forestal",
-              "description": "Combine las capas de Global Forest Change (GFC) para producir un mapa de cambio forestal"
+              "tagline": "Mapa de cambio forestal a partir de las capas Global Forest Change",
+              "description": "Forest change mask combina las capas de Global Forest Change (GFC) en un único mapa de cambio forestal."
             },
             "fr": {
-              "tagline": "Combinez les couches Global Forest Change (GFC) pour produire une carte du changement forestier",
-              "description": "Combinez les couches Global Forest Change (GFC) pour produire une carte du changement forestier"
+              "tagline": "Carte de changement forestier issue des couches Global Forest Change",
+              "description": "Forest change mask combine les couches Global Forest Change (GFC) en une seule carte de changement forestier."
             }
           }
         },
@@ -684,16 +684,16 @@
           "id": "basin-rivers",
           "route": "basin-rivers",
           "label": "Resilient rivers and basin",
-          "description": "Upstream watershed delineation (HydroSHEDS) combined with Hansen GFC to compute forest cover change per sub-catchment",
-          "tagline": "Get Forest Cover Change by upstream sub-catchment",
+          "description": "Resilient rivers and basin delineates upstream watersheds with HydroSHEDS and combines them with Hansen Global Forest Change to compute forest cover change for each sub-catchment.",
+          "tagline": "Forest cover change per upstream sub-catchment",
           "translations": {
             "es": {
-              "tagline": "Obtenga el cambio de cobertura forestal por subcuenca aguas arriba",
-              "description": "Delimitación de cuencas aguas arriba (HydroSHEDS) combinada con Hansen GFC para calcular el cambio de cobertura forestal por subcuenca"
+              "tagline": "Cambio de cobertura forestal por subcuenca aguas arriba",
+              "description": "Resilient rivers and basin delimita las cuencas aguas arriba con HydroSHEDS y las combina con Hansen Global Forest Change para calcular el cambio de cobertura forestal de cada subcuenca."
             },
             "fr": {
-              "tagline": "Obtenez le changement de couverture forestière par sous-bassin en amont",
-              "description": "Délimitation des bassins versants en amont (HydroSHEDS) combinée à Hansen GFC pour calculer le changement de couverture forestière par sous-bassin"
+              "tagline": "Changement de couverture forestière par sous-bassin amont",
+              "description": "Resilient rivers and basin délimite les bassins versants en amont avec HydroSHEDS et les combine à Hansen Global Forest Change pour calculer le changement de couverture forestière de chaque sous-bassin."
             }
           }
         },
@@ -701,16 +701,16 @@
           "id": "fcdm",
           "route": "fcdm",
           "label": "Forest Canopy Disturbance Monitoring (FCDM)",
-          "description": "Mapping all kind of canopy disturbances (natural or human induced) within (semi-)evergreen forests",
-          "tagline": "Mapping all kind of canopy disturbances (natural or human induced) within (semi-)evergreen forests",
+          "description": "Forest Canopy Disturbance Monitoring (FCDM) maps canopy disturbances within (semi-)evergreen forests, covering disturbances of all kinds, whether natural or induced by human activity.",
+          "tagline": "Canopy disturbance maps for (semi-)evergreen forests",
           "translations": {
             "es": {
-              "tagline": "Cartografía de todo tipo de perturbaciones del dosel (naturales o inducidas por el ser humano) en bosques (semi)perennifolios",
-              "description": "Cartografía de todo tipo de perturbaciones del dosel (naturales o inducidas por el ser humano) en bosques (semi)perennifolios"
+              "tagline": "Mapas de perturbaciones del dosel en bosques (semi)perennifolios",
+              "description": "Forest Canopy Disturbance Monitoring (FCDM) cartografía las perturbaciones del dosel en bosques (semi)perennifolios, abarcando perturbaciones de todo tipo, tanto naturales como inducidas por la actividad humana."
             },
             "fr": {
-              "tagline": "Cartographie de tous types de perturbations du couvert forestier (naturelles ou d'origine humaine) dans les forêts (semi-)sempervirentes",
-              "description": "Cartographie de tous types de perturbations du couvert forestier (naturelles ou d'origine humaine) dans les forêts (semi-)sempervirentes"
+              "tagline": "Cartes des perturbations du couvert en forêts sempervirentes",
+              "description": "Forest Canopy Disturbance Monitoring (FCDM) cartographie les perturbations du couvert dans les forêts (semi-)sempervirentes, en couvrant tous les types de perturbations, naturelles comme d'origine humaine."
             }
           }
         },
@@ -718,16 +718,16 @@
           "id": "coverage-analysis",
           "route": "coverage-analysis",
           "label": "Coverage Analysis",
-          "description": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine",
-          "tagline": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine",
+          "description": "Coverage Analysis maps how many cloud-free observations are available over an area of interest, for the major optical satellites carried in Google Earth Engine. The result shows where and when usable imagery exists before any processing is run.",
+          "tagline": "Cloud-free observation counts for major optical satellites",
           "translations": {
             "es": {
-              "tagline": "Cree mapas de observaciones libres de nubes para los principales satélites ópticos disponibles en Google Earth Engine",
-              "description": "Cree mapas de observaciones libres de nubes para los principales satélites ópticos disponibles en Google Earth Engine"
+              "tagline": "Recuento de observaciones sin nubes de satélites ópticos",
+              "description": "Coverage Analysis cartografía cuántas observaciones libres de nubes hay disponibles sobre un área de interés, para los principales satélites ópticos alojados en Google Earth Engine. El resultado muestra dónde y cuándo existen imágenes utilizables antes de ejecutar cualquier procesamiento."
             },
             "fr": {
-              "tagline": "Créez des cartes d'observations sans nuages pour les principaux satellites optiques disponibles sur Google Earth Engine",
-              "description": "Créez des cartes d'observations sans nuages pour les principaux satellites optiques disponibles sur Google Earth Engine"
+              "tagline": "Nombre d'observations sans nuages des satellites optiques",
+              "description": "Coverage Analysis cartographie le nombre d'observations sans nuages disponibles sur une zone d'intérêt, pour les principaux satellites optiques présents dans Google Earth Engine. Le résultat montre où et quand des images exploitables existent, avant tout traitement."
             }
           }
         },
@@ -738,16 +738,16 @@
           "tags": [
             "FOREST"
           ],
-          "description": "JRC TMF Degradation, Deforestation and Annual Change visualization and export",
-          "tagline": "JRC Tropical Moist Forests visualization and export",
+          "description": "Tropical Moist Forests (TMF) displays and exports the JRC Tropical Moist Forests layers, covering degradation, deforestation and annual change. The selected layers are exported from Earth Engine.",
+          "tagline": "JRC Tropical Moist Forests layers for viewing and export",
           "translations": {
             "es": {
-              "tagline": "Visualización y exportación de los bosques húmedos tropicales del JRC",
-              "description": "Visualización y exportación de las capas de degradación, deforestación y cambio anual del TMF del JRC"
+              "tagline": "Capas de Bosques Húmedos Tropicales del JRC para ver y exportar",
+              "description": "Tropical Moist Forests (TMF) visualiza y exporta las capas de Bosques Húmedos Tropicales del JRC, que cubren degradación, deforestación y cambio anual. Las capas seleccionadas se exportan desde Earth Engine."
             },
             "fr": {
-              "tagline": "Visualisation et export des forêts tropicales humides du JRC",
-              "description": "Visualisation et export des couches de dégradation, déforestation et changement annuel du TMF du JRC"
+              "tagline": "Couches Forêts tropicales humides du JRC à visualiser et exporter",
+              "description": "Tropical Moist Forests (TMF) visualise et exporte les couches Forêts tropicales humides du JRC, couvrant la dégradation, la déforestation et le changement annuel. Les couches sélectionnées sont exportées depuis Earth Engine."
             }
           }
         },
@@ -759,16 +759,16 @@
             "SAR",
             "LAND_COVER"
           ],
-          "description": "Create and manipulate ALOS K&C Mosaics",
-          "tagline": "Create and manipulate ALOS K&C Mosaics",
+          "description": "ALOS PALSAR mosaics assembles and adjusts the ALOS Kyoto & Carbon radar mosaics from JAXA.",
+          "tagline": "ALOS Kyoto & Carbon radar mosaics for a selected area",
           "translations": {
             "es": {
-              "tagline": "Cree y manipule mosaicos ALOS K&C",
-              "description": "Cree y manipule mosaicos ALOS K&C"
+              "tagline": "Mosaicos de radar ALOS Kyoto & Carbon para un área seleccionada",
+              "description": "ALOS PALSAR mosaics compone y ajusta los mosaicos de radar ALOS Kyoto & Carbon de JAXA."
             },
             "fr": {
-              "tagline": "Créez et manipulez des mosaïques ALOS K&C",
-              "description": "Créez et manipulez des mosaïques ALOS K&C"
+              "tagline": "Mosaïques radar ALOS Kyoto & Carbon pour une zone sélectionnée",
+              "description": "ALOS PALSAR mosaics compose et ajuste les mosaïques radar ALOS Kyoto & Carbon de la JAXA."
             }
           }
         },
@@ -782,20 +782,21 @@
           ],
           "logoRef": "sepal.png",
           "author": "The SEPAL team",
-          "description": "Extract source code from any GEE app URL",
-          "tagline": "Extract source code from any GEE app URL",
+          "description": "Earth Engine app reader extracts the source code behind a published Google Earth Engine application from its URL.",
+          "tagline": "Source code extraction from a published Earth Engine app",
           "translations": {
             "es": {
-              "tagline": "Extraiga el código fuente de la URL de cualquier aplicación de GEE",
-              "description": "Extraiga el código fuente de la URL de cualquier aplicación de GEE"
+              "tagline": "Extracción del código fuente de una aplicación de Earth Engine",
+              "description": "Earth Engine app reader extrae el código fuente de una aplicación publicada de Google Earth Engine a partir de su URL."
             },
             "fr": {
-              "tagline": "Extrayez le code source depuis l'URL de n'importe quelle application GEE",
-              "description": "Extrayez le code source depuis l'URL de n'importe quelle application GEE"
+              "tagline": "Extraction du code source d'une application Earth Engine",
+              "description": "Earth Engine app reader extrait le code source d'une application Google Earth Engine publiée à partir de son URL."
             }
           }
         }
-      ]
+      ],
+      "tagline": "Earth Engine tools grouped in a single SEPAL application"
     },
     {
       "id": "spatial-risk-module",
@@ -809,19 +810,19 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "Build and evaluate spatial risk maps for deforestation and forest degradation: assemble predictor variables from Earth Engine and local rasters, train and compare models (moving window, JNR, iCAR, machine learning) and export validated risk maps.",
-      "tagline": "Model and map deforestation risk from Earth Engine and local data",
+      "description": "Spatial Risk Modelling assembles predictor variables from local rasters and/or Earth Engine, then trains and compares moving window, JNR, iCAR, GLM and random forest models. It evaluates the resulting deforestation and forest degradation risk maps and exports the validated layers.",
+      "tagline": "Deforestation risk maps from local rasters and/or Earth Engine",
       "projectLink": "https://github.com/sepal-contrib/spatial-risk-module",
       "repository": "https://github.com/sepal-contrib/spatial-risk-module",
       "branch": "demo-gui",
       "translations": {
         "es": {
-          "tagline": "Modele y cartografíe el riesgo de deforestación a partir de datos de Earth Engine y locales",
-          "description": "Construya y evalúe mapas de riesgo espacial de deforestación y degradación forestal: reúna variables predictoras a partir de Earth Engine y ráster locales, entrene y compare modelos (ventana móvil, JNR, iCAR, aprendizaje automático) y exporte mapas de riesgo validados."
+          "tagline": "Mapas de riesgo de deforestación a partir de datos locales y/o de Earth Engine",
+          "description": "Spatial Risk Modelling reúne variables predictoras a partir de rásteres locales y/o de Earth Engine. Con ellas entrena y compara modelos de ventana móvil, JNR, iCAR, GLM y random forest. Produce mapas de riesgo de deforestación y degradación forestal, que evalúa antes de exportar las capas validadas."
         },
         "fr": {
-          "tagline": "Modélisez et cartographiez le risque de déforestation à partir de données Earth Engine et locales",
-          "description": "Construisez et évaluez des cartes de risque spatial de déforestation et de dégradation forestière : assemblez des variables prédictives à partir d'Earth Engine et de rasters locaux, entraînez et comparez des modèles (fenêtre mobile, JNR, iCAR, apprentissage automatique) et exportez des cartes de risque validées."
+          "tagline": "Cartes de risque de déforestation à partir de données locales et/ou d'Earth Engine",
+          "description": "Spatial Risk Modelling rassemble des variables prédictives issues de rasters locaux et/ou d'Earth Engine, puis entraîne et compare des modèles à fenêtre mobile, JNR, iCAR, GLM et random forest. Il évalue les cartes de risque de déforestation et de dégradation forestière obtenues et exporte les couches validées."
         }
       }
     }
