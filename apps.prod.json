@@ -767,19 +767,17 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "SAM environment",
+      "description": "",
       "tagline": "SAM environment",
       "projectLink": "https://github.com/dfguerrerom/sepal-sam",
       "repository": "https://github.com/dfguerrerom/sepal-sam",
       "branch": "release",
       "translations": {
         "es": {
-          "tagline": "Entorno SAM",
-          "description": "Entorno SAM"
+          "tagline": "Entorno SAM"
         },
         "fr": {
-          "tagline": "Environnement SAM",
-          "description": "Environnement SAM"
+          "tagline": "Environnement SAM"
         }
       }
     },
