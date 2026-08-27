@@ -218,18 +218,18 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
-      "description": "Deforestation alert processing and analysis module",
-      "tagline": "Deforestation alert processing and analysis module",
+      "description": "Deforestation alert analysis brings together forest cover loss alerts from GLAD-L, GLAD-S2, RADD and CCDC for a chosen area and period. A convolutional neural network refines the alerts, and the results can be turned into reports.",
+      "tagline": "Forest cover loss alerts from GLAD, RADD and CCDC",
       "projectLink": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "repository": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "translations": {
         "es": {
-          "tagline": "Módulo de procesamiento y análisis de alertas de deforestación",
-          "description": "Módulo de procesamiento y análisis de alertas de deforestación"
+          "tagline": "Alertas de pérdida de cobertura forestal de GLAD, RADD y CCDC",
+          "description": "Deforestation alert analysis reúne alertas de pérdida de cobertura forestal de GLAD-L, GLAD-S2, RADD y CCDC para un área y un período determinados. Una red neuronal convolucional depura las alertas, y los resultados pueden convertirse en informes."
         },
         "fr": {
-          "tagline": "Module de traitement et d'analyse des alertes de déforestation",
-          "description": "Module de traitement et d'analyse des alertes de déforestation"
+          "tagline": "Alertes de perte de couvert forestier GLAD, RADD et CCDC",
+          "description": "Deforestation alert analysis réunit les alertes de perte de couvert forestier de GLAD-L, GLAD-S2, RADD et CCDC pour une zone et une période données. Un réseau de neurones convolutif affine les alertes, et les résultats peuvent être convertis en rapports."
         }
       }
     },
@@ -376,18 +376,18 @@
       "googleAccountRequired": false,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "A suite of various geospatial image analysis tools",
-      "tagline": "A suite of various geospatial image analysis tools",
+      "description": "GuidosToolbox Workbench (GWB) Analysis brings a subset of the desktop GuidosToolbox package to SEPAL, running its geospatial image analysis tools on raster data.",
+      "tagline": "Geospatial image analysis tools from GuidosToolbox",
       "projectLink": "https://github.com/sepal-contrib/gwb",
       "repository": "https://github.com/sepal-contrib/gwb",
       "translations": {
         "es": {
-          "tagline": "Un conjunto de herramientas variadas para el análisis de imágenes geoespaciales",
-          "description": "Un conjunto de herramientas variadas para el análisis de imágenes geoespaciales"
+          "tagline": "Herramientas de análisis de imágenes geoespaciales de GuidosToolbox",
+          "description": "GuidosToolbox Workbench (GWB) Analysis lleva a SEPAL un subconjunto del paquete de escritorio GuidosToolbox y ejecuta sus herramientas de análisis de imágenes geoespaciales sobre datos ráster."
         },
         "fr": {
-          "tagline": "Une suite d'outils variés d'analyse d'images géospatiales",
-          "description": "Une suite d'outils variés d'analyse d'images géospatiales"
+          "tagline": "Outils d'analyse d'images géospatiales de GuidosToolbox",
+          "description": "GuidosToolbox Workbench (GWB) Analysis apporte dans SEPAL un sous-ensemble du logiciel de bureau GuidosToolbox et exécute ses outils d'analyse d'images géospatiales sur des données raster."
         }
       }
     },
@@ -403,18 +403,18 @@
       "googleAccountRequired": false,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "Order and download imagery from PlanetLab mosaics",
-      "tagline": "Order and download imagery from PlanetLab mosaics",
+      "description": "PlanetLab mosaics order provides an interface to explore, order and download Planet Labs imagery from the Planet mosaics. Ordered imagery is delivered into the SEPAL workspace.",
+      "tagline": "Ordering and download of Planet Labs mosaic imagery",
       "projectLink": "https://github.com/sepal-contrib/planet-order",
       "repository": "https://github.com/sepal-contrib/planet-order",
       "translations": {
         "es": {
-          "tagline": "Solicite y descargue imágenes de los mosaicos de PlanetLab",
-          "description": "Solicite y descargue imágenes de los mosaicos de PlanetLab"
+          "tagline": "Solicitud y descarga de imágenes de mosaicos de Planet Labs",
+          "description": "PlanetLab mosaics order ofrece una interfaz para explorar, solicitar y descargar imágenes de Planet Labs a partir de los mosaicos de Planet. Las imágenes solicitadas se entregan en el espacio de trabajo de SEPAL."
         },
         "fr": {
-          "tagline": "Commandez et téléchargez des images des mosaïques PlanetLab",
-          "description": "Commandez et téléchargez des images des mosaïques PlanetLab"
+          "tagline": "Commande et téléchargement d'images des mosaïques Planet Labs",
+          "description": "PlanetLab mosaics order offre une interface pour explorer, commander et télécharger des images Planet Labs à partir des mosaïques Planet. Les images commandées sont déposées dans l'espace de travail SEPAL."
         }
       }
     },
@@ -537,18 +537,18 @@
       "googleAccountRequired": false,
       "logoRef": "leafmap.png",
       "author": "Leafmap",
-      "description": "Provide access to the power of Leafmap in a SEPAL application",
-      "tagline": "Provide access to the power of Leafmap in a SEPAL application",
+      "description": "Leafmap gives access to the Leafmap Python mapping library, whose interactive maps and geospatial analysis tools run directly in the browser.",
+      "tagline": "Interactive maps and geospatial analysis with Leafmap",
       "projectLink": "https://github.com/sepal-contrib/sepal-leafmap",
       "repository": "https://github.com/sepal-contrib/sepal-leafmap",
       "translations": {
         "es": {
-          "tagline": "Ofrece acceso a la potencia de Leafmap en una aplicación de SEPAL",
-          "description": "Ofrece acceso a la potencia de Leafmap en una aplicación de SEPAL"
+          "tagline": "Mapas interactivos y análisis geoespacial con Leafmap",
+          "description": "Leafmap da acceso a la biblioteca de mapas Leafmap de Python, cuyas herramientas de cartografía interactiva y análisis geoespacial se ejecutan directamente en el navegador."
         },
         "fr": {
-          "tagline": "Donne accès à la puissance de Leafmap dans une application SEPAL",
-          "description": "Donne accès à la puissance de Leafmap dans une application SEPAL"
+          "tagline": "Cartes interactives et analyse géospatiale avec Leafmap",
+          "description": "Leafmap donne accès à la bibliothèque cartographique Python Leafmap, dont les outils de cartographie interactive et d'analyse géospatiale s'exécutent directement dans le navigateur."
         }
       }
     },
@@ -563,8 +563,8 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
-      "description": "",
-      "tagline": "",
+      "description": "Sample Based Area Estimation holds a set of notebooks for producing sample based area estimates. It runs an ensemble classification over a dense set of points using several time-series and remote sensing products, with a Kozak-Neyman stratification.",
+      "tagline": "Sample-based area estimation with Kozak-Neyman stratification",
       "projectLink": "https://github.com/sepal-contrib/eSBAE_notebooks",
       "repository": "https://github.com/sepal-contrib/eSBAE_notebooks"
     },
@@ -579,8 +579,8 @@
       "googleAccountRequired": false,
       "logoRef": "sepal.png",
       "author": "Matthew-J-Payne",
-      "description": "",
-      "tagline": "",
+      "description": "Python for Earth Observation (PyEO) provides a modular set of Python scripts for machine learning applied to Earth observation and GIS data. It covers downloading, preprocessing, baseline composite creation, classification and validation.",
+      "tagline": "Python toolchain for machine learning on Earth observation data",
       "projectLink": "https://github.com/clcr/pyeo",
       "repository": "https://github.com/clcr/pyeo"
     },
@@ -597,8 +597,8 @@
       "logoRef": "sepal.png",
       "logo": "https://raw.githubusercontent.com/sepal-contrib/se.plan/main/assets/seplan-logo.png",
       "author": "The SEPAL team",
-      "description": "Restoration planning tool using a weighted-sum approach",
-      "tagline": "Restoration planning tool using a weighted-sum approach",
+      "description": "se.plan combines ecological data on forest restoration with data on its benefits, costs and risks, using a weighted-sum approach. It produces a restoration suitability index from 1 to 5 for each location in an area of interest.",
+      "tagline": "Forest restoration suitability and impact maps",
       "projectLink": "https://github.com/sepal-contrib/se.plan/",
       "repository": "https://github.com/sepal-contrib/se.plan",
       "port": 8765,
@@ -606,12 +606,12 @@
       "commit": "153299f436597e48b052c69e4eb836810e3f69e8",
       "translations": {
         "es": {
-          "tagline": "Herramienta de planificación de la restauración basada en un enfoque de suma ponderada",
-          "description": "Herramienta de planificación de la restauración basada en un enfoque de suma ponderada"
+          "tagline": "Mapas de aptitud e impacto de la restauración forestal",
+          "description": "se.plan combina datos ecológicos sobre restauración forestal con datos sobre sus beneficios, costes y riesgos, mediante un enfoque de suma ponderada. Produce un índice de aptitud para la restauración de 1 a 5 para cada localización del área de interés."
         },
         "fr": {
-          "tagline": "Outil de planification de la restauration fondé sur une approche de somme pondérée",
-          "description": "Outil de planification de la restauration fondé sur une approche de somme pondérée"
+          "tagline": "Cartes d'aptitude et d'impact de la restauration forestière",
+          "description": "se.plan combine des données écologiques sur la restauration forestière avec des données sur ses bénéfices, coûts et risques, selon une approche de somme pondérée. Il produit un indice d'aptitude à la restauration de 1 à 5 pour chaque site de la zone d'intérêt."
         }
       }
     },
