@@ -12,17 +12,17 @@
       "pinned": true,
       "logoRef": "rstudio-ball.svg",
       "author": "RStudio",
-      "description": "RStudio is an integrated development environment (IDE) for R. It includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management.",
-      "tagline": "Tools for R and professional software for data science teams to develop and share their work at scale.",
+      "description": "RStudio is an integrated development environment for R. It provides a console, a syntax-highlighting editor with direct code execution, and tools for plotting, history, debugging and workspace management.",
+      "tagline": "Integrated development environment for the R language",
       "projectLink": "https://rstudio.com/products/rstudio/",
       "translations": {
         "es": {
-          "tagline": "Herramientas para R y software profesional para que los equipos de ciencia de datos desarrollen y compartan su trabajo a gran escala.",
-          "description": "RStudio es un entorno de desarrollo integrado (IDE) para R. Incluye una consola, un editor con resaltado de sintaxis que permite ejecutar código directamente, así como herramientas de gráficos, historial, depuración y gestión del espacio de trabajo."
+          "tagline": "Entorno de desarrollo integrado para el lenguaje R",
+          "description": "RStudio es un entorno de desarrollo integrado para R. Incluye una consola, un editor con resaltado de sintaxis que ejecuta código directamente y herramientas de gráficos, historial, depuración y gestión del espacio de trabajo."
         },
         "fr": {
-          "tagline": "Outils pour R et logiciels professionnels permettant aux équipes de science des données de développer et de partager leur travail à grande échelle.",
-          "description": "RStudio est un environnement de développement intégré (IDE) pour R. Il comprend une console, un éditeur avec coloration syntaxique permettant l'exécution directe du code, ainsi que des outils de tracé, d'historique, de débogage et de gestion de l'espace de travail."
+          "tagline": "Environnement de développement intégré pour le langage R",
+          "description": "RStudio est un environnement de développement intégré pour R. Il comprend une console, un éditeur avec coloration syntaxique permettant l'exécution directe du code, ainsi que des outils de tracé, d'historique, de débogage et de gestion de l'espace de travail."
         }
       }
     },
@@ -38,17 +38,17 @@
       "pinned": true,
       "logoRef": "jupyter-notebook.svg",
       "author": "Project Jupyter",
-      "description": "The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.",
-      "tagline": "Create and share documents containing live code, equations, visualizations and narrative text.",
+      "description": "Jupyter Notebook is an open-source web application for documents that combine live code, equations, visualizations and narrative text. Typical uses include data cleaning and transformation, numerical simulation, statistical modelling, data visualization and machine learning.",
+      "tagline": "Notebook documents with live code, equations and visualizations",
       "projectLink": "https://jupyter.org/",
       "translations": {
         "es": {
-          "tagline": "Cree y comparta documentos que contengan código ejecutable, ecuaciones, visualizaciones y texto narrativo.",
-          "description": "Jupyter Notebook es una aplicación web de código abierto que permite crear y compartir documentos con código ejecutable, ecuaciones, visualizaciones y texto narrativo. Sus usos incluyen la limpieza y transformación de datos, la simulación numérica, la modelización estadística, la visualización de datos, el aprendizaje automático y mucho más."
+          "tagline": "Documentos con código ejecutable, ecuaciones y visualizaciones",
+          "description": "Jupyter Notebook es una aplicación web de código abierto para documentos que combinan código ejecutable, ecuaciones, visualizaciones y texto narrativo. Sus usos habituales incluyen la limpieza y transformación de datos, la simulación numérica, la modelización estadística, la visualización de datos y el aprendizaje automático."
         },
         "fr": {
-          "tagline": "Créez et partagez des documents contenant du code exécutable, des équations, des visualisations et du texte narratif.",
-          "description": "Jupyter Notebook est une application web open source qui permet de créer et de partager des documents contenant du code exécutable, des équations, des visualisations et du texte narratif. Ses usages incluent le nettoyage et la transformation de données, la simulation numérique, la modélisation statistique, la visualisation de données, l'apprentissage automatique et bien plus encore."
+          "tagline": "Documents contenant du code exécutable, des équations et des visualisations",
+          "description": "Jupyter Notebook est une application web open source pour des documents combinant code exécutable, équations, visualisations et texte narratif. Ses usages courants incluent le nettoyage et la transformation de données, la simulation numérique, la modélisation statistique, la visualisation de données et l'apprentissage automatique."
         }
       }
     },
@@ -64,17 +64,17 @@
       "pinned": true,
       "logoRef": "jupyter-lab.png",
       "author": "Project Jupyter",
-      "description": "JupyterLab is a web-based interactive development environment for Jupyter notebooks, code, and data. JupyterLab is flexible: configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine learning. JupyterLab is extensible and modular: write plugins that add new components and integrate with existing ones.",
-      "tagline": "Interactive development environment for Jupyter notebooks, code, and data.",
+      "description": "Jupyter Lab is a web-based interactive development environment for notebooks, code and data. Its user interface can be arranged to suit different data science, scientific computing and machine learning workflows, and it is extensible through plugins.",
+      "tagline": "Web-based workspace for notebooks, code and data",
       "projectLink": "https://jupyter.org/",
       "translations": {
         "es": {
-          "tagline": "Entorno de desarrollo interactivo para cuadernos Jupyter, código y datos.",
-          "description": "JupyterLab es un entorno de desarrollo interactivo basado en web para cuadernos Jupyter, código y datos. JupyterLab es flexible: configure y organice la interfaz de usuario para admitir una amplia variedad de flujos de trabajo en ciencia de datos, computación científica y aprendizaje automático. JupyterLab es extensible y modular: escriba complementos que añadan nuevos componentes y se integren con los existentes."
+          "tagline": "Entorno web de trabajo para cuadernos, código y datos",
+          "description": "Jupyter Lab es un entorno de desarrollo interactivo basado en web para cuadernos, código y datos. Su interfaz se puede organizar según distintos flujos de trabajo de ciencia de datos, computación científica y aprendizaje automático, y es extensible mediante complementos."
         },
         "fr": {
-          "tagline": "Environnement de développement interactif pour les notebooks Jupyter, le code et les données.",
-          "description": "JupyterLab est un environnement de développement interactif web pour les notebooks Jupyter, le code et les données. JupyterLab est flexible : configurez et organisez l'interface utilisateur pour prendre en charge un large éventail de flux de travail en science des données, calcul scientifique et apprentissage automatique. JupyterLab est extensible et modulaire : écrivez des extensions qui ajoutent de nouveaux composants et s'intègrent aux composants existants."
+          "tagline": "Environnement web pour les notebooks, le code et les données",
+          "description": "Jupyter Lab est un environnement de développement interactif web pour les notebooks, le code et les données. Son interface peut être organisée selon différents flux de travail en science des données, calcul scientifique et apprentissage automatique, et elle est extensible par des extensions."
         }
       }
     },
