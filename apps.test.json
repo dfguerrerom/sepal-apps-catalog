@@ -142,16 +142,18 @@
       "pinned": false,
       "logoRef": "bfast.jpg",
       "author": "Alexandre Almeida",
-      "description": "",
-      "tagline": "Performs analysis of Landsat Surface Reflectance time series pixel data using the BFAST algorithm.",
+      "description": "BFAST Explorer applies the BFAST algorithm to Landsat Surface Reflectance data at the level of individual pixels.",
+      "tagline": "BFAST analysis of Landsat surface reflectance time series",
       "projectLink": "https://github.com/sepal-contrib/bfast-explorer",
       "repository": "https://github.com/sepal-contrib/bfast-explorer",
       "translations": {
         "es": {
-          "tagline": "Analiza series temporales de reflectancia de superficie de Landsat a nivel de píxel mediante el algoritmo BFAST."
+          "tagline": "Análisis BFAST de series de reflectancia de Landsat",
+          "description": "BFAST Explorer aplica el algoritmo BFAST a datos de reflectancia de superficie de Landsat a nivel de píxeles individuales."
         },
         "fr": {
-          "tagline": "Analyse les séries temporelles de réflectance de surface Landsat au niveau du pixel à l'aide de l'algorithme BFAST."
+          "tagline": "Analyse BFAST des séries de réflectance de surface Landsat",
+          "description": "BFAST Explorer applique l'algorithme BFAST aux données de réflectance de surface Landsat au niveau de pixels individuels."
         }
       }
     },
@@ -167,18 +169,18 @@
       "pinned": false,
       "logoRef": "sepal.png",
       "author": "sepal-contrib",
-      "description": "Tool for mapping surface soil moisture based on Copernicus Sentinel-1 intensity data",
-      "tagline": "Tool for mapping surface soil moisture based on Copernicus Sentinel-1 intensity data.",
+      "description": "Soil Moisture Mapping derives surface soil moisture from Copernicus Sentinel-1 intensity data, producing soil moisture maps over a selected area.",
+      "tagline": "Surface soil moisture maps from Sentinel-1 intensity data",
       "projectLink": "https://github.com/sepal-contrib/sepal_pysmm",
       "repository": "https://github.com/sepal-contrib/sepal_pysmm",
       "translations": {
         "es": {
-          "tagline": "Herramienta para cartografiar la humedad superficial del suelo a partir de los datos de intensidad de Copernicus Sentinel-1.",
-          "description": "Herramienta para cartografiar la humedad superficial del suelo a partir de los datos de intensidad de Copernicus Sentinel-1"
+          "tagline": "Mapas de humedad superficial del suelo con datos Sentinel-1",
+          "description": "Soil Moisture Mapping estima la humedad superficial del suelo a partir de los datos de intensidad de Copernicus Sentinel-1 y genera mapas de humedad para el área seleccionada."
         },
         "fr": {
-          "tagline": "Outil de cartographie de l'humidité superficielle du sol à partir des données d'intensité Copernicus Sentinel-1.",
-          "description": "Outil de cartographie de l'humidité superficielle du sol à partir des données d'intensité Copernicus Sentinel-1"
+          "tagline": "Cartes d'humidité superficielle du sol à partir de Sentinel-1",
+          "description": "Soil Moisture Mapping estime l'humidité superficielle du sol à partir des données d'intensité Copernicus Sentinel-1 et produit des cartes d'humidité sur la zone sélectionnée."
         }
       }
     },
@@ -270,16 +272,18 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
-      "description": "",
-      "tagline": "Generate a .pdf file containing time series clip on a given set of points",
+      "description": "Time series clip produces a PDF file containing time-series image clips for a given set of points. Each point in the set gets its own sequence of clips, so a large number of locations can be reviewed in a single document.",
+      "tagline": "PDF sheets of time-series image clips for a set of points",
       "projectLink": "https://github.com/sepal-contrib/clip-time-series",
       "repository": "https://github.com/sepal-contrib/clip-time-series",
       "translations": {
         "es": {
-          "tagline": "Genera un archivo .pdf con recortes de series temporales para un conjunto de puntos dado"
+          "tagline": "Fichas PDF con recortes de series temporales por punto",
+          "description": "Time series clip genera un archivo PDF con recortes de series temporales para un conjunto de puntos dado. Cada punto del conjunto recibe su propia secuencia de recortes, de modo que muchas localizaciones pueden revisarse en un único documento."
         },
         "fr": {
-          "tagline": "Génère un fichier .pdf contenant des extraits de séries temporelles pour un ensemble de points donné"
+          "tagline": "Fiches PDF d'extraits de séries temporelles par point",
+          "description": "Time series clip génère un fichier PDF contenant des extraits de séries temporelles pour un ensemble de points donné. Chaque point reçoit sa propre séquence d'extraits, ce qui permet d'examiner de nombreux sites dans un seul document."
         }
       }
     },
@@ -295,18 +299,18 @@
       "googleAccountRequired": false,
       "logoRef": "SMFM_Logo_4.png",
       "author": "Sam Bowers and SEPAL team",
-      "description": "Runs the SMFM toolkit BIOTA method of change detection",
-      "tagline": "Calculate biomass change over time using ALOS Palsar data",
+      "description": "SMFM Biota runs the BIOTA change detection method from the SMFM toolkit on ALOS PALSAR radar data to measure how biomass changes over time.",
+      "tagline": "Biomass change over time from ALOS PALSAR data",
       "projectLink": "https://github.com/sepal-contrib/sepal_smfm_biota",
       "repository": "https://github.com/sepal-contrib/sepal_smfm_biota",
       "translations": {
         "es": {
-          "tagline": "Calcule el cambio de biomasa a lo largo del tiempo utilizando datos ALOS PALSAR",
-          "description": "Ejecuta el método de detección de cambios BIOTA del conjunto de herramientas SMFM"
+          "tagline": "Cambio de biomasa a lo largo del tiempo con ALOS PALSAR",
+          "description": "SMFM Biota ejecuta el método de detección de cambios BIOTA del conjunto de herramientas SMFM sobre datos de radar ALOS PALSAR para medir cómo varía la biomasa a lo largo del tiempo."
         },
         "fr": {
-          "tagline": "Calculez l'évolution de la biomasse dans le temps à partir des données ALOS PALSAR",
-          "description": "Exécute la méthode de détection de changements BIOTA de la boîte à outils SMFM"
+          "tagline": "Évolution de la biomasse dans le temps à partir d'ALOS PALSAR",
+          "description": "SMFM Biota exécute la méthode de détection de changements BIOTA de la boîte à outils SMFM sur des données radar ALOS PALSAR pour mesurer l'évolution de la biomasse dans le temps."
         }
       }
     },
@@ -322,18 +326,18 @@
       "googleAccountRequired": false,
       "logoRef": "SMFM_Logo_4.png",
       "author": "Sam Bowers and SEPAL team",
-      "description": "Runs the SMFM toolkit DEFOREST module",
-      "tagline": "Detect deforestation using a time-series of forest probabilities",
+      "description": "SMFM Deforest runs the DEFOREST module from the SMFM toolkit, detecting deforestation from a time series of forest probabilities.",
+      "tagline": "Deforestation detection from forest probability time series",
       "projectLink": "https://github.com/smfm-project/deforest",
       "repository": "https://github.com/smfm-project/deforest",
       "translations": {
         "es": {
-          "tagline": "Detecte la deforestación mediante una serie temporal de probabilidades de bosque",
-          "description": "Ejecuta el módulo DEFOREST del conjunto de herramientas SMFM"
+          "tagline": "Detección de deforestación a partir de probabilidades de bosque",
+          "description": "SMFM Deforest ejecuta el módulo DEFOREST del conjunto de herramientas SMFM y detecta la deforestación a partir de una serie temporal de probabilidades de bosque."
         },
         "fr": {
-          "tagline": "Détectez la déforestation à partir d'une série temporelle de probabilités de forêt",
-          "description": "Exécute le module DEFOREST de la boîte à outils SMFM"
+          "tagline": "Détection de la déforestation à partir de probabilités de forêt",
+          "description": "SMFM Deforest exécute le module DEFOREST de la boîte à outils SMFM et détecte la déforestation à partir d'une série temporelle de probabilités de forêt."
         }
       }
     },
@@ -349,18 +353,18 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "Monitor SDG 15.3.1 Land Degradation in line with the Good Practice Guidance v2",
-      "tagline": "Monitor SDG indicators at plot level",
+      "description": "SDG 15.3.1 indicator monitors land degradation following the Good Practice Guidance version 2, reporting the indicator at plot level.",
+      "tagline": "Land degradation indicator SDG 15.3.1 for national reporting",
       "projectLink": "https://github.com/sepal-contrib/sdg_15.3.1",
       "repository": "https://github.com/sepal-contrib/sdg_15.3.1",
       "translations": {
         "es": {
-          "tagline": "Monitoree los indicadores de los ODS a nivel de parcela",
-          "description": "Monitoree el indicador ODS 15.3.1 de degradación de tierras conforme a la Guía de Buenas Prácticas v2"
+          "tagline": "Indicador ODS 15.3.1 de degradación de tierras",
+          "description": "SDG 15.3.1 indicator hace seguimiento de la degradación de tierras conforme a la Guía de Buenas Prácticas versión 2 y presenta el indicador a nivel de parcela."
         },
         "fr": {
-          "tagline": "Suivez les indicateurs des ODD à l'échelle de la parcelle",
-          "description": "Suivez l'indicateur ODD 15.3.1 relatif à la dégradation des terres conformément au Guide de bonnes pratiques v2"
+          "tagline": "Indicateur ODD 15.3.1 de dégradation des terres",
+          "description": "SDG 15.3.1 indicator assure le suivi de la dégradation des terres conformément au Guide de bonnes pratiques version 2 et restitue l'indicateur à l'échelle de la parcelle."
         }
       }
     },
@@ -431,18 +435,18 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "Sentinel-1 based change detection for damage estimation",
-      "tagline": "Damage estimation from Sentinel-1",
+      "description": "Damage Proxy Maps applies change detection to Sentinel-1 radar imagery to produce a proxy map of where damage has occurred.",
+      "tagline": "Damage proxy maps from Sentinel-1 change detection",
       "projectLink": "https://github.com/sepal-contrib/damage_proxy_maps",
       "repository": "https://github.com/sepal-contrib/damage_proxy_maps",
       "translations": {
         "es": {
-          "tagline": "Estimación de daños a partir de Sentinel-1",
-          "description": "Detección de cambios basada en Sentinel-1 para la estimación de daños"
+          "tagline": "Mapas indicativos de daños por detección de cambios Sentinel-1",
+          "description": "Damage Proxy Maps aplica detección de cambios sobre imágenes de radar Sentinel-1 para producir un mapa indicativo de dónde se han producido daños."
         },
         "fr": {
-          "tagline": "Estimation des dommages à partir de Sentinel-1",
-          "description": "Détection de changements basée sur Sentinel-1 pour l'estimation des dommages"
+          "tagline": "Cartes indicatives de dommages par détection de changements",
+          "description": "Damage Proxy Maps applique une détection de changements aux images radar Sentinel-1 pour produire une carte indicative des zones endommagées."
         }
       }
     },
