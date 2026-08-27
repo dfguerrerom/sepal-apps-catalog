@@ -808,16 +808,16 @@
             "FOREST"
           ],
           "pinned": false,
-          "description": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
-          "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
+          "description": "Forest change mask combines the Global Forest Change (GFC) layers into a single forest change map.",
+          "tagline": "Forest change map built from Global Forest Change layers",
           "translations": {
             "es": {
-              "tagline": "Combine las capas de Global Forest Change (GFC) para producir un mapa de cambio forestal",
-              "description": "Combine las capas de Global Forest Change (GFC) para producir un mapa de cambio forestal"
+              "tagline": "Mapa de cambio forestal a partir de las capas Global Forest Change",
+              "description": "Forest change mask combina las capas de Global Forest Change (GFC) en un único mapa de cambio forestal."
             },
             "fr": {
-              "tagline": "Combinez les couches Global Forest Change (GFC) pour produire une carte du changement forestier",
-              "description": "Combinez les couches Global Forest Change (GFC) pour produire une carte du changement forestier"
+              "tagline": "Carte de changement forestier issue des couches Global Forest Change",
+              "description": "Forest change mask combine les couches Global Forest Change (GFC) en une seule carte de changement forestier."
             }
           }
         },
@@ -825,16 +825,16 @@
           "id": "basin-rivers",
           "route": "basin-rivers",
           "label": "Resilient rivers and basin",
-          "description": "Upstream watershed delineation (HydroSHEDS) combined with Hansen GFC to compute forest cover change per sub-catchment",
-          "tagline": "Get Forest Cover Change by upstream sub-catchment",
+          "description": "Resilient rivers and basin delineates upstream watersheds with HydroSHEDS and combines them with Hansen Global Forest Change to compute forest cover change for each sub-catchment.",
+          "tagline": "Forest cover change per upstream sub-catchment",
           "translations": {
             "es": {
-              "tagline": "Obtenga el cambio de cobertura forestal por subcuenca aguas arriba",
-              "description": "Delimitación de cuencas aguas arriba (HydroSHEDS) combinada con Hansen GFC para calcular el cambio de cobertura forestal por subcuenca"
+              "tagline": "Cambio de cobertura forestal por subcuenca aguas arriba",
+              "description": "Resilient rivers and basin delimita las cuencas aguas arriba con HydroSHEDS y las combina con Hansen Global Forest Change para calcular el cambio de cobertura forestal de cada subcuenca."
             },
             "fr": {
-              "tagline": "Obtenez le changement de couverture forestière par sous-bassin en amont",
-              "description": "Délimitation des bassins versants en amont (HydroSHEDS) combinée à Hansen GFC pour calculer le changement de couverture forestière par sous-bassin"
+              "tagline": "Changement de couverture forestière par sous-bassin amont",
+              "description": "Resilient rivers and basin délimite les bassins versants en amont avec HydroSHEDS et les combine à Hansen Global Forest Change pour calculer le changement de couverture forestière de chaque sous-bassin."
             }
           }
         },
@@ -848,20 +848,21 @@
           ],
           "logoRef": "sepal.png",
           "author": "The SEPAL team",
-          "description": "Extract source code from any GEE app URL",
-          "tagline": "Extract source code from any GEE app URL",
+          "description": "Earth Engine app reader extracts the source code behind a published Google Earth Engine application from its URL.",
+          "tagline": "Source code extraction from a published Earth Engine app",
           "translations": {
             "es": {
-              "tagline": "Extraiga el código fuente de la URL de cualquier aplicación de GEE",
-              "description": "Extraiga el código fuente de la URL de cualquier aplicación de GEE"
+              "tagline": "Extracción del código fuente de una aplicación de Earth Engine",
+              "description": "Earth Engine app reader extrae el código fuente de una aplicación publicada de Google Earth Engine a partir de su URL."
             },
             "fr": {
-              "tagline": "Extrayez le code source depuis l'URL de n'importe quelle application GEE",
-              "description": "Extrayez le code source depuis l'URL de n'importe quelle application GEE"
+              "tagline": "Extraction du code source d'une application Earth Engine",
+              "description": "Earth Engine app reader extrait le code source d'une application Google Earth Engine publiée à partir de son URL."
             }
           }
         }
-      ]
+      ],
+      "tagline": "Earth Engine tools grouped in a single SEPAL application"
     },
     {
       "id": "spatial-risk-module",

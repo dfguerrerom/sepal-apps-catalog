@@ -669,16 +669,16 @@
             "FOREST"
           ],
           "pinned": false,
-          "description": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
-          "tagline": "Combine the Global Forest Change (GFC) layers to produce a forest change map",
+          "description": "Forest change mask combines the Global Forest Change (GFC) layers into a single forest change map.",
+          "tagline": "Forest change map built from Global Forest Change layers",
           "translations": {
             "es": {
-              "tagline": "Combine las capas de Global Forest Change (GFC) para producir un mapa de cambio forestal",
-              "description": "Combine las capas de Global Forest Change (GFC) para producir un mapa de cambio forestal"
+              "tagline": "Mapa de cambio forestal a partir de las capas Global Forest Change",
+              "description": "Forest change mask combina las capas de Global Forest Change (GFC) en un único mapa de cambio forestal."
             },
             "fr": {
-              "tagline": "Combinez les couches Global Forest Change (GFC) pour produire une carte du changement forestier",
-              "description": "Combinez les couches Global Forest Change (GFC) pour produire une carte du changement forestier"
+              "tagline": "Carte de changement forestier issue des couches Global Forest Change",
+              "description": "Forest change mask combine les couches Global Forest Change (GFC) en une seule carte de changement forestier."
             }
           }
         },
@@ -686,16 +686,16 @@
           "id": "basin-rivers",
           "route": "basin-rivers",
           "label": "Resilient rivers and basin",
-          "description": "Upstream watershed delineation (HydroSHEDS) combined with Hansen GFC to compute forest cover change per sub-catchment",
-          "tagline": "Get Forest Cover Change by upstream sub-catchment",
+          "description": "Resilient rivers and basin delineates upstream watersheds with HydroSHEDS and combines them with Hansen Global Forest Change to compute forest cover change for each sub-catchment.",
+          "tagline": "Forest cover change per upstream sub-catchment",
           "translations": {
             "es": {
-              "tagline": "Obtenga el cambio de cobertura forestal por subcuenca aguas arriba",
-              "description": "Delimitación de cuencas aguas arriba (HydroSHEDS) combinada con Hansen GFC para calcular el cambio de cobertura forestal por subcuenca"
+              "tagline": "Cambio de cobertura forestal por subcuenca aguas arriba",
+              "description": "Resilient rivers and basin delimita las cuencas aguas arriba con HydroSHEDS y las combina con Hansen Global Forest Change para calcular el cambio de cobertura forestal de cada subcuenca."
             },
             "fr": {
-              "tagline": "Obtenez le changement de couverture forestière par sous-bassin en amont",
-              "description": "Délimitation des bassins versants en amont (HydroSHEDS) combinée à Hansen GFC pour calculer le changement de couverture forestière par sous-bassin"
+              "tagline": "Changement de couverture forestière par sous-bassin amont",
+              "description": "Resilient rivers and basin délimite les bassins versants en amont avec HydroSHEDS et les combine à Hansen Global Forest Change pour calculer le changement de couverture forestière de chaque sous-bassin."
             }
           }
         },
@@ -720,16 +720,16 @@
           "id": "coverage-analysis",
           "route": "coverage-analysis",
           "label": "Coverage Analysis",
-          "description": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine",
-          "tagline": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine",
+          "description": "Coverage Analysis maps how many cloud-free observations are available over an area of interest, for the major optical satellites carried in Google Earth Engine. The result shows where and when usable imagery exists before any processing is run.",
+          "tagline": "Cloud-free observation counts for major optical satellites",
           "translations": {
             "es": {
-              "tagline": "Cree mapas de observaciones libres de nubes para los principales satélites ópticos disponibles en Google Earth Engine",
-              "description": "Cree mapas de observaciones libres de nubes para los principales satélites ópticos disponibles en Google Earth Engine"
+              "tagline": "Recuento de observaciones sin nubes de satélites ópticos",
+              "description": "Coverage Analysis cartografía cuántas observaciones libres de nubes hay disponibles sobre un área de interés, para los principales satélites ópticos alojados en Google Earth Engine. El resultado muestra dónde y cuándo existen imágenes utilizables antes de ejecutar cualquier procesamiento."
             },
             "fr": {
-              "tagline": "Créez des cartes d'observations sans nuages pour les principaux satellites optiques disponibles sur Google Earth Engine",
-              "description": "Créez des cartes d'observations sans nuages pour les principaux satellites optiques disponibles sur Google Earth Engine"
+              "tagline": "Nombre d'observations sans nuages des satellites optiques",
+              "description": "Coverage Analysis cartographie le nombre d'observations sans nuages disponibles sur une zone d'intérêt, pour les principaux satellites optiques présents dans Google Earth Engine. Le résultat montre où et quand des images exploitables existent, avant tout traitement."
             }
           }
         },
@@ -740,16 +740,16 @@
           "tags": [
             "FOREST"
           ],
-          "description": "JRC TMF Degradation, Deforestation and Annual Change visualization and export",
-          "tagline": "JRC Tropical Moist Forests visualization and export",
+          "description": "Tropical Moist Forests (TMF) displays and exports the JRC Tropical Moist Forests layers, covering degradation, deforestation and annual change. The selected layers are exported from Earth Engine.",
+          "tagline": "JRC Tropical Moist Forests layers for viewing and export",
           "translations": {
             "es": {
-              "tagline": "Visualización y exportación de los bosques húmedos tropicales del JRC",
-              "description": "Visualización y exportación de las capas de degradación, deforestación y cambio anual del TMF del JRC"
+              "tagline": "Capas de Bosques Húmedos Tropicales del JRC para ver y exportar",
+              "description": "Tropical Moist Forests (TMF) visualiza y exporta las capas de Bosques Húmedos Tropicales del JRC, que cubren degradación, deforestación y cambio anual. Las capas seleccionadas se exportan desde Earth Engine."
             },
             "fr": {
-              "tagline": "Visualisation et export des forêts tropicales humides du JRC",
-              "description": "Visualisation et export des couches de dégradation, déforestation et changement annuel du TMF du JRC"
+              "tagline": "Couches Forêts tropicales humides du JRC à visualiser et exporter",
+              "description": "Tropical Moist Forests (TMF) visualise et exporte les couches Forêts tropicales humides du JRC, couvrant la dégradation, la déforestation et le changement annuel. Les couches sélectionnées sont exportées depuis Earth Engine."
             }
           }
         },
@@ -761,16 +761,16 @@
             "SAR",
             "LAND_COVER"
           ],
-          "description": "Create and manipulate ALOS K&C Mosaics",
-          "tagline": "Create and manipulate ALOS K&C Mosaics",
+          "description": "ALOS PALSAR mosaics assembles and adjusts the ALOS Kyoto & Carbon radar mosaics from JAXA.",
+          "tagline": "ALOS Kyoto & Carbon radar mosaics for a selected area",
           "translations": {
             "es": {
-              "tagline": "Cree y manipule mosaicos ALOS K&C",
-              "description": "Cree y manipule mosaicos ALOS K&C"
+              "tagline": "Mosaicos de radar ALOS Kyoto & Carbon para un área seleccionada",
+              "description": "ALOS PALSAR mosaics compone y ajusta los mosaicos de radar ALOS Kyoto & Carbon de JAXA."
             },
             "fr": {
-              "tagline": "Créez et manipulez des mosaïques ALOS K&C",
-              "description": "Créez et manipulez des mosaïques ALOS K&C"
+              "tagline": "Mosaïques radar ALOS Kyoto & Carbon pour une zone sélectionnée",
+              "description": "ALOS PALSAR mosaics compose et ajuste les mosaïques radar ALOS Kyoto & Carbon de la JAXA."
             }
           }
         },
@@ -784,20 +784,21 @@
           ],
           "logoRef": "sepal.png",
           "author": "The SEPAL team",
-          "description": "Extract source code from any GEE app URL",
-          "tagline": "Extract source code from any GEE app URL",
+          "description": "Earth Engine app reader extracts the source code behind a published Google Earth Engine application from its URL.",
+          "tagline": "Source code extraction from a published Earth Engine app",
           "translations": {
             "es": {
-              "tagline": "Extraiga el código fuente de la URL de cualquier aplicación de GEE",
-              "description": "Extraiga el código fuente de la URL de cualquier aplicación de GEE"
+              "tagline": "Extracción del código fuente de una aplicación de Earth Engine",
+              "description": "Earth Engine app reader extrae el código fuente de una aplicación publicada de Google Earth Engine a partir de su URL."
             },
             "fr": {
-              "tagline": "Extrayez le code source depuis l'URL de n'importe quelle application GEE",
-              "description": "Extrayez le code source depuis l'URL de n'importe quelle application GEE"
+              "tagline": "Extraction du code source d'une application Earth Engine",
+              "description": "Earth Engine app reader extrait le code source d'une application Google Earth Engine publiée à partir de son URL."
             }
           }
         }
-      ]
+      ],
+      "tagline": "Earth Engine tools grouped in a single SEPAL application"
     },
     {
       "id": "spatial-risk-module",
