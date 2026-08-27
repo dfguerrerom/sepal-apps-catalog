@@ -871,19 +871,19 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "Build and evaluate spatial risk maps for deforestation and forest degradation: assemble predictor variables from Earth Engine and local rasters, train and compare models (moving window, JNR, iCAR, machine learning) and export validated risk maps.",
-      "tagline": "Model and map deforestation risk from Earth Engine and local data",
+      "description": "Spatial Risk Modelling assembles predictor variables from local rasters and/or Earth Engine, then trains and compares moving window, JNR, iCAR, GLM and random forest models. It evaluates the resulting deforestation and forest degradation risk maps and exports the validated layers.",
+      "tagline": "Deforestation risk maps from local rasters and/or Earth Engine",
       "projectLink": "https://github.com/sepal-contrib/spatial-risk-module",
       "repository": "https://github.com/sepal-contrib/spatial-risk-module",
       "branch": "demo-gui",
       "translations": {
         "es": {
-          "tagline": "Modele y cartografíe el riesgo de deforestación a partir de datos de Earth Engine y locales",
-          "description": "Construya y evalúe mapas de riesgo espacial de deforestación y degradación forestal: reúna variables predictoras a partir de Earth Engine y ráster locales, entrene y compare modelos (ventana móvil, JNR, iCAR, aprendizaje automático) y exporte mapas de riesgo validados."
+          "tagline": "Mapas de riesgo de deforestación a partir de datos locales y/o de Earth Engine",
+          "description": "Spatial Risk Modelling reúne variables predictoras a partir de rásteres locales y/o de Earth Engine. Con ellas entrena y compara modelos de ventana móvil, JNR, iCAR, GLM y random forest. Produce mapas de riesgo de deforestación y degradación forestal, que evalúa antes de exportar las capas validadas."
         },
         "fr": {
-          "tagline": "Modélisez et cartographiez le risque de déforestation à partir de données Earth Engine et locales",
-          "description": "Construisez et évaluez des cartes de risque spatial de déforestation et de dégradation forestière : assemblez des variables prédictives à partir d'Earth Engine et de rasters locaux, entraînez et comparez des modèles (fenêtre mobile, JNR, iCAR, apprentissage automatique) et exportez des cartes de risque validées."
+          "tagline": "Cartes de risque de déforestation à partir de données locales et/ou d'Earth Engine",
+          "description": "Spatial Risk Modelling rassemble des variables prédictives issues de rasters locaux et/ou d'Earth Engine, puis entraîne et compare des modèles à fenêtre mobile, JNR, iCAR, GLM et random forest. Il évalue les cartes de risque de déforestation et de dégradation forestière obtenues et exporte les couches validées."
         }
       }
     }
