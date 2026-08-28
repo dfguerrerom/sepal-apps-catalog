@@ -875,7 +875,7 @@
       "tagline": "Model and map deforestation risk from Earth Engine and local data",
       "projectLink": "https://github.com/sepal-contrib/spatial-risk-module",
       "repository": "https://github.com/sepal-contrib/spatial-risk-module",
-      "branch": "demo-gui",
+      "branch": "release",
       "translations": {
         "es": {
           "tagline": "Modele y cartografíe el riesgo de deforestación a partir de datos de Earth Engine y locales",
