@@ -5,6 +5,7 @@ on:
     paths:
       - 'apps.test.json'
       - 'apps.prod.json'
+      - 'apps.dev.json'
       - '.github/workflows/review-helper.yml'
       - '.github/workflows/scripts/**'
 
@@ -25,12 +26,14 @@ jobs:
           mkdir -p /tmp/base
           git show "origin/${{ github.base_ref }}:apps.test.json" > /tmp/base/apps.test.json 2>/dev/null || echo '{"apps":[]}' > /tmp/base/apps.test.json
           git show "origin/${{ github.base_ref }}:apps.prod.json" > /tmp/base/apps.prod.json 2>/dev/null || echo '{"apps":[]}' > /tmp/base/apps.prod.json
+          git show "origin/${{ github.base_ref }}:apps.dev.json" > /tmp/base/apps.dev.json 2>/dev/null || echo '{"apps":[]}' > /tmp/base/apps.dev.json
 
       - name: Diff each catalog
         id: diff
         run: |
           node .github/workflows/scripts/diff-apps.js /tmp/base/apps.test.json apps.test.json > /tmp/diff.test.json
           node .github/workflows/scripts/diff-apps.js /tmp/base/apps.prod.json apps.prod.json > /tmp/diff.prod.json
+          node .github/workflows/scripts/diff-apps.js /tmp/base/apps.dev.json apps.dev.json > /tmp/diff.dev.json
 
       - name: Generate risk reports
         env:
@@ -44,6 +47,10 @@ jobs:
             echo "## sepal.io changes"
             echo
             cat /tmp/diff.prod.json | node .github/workflows/scripts/risk-flags.js
+            echo
+            echo "## dev catalog changes"
+            echo
+            cat /tmp/diff.dev.json | node .github/workflows/scripts/risk-flags.js
           } > /tmp/comment.md
 
       - name: Upsert PR comment

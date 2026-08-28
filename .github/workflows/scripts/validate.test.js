@@ -130,7 +130,7 @@ test('the validator CLI runs when its path contains spaces', () => {
 
 test('the shipped catalogs validate against the shipped schema', () => {
     const root = new URL('../../../', import.meta.url)
-    const files = ['apps.test.json', 'apps.prod.json'].map(file => ({
+    const files = ['apps.test.json', 'apps.prod.json', 'apps.dev.json'].map(file => ({
         file,
         data: JSON.parse(readFileSync(fileURLToPath(new URL(file, root)), 'utf8'))
     }))

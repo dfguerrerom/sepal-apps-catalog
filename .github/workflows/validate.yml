@@ -5,6 +5,7 @@ on:
     paths:
       - 'apps.test.json'
       - 'apps.prod.json'
+      - 'apps.dev.json'
       - 'apps.schema.json'
       - '.github/workflows/validate.yml'
       - '.github/workflows/scripts/**'
@@ -13,6 +14,7 @@ on:
     paths:
       - 'apps.test.json'
       - 'apps.prod.json'
+      - 'apps.dev.json'
       - 'apps.schema.json'
       - '.github/workflows/validate.yml'
       - '.github/workflows/scripts/**'
@@ -34,20 +36,20 @@ jobs:
         run: npm test --prefix .github/workflows/scripts
 
       - name: Check canonical JSON formatting
-        run: node .github/workflows/scripts/check-format.js apps.test.json apps.prod.json apps.schema.json
+        run: node .github/workflows/scripts/check-format.js apps.test.json apps.prod.json apps.dev.json apps.schema.json
 
       - name: Validate schema
-        run: node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json
+        run: node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json apps.dev.json
 
       - name: Check docker rules (port uniqueness, path = /api/app-launcher/<id>)
-        run: node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json
+        run: node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json apps.dev.json
 
       - name: Verify each docker commit is reachable from its declared branch
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          for file in apps.test.json apps.prod.json; do
+          for file in apps.test.json apps.prod.json apps.dev.json; do
             jq -c '.apps[] | select(.endpoint == "docker")' "$file" | while read -r app; do
               repo=$(echo "$app" | jq -r '.repository')
               commit=$(echo "$app" | jq -r '.commit')
