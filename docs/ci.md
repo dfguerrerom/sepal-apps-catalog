@@ -7,7 +7,7 @@ This repository is guarded by a set of GitHub Actions workflows and Node scripts
 | Workflow | File | Trigger | Purpose |
 | --- | --- | --- | --- |
 | Validate catalog | `.github/workflows/validate.yml` | PRs and pushes to `main` that touch `apps.*.json`, `apps.schema.json`, or the workflow/scripts | Blocking gate: unit tests, formatting, schema, and commit reachability |
-| Review helper | `.github/workflows/review-helper.yml` | PRs that touch `apps.test.json` / `apps.prod.json` or the scripts | Posts (and updates) a single PR comment with a per-app diff and risk flags |
+| Review helper | `.github/workflows/review-helper.yml` | PRs that touch `apps.test.json` / `apps.prod.json` / `apps.dev.json` or the scripts | Posts (and updates) a single PR comment with a per-app diff and risk flags |
 | Promote app to production | `.github/workflows/promote-app.yml` | Manual (`workflow_dispatch`, pick an app) | Copies an app's pinned SHA from `apps.test.json` into `apps.prod.json` and opens a PR. Requires write access on this repo |
 | Promote app on `/promote` comment | `.github/workflows/promote-request.yml` | `issue_comment` (`/promote <app-id>` on an issue labeled `promote-request`) | Self-service variant of the above. Any user can comment; the workflow verifies the commenter owns / is a public org member of the app's source repo, then opens the same PR. A maintainer still merges. See issue #40 |
 | Update catalog from source-repo release | `.github/workflows/update-from-release.yml` | `repository_dispatch` (`bump-app`) sent by a source repo on release | Bumps an app's `commit` in `apps.test.json` and opens a PR |
@@ -70,8 +70,8 @@ Every step is **blocking** — a failure fails the PR. Steps run in order:
 
 1. **Run script unit tests** — `npm test` (`node --test`) over `.github/workflows/scripts`. See [Tests](#tests).
 2. **Check canonical JSON formatting** — `check-format.js` verifies each file is byte-identical to canonical `JSON.stringify(parsed, null, 2) + "\n"`. Prevents diff churn from editor formatters.
-3. **Validate schema** — `validate.js` validates `apps.test.json` and `apps.prod.json` against `apps.schema.json` (ajv, draft 2020-12). For `endpoint: docker` apps the schema requires `port` and `path`, and `path` must match `^/api/app-launcher/[A-Za-z0-9_.-]+$`. Optional `translations` blocks are checked here too: language keys must be lowercase two-letter codes other than `en` (English belongs at the entry root) and may only hold `tagline` and `description` — see [contributing.md](./contributing.md#translations).
-4. **Check docker rules** — `check-docker-rules.js` enforces cross-cutting docker rules the schema can't: `path` must equal `/api/app-launcher/<id>` exactly, and every docker `port` must be unique across `apps.test.json` and `apps.prod.json` (same id appearing in both is fine; different ids sharing a port is not). On any violation it prints `Next free port: max(existing)+1` so contributors know which port to claim. See issue #41.
+3. **Validate schema** — `validate.js` validates `apps.test.json`, `apps.prod.json` and `apps.dev.json` against `apps.schema.json` (ajv, draft 2020-12). For `endpoint: docker` apps the schema requires `port` and `path`, and `path` must match `^/api/app-launcher/[A-Za-z0-9_.-]+$`. Optional `translations` blocks are checked here too: language keys must be lowercase two-letter codes other than `en` (English belongs at the entry root) and may only hold `tagline` and `description` — see [contributing.md](./contributing.md#translations).
+4. **Check docker rules** — `check-docker-rules.js` enforces cross-cutting docker rules the schema can't: `path` must equal `/api/app-launcher/<id>` exactly, and every docker `port` must be unique across all catalogs (same id appearing in several is fine; different ids sharing a port is not). On any violation it prints `Next free port: max(existing)+1` so contributors know which port to claim. See issue #41.
 5. **Verify each docker commit is reachable from its declared branch** — for every `endpoint: docker` entry, calls the GitHub compare API (`/repos/{owner}/{repo}/compare/{branch}...{commit}`) and requires `ahead_by == 0`. This guarantees the pinned `commit` is an ancestor of (or equal to) the `branch` tip — exactly what the app-launcher needs, since it does `git fetch origin <branch>` then `git checkout --detach <commit>`. A non-200 means the branch or commit does not exist; `ahead_by > 0` means the commit lives on a different branch.
 
 > The reachability check (5) needs network + a GitHub token, so it runs in CI only — not in the local pre-commit hook.
@@ -141,9 +141,9 @@ Run them on demand:
 npm test --prefix .github/workflows/scripts
 
 # formatting + schema + docker rules (what pre-commit runs)
-node .github/workflows/scripts/check-format.js apps.test.json apps.prod.json apps.schema.json
-node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json
-node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json
+node .github/workflows/scripts/check-format.js apps.test.json apps.prod.json apps.dev.json apps.schema.json
+node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json apps.dev.json
+node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json apps.dev.json
 
 # reachability (CI-only; needs gh auth) — spot-check one app
 gh api repos/<owner>/<repo>/compare/<branch>...<commit> --jq '.ahead_by'  # must be 0

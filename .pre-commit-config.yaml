@@ -14,19 +14,19 @@ repos:
         name: Auto-format catalog JSON to canonical form
         entry: node .github/workflows/scripts/fix-format.js
         language: system
-        files: ^apps\.(test|prod|schema)\.json$
+        files: ^apps\.(test|prod|dev|schema)\.json$
         pass_filenames: true
 
       - id: catalog-schema
         name: Validate catalogs against apps.schema.json
-        entry: node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json
+        entry: node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json apps.dev.json
         language: system
-        files: ^apps\.(test|prod|schema)\.json$
+        files: ^apps\.(test|prod|dev|schema)\.json$
         pass_filenames: false
 
       - id: catalog-docker-rules
         name: Check docker app port uniqueness and path = /api/app-launcher/<id>
-        entry: node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json
+        entry: node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json apps.dev.json
         language: system
-        files: ^apps\.(test|prod)\.json$
+        files: ^apps\.(test|prod|dev)\.json$
         pass_filenames: false

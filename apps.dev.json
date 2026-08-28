@@ -1,0 +1,152 @@
+{
+  "apps": [
+    {
+      "id": "rstudio",
+      "label": "RStudio",
+      "path": "/sandbox/rstudio/",
+      "endpoint": "rstudio",
+      "single": true,
+      "tags": [
+        "TOOLS"
+      ],
+      "pinned": true,
+      "logoRef": "rstudio-ball.svg",
+      "author": "RStudio",
+      "description": "RStudio is an integrated development environment (IDE) for R. It includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management.",
+      "tagline": "Tools for R and professional software for data science teams to develop and share their work at scale.",
+      "projectLink": "https://rstudio.com/products/rstudio/",
+      "translations": {
+        "es": {
+          "tagline": "Herramientas para R y software profesional para que los equipos de ciencia de datos desarrollen y compartan su trabajo a gran escala.",
+          "description": "RStudio es un entorno de desarrollo integrado (IDE) para R. Incluye una consola, un editor con resaltado de sintaxis que permite ejecutar código directamente, así como herramientas de gráficos, historial, depuración y gestión del espacio de trabajo."
+        },
+        "fr": {
+          "tagline": "Outils pour R et logiciels professionnels permettant aux équipes de science des données de développer et de partager leur travail à grande échelle.",
+          "description": "RStudio est un environnement de développement intégré (IDE) pour R. Il comprend une console, un éditeur avec coloration syntaxique permettant l'exécution directe du code, ainsi que des outils de tracé, d'historique, de débogage et de gestion de l'espace de travail."
+        }
+      }
+    },
+    {
+      "id": "jupyter-notebook",
+      "label": "Jupyter Notebook",
+      "path": "/sandbox/jupyter/tree",
+      "endpoint": "jupyter",
+      "single": true,
+      "tags": [
+        "TOOLS"
+      ],
+      "pinned": true,
+      "logoRef": "jupyter-notebook.svg",
+      "author": "Project Jupyter",
+      "description": "The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.",
+      "tagline": "Create and share documents containing live code, equations, visualizations and narrative text.",
+      "projectLink": "https://jupyter.org/",
+      "translations": {
+        "es": {
+          "tagline": "Cree y comparta documentos que contengan código ejecutable, ecuaciones, visualizaciones y texto narrativo.",
+          "description": "Jupyter Notebook es una aplicación web de código abierto que permite crear y compartir documentos con código ejecutable, ecuaciones, visualizaciones y texto narrativo. Sus usos incluyen la limpieza y transformación de datos, la simulación numérica, la modelización estadística, la visualización de datos, el aprendizaje automático y mucho más."
+        },
+        "fr": {
+          "tagline": "Créez et partagez des documents contenant du code exécutable, des équations, des visualisations et du texte narratif.",
+          "description": "Jupyter Notebook est une application web open source qui permet de créer et de partager des documents contenant du code exécutable, des équations, des visualisations et du texte narratif. Ses usages incluent le nettoyage et la transformation de données, la simulation numérique, la modélisation statistique, la visualisation de données, l'apprentissage automatique et bien plus encore."
+        }
+      }
+    },
+    {
+      "id": "jupyter-lab",
+      "label": "Jupyter Lab",
+      "path": "/sandbox/jupyter/lab",
+      "endpoint": "jupyter",
+      "single": true,
+      "tags": [
+        "TOOLS"
+      ],
+      "pinned": true,
+      "logoRef": "jupyter-lab.png",
+      "author": "Project Jupyter",
+      "description": "JupyterLab is a web-based interactive development environment for Jupyter notebooks, code, and data. JupyterLab is flexible: configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine learning. JupyterLab is extensible and modular: write plugins that add new components and integrate with existing ones.",
+      "tagline": "Interactive development environment for Jupyter notebooks, code, and data.",
+      "projectLink": "https://jupyter.org/",
+      "translations": {
+        "es": {
+          "tagline": "Entorno de desarrollo interactivo para cuadernos Jupyter, código y datos.",
+          "description": "JupyterLab es un entorno de desarrollo interactivo basado en web para cuadernos Jupyter, código y datos. JupyterLab es flexible: configure y organice la interfaz de usuario para admitir una amplia variedad de flujos de trabajo en ciencia de datos, computación científica y aprendizaje automático. JupyterLab es extensible y modular: escriba complementos que añadan nuevos componentes y se integren con los existentes."
+        },
+        "fr": {
+          "tagline": "Environnement de développement interactif pour les notebooks Jupyter, le code et les données.",
+          "description": "JupyterLab est un environnement de développement interactif web pour les notebooks Jupyter, le code et les données. JupyterLab est flexible : configurez et organisez l'interface utilisateur pour prendre en charge un large éventail de flux de travail en science des données, calcul scientifique et apprentissage automatique. JupyterLab est extensible et modulaire : écrivez des extensions qui ajoutent de nouveaux composants et s'intègrent aux composants existants."
+        }
+      }
+    },
+    {
+      "id": "vector_manager",
+      "label": "Vector file manager",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/vector_manager/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "the SEPAL team",
+      "description": "Tool to manage vector files in SEPAL (upload, download, export to GEE and grid generation)",
+      "tagline": "Tool to manage vector files in SEPAL (upload, download, export to GEE and grid generation)",
+      "projectLink": "https://github.com/sepal-contrib/vector_manager",
+      "repository": "https://github.com/sepal-contrib/vector_manager",
+      "branch": "release",
+      "translations": {
+        "es": {
+          "tagline": "Herramienta para gestionar archivos vectoriales en SEPAL (carga, descarga, exportación a GEE y generación de cuadrículas)",
+          "description": "Herramienta para gestionar archivos vectoriales en SEPAL (carga, descarga, exportación a GEE y generación de cuadrículas)"
+        },
+        "fr": {
+          "tagline": "Outil de gestion des fichiers vectoriels dans SEPAL (téléversement, téléchargement, export vers GEE et génération de grilles)",
+          "description": "Outil de gestion des fichiers vectoriels dans SEPAL (téléversement, téléchargement, export vers GEE et génération de grilles)"
+        }
+      }
+    },
+    {
+      "id": "se.plan",
+      "label": "se.plan",
+      "path": "/api/app-launcher/se.plan",
+      "endpoint": "docker",
+      "tags": [
+        "RESTORATION"
+      ],
+      "pinned": true,
+      "googleAccountRequired": true,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "Restoration planning tool using a weighted-sum approach",
+      "tagline": "Restoration planning tool using a weighted-sum approach",
+      "projectLink": "https://github.com/sepal-contrib/se.plan/",
+      "repository": "https://github.com/sepal-contrib/se.plan",
+      "port": 8765,
+      "branch": "main",
+      "commit": "153299f436597e48b052c69e4eb836810e3f69e8",
+      "translations": {
+        "es": {
+          "tagline": "Herramienta de planificación de la restauración basada en un enfoque de suma ponderada",
+          "description": "Herramienta de planificación de la restauración basada en un enfoque de suma ponderada"
+        },
+        "fr": {
+          "tagline": "Outil de planification de la restauration fondé sur une approche de somme pondérée",
+          "description": "Outil de planification de la restauration fondé sur une approche de somme pondérée"
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "value": "TOOLS",
+      "label": {
+        "en": "Tools"
+      }
+    },
+    {
+      "value": "RESTORATION",
+      "label": {
+        "en": "Restoration"
+      }
+    }
+  ]
+}

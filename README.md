@@ -1,9 +1,10 @@
 # sepal-apps-catalog
 
-This repository holds SHA-pinned catalogs of SEPAL docker apps consumed by SEPAL's `app-launcher`. It currently ships two catalogs:
+This repository holds SHA-pinned catalogs of SEPAL docker apps consumed by SEPAL's `app-launcher`. It currently ships three catalogs:
 
 - `apps.test.json` — apps available in the test environment
 - `apps.prod.json` — apps available in the production environment
+- `apps.dev.json` — a minimal catalog for local/dev deployments: RStudio, Jupyter Notebook, Jupyter Lab, one voila app and one docker app
 
 ## Why SHA-pinning
 
