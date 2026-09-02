@@ -521,6 +521,32 @@
       }
     },
     {
+      "id": "weplan",
+      "label": "WePlan - Forests",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/weplan/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "WePlan - Forests gives access to the forest restoration scenarios computed by the WePlan decision support platform for tropical and subtropical countries. Each scenario maps where restoration in the selected country would do most for climate change mitigation, biodiversity conservation and poverty alleviation.",
+      "tagline": "Pre-computed restoration scenarios for tropical forests",
+      "projectLink": "https://github.com/sepal-contrib/weplan",
+      "repository": "https://github.com/sepal-contrib/weplan",
+      "branch": "main",
+      "translations": {
+        "es": {
+          "tagline": "Escenarios de restauración precalculados para bosques tropicales",
+          "description": "WePlan - Forests da acceso a los escenarios de restauración forestal calculados por la plataforma de apoyo a la decisión WePlan para países tropicales y subtropicales. Cada escenario cartografía dónde la restauración del país seleccionado aportaría mayores beneficios de mitigación climática, biodiversidad y reducción de la pobreza."
+        },
+        "fr": {
+          "tagline": "Scénarios de restauration précalculés pour les forêts tropicales",
+          "description": "WePlan - Forests donne accès aux scénarios de restauration forestière calculés par la plateforme d'aide à la décision WePlan pour les pays tropicaux et subtropicaux. Chaque scénario cartographie les lieux où la restauration apporterait le plus de bénéfices climatiques, de biodiversité et de réduction de la pauvreté dans le pays sélectionné."
+        }
+      }
+    },
+    {
       "id": "earthmap",
       "label": "Earth Map",
       "path": "https://earthmap.org/",
