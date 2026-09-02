@@ -508,7 +508,7 @@
       "repository": "https://github.com/sepal-contrib/sepal_mgci",
       "port": 8766,
       "branch": "main",
-      "commit": "dc690bcf0bd1eaa89b0f7f07cc11e7da1d4dbc0e",
+      "commit": "fe10c6b9cee1f27b2d8f95d9e8d871fbfb89b7f8",
       "translations": {
         "es": {
           "tagline": "Subindicadores A y B del ODS 15.4.2 a escala nacional",
@@ -619,7 +619,7 @@
       "repository": "https://github.com/sepal-contrib/se.plan",
       "port": 8765,
       "branch": "main",
-      "commit": "e6005a68a92f17a97b549e959116c9ae1d2f8395",
+      "commit": "c0208c688e863dfae7169be630276e8aac2e4d90",
       "translations": {
         "es": {
           "tagline": "Mapas de aptitud e impacto de la restauración forestal",
@@ -663,7 +663,7 @@
       "endpoint": "docker",
       "repository": "https://github.com/sepal-contrib/sepal-gee-bundle",
       "branch": "main",
-      "commit": "6c18ba9578e71701f47060f1a27d25e9c3e0aa83",
+      "commit": "b291cba1edd1f1efdff1acb02d584ecbc6f952e4",
       "port": 8768,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
