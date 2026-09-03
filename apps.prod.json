@@ -400,32 +400,6 @@
       }
     },
     {
-      "id": "tmf_sepal",
-      "label": "Tropical Moist Forest (TMF)",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/tmf_sepal/ui.ipynb?voila-theme=dark",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": false,
-      "logoRef": "sepal.png",
-      "author": "The SEPAL team",
-      "description": "Wrapper for TMF",
-      "tagline": "Interface to clip and download the TMF product (EC JRC)",
-      "projectLink": "https://github.com/sepal-contrib/tmf_sepal",
-      "repository": "https://github.com/sepal-contrib/tmf_sepal",
-      "branch": "release",
-      "translations": {
-        "es": {
-          "tagline": "Interfaz para recortar y descargar el producto TMF (EC JRC)",
-          "description": "Interfaz para TMF"
-        },
-        "fr": {
-          "tagline": "Interface pour découper et télécharger le produit TMF (EC JRC)",
-          "description": "Interface pour TMF"
-        }
-      }
-    },
-    {
       "id": "planet-order",
       "label": "PlanetLab mosaics order",
       "path": "/sandbox/jupyter/voila/render/shared/apps/planet-order/ui.ipynb?voila-theme=dark",
@@ -831,6 +805,26 @@
             "fr": {
               "tagline": "Obtenez le changement de couverture forestière par sous-bassin en amont",
               "description": "Délimitation des bassins versants en amont (HydroSHEDS) combinée à Hansen GFC pour calculer le changement de couverture forestière par sous-bassin"
+            }
+          }
+        },
+        {
+          "id": "tmf-sepal",
+          "route": "tmf-sepal",
+          "label": "Tropical Moist Forests (TMF)",
+          "tags": [
+            "FOREST"
+          ],
+          "description": "Tropical Moist Forests (TMF) displays and exports the JRC Tropical Moist Forests layers, covering degradation, deforestation and annual change. The selected layers are exported from Earth Engine.",
+          "tagline": "JRC Tropical Moist Forests layers for viewing and export",
+          "translations": {
+            "es": {
+              "tagline": "Capas de Bosques Húmedos Tropicales del JRC para ver y exportar",
+              "description": "Tropical Moist Forests (TMF) visualiza y exporta las capas de Bosques Húmedos Tropicales del JRC, que cubren degradación, deforestación y cambio anual. Las capas seleccionadas se exportan desde Earth Engine."
+            },
+            "fr": {
+              "tagline": "Couches Forêts tropicales humides du JRC à visualiser et exporter",
+              "description": "Tropical Moist Forests (TMF) visualise et exporte les couches Forêts tropicales humides du JRC, couvrant la dégradation, la déforestation et le changement annuel. Les couches sélectionnées sont exportées depuis Earth Engine."
             }
           }
         },
