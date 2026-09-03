@@ -645,7 +645,7 @@
       "repository": "https://github.com/sepal-contrib/se.plan",
       "port": 8765,
       "branch": "main",
-      "commit": "e209e1b11821f90f31915490370038f217f29668",
+      "commit": "bc7217f1032e5a1cf1a331ea49944ba14b41ffd3",
       "translations": {
         "es": {
           "tagline": "Mapas de aptitud e impacto de la restauración forestal",
