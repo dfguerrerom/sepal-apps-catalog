@@ -508,7 +508,7 @@
       "repository": "https://github.com/sepal-contrib/sepal_mgci",
       "port": 8766,
       "branch": "main",
-      "commit": "244e2d50282a5d7e65c74825d262e6503847a5f4",
+      "commit": "c2dd5bda260ea5277695f3da84fd4cbd22dae7f1",
       "translations": {
         "es": {
           "tagline": "Subindicadores A y B del ODS 15.4.2 a escala nacional",
