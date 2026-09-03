@@ -697,7 +697,7 @@
       "repository": "https://github.com/sepal-contrib/se.plan",
       "port": 8765,
       "branch": "main",
-      "commit": "153299f436597e48b052c69e4eb836810e3f69e8",
+      "commit": "bc7217f1032e5a1cf1a331ea49944ba14b41ffd3",
       "translations": {
         "es": {
           "tagline": "Herramienta de planificación de la restauración basada en un enfoque de suma ponderada",
