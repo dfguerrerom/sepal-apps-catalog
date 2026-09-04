@@ -73,10 +73,11 @@ Every step is **blocking** — a failure fails the PR. Steps run in order:
 2. **Check canonical JSON formatting** — `check-format.js` verifies each file is byte-identical to canonical `JSON.stringify(parsed, null, 2) + "\n"`. Prevents diff churn from editor formatters.
 3. **Validate schema** — `validate.js` validates `apps.test.json`, `apps.prod.json` and `apps.dev.json` against `apps.schema.json` (ajv, draft 2020-12). For `endpoint: docker` apps the schema requires `port` and `path`, and `path` must match `^/api/app-launcher/[A-Za-z0-9_.-]+$`. Optional `translations` blocks are checked here too: language keys must be lowercase two-letter codes other than `en` (English belongs at the entry root) and may only hold `tagline` and `description` — see [contributing.md](./contributing.md#translations).
 4. **Check docker rules** — `check-docker-rules.js` enforces cross-cutting docker rules the schema can't: `path` must equal `/api/app-launcher/<id>` exactly, and every docker `port` must be unique across all catalogs (same id appearing in several is fine; different ids sharing a port is not). On any violation it prints `Next free port: max(existing)+1` so contributors know which port to claim. See issue #41.
-5. **Verify each docker commit is reachable from its declared branch** — for every `endpoint: docker` entry, calls the GitHub compare API (`/repos/{owner}/{repo}/compare/{branch}...{commit}`) and requires `ahead_by == 0`. This guarantees the pinned `commit` is an ancestor of (or equal to) the `branch` tip — exactly what the app-launcher needs, since it does `git fetch origin <branch>` then `git checkout --detach <commit>`. A non-200 means the branch or commit does not exist; `ahead_by > 0` means the commit lives on a different branch.
+5. **Validate the dev projection inputs** — runs `sync-dev.js --validate` on every validation job. Invalid, duplicate or missing ids in `dev-apps.txt`, and tags used without a definition in `apps.test.json`, fail before merge without requiring the asynchronously generated catalog to be current.
 6. **Check `apps.dev.json` matches the projection** — on pull requests that modify `apps.dev.json`, runs `sync-dev.js --check` and fails if the file is not exactly what `dev-apps.txt` + `apps.test.json` produce. The check is scoped to PRs that touch the file on purpose: running it unconditionally would fail every `apps.test.json` PR, since the dev projection is only replayed *after* that PR merges. A hand-edit is still caught, because a hand-edit necessarily puts `apps.dev.json` in the diff.
+7. **Verify each docker commit is reachable from its declared branch** — for every `endpoint: docker` entry, calls the GitHub compare API (`/repos/{owner}/{repo}/compare/{branch}...{commit}`) and requires `ahead_by == 0`. This guarantees the pinned `commit` is an ancestor of (or equal to) the `branch` tip — exactly what the app-launcher needs, since it does `git fetch origin <branch>` then `git checkout --detach <commit>`. A non-200 means the branch or commit does not exist; `ahead_by > 0` means the commit lives on a different branch.
 
-> The reachability check (5) needs network + a GitHub token, so it runs in CI only — not in the local pre-commit hook.
+> The reachability check (7) needs network + a GitHub token, so it runs in CI only — not in the local pre-commit hook.
 
 ## Scripts
 
@@ -91,7 +92,7 @@ All scripts live in `.github/workflows/scripts` (ESM, Node 22, only dependency i
 | `diff-apps.js <old> <new>` | review-helper.yml | Emits `{added, removed, updated}` JSON; only docker entries are tracked for SHA `updated` |
 | `risk-flags.js` (stdin → stdout) | review-helper.yml | Turns a diff into a markdown risk report (needs `GITHUB_TOKEN`) |
 | `bump-app.js` | promote-app.yml, update-from-release.yml | Mutates one app's `commit` in a catalog file, preserving canonical format. **Note: only updates `commit`, never `branch`** |
-| `sync-dev.js [--check]` | sync-dev.yml, validate.yml, pre-commit | Regenerates `apps.dev.json` from `dev-apps.txt` + `apps.test.json`. `--check` reports drift without writing |
+| `sync-dev.js [--check \| --validate]` | sync-dev.yml, validate.yml, pre-commit | Regenerates `apps.dev.json` from `dev-apps.txt` + `apps.test.json`. `--check` reports drift; `--validate` checks the inputs without reading or writing `apps.dev.json` |
 
 > **Text metadata is never copied between `apps.test.json` and `apps.prod.json`.** `bump-app.js` — and therefore both `/promote` and the auto-bump workflow — only touches `commit`. `label`, `description`, `tagline`, `tags` and `translations` must be edited in `apps.test.json` and `apps.prod.json` explicitly. This has always been true of every metadata field; `translations` is no exception.
 >
@@ -106,7 +107,7 @@ All scripts live in `.github/workflows/scripts` (ESM, Node 22, only dependency i
 
 `sync-dev.js` performs the projection. Its CLI takes no path arguments and reads no path env vars — `apps.dev.json` is the only file it can write, which is what makes the sync one-directional by construction rather than by convention.
 
-**Do not edit `apps.dev.json` by hand.** CI rejects it: `validate.yml` runs `sync-dev.js --check` on any PR that touches the file, and a pre-commit hook mirrors that locally. To change what an app shows in dev, edit `apps.test.json`; to change which apps dev carries, edit `dev-apps.txt` and regenerate:
+**Do not edit `apps.dev.json` by hand.** CI rejects it: `validate.yml` always validates the projection inputs and runs `sync-dev.js --check` on any PR that touches the generated file; pre-commit hooks mirror both checks locally. To change what an app shows in dev, edit `apps.test.json`; to change which apps dev carries, edit `dev-apps.txt` and regenerate:
 
 ```bash
 node .github/workflows/scripts/sync-dev.js
@@ -142,7 +143,7 @@ Unit tests use the built-in Node test runner (`node --test`), run via `npm test 
 - output is canonical (2-space indent + trailing newline)
 - re-running on an in-sync file reports `changed=false`
 - `--check` reports drift without writing
-- the shipped `dev-apps.txt` + `apps.test.json` reproduce the shipped `apps.dev.json`
+- `--validate` checks inputs without reading or writing `apps.dev.json`
 
 `validate.js`:
 
@@ -182,6 +183,7 @@ npm test --prefix .github/workflows/scripts
 node .github/workflows/scripts/check-format.js apps.test.json apps.prod.json apps.dev.json apps.schema.json
 node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json apps.dev.json
 node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json apps.dev.json
+node .github/workflows/scripts/sync-dev.js --validate
 node .github/workflows/scripts/sync-dev.js --check
 
 # reachability (CI-only; needs gh auth) — spot-check one app

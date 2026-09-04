@@ -1,5 +1,5 @@
 // .github/workflows/scripts/sync-dev.js
-// Usage (CLI): node sync-dev.js [--check]
+// Usage (CLI): node sync-dev.js [--check | --validate]
 //
 // Library: export {syncDev}. Projects apps.dev.json from dev-apps.txt +
 // apps.test.json: every id in the list is replaced by the top-level entry of
@@ -71,10 +71,14 @@ export function project({ids, test}) {
     return {apps, tags}
 }
 
-export function syncDev({listFile = LIST_FILE, testFile = TEST_FILE, devFile = DEV_FILE, check = false} = {}) {
+export function loadProjection({listFile = LIST_FILE, testFile = TEST_FILE} = {}) {
     const ids = parseList(readFileSync(listFile, 'utf8'))
     const test = JSON.parse(readFileSync(testFile, 'utf8'))
-    const canonical = JSON.stringify(project({ids, test}), null, 2) + '\n'
+    return project({ids, test})
+}
+
+export function syncDev({listFile = LIST_FILE, testFile = TEST_FILE, devFile = DEV_FILE, check = false} = {}) {
+    const canonical = JSON.stringify(loadProjection({listFile, testFile}), null, 2) + '\n'
     let current = null
     try {
         current = readFileSync(devFile, 'utf8')
@@ -95,17 +99,23 @@ export function syncDev({listFile = LIST_FILE, testFile = TEST_FILE, devFile = D
 // CLI entry point: only run when invoked directly, not when imported by tests.
 if (import.meta.url === `file://${process.argv[1]}`) {
     const check = process.argv.slice(2).includes('--check')
+    const validate = process.argv.slice(2).includes('--validate')
     try {
-        const {changed} = syncDev({check})
-        if (!changed) {
-            console.log(`${DEV_FILE} is in sync with ${TEST_FILE}`)
-        } else if (check) {
-            console.error(`${DEV_FILE} does not match the projection of ${LIST_FILE} + ${TEST_FILE}.`)
-            console.error(`${DEV_FILE} is generated — regenerate it with:`)
-            console.error('  node .github/workflows/scripts/sync-dev.js')
-            process.exit(1)
+        if (validate) {
+            loadProjection()
+            console.log(`${LIST_FILE} + ${TEST_FILE} produce a valid dev projection`)
         } else {
-            console.log(`regenerated ${DEV_FILE} from ${LIST_FILE} + ${TEST_FILE}`)
+            const {changed} = syncDev({check})
+            if (!changed) {
+                console.log(`${DEV_FILE} is in sync with ${TEST_FILE}`)
+            } else if (check) {
+                console.error(`${DEV_FILE} does not match the projection of ${LIST_FILE} + ${TEST_FILE}.`)
+                console.error(`${DEV_FILE} is generated — regenerate it with:`)
+                console.error('  node .github/workflows/scripts/sync-dev.js')
+                process.exit(1)
+            } else {
+                console.log(`regenerated ${DEV_FILE} from ${LIST_FILE} + ${TEST_FILE}`)
+            }
         }
     } catch (e) {
         console.error(`sync-dev: ${e.message}`)

@@ -49,6 +49,9 @@ jobs:
       - name: Check docker rules (port uniqueness, path = /api/app-launcher/<id>)
         run: node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json apps.dev.json
 
+      - name: Validate apps.dev.json projection inputs
+        run: node .github/workflows/scripts/sync-dev.js --validate
+
       # apps.dev.json is generated. Scoped to PRs that actually touch it: an
       # unconditional check would fail every apps.test.json PR, since the dev
       # projection is only replayed after that PR merges.

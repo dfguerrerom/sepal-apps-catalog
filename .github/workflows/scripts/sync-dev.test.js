@@ -1,6 +1,7 @@
 import {test} from 'node:test'
 import assert from 'node:assert/strict'
-import {writeFileSync, readFileSync, existsSync, mkdtempSync, rmSync} from 'node:fs'
+import {spawnSync} from 'node:child_process'
+import {writeFileSync, readFileSync, existsSync, mkdirSync, mkdtempSync, rmSync, statSync} from 'node:fs'
 import {tmpdir} from 'node:os'
 import {join} from 'node:path'
 import {fileURLToPath} from 'node:url'
@@ -33,6 +34,7 @@ const TEST_CATALOG = {
         {value: 'OTHER', label: {en: 'Other'}}
     ]
 }
+const SCRIPT_FILE = fileURLToPath(new URL('./sync-dev.js', import.meta.url))
 
 function mkWorkspace({list = 'rstudio\nfoo\n', catalog = TEST_CATALOG, dev = null} = {}) {
     const dir = mkdtempSync(join(tmpdir(), 'sync-dev-test-'))
@@ -44,7 +46,13 @@ function mkWorkspace({list = 'rstudio\nfoo\n', catalog = TEST_CATALOG, dev = nul
     if (dev !== null) {
         writeFileSync(devFile, dev)
     }
-    return {listFile, testFile, devFile, cleanup: () => rmSync(dir, {recursive: true, force: true})}
+    return {dir, listFile, testFile, devFile, cleanup: () => rmSync(dir, {recursive: true, force: true})}
+}
+
+function runCli(ws, ...args) {
+    const env = {...process.env}
+    delete env.NODE_TEST_CONTEXT
+    return spawnSync(process.execPath, [SCRIPT_FILE, ...args], {cwd: ws.dir, env, encoding: 'utf8'})
 }
 
 test('happy path: projects the listed ids in list order', () => {
@@ -146,12 +154,25 @@ test('check mode reports drift without writing', () => {
     }
 })
 
-test('the shipped dev-apps.txt and apps.test.json reproduce the shipped apps.dev.json', () => {
-    const root = new URL('../../../', import.meta.url)
-    const paths = {
-        listFile: fileURLToPath(new URL('dev-apps.txt', root)),
-        testFile: fileURLToPath(new URL('apps.test.json', root)),
-        devFile: fileURLToPath(new URL('apps.dev.json', root))
+test('validate mode checks inputs without reading or writing apps.dev.json', () => {
+    const ws = mkWorkspace()
+    try {
+        mkdirSync(ws.devFile)
+        const result = runCli(ws, '--validate')
+        assert.equal(result.status, 0, result.stderr)
+        assert.equal(statSync(ws.devFile).isDirectory(), true)
+    } finally {
+        ws.cleanup()
     }
-    assert.equal(syncDev({...paths, check: true}).changed, false)
+})
+
+test('validate mode rejects invalid inputs without creating apps.dev.json', () => {
+    const ws = mkWorkspace({list: 'ghost\n'})
+    try {
+        const result = runCli(ws, '--validate')
+        assert.equal(result.status, 1)
+        assert.equal(existsSync(ws.devFile), false)
+    } finally {
+        ws.cleanup()
+    }
 })
