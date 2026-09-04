@@ -42,15 +42,15 @@ Open a PR changing the `commit` field (and optionally `branch`) of the entry in 
 
 **`label`** — the app's name on the card. Not translatable.
 
-**`tagline`** — the card subtitle, scanned rather than read, and truncated on narrow cards. Write a **noun phrase**: no finite verb, no subject, no terminal period. Sentence case. Name the thing the app produces, not the act of producing it, and put the distinguishing noun first so it survives truncation. 45–70 characters, hard cap 80 (`en`) or 90 (`es`, `fr`). Do not restate the `label`.
+**`tagline`** — the card subtitle, and the first line of app text anyone reads. The launcher wraps it instead of truncating it, and app search matches `label` and `tagline` only — never `description` — so this is where the searchable specifics belong. Write a **noun phrase**: no finite verb, no subject, no terminal period. Sentence case. Lead with the thing the app produces, then add the detail that tells it apart from its neighbours: the sensor, the dataset, the algorithm, the unit of output. 70–115 characters, hard cap 130 (`en`) or 150 (`es`, `fr`). Shorter is fine when there is honestly nothing more to say — do not pad to reach the range. Do not restate the `label`.
 
-**`description`** — the detail view, read once by someone deciding whether to open the app. Write **full sentences in the third-person present**, with the app itself as the explicit subject of the first sentence. Terminal periods. 1–3 sentences, 400 characters maximum — as long as it needs to be and no longer. Name at least one input (sensor, dataset, provider) and one output (map, table, export). Prose only — no headings or lists. The description must state at least one thing the tagline does not; if there is nothing more to say, leave it empty rather than padding it. There is no minimum length: a description that is honestly one sentence long stays one sentence long.
+**`description`** — the detail view, read once by someone deciding whether to open the app. Write **full sentences in the third-person present**, with the app itself as the explicit subject of the first sentence. Terminal periods. 1–3 sentences, 400 characters maximum — as long as it needs to be and no longer. Name at least one input (sensor, dataset, provider) and one output (map, table, export). Prose only — no headings or lists. The card and the details panel both show the tagline, so the description may restate it as a full sentence and then go further — that is the expected shape, not a repetition to avoid. There is no minimum length: a description that is honestly one sentence long stays one sentence long, and an entry with nothing to add beyond its tagline leaves it empty.
 
 ```json
 {
   "label": "Coverage Analysis",
-  "tagline": "Cloud-free observation counts for major optical satellites",
-  "description": "Coverage Analysis maps how many cloud-free observations are available over an area of interest for the main optical missions in Google Earth Engine. The resulting maps show data availability per pixel and per period."
+  "tagline": "Cloud-free observation counts for the major optical satellites, showing where usable imagery exists before processing",
+  "description": "Coverage Analysis maps how many cloud-free observations are available over an area of interest, for the major optical satellites carried in Google Earth Engine. The result shows where and when usable imagery exists before any processing is run."
 }
 ```
 
@@ -66,7 +66,7 @@ Where the second person is genuinely unavoidable elsewhere in SEPAL, Spanish use
 
 ### Do
 
-- `Canopy disturbance maps for (semi-)evergreen tropical forests`
+- `Canopy disturbance maps for (semi-)evergreen forests, natural and human-induced alike`
 - `Forest Canopy Disturbance Monitoring (FCDM) detects natural and human-induced canopy disturbances in dense (semi-)evergreen forests from optical time series.`
 - Start the description with the app's own name.
 - Name the dataset, the sensor, and what comes out.
@@ -78,7 +78,7 @@ Where the second person is genuinely unavoidable elsewhere in SEPAL, Spanish use
 - Bare third-person verbs with no subject — `Applies BFAST algorithm to…`
 - Placeholders — `Wrapper for TMF`, `SAM environment`, `A suite of various geospatial image analysis tools`
 - Marketing copy pasted from an upstream project's website. State the upstream fact in one sentence, then say what it means inside SEPAL.
-- A `description` that repeats the `tagline`.
+- A `description` that is only the `tagline` re-punctuated, adding no further fact. Restating it as a full sentence is fine; stopping there when more could be said is not.
 - Anything about the catalog rather than the app — which bundle an entry belongs to, that it is one of several tools, how it is packaged or deployed.
 - Repeating what another field already carries. `author`, `projectLink` and `repository` are rendered separately; naming them in the description wastes the reader's time.
 - A closing sentence that could be deleted with no loss of meaning. If it exists only to make the text longer, cut it.
