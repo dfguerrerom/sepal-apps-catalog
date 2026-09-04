@@ -1,0 +1,92 @@
+name: Sync dev catalog from test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps.test.json'
+      - 'dev-apps.txt'
+      - '.github/workflows/scripts/sync-dev.js'
+      - '.github/workflows/sync-dev.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-dev
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.CATALOG_PR_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install script deps
+        run: npm ci --silent --prefix .github/workflows/scripts
+
+      - name: Project apps.dev.json from apps.test.json
+        run: node .github/workflows/scripts/sync-dev.js
+
+      - name: Detect no-op
+        id: check
+        run: |
+          if git diff --quiet -- apps.dev.json; then
+            echo "::notice::apps.dev.json is already in sync. Nothing to do."
+            echo "noop=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "noop=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # The sync is one-directional by construction (sync-dev.js can only write
+      # apps.dev.json), and this fails the run if that ever stops being true.
+      - name: Guard blast radius
+        if: steps.check.outputs.noop == 'false'
+        run: |
+          set -euo pipefail
+          changed=$(git diff --name-only)
+          if [ "$changed" != "apps.dev.json" ]; then
+            echo "::error::sync-dev changed files other than apps.dev.json:"
+            echo "$changed"
+            exit 1
+          fi
+
+      - name: Verify catalog
+        if: steps.check.outputs.noop == 'false'
+        run: |
+          set -euo pipefail
+          node .github/workflows/scripts/check-format.js apps.dev.json
+          node .github/workflows/scripts/validate.js apps.schema.json apps.dev.json
+          node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json apps.dev.json
+
+      - name: Open or update pull request
+        if: steps.check.outputs.noop == 'false'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.CATALOG_PR_TOKEN }}
+          branch: sync/dev-catalog
+          base: main
+          delete-branch: true
+          title: 'chore(catalog): sync apps.dev.json from test'
+          commit-message: 'chore(catalog): sync apps.dev.json from test'
+          labels: sync-dev
+          body: |
+            `apps.dev.json` is generated from `dev-apps.txt` + `apps.test.json` by
+            `.github/workflows/scripts/sync-dev.js`. `apps.test.json` moved, so this PR
+            replays the projection.
+
+            Nothing here was hand-written, and no other catalog was touched — the
+            workflow fails if the diff reaches beyond `apps.dev.json`.
+
+            - [ ] Verify diff and merge
+
+            CI checks (`validate.yml`, `review-helper.yml`) will run on this PR.

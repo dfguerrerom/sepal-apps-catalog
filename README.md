@@ -4,7 +4,7 @@ This repository holds SHA-pinned catalogs of SEPAL docker apps consumed by SEPAL
 
 - `apps.test.json` — apps available in the test environment
 - `apps.prod.json` — apps available in the production environment
-- `apps.dev.json` — a minimal catalog for local/dev deployments: RStudio, Jupyter Notebook, Jupyter Lab, one voila app and one docker app
+- `apps.dev.json` — a minimal catalog for local/dev deployments: RStudio, Jupyter Notebook, Jupyter Lab, one voila app and one docker app. **Generated** from `dev-apps.txt` + `apps.test.json`; see [docs/ci.md](./docs/ci.md#the-dev-catalog-is-generated)
 
 ## Why SHA-pinning
 
