@@ -24,6 +24,13 @@ repos:
         files: ^apps\.(test|prod|dev|schema)\.json$
         pass_filenames: false
 
+      - id: catalog-dev-projection
+        name: Check apps.dev.json matches the dev-apps.txt projection
+        entry: node .github/workflows/scripts/sync-dev.js --check
+        language: system
+        files: ^apps\.dev\.json$
+        pass_filenames: false
+
       - id: catalog-docker-rules
         name: Check docker app port uniqueness and path = /api/app-launcher/<id>
         entry: node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json apps.dev.json
