@@ -7,6 +7,7 @@ on:
       - 'apps.prod.json'
       - 'apps.dev.json'
       - 'apps.schema.json'
+      - 'dev-apps.txt'
       - '.github/workflows/validate.yml'
       - '.github/workflows/scripts/**'
   push:
@@ -16,6 +17,7 @@ on:
       - 'apps.prod.json'
       - 'apps.dev.json'
       - 'apps.schema.json'
+      - 'dev-apps.txt'
       - '.github/workflows/validate.yml'
       - '.github/workflows/scripts/**'
 
@@ -24,6 +26,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history so the projection check below can diff against the PR base.
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -43,6 +48,21 @@ jobs:
 
       - name: Check docker rules (port uniqueness, path = /api/app-launcher/<id>)
         run: node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json apps.dev.json
+
+      # apps.dev.json is generated. Scoped to PRs that actually touch it: an
+      # unconditional check would fail every apps.test.json PR, since the dev
+      # projection is only replayed after that PR merges.
+      - name: Check apps.dev.json matches the projection
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          if git diff --name-only "$BASE_SHA"...HEAD | grep -qx 'apps.dev.json'; then
+            node .github/workflows/scripts/sync-dev.js --check
+          else
+            echo "apps.dev.json untouched by this PR - projection check skipped"
+          fi
 
       - name: Verify each docker commit is reachable from its declared branch
         env:
