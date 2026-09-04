@@ -13,15 +13,15 @@
       "logoRef": "rstudio-ball.svg",
       "author": "RStudio",
       "description": "RStudio is an integrated development environment for R. It provides a console, a syntax-highlighting editor with direct code execution, and tools for plotting, history, debugging and workspace management.",
-      "tagline": "Integrated development environment for the R language",
+      "tagline": "Integrated development environment for R, with console, syntax-highlighting editor, plotting and debugging",
       "projectLink": "https://rstudio.com/products/rstudio/",
       "translations": {
         "es": {
-          "tagline": "Entorno de desarrollo integrado para el lenguaje R",
+          "tagline": "Entorno de desarrollo integrado para R, con consola, editor con resaltado de sintaxis, gráficos y depuración",
           "description": "RStudio es un entorno de desarrollo integrado para R. Incluye una consola, un editor con resaltado de sintaxis que ejecuta código directamente y herramientas de gráficos, historial, depuración y gestión del espacio de trabajo."
         },
         "fr": {
-          "tagline": "Environnement de développement intégré pour le langage R",
+          "tagline": "Environnement de développement intégré pour R, avec console, éditeur à coloration syntaxique, tracés et débogage",
           "description": "RStudio est un environnement de développement intégré pour R. Il comprend une console, un éditeur avec coloration syntaxique permettant l'exécution directe du code, ainsi que des outils de tracé, d'historique, de débogage et de gestion de l'espace de travail."
         }
       }
@@ -39,15 +39,15 @@
       "logoRef": "jupyter-notebook.svg",
       "author": "Project Jupyter",
       "description": "Jupyter Notebook is an open-source web application for documents that combine live code, equations, visualizations and narrative text. Typical uses include data cleaning and transformation, numerical simulation, statistical modelling, data visualization and machine learning.",
-      "tagline": "Notebook documents with live code, equations and visualizations",
+      "tagline": "Notebook documents with live code, equations and visualizations, for data cleaning, modelling and machine learning",
       "projectLink": "https://jupyter.org/",
       "translations": {
         "es": {
-          "tagline": "Documentos con código ejecutable, ecuaciones y visualizaciones",
+          "tagline": "Documentos con código ejecutable, ecuaciones y visualizaciones, para limpieza de datos, modelización y aprendizaje automático",
           "description": "Jupyter Notebook es una aplicación web de código abierto para documentos que combinan código ejecutable, ecuaciones, visualizaciones y texto narrativo. Sus usos habituales incluyen la limpieza y transformación de datos, la simulación numérica, la modelización estadística, la visualización de datos y el aprendizaje automático."
         },
         "fr": {
-          "tagline": "Documents contenant du code exécutable, des équations et des visualisations",
+          "tagline": "Documents combinant code exécutable, équations et visualisations, pour le nettoyage de données, la modélisation et l'apprentissage automatique",
           "description": "Jupyter Notebook est une application web open source pour des documents combinant code exécutable, équations, visualisations et texte narratif. Ses usages courants incluent le nettoyage et la transformation de données, la simulation numérique, la modélisation statistique, la visualisation de données et l'apprentissage automatique."
         }
       }
@@ -65,15 +65,15 @@
       "logoRef": "jupyter-lab.png",
       "author": "Project Jupyter",
       "description": "Jupyter Lab is a web-based interactive development environment for notebooks, code and data. Its user interface can be arranged to suit different data science, scientific computing and machine learning workflows, and it is extensible through plugins.",
-      "tagline": "Web-based workspace for notebooks, code and data",
+      "tagline": "Web-based workspace for notebooks, code and data, with a configurable interface and plugin extensions",
       "projectLink": "https://jupyter.org/",
       "translations": {
         "es": {
-          "tagline": "Entorno web de trabajo para cuadernos, código y datos",
+          "tagline": "Entorno web de trabajo para cuadernos, código y datos, con interfaz configurable y extensible mediante complementos",
           "description": "Jupyter Lab es un entorno de desarrollo interactivo basado en web para cuadernos, código y datos. Su interfaz se puede organizar según distintos flujos de trabajo de ciencia de datos, computación científica y aprendizaje automático, y es extensible mediante complementos."
         },
         "fr": {
-          "tagline": "Environnement web pour les notebooks, le code et les données",
+          "tagline": "Environnement web pour les notebooks, le code et les données, avec interface configurable et extensions",
           "description": "Jupyter Lab est un environnement de développement interactif web pour les notebooks, le code et les données. Son interface peut être organisée selon différents flux de travail en science des données, calcul scientifique et apprentissage automatique, et elle est extensible par des extensions."
         }
       }
@@ -89,18 +89,18 @@
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
       "description": "Sampling Based Area Estimation designs statistically sound sampling strategies for area estimation and accuracy assessment. It then analyses the collected reference data to produce bias-adjusted area estimates with confidence intervals.",
-      "tagline": "Sampling design and bias-adjusted area estimates",
+      "tagline": "Sampling design for area estimation and accuracy assessment, with bias-adjusted estimates and confidence intervals",
       "projectLink": "https://github.com/sepal-contrib/sbae-design",
       "repository": "https://github.com/sepal-contrib/sbae-design",
       "branch": "main",
       "skip": true,
       "translations": {
         "es": {
-          "tagline": "Diseño de muestreo y estimaciones de superficie ajustadas",
+          "tagline": "Diseño de muestreo para estimación de superficies, con estimaciones ajustadas por sesgo e intervalos de confianza",
           "description": "Sampling Based Area Estimation diseña estrategias de muestreo estadísticamente robustas para la estimación de superficies y la evaluación de la exactitud. Después analiza los datos de referencia recopilados para producir estimaciones de superficie ajustadas por sesgo con intervalos de confianza."
         },
         "fr": {
-          "tagline": "Plan d'échantillonnage et estimations de superficie corrigées",
+          "tagline": "Plan d'échantillonnage pour l'estimation de superficies, avec estimations corrigées du biais et intervalles de confiance",
           "description": "Sampling Based Area Estimation conçoit des stratégies d'échantillonnage statistiquement rigoureuses pour l'estimation de superficies et l'évaluation de l'exactitude. Elle analyse ensuite les données de référence collectées afin de produire des estimations de superficie corrigées du biais avec intervalles de confiance."
         }
       }
@@ -117,16 +117,16 @@
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
       "description": "Time-series analysis applies the BFAST algorithm to the dynamics of dense satellite time series, separating genuine land-cover change from the seasonal phenological variation that would otherwise be mistaken for it.",
-      "tagline": "Land-cover change detection in dense satellite time series",
+      "tagline": "Land-cover change detection in dense satellite time series, separating real change from seasonal phenology",
       "projectLink": "https://github.com/sepal-contrib/bfastspatial",
       "repository": "https://github.com/sepal-contrib/bfastspatial",
       "translations": {
         "es": {
-          "tagline": "Detección de cambios de cobertura en series temporales densas",
+          "tagline": "Detección de cambios de cobertura en series temporales densas, distinguiendo el cambio real de la fenología estacional",
           "description": "Time-series analysis aplica el algoritmo BFAST a la dinámica de series temporales satelitales densas y distingue los cambios reales de cobertura del suelo de las variaciones fenológicas estacionales que podrían confundirse con ellos."
         },
         "fr": {
-          "tagline": "Détection des changements de couverture dans des séries denses",
+          "tagline": "Détection des changements de couverture dans des séries denses, distinguant le changement réel de la phénologie saisonnière",
           "description": "Time-series analysis applique l'algorithme BFAST à la dynamique de séries temporelles satellitaires denses et distingue les changements réels de couverture du sol des variations phénologiques saisonnières qui pourraient être prises pour eux."
         }
       }
@@ -144,16 +144,16 @@
       "logoRef": "bfast.jpg",
       "author": "Alexandre Almeida",
       "description": "BFAST Explorer applies the BFAST algorithm to Landsat Surface Reflectance data at the level of individual pixels.",
-      "tagline": "BFAST analysis of Landsat surface reflectance time series",
+      "tagline": "BFAST analysis of Landsat surface reflectance time series, at the level of individual pixels",
       "projectLink": "https://github.com/sepal-contrib/bfast-explorer",
       "repository": "https://github.com/sepal-contrib/bfast-explorer",
       "translations": {
         "es": {
-          "tagline": "Análisis BFAST de series de reflectancia de Landsat",
+          "tagline": "Análisis BFAST de series de reflectancia de superficie de Landsat, a nivel de píxeles individuales",
           "description": "BFAST Explorer aplica el algoritmo BFAST a datos de reflectancia de superficie de Landsat a nivel de píxeles individuales."
         },
         "fr": {
-          "tagline": "Analyse BFAST des séries de réflectance de surface Landsat",
+          "tagline": "Analyse BFAST des séries de réflectance de surface Landsat, au niveau de pixels individuels",
           "description": "BFAST Explorer applique l'algorithme BFAST aux données de réflectance de surface Landsat au niveau de pixels individuels."
         }
       }
@@ -171,17 +171,17 @@
       "logoRef": "sepal.png",
       "author": "sepal-contrib",
       "description": "Soil Moisture Mapping derives surface soil moisture from Copernicus Sentinel-1 intensity data, producing soil moisture maps over a selected area.",
-      "tagline": "Surface soil moisture maps from Sentinel-1 intensity data",
+      "tagline": "Surface soil moisture maps derived from Copernicus Sentinel-1 intensity data over a selected area",
       "projectLink": "https://github.com/sepal-contrib/sepal_pysmm",
       "repository": "https://github.com/sepal-contrib/sepal_pysmm",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Mapas de humedad superficial del suelo con datos Sentinel-1",
+          "tagline": "Mapas de humedad superficial del suelo a partir de datos de intensidad de Copernicus Sentinel-1",
           "description": "Soil Moisture Mapping estima la humedad superficial del suelo a partir de los datos de intensidad de Copernicus Sentinel-1 y genera mapas de humedad para el área seleccionada."
         },
         "fr": {
-          "tagline": "Cartes d'humidité superficielle du sol à partir de Sentinel-1",
+          "tagline": "Cartes d'humidité superficielle du sol à partir des données d'intensité Copernicus Sentinel-1",
           "description": "Soil Moisture Mapping estime l'humidité superficielle du sol à partir des données d'intensité Copernicus Sentinel-1 et produit des cartes d'humidité sur la zone sélectionnée."
         }
       }
@@ -198,17 +198,17 @@
       "logoRef": "openforis.png",
       "author": "the Sepal team",
       "description": "FIRMS/Planet Active Fires Explorer displays active and past fire events from the Fire Information for Resource Management System (FIRMS), using Planet daily data as the imagery backdrop for the alerts.",
-      "tagline": "Active and historical fire events on Planet daily imagery",
+      "tagline": "Active and historical fire events from FIRMS, displayed over Planet daily imagery",
       "projectLink": "https://github.com/sepal-contrib/planet_active_fires_explorer",
       "repository": "https://github.com/sepal-contrib/planet_active_fires_explorer",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Incendios activos e históricos sobre imágenes diarias de Planet",
+          "tagline": "Incendios activos e históricos del sistema FIRMS, mostrados sobre imágenes diarias de Planet",
           "description": "FIRMS/Planet Active Fires Explorer muestra los incendios activos e históricos del Fire Information for Resource Management System (FIRMS), utilizando los datos diarios de Planet como imagen de fondo para las alertas."
         },
         "fr": {
-          "tagline": "Incendies actifs et passés sur les images quotidiennes Planet",
+          "tagline": "Incendies actifs et passés du système FIRMS, affichés sur les images quotidiennes Planet",
           "description": "FIRMS/Planet Active Fires Explorer affiche les incendies actifs et passés du Fire Information for Resource Management System (FIRMS), en utilisant les données quotidiennes de Planet comme fond d'image pour les alertes."
         }
       }
@@ -224,17 +224,17 @@
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
       "description": "Deforestation alert analysis brings together forest cover loss alerts from GLAD-L, GLAD-S2, RADD and CCDC for a chosen area and period. A convolutional neural network refines the alerts, and the results can be turned into reports.",
-      "tagline": "Forest cover loss alerts from GLAD, RADD and CCDC",
+      "tagline": "Forest cover loss alerts from GLAD-L, GLAD-S2, RADD and CCDC, refined by a neural network and turned into reports",
       "projectLink": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "repository": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Alertas de pérdida de cobertura forestal de GLAD, RADD y CCDC",
+          "tagline": "Alertas de pérdida de cobertura forestal de GLAD-L, GLAD-S2, RADD y CCDC, depuradas por una red neuronal y convertidas en informes",
           "description": "Deforestation alert analysis reúne alertas de pérdida de cobertura forestal de GLAD-L, GLAD-S2, RADD y CCDC para un área y un período determinados. Una red neuronal convolucional depura las alertas, y los resultados pueden convertirse en informes."
         },
         "fr": {
-          "tagline": "Alertes de perte de couvert forestier GLAD, RADD et CCDC",
+          "tagline": "Alertes de perte de couvert forestier GLAD-L, GLAD-S2, RADD et CCDC, affinées par un réseau de neurones et converties en rapports",
           "description": "Deforestation alert analysis réunit les alertes de perte de couvert forestier de GLAD-L, GLAD-S2, RADD et CCDC pour une zone et une période données. Un réseau de neurones convolutif affine les alertes, et les résultats peuvent être convertis en rapports."
         }
       }
@@ -250,17 +250,17 @@
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
       "description": "Vector file manager handles the vector data held in a SEPAL account. It covers upload and download, export to Google Earth Engine, and the generation of regular grids over an area of interest.",
-      "tagline": "Vector file handling and grid generation inside SEPAL",
+      "tagline": "Vector files in a SEPAL account: upload, download, export to Earth Engine and regular grid generation",
       "projectLink": "https://github.com/sepal-contrib/vector_manager",
       "repository": "https://github.com/sepal-contrib/vector_manager",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Gestión de archivos vectoriales y generación de cuadrículas",
+          "tagline": "Archivos vectoriales en una cuenta de SEPAL: carga, descarga, exportación a Earth Engine y generación de cuadrículas",
           "description": "Vector file manager gestiona los datos vectoriales alojados en una cuenta de SEPAL. Cubre la carga y la descarga, la exportación a Google Earth Engine y la generación de cuadrículas regulares sobre un área de interés."
         },
         "fr": {
-          "tagline": "Gestion des fichiers vectoriels et génération de grilles",
+          "tagline": "Fichiers vectoriels dans un compte SEPAL : téléversement, téléchargement, export vers Earth Engine et génération de grilles",
           "description": "Vector file manager gère les données vectorielles hébergées dans un compte SEPAL. Il couvre le téléversement et le téléchargement, l'export vers Google Earth Engine et la génération de grilles régulières sur une zone d'intérêt."
         }
       }
@@ -278,17 +278,17 @@
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
       "description": "Time series clip produces a PDF file containing time-series image clips for a given set of points. Each point in the set gets its own sequence of clips, so a large number of locations can be reviewed in a single document.",
-      "tagline": "PDF sheets of time-series image clips for a set of points",
+      "tagline": "PDF sheets of time-series image clips, one sequence per point, for reviewing many locations at once",
       "projectLink": "https://github.com/sepal-contrib/clip-time-series",
       "repository": "https://github.com/sepal-contrib/clip-time-series",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Fichas PDF con recortes de series temporales por punto",
+          "tagline": "Fichas PDF con recortes de series temporales, una secuencia por punto, para revisar muchas localizaciones a la vez",
           "description": "Time series clip genera un archivo PDF con recortes de series temporales para un conjunto de puntos dado. Cada punto del conjunto recibe su propia secuencia de recortes, de modo que muchas localizaciones pueden revisarse en un único documento."
         },
         "fr": {
-          "tagline": "Fiches PDF d'extraits de séries temporelles par point",
+          "tagline": "Fiches PDF d'extraits de séries temporelles, une séquence par point, pour examiner de nombreux sites en une fois",
           "description": "Time series clip génère un fichier PDF contenant des extraits de séries temporelles pour un ensemble de points donné. Chaque point reçoit sa propre séquence d'extraits, ce qui permet d'examiner de nombreux sites dans un seul document."
         }
       }
@@ -306,17 +306,17 @@
       "logoRef": "SMFM_Logo_4.png",
       "author": "Sam Bowers and SEPAL team",
       "description": "SMFM Biota runs the BIOTA change detection method from the SMFM toolkit on ALOS PALSAR radar data to measure how biomass changes over time.",
-      "tagline": "Biomass change over time from ALOS PALSAR data",
+      "tagline": "Biomass change over time from ALOS PALSAR radar data, using the BIOTA method of the SMFM toolkit",
       "projectLink": "https://github.com/sepal-contrib/sepal_smfm_biota",
       "repository": "https://github.com/sepal-contrib/sepal_smfm_biota",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Cambio de biomasa a lo largo del tiempo con ALOS PALSAR",
+          "tagline": "Cambio de biomasa a lo largo del tiempo con datos de radar ALOS PALSAR, mediante el método BIOTA del conjunto SMFM",
           "description": "SMFM Biota ejecuta el método de detección de cambios BIOTA del conjunto de herramientas SMFM sobre datos de radar ALOS PALSAR para medir cómo varía la biomasa a lo largo del tiempo."
         },
         "fr": {
-          "tagline": "Évolution de la biomasse dans le temps à partir d'ALOS PALSAR",
+          "tagline": "Évolution de la biomasse dans le temps à partir de données radar ALOS PALSAR, par la méthode BIOTA de la boîte à outils SMFM",
           "description": "SMFM Biota exécute la méthode de détection de changements BIOTA de la boîte à outils SMFM sur des données radar ALOS PALSAR pour mesurer l'évolution de la biomasse dans le temps."
         }
       }
@@ -334,16 +334,16 @@
       "logoRef": "SMFM_Logo_4.png",
       "author": "Sam Bowers and SEPAL team",
       "description": "SMFM Deforest runs the DEFOREST module from the SMFM toolkit, detecting deforestation from a time series of forest probabilities.",
-      "tagline": "Deforestation detection from forest probability time series",
+      "tagline": "Deforestation detection from a time series of forest probabilities, with the DEFOREST module of the SMFM toolkit",
       "projectLink": "https://github.com/smfm-project/deforest",
       "repository": "https://github.com/smfm-project/deforest",
       "translations": {
         "es": {
-          "tagline": "Detección de deforestación a partir de probabilidades de bosque",
+          "tagline": "Detección de deforestación a partir de una serie temporal de probabilidades de bosque, con el módulo DEFOREST de SMFM",
           "description": "SMFM Deforest ejecuta el módulo DEFOREST del conjunto de herramientas SMFM y detecta la deforestación a partir de una serie temporal de probabilidades de bosque."
         },
         "fr": {
-          "tagline": "Détection de la déforestation à partir de probabilités de forêt",
+          "tagline": "Détection de la déforestation à partir d'une série temporelle de probabilités de forêt, avec le module DEFOREST de SMFM",
           "description": "SMFM Deforest exécute le module DEFOREST de la boîte à outils SMFM et détecte la déforestation à partir d'une série temporelle de probabilités de forêt."
         }
       }
@@ -361,17 +361,17 @@
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
       "description": "SDG 15.3.1 indicator monitors land degradation following the Good Practice Guidance version 2, reporting the indicator at plot level.",
-      "tagline": "Land degradation indicator SDG 15.3.1 for national reporting",
+      "tagline": "Land degradation indicator SDG 15.3.1 at plot level, following Good Practice Guidance version 2",
       "projectLink": "https://github.com/sepal-contrib/sdg_15.3.1",
       "repository": "https://github.com/sepal-contrib/sdg_15.3.1",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Indicador ODS 15.3.1 de degradación de tierras",
+          "tagline": "Indicador ODS 15.3.1 de degradación de tierras a nivel de parcela, según la Guía de Buenas Prácticas versión 2",
           "description": "SDG 15.3.1 indicator hace seguimiento de la degradación de tierras conforme a la Guía de Buenas Prácticas versión 2 y presenta el indicador a nivel de parcela."
         },
         "fr": {
-          "tagline": "Indicateur ODD 15.3.1 de dégradation des terres",
+          "tagline": "Indicateur ODD 15.3.1 de dégradation des terres à l'échelle de la parcelle, selon le Guide de bonnes pratiques version 2",
           "description": "SDG 15.3.1 indicator assure le suivi de la dégradation des terres conformément au Guide de bonnes pratiques version 2 et restitue l'indicateur à l'échelle de la parcelle."
         }
       }
@@ -389,17 +389,17 @@
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
       "description": "GuidosToolbox Workbench (GWB) Analysis brings a subset of the desktop GuidosToolbox package to SEPAL, running its geospatial image analysis tools on raster data.",
-      "tagline": "Geospatial image analysis tools from GuidosToolbox",
+      "tagline": "Geospatial image analysis on raster data, from a subset of the desktop GuidosToolbox package",
       "projectLink": "https://github.com/sepal-contrib/gwb",
       "repository": "https://github.com/sepal-contrib/gwb",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Herramientas de análisis de imágenes geoespaciales de GuidosToolbox",
+          "tagline": "Análisis de imágenes geoespaciales sobre datos ráster, con un subconjunto del paquete de escritorio GuidosToolbox",
           "description": "GuidosToolbox Workbench (GWB) Analysis lleva a SEPAL un subconjunto del paquete de escritorio GuidosToolbox y ejecuta sus herramientas de análisis de imágenes geoespaciales sobre datos ráster."
         },
         "fr": {
-          "tagline": "Outils d'analyse d'images géospatiales de GuidosToolbox",
+          "tagline": "Analyse d'images géospatiales sur données raster, à partir d'un sous-ensemble du logiciel de bureau GuidosToolbox",
           "description": "GuidosToolbox Workbench (GWB) Analysis apporte dans SEPAL un sous-ensemble du logiciel de bureau GuidosToolbox et exécute ses outils d'analyse d'images géospatiales sur des données raster."
         }
       }
@@ -417,17 +417,17 @@
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
       "description": "PlanetLab mosaics order provides an interface to explore, order and download Planet Labs imagery from the Planet mosaics. Ordered imagery is delivered into the SEPAL workspace.",
-      "tagline": "Ordering and download of Planet Labs mosaic imagery",
+      "tagline": "Exploration, ordering and download of Planet Labs mosaic imagery into the SEPAL workspace",
       "projectLink": "https://github.com/sepal-contrib/planet-order",
       "repository": "https://github.com/sepal-contrib/planet-order",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Solicitud y descarga de imágenes de mosaicos de Planet Labs",
+          "tagline": "Exploración, solicitud y descarga de imágenes de mosaicos de Planet Labs en el espacio de trabajo de SEPAL",
           "description": "PlanetLab mosaics order ofrece una interfaz para explorar, solicitar y descargar imágenes de Planet Labs a partir de los mosaicos de Planet. Las imágenes solicitadas se entregan en el espacio de trabajo de SEPAL."
         },
         "fr": {
-          "tagline": "Commande et téléchargement d'images des mosaïques Planet Labs",
+          "tagline": "Exploration, commande et téléchargement d'images des mosaïques Planet Labs dans l'espace de travail SEPAL",
           "description": "PlanetLab mosaics order offre une interface pour explorer, commander et télécharger des images Planet Labs à partir des mosaïques Planet. Les images commandées sont déposées dans l'espace de travail SEPAL."
         }
       }
@@ -446,17 +446,17 @@
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
       "description": "Damage Proxy Maps applies change detection to Sentinel-1 radar imagery to produce a proxy map of where damage has occurred.",
-      "tagline": "Damage proxy maps from Sentinel-1 change detection",
+      "tagline": "Damage proxy maps from change detection on Sentinel-1 radar imagery, showing where damage has occurred",
       "projectLink": "https://github.com/sepal-contrib/damage_proxy_maps",
       "repository": "https://github.com/sepal-contrib/damage_proxy_maps",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Mapas indicativos de daños por detección de cambios Sentinel-1",
+          "tagline": "Mapas indicativos de daños por detección de cambios en imágenes de radar Sentinel-1, que muestran dónde se han producido daños",
           "description": "Damage Proxy Maps aplica detección de cambios sobre imágenes de radar Sentinel-1 para producir un mapa indicativo de dónde se han producido daños."
         },
         "fr": {
-          "tagline": "Cartes indicatives de dommages par détection de changements",
+          "tagline": "Cartes indicatives de dommages par détection de changements sur images radar Sentinel-1, montrant les zones endommagées",
           "description": "Damage Proxy Maps applique une détection de changements aux images radar Sentinel-1 pour produire une carte indicative des zones endommagées."
         }
       }
@@ -475,17 +475,17 @@
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
       "description": "CUSUM time-series change detection applies a spatially cumulative sum algorithm to univariate time series in order to detect change.",
-      "tagline": "GPU-accelerated CUSUM change detection on time series",
+      "tagline": "Change detection in univariate time series with a spatially cumulative sum algorithm, GPU accelerated",
       "projectLink": "https://github.com/sepal-contrib/cumsum_change",
       "repository": "https://github.com/sepal-contrib/cumsum_change",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Detección de cambios CUSUM en series temporales, acelerada por GPU",
+          "tagline": "Detección de cambios en series temporales univariantes con un algoritmo de suma acumulada espacial, acelerado por GPU",
           "description": "CUSUM time-series change detection aplica un algoritmo de suma acumulada espacial a series temporales univariantes para detectar cambios."
         },
         "fr": {
-          "tagline": "Détection de changements CUSUM accélérée par GPU",
+          "tagline": "Détection de changements dans des séries temporelles univariées par somme cumulée spatiale, accélérée par GPU",
           "description": "CUSUM time-series change detection applique un algorithme de somme cumulée spatiale à des séries temporelles univariées afin de détecter des changements."
         }
       }
@@ -503,7 +503,7 @@
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
       "description": "SEPAL-SDG 15.4.2 calculates sub-indicators A and B of SDG 15.4.2 at national and sub-regional scale. The results are produced for the reporting units of the selected country or region.",
-      "tagline": "Sub-indicators A and B of SDG 15.4.2 at national scale",
+      "tagline": "Sub-indicators A and B of SDG 15.4.2 for the reporting units of a country or region",
       "projectLink": "https://github.com/sepal-contrib/sepal_mgci",
       "repository": "https://github.com/sepal-contrib/sepal_mgci",
       "port": 8766,
@@ -511,11 +511,11 @@
       "commit": "8a382a9482f0448d79c3ece12dd330a16be78ae9",
       "translations": {
         "es": {
-          "tagline": "Subindicadores A y B del ODS 15.4.2 a escala nacional",
+          "tagline": "Subindicadores A y B del ODS 15.4.2 para las unidades de reporte de un país o una región",
           "description": "SEPAL-SDG 15.4.2 calcula los subindicadores A y B del ODS 15.4.2 a escala nacional y subregional. Los resultados se generan para las unidades de reporte del país o la región seleccionada."
         },
         "fr": {
-          "tagline": "Sous-indicateurs A et B de l'ODD 15.4.2 à l'échelle nationale",
+          "tagline": "Sous-indicateurs A et B de l'ODD 15.4.2 pour les unités de rapportage d'un pays ou d'une région",
           "description": "SEPAL-SDG 15.4.2 calcule les sous-indicateurs A et B de l'ODD 15.4.2 à l'échelle nationale et sous-régionale. Les résultats sont produits pour les unités de rapportage du pays ou de la région sélectionnée."
         }
       }
@@ -531,17 +531,17 @@
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
       "description": "WePlan - Forests gives access to the forest restoration scenarios computed by the WePlan decision support platform for tropical and subtropical countries. Each scenario maps where restoration in the selected country would do most for climate change mitigation, biodiversity conservation and poverty alleviation.",
-      "tagline": "Pre-computed restoration scenarios for tropical forests",
+      "tagline": "Pre-computed forest restoration scenarios for tropical countries, ranked by climate, biodiversity and poverty benefits",
       "projectLink": "https://github.com/sepal-contrib/weplan",
       "repository": "https://github.com/sepal-contrib/weplan",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Escenarios de restauración precalculados para bosques tropicales",
+          "tagline": "Escenarios de restauración forestal precalculados para países tropicales, según beneficios climáticos, de biodiversidad y de reducción de la pobreza",
           "description": "WePlan - Forests da acceso a los escenarios de restauración forestal calculados por la plataforma de apoyo a la decisión WePlan para países tropicales y subtropicales. Cada escenario cartografía dónde la restauración del país seleccionado aportaría mayores beneficios de mitigación climática, biodiversidad y reducción de la pobreza."
         },
         "fr": {
-          "tagline": "Scénarios de restauration précalculés pour les forêts tropicales",
+          "tagline": "Scénarios de restauration forestière précalculés pour les pays tropicaux, selon les bénéfices climatiques, de biodiversité et de pauvreté",
           "description": "WePlan - Forests donne accès aux scénarios de restauration forestière calculés par la plateforme d'aide à la décision WePlan pour les pays tropicaux et subtropicaux. Chaque scénario cartographie les lieux où la restauration apporterait le plus de bénéfices climatiques, de biodiversité et de réduction de la pauvreté dans le pays sélectionné."
         }
       }
@@ -578,17 +578,17 @@
       "logoRef": "leafmap.png",
       "author": "Leafmap",
       "description": "Leafmap gives access to the Leafmap Python mapping library, whose interactive maps and geospatial analysis tools run directly in the browser.",
-      "tagline": "Interactive maps and geospatial analysis with Leafmap",
+      "tagline": "Interactive maps and geospatial analysis in the browser, with the Leafmap Python library",
       "projectLink": "https://github.com/sepal-contrib/sepal-leafmap",
       "repository": "https://github.com/sepal-contrib/sepal-leafmap",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Mapas interactivos y análisis geoespacial con Leafmap",
+          "tagline": "Mapas interactivos y análisis geoespacial en el navegador, con la biblioteca Python Leafmap",
           "description": "Leafmap da acceso a la biblioteca de mapas Leafmap de Python, cuyas herramientas de cartografía interactiva y análisis geoespacial se ejecutan directamente en el navegador."
         },
         "fr": {
-          "tagline": "Cartes interactives et analyse géospatiale avec Leafmap",
+          "tagline": "Cartes interactives et analyse géospatiale dans le navigateur, avec la bibliothèque Python Leafmap",
           "description": "Leafmap donne accès à la bibliothèque cartographique Python Leafmap, dont les outils de cartographie interactive et d'analyse géospatiale s'exécutent directement dans le navigateur."
         }
       }
@@ -605,7 +605,7 @@
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
       "description": "Sample Based Area Estimation holds a set of notebooks for producing sample based area estimates. It runs an ensemble classification over a dense set of points using several time-series and remote sensing products, with a Kozak-Neyman stratification.",
-      "tagline": "Sample-based area estimation with Kozak-Neyman stratification",
+      "tagline": "Sample-based area estimation from notebooks, with ensemble classification and Kozak-Neyman stratification",
       "projectLink": "https://github.com/sepal-contrib/eSBAE_notebooks",
       "repository": "https://github.com/sepal-contrib/eSBAE_notebooks",
       "branch": "main"
@@ -622,7 +622,7 @@
       "logoRef": "sepal.png",
       "author": "Matthew-J-Payne",
       "description": "Python for Earth Observation (PyEO) provides a modular set of Python scripts for machine learning applied to Earth observation and GIS data. It covers downloading, preprocessing, baseline composite creation, classification and validation.",
-      "tagline": "Python toolchain for machine learning on Earth observation data",
+      "tagline": "Python scripts for machine learning on Earth observation data, from download and preprocessing to classification and validation",
       "projectLink": "https://github.com/clcr/pyeo",
       "repository": "https://github.com/clcr/pyeo"
     },
@@ -640,7 +640,7 @@
       "logo": "https://raw.githubusercontent.com/sepal-contrib/se.plan/main/assets/seplan-logo.png",
       "author": "The SEPAL team",
       "description": "se.plan combines ecological data on forest restoration with data on its benefits, costs and risks, using a weighted-sum approach. It produces a restoration suitability index from 1 to 5 for each location in an area of interest.",
-      "tagline": "Forest restoration suitability and impact maps",
+      "tagline": "Forest restoration suitability index from 1 to 5, weighing ecological data against benefits, costs and risks",
       "projectLink": "https://github.com/sepal-contrib/se.plan/",
       "repository": "https://github.com/sepal-contrib/se.plan",
       "port": 8765,
@@ -648,11 +648,11 @@
       "commit": "bc7217f1032e5a1cf1a331ea49944ba14b41ffd3",
       "translations": {
         "es": {
-          "tagline": "Mapas de aptitud e impacto de la restauración forestal",
+          "tagline": "Índice de aptitud para la restauración forestal de 1 a 5, ponderando datos ecológicos con beneficios, costes y riesgos",
           "description": "se.plan combina datos ecológicos sobre restauración forestal con datos sobre sus beneficios, costes y riesgos, mediante un enfoque de suma ponderada. Produce un índice de aptitud para la restauración de 1 a 5 para cada localización del área de interés."
         },
         "fr": {
-          "tagline": "Cartes d'aptitude et d'impact de la restauration forestière",
+          "tagline": "Indice d'aptitude à la restauration forestière de 1 à 5, pondérant données écologiques, bénéfices, coûts et risques",
           "description": "se.plan combine des données écologiques sur la restauration forestière avec des données sur ses bénéfices, coûts et risques, selon une approche de somme pondérée. Il produit un indice d'aptitude à la restauration de 1 à 5 pour chaque site de la zone d'intérêt."
         }
       }
@@ -708,14 +708,14 @@
           ],
           "pinned": false,
           "description": "Forest change mask combines the Global Forest Change (GFC) layers into a single forest change map.",
-          "tagline": "Forest change map built from Global Forest Change layers",
+          "tagline": "Forest change map built from the Global Forest Change (GFC) layers",
           "translations": {
             "es": {
-              "tagline": "Mapa de cambio forestal a partir de las capas Global Forest Change",
+              "tagline": "Mapa de cambio forestal a partir de las capas de Global Forest Change (GFC)",
               "description": "Forest change mask combina las capas de Global Forest Change (GFC) en un único mapa de cambio forestal."
             },
             "fr": {
-              "tagline": "Carte de changement forestier issue des couches Global Forest Change",
+              "tagline": "Carte de changement forestier issue des couches Global Forest Change (GFC)",
               "description": "Forest change mask combine les couches Global Forest Change (GFC) en une seule carte de changement forestier."
             }
           }
@@ -725,14 +725,14 @@
           "route": "basin-rivers",
           "label": "Resilient rivers and basin",
           "description": "Resilient rivers and basin delineates upstream watersheds with HydroSHEDS and combines them with Hansen Global Forest Change to compute forest cover change for each sub-catchment.",
-          "tagline": "Forest cover change per upstream sub-catchment",
+          "tagline": "Forest cover change per upstream sub-catchment, from HydroSHEDS watersheds and Hansen Global Forest Change",
           "translations": {
             "es": {
-              "tagline": "Cambio de cobertura forestal por subcuenca aguas arriba",
+              "tagline": "Cambio de cobertura forestal por subcuenca aguas arriba, a partir de HydroSHEDS y Hansen Global Forest Change",
               "description": "Resilient rivers and basin delimita las cuencas aguas arriba con HydroSHEDS y las combina con Hansen Global Forest Change para calcular el cambio de cobertura forestal de cada subcuenca."
             },
             "fr": {
-              "tagline": "Changement de couverture forestière par sous-bassin amont",
+              "tagline": "Changement de couverture forestière par sous-bassin amont, à partir de HydroSHEDS et Hansen Global Forest Change",
               "description": "Resilient rivers and basin délimite les bassins versants en amont avec HydroSHEDS et les combine à Hansen Global Forest Change pour calculer le changement de couverture forestière de chaque sous-bassin."
             }
           }
@@ -742,14 +742,14 @@
           "route": "fcdm",
           "label": "Forest Canopy Disturbance Monitoring (FCDM)",
           "description": "Forest Canopy Disturbance Monitoring (FCDM) maps canopy disturbances within (semi-)evergreen forests, covering disturbances of all kinds, whether natural or induced by human activity.",
-          "tagline": "Canopy disturbance maps for (semi-)evergreen forests",
+          "tagline": "Canopy disturbance maps for (semi-)evergreen forests, natural and human-induced alike",
           "translations": {
             "es": {
-              "tagline": "Mapas de perturbaciones del dosel en bosques (semi)perennifolios",
+              "tagline": "Mapas de perturbaciones del dosel en bosques (semi)perennifolios, tanto naturales como de origen humano",
               "description": "Forest Canopy Disturbance Monitoring (FCDM) cartografía las perturbaciones del dosel en bosques (semi)perennifolios, abarcando perturbaciones de todo tipo, tanto naturales como inducidas por la actividad humana."
             },
             "fr": {
-              "tagline": "Cartes des perturbations du couvert en forêts sempervirentes",
+              "tagline": "Cartes des perturbations du couvert en forêts (semi-)sempervirentes, naturelles comme d'origine humaine",
               "description": "Forest Canopy Disturbance Monitoring (FCDM) cartographie les perturbations du couvert dans les forêts (semi-)sempervirentes, en couvrant tous les types de perturbations, naturelles comme d'origine humaine."
             }
           }
@@ -759,14 +759,14 @@
           "route": "coverage-analysis",
           "label": "Coverage Analysis",
           "description": "Coverage Analysis maps how many cloud-free observations are available over an area of interest, for the major optical satellites carried in Google Earth Engine. The result shows where and when usable imagery exists before any processing is run.",
-          "tagline": "Cloud-free observation counts for major optical satellites",
+          "tagline": "Cloud-free observation counts for the major optical satellites, showing where usable imagery exists before processing",
           "translations": {
             "es": {
-              "tagline": "Recuento de observaciones sin nubes de satélites ópticos",
+              "tagline": "Recuento de observaciones sin nubes de los principales satélites ópticos, para saber dónde hay imágenes utilizables antes de procesar",
               "description": "Coverage Analysis cartografía cuántas observaciones libres de nubes hay disponibles sobre un área de interés, para los principales satélites ópticos alojados en Google Earth Engine. El resultado muestra dónde y cuándo existen imágenes utilizables antes de ejecutar cualquier procesamiento."
             },
             "fr": {
-              "tagline": "Nombre d'observations sans nuages des satellites optiques",
+              "tagline": "Nombre d'observations sans nuages des principaux satellites optiques, indiquant où des images exploitables existent avant traitement",
               "description": "Coverage Analysis cartographie le nombre d'observations sans nuages disponibles sur une zone d'intérêt, pour les principaux satellites optiques présents dans Google Earth Engine. Le résultat montre où et quand des images exploitables existent, avant tout traitement."
             }
           }
@@ -779,14 +779,14 @@
             "FOREST"
           ],
           "description": "Tropical Moist Forests (TMF) displays and exports the JRC Tropical Moist Forests layers, covering degradation, deforestation and annual change. The selected layers are exported from Earth Engine.",
-          "tagline": "JRC Tropical Moist Forests layers for viewing and export",
+          "tagline": "JRC Tropical Moist Forests layers on degradation, deforestation and annual change, for viewing and export",
           "translations": {
             "es": {
-              "tagline": "Capas de Bosques Húmedos Tropicales del JRC para ver y exportar",
+              "tagline": "Capas de Bosques Húmedos Tropicales del JRC sobre degradación, deforestación y cambio anual, para visualizar y exportar",
               "description": "Tropical Moist Forests (TMF) visualiza y exporta las capas de Bosques Húmedos Tropicales del JRC, que cubren degradación, deforestación y cambio anual. Las capas seleccionadas se exportan desde Earth Engine."
             },
             "fr": {
-              "tagline": "Couches Forêts tropicales humides du JRC à visualiser et exporter",
+              "tagline": "Couches Forêts tropicales humides du JRC sur la dégradation, la déforestation et le changement annuel, à visualiser et exporter",
               "description": "Tropical Moist Forests (TMF) visualise et exporte les couches Forêts tropicales humides du JRC, couvrant la dégradation, la déforestation et le changement annuel. Les couches sélectionnées sont exportées depuis Earth Engine."
             }
           }
@@ -800,14 +800,14 @@
             "LAND_COVER"
           ],
           "description": "ALOS PALSAR mosaics assembles and adjusts the ALOS Kyoto & Carbon radar mosaics from JAXA.",
-          "tagline": "ALOS Kyoto & Carbon radar mosaics for a selected area",
+          "tagline": "ALOS Kyoto & Carbon radar mosaics from JAXA, assembled and adjusted for a selected area",
           "translations": {
             "es": {
-              "tagline": "Mosaicos de radar ALOS Kyoto & Carbon para un área seleccionada",
+              "tagline": "Mosaicos de radar ALOS Kyoto & Carbon de JAXA, compuestos y ajustados para un área seleccionada",
               "description": "ALOS PALSAR mosaics compone y ajusta los mosaicos de radar ALOS Kyoto & Carbon de JAXA."
             },
             "fr": {
-              "tagline": "Mosaïques radar ALOS Kyoto & Carbon pour une zone sélectionnée",
+              "tagline": "Mosaïques radar ALOS Kyoto & Carbon de la JAXA, composées et ajustées pour une zone sélectionnée",
               "description": "ALOS PALSAR mosaics compose et ajuste les mosaïques radar ALOS Kyoto & Carbon de la JAXA."
             }
           }
@@ -823,14 +823,14 @@
           "logoRef": "sepal.png",
           "author": "The SEPAL team",
           "description": "Earth Engine app reader extracts the source code behind a published Google Earth Engine application from its URL.",
-          "tagline": "Source code extraction from a published Earth Engine app",
+          "tagline": "Source code extraction from a published Earth Engine application, given its URL",
           "translations": {
             "es": {
-              "tagline": "Extracción del código fuente de una aplicación de Earth Engine",
+              "tagline": "Extracción del código fuente de una aplicación publicada de Earth Engine, a partir de su URL",
               "description": "Earth Engine app reader extrae el código fuente de una aplicación publicada de Google Earth Engine a partir de su URL."
             },
             "fr": {
-              "tagline": "Extraction du code source d'une application Earth Engine",
+              "tagline": "Extraction du code source d'une application Earth Engine publiée, à partir de son URL",
               "description": "Earth Engine app reader extrait le code source d'une application Google Earth Engine publiée à partir de son URL."
             }
           }
@@ -851,17 +851,17 @@
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
       "description": "Spatial Risk Modelling assembles predictor variables from local rasters and/or Earth Engine, then trains and compares moving window, JNR, iCAR, GLM and random forest models. It evaluates the resulting deforestation and forest degradation risk maps and exports the validated layers.",
-      "tagline": "Deforestation risk maps from local rasters and/or Earth Engine",
+      "tagline": "Deforestation risk maps from local rasters and/or Earth Engine, with moving window, JNR, iCAR, GLM and random forest models",
       "projectLink": "https://github.com/sepal-contrib/spatial-risk-module",
       "repository": "https://github.com/sepal-contrib/spatial-risk-module",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Mapas de riesgo de deforestación a partir de datos locales y/o de Earth Engine",
+          "tagline": "Mapas de riesgo de deforestación a partir de rásteres locales y/o de Earth Engine, con modelos de ventana móvil, JNR, iCAR, GLM y random forest",
           "description": "Spatial Risk Modelling reúne variables predictoras a partir de rásteres locales y/o de Earth Engine. Con ellas entrena y compara modelos de ventana móvil, JNR, iCAR, GLM y random forest. Produce mapas de riesgo de deforestación y degradación forestal, que evalúa antes de exportar las capas validadas."
         },
         "fr": {
-          "tagline": "Cartes de risque de déforestation à partir de données locales et/ou d'Earth Engine",
+          "tagline": "Cartes de risque de déforestation à partir de rasters locaux et/ou d'Earth Engine, avec modèles à fenêtre mobile, JNR, iCAR, GLM et random forest",
           "description": "Spatial Risk Modelling rassemble des variables prédictives issues de rasters locaux et/ou d'Earth Engine, puis entraîne et compare des modèles à fenêtre mobile, JNR, iCAR, GLM et random forest. Il évalue les cartes de risque de déforestation et de dégradation forestière obtenues et exporte les couches validées."
         }
       }
