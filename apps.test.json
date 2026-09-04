@@ -81,7 +81,7 @@
     {
       "id": "sbae-design",
       "label": "Sampling Based Area Estimation - Design and Analysis",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/sbae-design/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/sbae-design/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [],
       "pinned": false,
@@ -161,7 +161,7 @@
     {
       "id": "sepal_pysmm",
       "label": "Soil Moisture Mapping",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/sepal_pysmm/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/sepal_pysmm/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "googleAccountRequired": true,
       "tags": [
@@ -189,7 +189,7 @@
     {
       "id": "planet_active_fires_explorer",
       "label": "FIRMS/Planet Active Fires Explorer",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/planet_active_fires_explorer/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/planet_active_fires_explorer/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [
         "PLANET"
@@ -216,7 +216,7 @@
     {
       "id": "deforestation-alerts-module",
       "label": "Deforestation alert analysis",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/deforestation-alerts-module/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/deforestation-alerts-module/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [],
       "pinned": false,
@@ -242,7 +242,7 @@
     {
       "id": "vector_manager",
       "label": "Vector file manager",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/vector_manager/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/vector_manager/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [],
       "pinned": false,
@@ -268,7 +268,7 @@
     {
       "id": "clip-time-series",
       "label": "Time series clip (beta)",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/clip-time-series/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/clip-time-series/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [
         "RESTORATION"
@@ -296,7 +296,7 @@
     {
       "id": "sepal_smfm_biota",
       "label": "SMFM Biota",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/sepal_smfm_biota/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/sepal_smfm_biota/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [
         "SMFM"
@@ -351,7 +351,7 @@
     {
       "id": "sdg_15.3.1",
       "label": "SDG 15.3.1 indicator",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/sdg_15.3.1/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/sdg_15.3.1/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [
         "RESTORATION"
@@ -379,7 +379,7 @@
     {
       "id": "gwb",
       "label": "GuidosToolbox Workbench (GWB) Analysis",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/gwb/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/gwb/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [
         "RESTORATION"
@@ -407,7 +407,7 @@
     {
       "id": "planet-order",
       "label": "PlanetLab mosaics order",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/planet-order/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/planet-order/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [
         "PLANET"
@@ -436,7 +436,7 @@
       "hidden": true,
       "id": "damage_proxy_maps",
       "label": "Damage Proxy Maps (beta)",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/damage_proxy_maps/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/damage_proxy_maps/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [
         "DISASTER"
@@ -464,7 +464,7 @@
     {
       "id": "cumsum_change",
       "label": "CUSUM time-series change detection",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/cumsum_change/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/cumsum_change/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [
         "TIME_SERIES",
@@ -523,7 +523,7 @@
     {
       "id": "weplan",
       "label": "WePlan - Forests",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/weplan/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/weplan/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [],
       "pinned": false,
@@ -841,7 +841,7 @@
     {
       "id": "spatial-risk-module",
       "label": "Spatial Risk Modelling (BETA)",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/spatial-risk-module/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/spatial-risk-module/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [
         "RESTORATION"

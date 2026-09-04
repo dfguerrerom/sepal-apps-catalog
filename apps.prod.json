@@ -187,7 +187,7 @@
     {
       "id": "deforestation-alerts-module",
       "label": "Deforestation alert analysis",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/deforestation-alerts-module/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/deforestation-alerts-module/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [],
       "pinned": false,
@@ -833,7 +833,7 @@
     {
       "id": "spatial-risk-module",
       "label": "Spatial Risk Modelling (BETA)",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/spatial-risk-module/ui.ipynb?voila-theme=dark&voila-template=sepal-ui-base",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/spatial-risk-module/ui.ipynb?voila-theme=dark",
       "endpoint": "jupyter",
       "tags": [
         "RESTORATION"
