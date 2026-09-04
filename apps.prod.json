@@ -318,32 +318,6 @@
       }
     },
     {
-      "id": "alos_mosaics",
-      "label": "ALOS KC Mosaics",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/alos_mosaics/ui.ipynb?voila-theme=dark",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": false,
-      "logoRef": "sepal.png",
-      "author": "The SEPAL team",
-      "description": "Create and manipulate ALOS K&C Mosaics",
-      "tagline": "Create and manipulate ALOS K&C Mosaics",
-      "projectLink": "https://github.com/sepal-contrib/alos_mosaics",
-      "repository": "https://github.com/sepal-contrib/alos_mosaics",
-      "branch": "release",
-      "translations": {
-        "es": {
-          "tagline": "Cree y manipule mosaicos ALOS K&C",
-          "description": "Cree y manipule mosaicos ALOS K&C"
-        },
-        "fr": {
-          "tagline": "Créez et manipulez des mosaïques ALOS K&C",
-          "description": "Créez et manipulez des mosaïques ALOS K&C"
-        }
-      }
-    },
-    {
       "id": "sdg_15.3.1",
       "label": "SDG 15.3.1 indicator",
       "path": "/sandbox/jupyter/voila/render/shared/apps/sdg_15.3.1/ui.ipynb?voila-theme=dark",
@@ -428,32 +402,6 @@
       }
     },
     {
-      "id": "coverage_analysis",
-      "label": "Coverage Analysis",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/coverage_analysis/ui.ipynb?voila-theme=dark",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": false,
-      "logoRef": "sepal.png",
-      "author": "The SEPAL team",
-      "description": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine",
-      "tagline": "Create maps of cloud-free observations for major optical satellites as available on Google's Earth Engine",
-      "projectLink": "https://github.com/sepal-contrib/coverage_analysis",
-      "repository": "https://github.com/sepal-contrib/coverage_analysis",
-      "branch": "release",
-      "translations": {
-        "es": {
-          "tagline": "Cree mapas de observaciones libres de nubes para los principales satélites ópticos disponibles en Google Earth Engine",
-          "description": "Cree mapas de observaciones libres de nubes para los principales satélites ópticos disponibles en Google Earth Engine"
-        },
-        "fr": {
-          "tagline": "Créez des cartes d'observations sans nuages pour les principaux satellites optiques disponibles sur Google Earth Engine",
-          "description": "Créez des cartes d'observations sans nuages pour les principaux satellites optiques disponibles sur Google Earth Engine"
-        }
-      }
-    },
-    {
       "hidden": true,
       "id": "damage_proxy_maps",
       "label": "Damage Proxy Maps (beta)",
@@ -479,32 +427,6 @@
         "fr": {
           "tagline": "Estimation des dommages à partir de Sentinel-1",
           "description": "Détection de changements basée sur Sentinel-1 pour l'estimation des dommages"
-        }
-      }
-    },
-    {
-      "id": "fcdm",
-      "label": "Forest Canopy Disturbance Monitoring (FCDM)",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/fcdm/ui.ipynb?voila-theme=dark",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": false,
-      "logoRef": "sepal.png",
-      "author": "The SEPAL team",
-      "description": "Mapping all kind of canopy disturbances (natural or human induced) within (semi-)evergreen forests",
-      "tagline": "Mapping all kind of canopy disturbances (natural or human induced) within (semi-)evergreen forests",
-      "projectLink": "https://github.com/sepal-contrib/fcdm/",
-      "repository": "https://github.com/sepal-contrib/fcdm",
-      "branch": "release",
-      "translations": {
-        "es": {
-          "tagline": "Cartografía de todo tipo de perturbaciones del dosel (naturales o inducidas por el ser humano) en bosques (semi)perennifolios",
-          "description": "Cartografía de todo tipo de perturbaciones del dosel (naturales o inducidas por el ser humano) en bosques (semi)perennifolios"
-        },
-        "fr": {
-          "tagline": "Cartographie de tous types de perturbations du couvert forestier (naturelles ou d'origine humaine) dans les forêts (semi-)sempervirentes",
-          "description": "Cartographie de tous types de perturbations du couvert forestier (naturelles ou d'origine humaine) dans les forêts (semi-)sempervirentes"
         }
       }
     },
@@ -809,6 +731,40 @@
           }
         },
         {
+          "id": "fcdm",
+          "route": "fcdm",
+          "label": "Forest Canopy Disturbance Monitoring (FCDM)",
+          "description": "Forest Canopy Disturbance Monitoring (FCDM) maps canopy disturbances within (semi-)evergreen forests, covering disturbances of all kinds, whether natural or induced by human activity.",
+          "tagline": "Canopy disturbance maps for (semi-)evergreen forests",
+          "translations": {
+            "es": {
+              "tagline": "Mapas de perturbaciones del dosel en bosques (semi)perennifolios",
+              "description": "Forest Canopy Disturbance Monitoring (FCDM) cartografía las perturbaciones del dosel en bosques (semi)perennifolios, abarcando perturbaciones de todo tipo, tanto naturales como inducidas por la actividad humana."
+            },
+            "fr": {
+              "tagline": "Cartes des perturbations du couvert en forêts sempervirentes",
+              "description": "Forest Canopy Disturbance Monitoring (FCDM) cartographie les perturbations du couvert dans les forêts (semi-)sempervirentes, en couvrant tous les types de perturbations, naturelles comme d'origine humaine."
+            }
+          }
+        },
+        {
+          "id": "coverage-analysis",
+          "route": "coverage-analysis",
+          "label": "Coverage Analysis",
+          "description": "Coverage Analysis maps how many cloud-free observations are available over an area of interest, for the major optical satellites carried in Google Earth Engine. The result shows where and when usable imagery exists before any processing is run.",
+          "tagline": "Cloud-free observation counts for major optical satellites",
+          "translations": {
+            "es": {
+              "tagline": "Recuento de observaciones sin nubes de satélites ópticos",
+              "description": "Coverage Analysis cartografía cuántas observaciones libres de nubes hay disponibles sobre un área de interés, para los principales satélites ópticos alojados en Google Earth Engine. El resultado muestra dónde y cuándo existen imágenes utilizables antes de ejecutar cualquier procesamiento."
+            },
+            "fr": {
+              "tagline": "Nombre d'observations sans nuages des satellites optiques",
+              "description": "Coverage Analysis cartographie le nombre d'observations sans nuages disponibles sur une zone d'intérêt, pour les principaux satellites optiques présents dans Google Earth Engine. Le résultat montre où et quand des images exploitables existent, avant tout traitement."
+            }
+          }
+        },
+        {
           "id": "tmf-sepal",
           "route": "tmf-sepal",
           "label": "Tropical Moist Forests (TMF)",
@@ -825,6 +781,27 @@
             "fr": {
               "tagline": "Couches Forêts tropicales humides du JRC à visualiser et exporter",
               "description": "Tropical Moist Forests (TMF) visualise et exporte les couches Forêts tropicales humides du JRC, couvrant la dégradation, la déforestation et le changement annuel. Les couches sélectionnées sont exportées depuis Earth Engine."
+            }
+          }
+        },
+        {
+          "id": "alos-mosaics",
+          "route": "alos-mosaics",
+          "label": "ALOS PALSAR mosaics",
+          "tags": [
+            "SAR",
+            "LAND_COVER"
+          ],
+          "description": "ALOS PALSAR mosaics assembles and adjusts the ALOS Kyoto & Carbon radar mosaics from JAXA.",
+          "tagline": "ALOS Kyoto & Carbon radar mosaics for a selected area",
+          "translations": {
+            "es": {
+              "tagline": "Mosaicos de radar ALOS Kyoto & Carbon para un área seleccionada",
+              "description": "ALOS PALSAR mosaics compone y ajusta los mosaicos de radar ALOS Kyoto & Carbon de JAXA."
+            },
+            "fr": {
+              "tagline": "Mosaïques radar ALOS Kyoto & Carbon pour une zone sélectionnée",
+              "description": "ALOS PALSAR mosaics compose et ajuste les mosaïques radar ALOS Kyoto & Carbon de la JAXA."
             }
           }
         },
