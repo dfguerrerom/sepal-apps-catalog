@@ -1,0 +1,14 @@
+# Apps in the local/dev catalog (apps.dev.json).
+#
+# apps.dev.json is GENERATED from this file + apps.test.json by
+# .github/workflows/scripts/sync-dev.js. Do not edit apps.dev.json by hand —
+# CI rejects it. To change what an app shows in dev, edit apps.test.json; to
+# change which apps dev carries, edit the list below.
+#
+# One app id per line. Line order is the order they appear in the catalog.
+
+rstudio
+jupyter-notebook
+jupyter-lab
+vector_manager
+se.plan
