@@ -13,15 +13,15 @@
       "logoRef": "rstudio-ball.svg",
       "author": "RStudio",
       "description": "RStudio is an integrated development environment for R. It provides a console, a syntax-highlighting editor with direct code execution, and tools for plotting, history, debugging and workspace management.",
-      "tagline": "Integrated development environment for the R language",
+      "tagline": "Integrated development environment for R, with console, syntax-highlighting editor, plotting and debugging",
       "projectLink": "https://rstudio.com/products/rstudio/",
       "translations": {
         "es": {
-          "tagline": "Entorno de desarrollo integrado para el lenguaje R",
+          "tagline": "Entorno de desarrollo integrado para R, con consola, editor con resaltado de sintaxis, gráficos y depuración",
           "description": "RStudio es un entorno de desarrollo integrado para R. Incluye una consola, un editor con resaltado de sintaxis que ejecuta código directamente y herramientas de gráficos, historial, depuración y gestión del espacio de trabajo."
         },
         "fr": {
-          "tagline": "Environnement de développement intégré pour le langage R",
+          "tagline": "Environnement de développement intégré pour R, avec console, éditeur à coloration syntaxique, tracés et débogage",
           "description": "RStudio est un environnement de développement intégré pour R. Il comprend une console, un éditeur avec coloration syntaxique permettant l'exécution directe du code, ainsi que des outils de tracé, d'historique, de débogage et de gestion de l'espace de travail."
         }
       }
@@ -39,15 +39,15 @@
       "logoRef": "jupyter-notebook.svg",
       "author": "Project Jupyter",
       "description": "Jupyter Notebook is an open-source web application for documents that combine live code, equations, visualizations and narrative text. Typical uses include data cleaning and transformation, numerical simulation, statistical modelling, data visualization and machine learning.",
-      "tagline": "Notebook documents with live code, equations and visualizations",
+      "tagline": "Notebook documents with live code, equations and visualizations, for data cleaning, modelling and machine learning",
       "projectLink": "https://jupyter.org/",
       "translations": {
         "es": {
-          "tagline": "Documentos con código ejecutable, ecuaciones y visualizaciones",
+          "tagline": "Documentos con código ejecutable, ecuaciones y visualizaciones, para limpieza de datos, modelización y aprendizaje automático",
           "description": "Jupyter Notebook es una aplicación web de código abierto para documentos que combinan código ejecutable, ecuaciones, visualizaciones y texto narrativo. Sus usos habituales incluyen la limpieza y transformación de datos, la simulación numérica, la modelización estadística, la visualización de datos y el aprendizaje automático."
         },
         "fr": {
-          "tagline": "Documents contenant du code exécutable, des équations et des visualisations",
+          "tagline": "Documents combinant code exécutable, équations et visualisations, pour le nettoyage de données, la modélisation et l'apprentissage automatique",
           "description": "Jupyter Notebook est une application web open source pour des documents combinant code exécutable, équations, visualisations et texte narratif. Ses usages courants incluent le nettoyage et la transformation de données, la simulation numérique, la modélisation statistique, la visualisation de données et l'apprentissage automatique."
         }
       }
@@ -65,15 +65,15 @@
       "logoRef": "jupyter-lab.png",
       "author": "Project Jupyter",
       "description": "Jupyter Lab is a web-based interactive development environment for notebooks, code and data. Its user interface can be arranged to suit different data science, scientific computing and machine learning workflows, and it is extensible through plugins.",
-      "tagline": "Web-based workspace for notebooks, code and data",
+      "tagline": "Web-based workspace for notebooks, code and data, with a configurable interface and plugin extensions",
       "projectLink": "https://jupyter.org/",
       "translations": {
         "es": {
-          "tagline": "Entorno web de trabajo para cuadernos, código y datos",
+          "tagline": "Entorno web de trabajo para cuadernos, código y datos, con interfaz configurable y extensible mediante complementos",
           "description": "Jupyter Lab es un entorno de desarrollo interactivo basado en web para cuadernos, código y datos. Su interfaz se puede organizar según distintos flujos de trabajo de ciencia de datos, computación científica y aprendizaje automático, y es extensible mediante complementos."
         },
         "fr": {
-          "tagline": "Environnement web pour les notebooks, le code et les données",
+          "tagline": "Environnement web pour les notebooks, le code et les données, avec interface configurable et extensions",
           "description": "Jupyter Lab est un environnement de développement interactif web pour les notebooks, le code et les données. Son interface peut être organisée selon différents flux de travail en science des données, calcul scientifique et apprentissage automatique, et elle est extensible par des extensions."
         }
       }
@@ -89,17 +89,17 @@
       "logoRef": "sepal.png",
       "author": "the SEPAL team",
       "description": "Vector file manager handles the vector data held in a SEPAL account. It covers upload and download, export to Google Earth Engine, and the generation of regular grids over an area of interest.",
-      "tagline": "Vector file handling and grid generation inside SEPAL",
+      "tagline": "Vector files in a SEPAL account: upload, download, export to Earth Engine and regular grid generation",
       "projectLink": "https://github.com/sepal-contrib/vector_manager",
       "repository": "https://github.com/sepal-contrib/vector_manager",
       "branch": "main",
       "translations": {
         "es": {
-          "tagline": "Gestión de archivos vectoriales y generación de cuadrículas",
+          "tagline": "Archivos vectoriales en una cuenta de SEPAL: carga, descarga, exportación a Earth Engine y generación de cuadrículas",
           "description": "Vector file manager gestiona los datos vectoriales alojados en una cuenta de SEPAL. Cubre la carga y la descarga, la exportación a Google Earth Engine y la generación de cuadrículas regulares sobre un área de interés."
         },
         "fr": {
-          "tagline": "Gestion des fichiers vectoriels et génération de grilles",
+          "tagline": "Fichiers vectoriels dans un compte SEPAL : téléversement, téléchargement, export vers Earth Engine et génération de grilles",
           "description": "Vector file manager gère les données vectorielles hébergées dans un compte SEPAL. Il couvre le téléversement et le téléchargement, l'export vers Google Earth Engine et la génération de grilles régulières sur une zone d'intérêt."
         }
       }
@@ -118,7 +118,7 @@
       "logo": "https://raw.githubusercontent.com/sepal-contrib/se.plan/main/assets/seplan-logo.png",
       "author": "The SEPAL team",
       "description": "se.plan combines ecological data on forest restoration with data on its benefits, costs and risks, using a weighted-sum approach. It produces a restoration suitability index from 1 to 5 for each location in an area of interest.",
-      "tagline": "Forest restoration suitability and impact maps",
+      "tagline": "Forest restoration suitability index from 1 to 5, weighing ecological data against benefits, costs and risks",
       "projectLink": "https://github.com/sepal-contrib/se.plan/",
       "repository": "https://github.com/sepal-contrib/se.plan",
       "port": 8765,
@@ -126,11 +126,11 @@
       "commit": "bc7217f1032e5a1cf1a331ea49944ba14b41ffd3",
       "translations": {
         "es": {
-          "tagline": "Mapas de aptitud e impacto de la restauración forestal",
+          "tagline": "Índice de aptitud para la restauración forestal de 1 a 5, ponderando datos ecológicos con beneficios, costes y riesgos",
           "description": "se.plan combina datos ecológicos sobre restauración forestal con datos sobre sus beneficios, costes y riesgos, mediante un enfoque de suma ponderada. Produce un índice de aptitud para la restauración de 1 a 5 para cada localización del área de interés."
         },
         "fr": {
-          "tagline": "Cartes d'aptitude et d'impact de la restauration forestière",
+          "tagline": "Indice d'aptitude à la restauration forestière de 1 à 5, pondérant données écologiques, bénéfices, coûts et risques",
           "description": "se.plan combine des données écologiques sur la restauration forestière avec des données sur ses bénéfices, coûts et risques, selon une approche de somme pondérée. Il produit un indice d'aptitude à la restauration de 1 à 5 pour chaque site de la zone d'intérêt."
         }
       }
