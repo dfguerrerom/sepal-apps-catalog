@@ -679,9 +679,7 @@
           "id": "gfc",
           "route": "gfc",
           "label": "Forest change mask",
-          "tags": [
-            "FOREST"
-          ],
+          "tags": [],
           "pinned": false,
           "description": "Forest change mask combines the Global Forest Change (GFC) layers into a single forest change map.",
           "tagline": "Forest change map built from the Global Forest Change (GFC) layers",
@@ -751,9 +749,7 @@
           "id": "tmf-sepal",
           "route": "tmf-sepal",
           "label": "Tropical Moist Forests (TMF)",
-          "tags": [
-            "FOREST"
-          ],
+          "tags": [],
           "description": "Tropical Moist Forests (TMF) displays and exports the JRC Tropical Moist Forests layers, covering degradation, deforestation and annual change. The selected layers are exported from Earth Engine.",
           "tagline": "JRC Tropical Moist Forests layers on degradation, deforestation and annual change, for viewing and export",
           "translations": {
@@ -772,8 +768,7 @@
           "route": "alos-mosaics",
           "label": "ALOS PALSAR mosaics",
           "tags": [
-            "SAR",
-            "LAND_COVER"
+            "SAR"
           ],
           "description": "ALOS PALSAR mosaics assembles and adjusts the ALOS Kyoto & Carbon radar mosaics from JAXA.",
           "tagline": "ALOS Kyoto & Carbon radar mosaics from JAXA, assembled and adjusted for a selected area",
@@ -881,21 +876,9 @@
       }
     },
     {
-      "value": "FOREST",
-      "label": {
-        "en": "Forest"
-      }
-    },
-    {
       "value": "INSTANT",
       "label": {
         "en": "Instant"
-      }
-    },
-    {
-      "value": "LAND_COVER",
-      "label": {
-        "en": "Land cover"
       }
     },
     {
