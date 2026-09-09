@@ -877,6 +877,30 @@
       "label": {
         "en": "Restoration"
       }
+    },
+    {
+      "value": "FOREST",
+      "label": {
+        "en": "Forest"
+      }
+    },
+    {
+      "value": "INSTANT",
+      "label": {
+        "en": "Instant"
+      }
+    },
+    {
+      "value": "LAND_COVER",
+      "label": {
+        "en": "Land cover"
+      }
+    },
+    {
+      "value": "SAR",
+      "label": {
+        "en": "SAR"
+      }
     }
   ]
 }
