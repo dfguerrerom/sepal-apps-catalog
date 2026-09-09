@@ -91,8 +91,8 @@
       "author": "the SEPAL team",
       "description": "Time-series analysis applies the BFAST algorithm to the dynamics of dense satellite time series, separating genuine land-cover change from the seasonal phenological variation that would otherwise be mistaken for it.",
       "tagline": "Land-cover change detection in dense satellite time series, separating real change from seasonal phenology",
-      "projectLink": "https://github.com/openforis/bfastspatial",
-      "repository": "https://github.com/openforis/bfastspatial",
+      "projectLink": "https://github.com/sepal-contrib/bfastspatial",
+      "repository": "https://github.com/sepal-contrib/bfastspatial",
       "translations": {
         "es": {
           "tagline": "Detección de cambios de cobertura en series temporales densas, distinguiendo el cambio real de la fenología estacional",
@@ -118,8 +118,8 @@
       "author": "Alexandre Almeida",
       "description": "BFAST Explorer applies the BFAST algorithm to Landsat Surface Reflectance data at the level of individual pixels.",
       "tagline": "BFAST analysis of Landsat surface reflectance time series, at the level of individual pixels",
-      "projectLink": "https://github.com/openforis/bfast-explorer",
-      "repository": "https://github.com/openforis/bfast-explorer",
+      "projectLink": "https://github.com/sepal-contrib/bfast-explorer",
+      "repository": "https://github.com/sepal-contrib/bfast-explorer",
       "translations": {
         "es": {
           "tagline": "Análisis BFAST de series de reflectancia de superficie de Landsat, a nivel de píxeles individuales",
