@@ -568,32 +568,6 @@
       }
     },
     {
-      "id": "sepal-leafmap",
-      "label": "Leafmap",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/sepal-leafmap/ui.ipynb",
-      "endpoint": "jupyter",
-      "tags": [],
-      "pinned": false,
-      "googleAccountRequired": false,
-      "logoRef": "leafmap.png",
-      "author": "Leafmap",
-      "description": "Leafmap gives access to the Leafmap Python mapping library, whose interactive maps and geospatial analysis tools run directly in the browser.",
-      "tagline": "Interactive maps and geospatial analysis in the browser, with the Leafmap Python library",
-      "projectLink": "https://github.com/sepal-contrib/sepal-leafmap",
-      "repository": "https://github.com/sepal-contrib/sepal-leafmap",
-      "branch": "main",
-      "translations": {
-        "es": {
-          "tagline": "Mapas interactivos y análisis geoespacial en el navegador, con la biblioteca Python Leafmap",
-          "description": "Leafmap da acceso a la biblioteca de mapas Leafmap de Python, cuyas herramientas de cartografía interactiva y análisis geoespacial se ejecutan directamente en el navegador."
-        },
-        "fr": {
-          "tagline": "Cartes interactives et analyse géospatiale dans le navigateur, avec la bibliothèque Python Leafmap",
-          "description": "Leafmap donne accès à la bibliothèque cartographique Python Leafmap, dont les outils de cartographie interactive et d'analyse géospatiale s'exécutent directement dans le navigateur."
-        }
-      }
-    },
-    {
       "hidden": true,
       "id": "eSBAE_notebooks",
       "label": "Sample Based Area Estimation",
