@@ -110,6 +110,7 @@
       "path": "/api/app-launcher/se.plan",
       "endpoint": "docker",
       "tags": [
+        "INSTANT",
         "RESTORATION"
       ],
       "pinned": true,
@@ -147,6 +148,12 @@
       "value": "RESTORATION",
       "label": {
         "en": "Restoration"
+      }
+    },
+    {
+      "value": "INSTANT",
+      "label": {
+        "en": "Instant"
       }
     }
   ]

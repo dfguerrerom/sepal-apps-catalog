@@ -469,6 +469,7 @@
       "path": "/api/app-launcher/sepal_mgci",
       "endpoint": "docker",
       "tags": [
+        "INSTANT",
         "RESTORATION"
       ],
       "pinned": false,
@@ -558,6 +559,7 @@
       "path": "/api/app-launcher/se.plan",
       "endpoint": "docker",
       "tags": [
+        "INSTANT",
         "RESTORATION"
       ],
       "pinned": true,
