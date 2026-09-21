@@ -351,9 +351,10 @@
     {
       "id": "sdg_15.3.1",
       "label": "SDG 15.3.1 indicator",
-      "path": "/sandbox/jupyter/voila/render/shared/apps/sdg_15.3.1/ui.ipynb?voila-theme=dark",
-      "endpoint": "jupyter",
+      "path": "/api/app-launcher/sdg_15.3.1",
+      "endpoint": "docker",
       "tags": [
+        "INSTANT",
         "RESTORATION"
       ],
       "pinned": false,
@@ -364,7 +365,9 @@
       "tagline": "Land degradation indicator SDG 15.3.1 at plot level, following Good Practice Guidance version 2",
       "projectLink": "https://github.com/sepal-contrib/sdg_15.3.1",
       "repository": "https://github.com/sepal-contrib/sdg_15.3.1",
+      "port": 8767,
       "branch": "main",
+      "commit": "9df5ad6eda6c718f5310200bee940da5e8480abd",
       "translations": {
         "es": {
           "tagline": "Indicador ODS 15.3.1 de degradación de tierras a nivel de parcela, según la Guía de Buenas Prácticas versión 2",
