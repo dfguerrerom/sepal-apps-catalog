@@ -349,9 +349,9 @@
       }
     },
     {
-      "id": "sdg_15.3.1",
+      "id": "sdg_15_3_1",
       "label": "SDG 15.3.1 indicator",
-      "path": "/api/app-launcher/sdg_15.3.1",
+      "path": "/api/app-launcher/sdg_15_3_1",
       "endpoint": "docker",
       "tags": [
         "INSTANT",
