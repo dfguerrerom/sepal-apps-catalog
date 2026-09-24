@@ -367,7 +367,7 @@
       "repository": "https://github.com/sepal-contrib/sdg_15.3.1",
       "port": 8767,
       "branch": "main",
-      "commit": "6b7bed9780228c0875e6b9adfc9d7668343e72be",
+      "commit": "69ab1bf2e24aa288986597df4a4791f0d6be33c2",
       "translations": {
         "es": {
           "tagline": "Indicador ODS 15.3.1 de degradación de tierras a nivel de parcela, según la Guía de Buenas Prácticas versión 2",
