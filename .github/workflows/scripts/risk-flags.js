@@ -37,7 +37,7 @@ const RISK_PATTERNS = [
     {pattern: /^\s*-\s*\/(?:etc|root|home)\b/m, label: 'sensitive host path mount'}
 ]
 
-const INFRA_FILES = /^(Dockerfile|docker-compose\.ya?ml|requirements\.txt|package\.json|Pipfile|environment\.ya?ml)$/
+const INFRA_FILES = /^(Dockerfile|docker-compose\.ya?ml|requirements\.txt|package\.json|Pipfile|(?:sepal_)?environment\.ya?ml)$/
 
 const repoLink = (label, url) => url ? `[${label}](${url})` : `\`${label}\``
 
