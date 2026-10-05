@@ -67,6 +67,10 @@
             "type": "string",
             "minLength": 1
           },
+          "cacheVenv": {
+            "type": "boolean",
+            "description": "jupyter apps only: publish a compressed copy of the app environment so sandboxes run it from local disk instead of Lustre. Must be a real boolean; app-manager treats anything else as false."
+          },
           "commit": {
             "type": "string",
             "pattern": "^[0-9a-f]{40}$",
