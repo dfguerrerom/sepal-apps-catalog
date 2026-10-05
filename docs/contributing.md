@@ -32,6 +32,16 @@ Optional per-language `tagline` / `description` overrides go in a `translations`
 3. A SEPAL maintainer will review and merge. Once merged, the app appears on test.sepal.io within minutes.
 4. Once you're happy with how it behaves on test.sepal.io, promote to prod — see [Promoting to production](#promoting-to-production) below.
 
+### Jupyter app options
+
+- **`cacheVenv`** (boolean, optional, defaults to off) — when true, app-manager publishes a
+  compressed copy of the app's environment alongside it, and sandboxes unpack that onto local
+  disk instead of running the environment over Lustre. It cuts the time before the app is usable
+  by roughly ten times for a large geospatial environment, at the cost of a one-off unpack on the
+  first launch of each session and about 500 MB of extra storage per app.
+  It must be a real JSON boolean: app-manager reads anything else, including the string
+  `"true"`, as off. Setting it to false removes the published copy again on the next pass.
+
 ## Updating an existing app
 
 Open a PR changing the `commit` field (and optionally `branch`) of the entry in `apps.test.json`. The bot will post a compare link showing exactly what changed upstream. Once reviewed and merged, the change is live on test.sepal.io. Promote to prod with one of the methods below.

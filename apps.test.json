@@ -93,6 +93,7 @@
       "projectLink": "https://github.com/sepal-contrib/sbae-design",
       "repository": "https://github.com/sepal-contrib/sbae-design",
       "branch": "main",
+      "cacheVenv": true,
       "skip": true,
       "translations": {
         "es": {
