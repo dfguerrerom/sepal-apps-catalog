@@ -830,6 +830,7 @@
       "projectLink": "https://github.com/sepal-contrib/spatial-risk-module",
       "repository": "https://github.com/sepal-contrib/spatial-risk-module",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Mapas de riesgo de deforestación a partir de rásteres locales y/o de Earth Engine, con modelos de ventana móvil, JNR, iCAR, GLM y random forest",
