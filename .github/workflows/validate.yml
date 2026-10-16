@@ -70,25 +70,25 @@ jobs:
             echo "apps.dev.json untouched by this PR - projection check skipped"
           fi
 
-      - name: Verify each docker commit is reachable from its declared branch
+      - name: Verify each pinned commit is reachable from its declared branch
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           for file in apps.test.json apps.prod.json apps.dev.json; do
-            jq -c '.apps[] | select(.endpoint == "docker")' "$file" | while read -r app; do
+            jq -c '.apps[] | select(.endpoint == "docker" or (.endpoint == "jupyter" and .commit))' "$file" | while read -r app; do
               repo=$(echo "$app" | jq -r '.repository')
               commit=$(echo "$app" | jq -r '.commit')
               branch=$(echo "$app" | jq -r '.branch')
               label=$(echo "$app" | jq -r '.label')
               ownerRepo=$(echo "$repo" | sed -E 's#^https://github\.com/##; s#\.git$##')
               if [ "$branch" = "null" ] || [ -z "$branch" ]; then
-                echo "::error file=$file::$label: docker entry is missing a 'branch' (cannot verify commit $commit)"
+                echo "::error file=$file::$label: pinned entry is missing a 'branch' (cannot verify commit $commit)"
                 exit 1
               fi
               echo "Checking $label: commit $commit reachable from branch $branch in $repo"
-              # Compare branch...commit. The app-launcher does `git fetch origin <branch>`
-              # then `git checkout --detach <commit>`, so the commit must be an ancestor of
+              # Compare branch...commit. app-launcher (docker) and app-manager (jupyter) both do
+              # `git fetch origin <branch>` then `git checkout --detach <commit>`, so the commit must be an ancestor of
               # (or equal to) the branch tip. The GitHub compare API reports this as
               # ahead_by == 0 (status "behind" or "identical"). A non-200 means the branch
               # or commit does not exist; ahead_by > 0 means the commit is not on the branch.

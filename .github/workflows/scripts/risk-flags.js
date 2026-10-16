@@ -39,7 +39,8 @@ const RISK_PATTERNS = [
     {pattern: /cap_add\s*:/i, label: 'added Linux capabilities'},
     {pattern: /\/var\/run\/docker\.sock/i, label: 'docker socket mount'},
     {pattern: /EE_PRIVATE_KEY|SEPAL_ADMIN_PASSWORD|EE_ACCOUNT/, label: 'references SEPAL/GEE secrets'},
-    {pattern: /^\s*-\s*\/(?:etc|root|home)\b/m, label: 'sensitive host path mount'}
+    {pattern: /^\s*-\s*\/(?:etc|root|home)\b/m, label: 'sensitive host path mount'},
+    {pattern: /git\+|--(?:extra-)?index-url|--trusted-host/, label: 'installs from git or a custom package index'}
 ]
 
 const INFRA_FILES = /^(Dockerfile|docker-compose\.ya?ml|requirements\.txt|package\.json|Pipfile|(?:sepal_)?environment\.ya?ml)$/
@@ -57,6 +58,20 @@ for (const upd of input.updated) {
     const r = parseRepo(upd.repository)
     if (!r) {
         out.push(`- ⚠️ **${upd.label}**: cannot parse repo URL \`${upd.repository}\``)
+        continue
+    }
+    // Jupyter pins are optional, so gaining or losing one is a real change, not a broken entry.
+    if (upd.endpoint === 'jupyter' && !upd.oldCommit !== !upd.newCommit) {
+        out.push(`### ${upd.label}`)
+        out.push(``)
+        if (!upd.newCommit) {
+            out.push(`- ⚠️ **Pin removed** — the app goes back to following \`${upd.branch}\`, and later upstream commits deploy without review.`)
+        } else if (SHA.test(upd.newCommit)) {
+            out.push(`- 📌 First pin at \`${upd.newCommit}\` — review [the tree at that commit](https://github.com/${r.owner}/${r.repo}/tree/${upd.newCommit}).`)
+        } else {
+            out.push(`- ⚠️ The new pin is not a full 40-character SHA.`)
+        }
+        out.push(``)
         continue
     }
     if (!upd.oldCommit || !upd.newCommit) {

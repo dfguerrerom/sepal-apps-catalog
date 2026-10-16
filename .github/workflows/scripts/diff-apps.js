@@ -1,9 +1,10 @@
 // .github/workflows/scripts/diff-apps.js
 // Usage: node diff-apps.js <oldFile> <newFile>
-// Emits JSON to stdout: {added: [...], removed: [...], updated: [{label, repository, branch, oldCommit, newCommit}, ...]}
+// Emits JSON to stdout: {added: [...], removed: [...], updated: [{label, endpoint, repository, branch, oldCommit, newCommit}, ...]}
 //
-// Scope: only docker entries are tracked for "updated" (SHA bumps need upstream review).
-// Non-docker added/removed entries are still surfaced; non-docker metadata edits are not.
+// Scope: docker entries, and jupyter entries pinned on either side, are tracked for "updated"
+// (SHA bumps need upstream review). Other added/removed entries are still surfaced; their
+// metadata edits are not.
 
 import {readFileSync} from 'node:fs'
 
@@ -24,6 +25,9 @@ const key = a => a.id
 const oldByKey = new Map(oldApps.map(a => [key(a), a]))
 const newByKey = new Map(newApps.map(a => [key(a), a]))
 
+const isPinnable = (a, prev) =>
+    a.endpoint === 'docker' || (a.endpoint === 'jupyter' && Boolean(a.commit || prev.commit))
+
 const added = []
 const removed = []
 const updated = []
@@ -31,11 +35,12 @@ const updated = []
 for (const [k, a] of newByKey) {
     if (!oldByKey.has(k)) {
         added.push(a)
-    } else if (a.endpoint === 'docker') {
+    } else if (isPinnable(a, oldByKey.get(k))) {
         const prev = oldByKey.get(k)
         if (prev.commit !== a.commit || prev.branch !== a.branch) {
             updated.push({
                 label: a.label,
+                endpoint: a.endpoint,
                 repository: a.repository,
                 branch: a.branch,
                 oldBranch: prev.branch,
