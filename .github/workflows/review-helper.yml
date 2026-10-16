@@ -1,7 +1,8 @@
 name: Review helper
 
 on:
-  pull_request:
+  # Not pull_request: on PRs from forks that gets a read-only token and cannot post the comment.
+  pull_request_target:
     paths:
       - 'apps.test.json'
       - 'apps.prod.json'
@@ -17,23 +18,34 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
+      # This job holds a write token, so it only ever runs this repository's own scripts: the
+      # checkout stays on the base branch and the PR's catalogs are read below as plain data.
+      # A PR's edits to the scripts therefore take effect here only once merged.
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
 
-      - name: Compute base versions
+      - name: Read base and PR catalogs
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          mkdir -p /tmp/base
-          git show "origin/${{ github.base_ref }}:apps.test.json" > /tmp/base/apps.test.json 2>/dev/null || echo '{"apps":[]}' > /tmp/base/apps.test.json
-          git show "origin/${{ github.base_ref }}:apps.prod.json" > /tmp/base/apps.prod.json 2>/dev/null || echo '{"apps":[]}' > /tmp/base/apps.prod.json
-          git show "origin/${{ github.base_ref }}:apps.dev.json" > /tmp/base/apps.dev.json 2>/dev/null || echo '{"apps":[]}' > /tmp/base/apps.dev.json
+          git fetch origin "+refs/pull/$PR_NUMBER/head:refs/remotes/pr/head"
+          # The merge base, not the base tip: what the PR changes, even when main has moved on.
+          base=$(git merge-base "origin/$BASE_REF" pr/head)
+          mkdir -p /tmp/base /tmp/head
+          for f in apps.test.json apps.prod.json apps.dev.json; do
+            git show "$base:$f" > "/tmp/base/$f" 2>/dev/null || echo '{"apps":[]}' > "/tmp/base/$f"
+            git show "pr/head:$f" > "/tmp/head/$f" 2>/dev/null || echo '{"apps":[]}' > "/tmp/head/$f"
+          done
 
       - name: Diff each catalog
         id: diff
         run: |
-          node .github/workflows/scripts/diff-apps.js /tmp/base/apps.test.json apps.test.json > /tmp/diff.test.json
-          node .github/workflows/scripts/diff-apps.js /tmp/base/apps.prod.json apps.prod.json > /tmp/diff.prod.json
-          node .github/workflows/scripts/diff-apps.js /tmp/base/apps.dev.json apps.dev.json > /tmp/diff.dev.json
+          node .github/workflows/scripts/diff-apps.js /tmp/base/apps.test.json /tmp/head/apps.test.json > /tmp/diff.test.json
+          node .github/workflows/scripts/diff-apps.js /tmp/base/apps.prod.json /tmp/head/apps.prod.json > /tmp/diff.prod.json
+          node .github/workflows/scripts/diff-apps.js /tmp/base/apps.dev.json /tmp/head/apps.dev.json > /tmp/diff.dev.json
 
       - name: Generate risk reports
         env:
