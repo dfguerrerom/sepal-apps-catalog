@@ -34,6 +34,11 @@ Optional per-language `tagline` / `description` overrides go in a `translations`
 
 ### Jupyter app options
 
+- **`commit`** (full 40-character SHA, optional, needs `branch`) — pins the app to that commit on
+  `branch`. Without it, app-manager follows the branch tip and builds whatever lands there, with no
+  review in this repository. With it, an update is a PR that changes `commit`, and the review
+  helper posts the upstream compare like it does for docker apps. The commit must be reachable from
+  `branch`.
 - **`cacheVenv`** (boolean, optional, defaults to off) — when true, app-manager publishes a
   compressed copy of the app's environment alongside it, and sandboxes unpack that onto local
   disk instead of running the environment over Lustre. It cuts the time before the app is usable

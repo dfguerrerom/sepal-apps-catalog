@@ -21,6 +21,13 @@ const FIXTURE = {
             endpoint: 'rstudio',
             single: true,
             path: '/sandbox/rstudio/'
+        },
+        {
+            id: 'baz',
+            label: 'Baz',
+            endpoint: 'jupyter',
+            repository: 'https://github.com/x/baz',
+            branch: 'main'
         }
     ]
 }
@@ -50,6 +57,22 @@ test('happy path: updates commit for the matching docker app', () => {
     }
 })
 
+test('pins a jupyter app', () => {
+    const {file, cleanup} = mkFile()
+    try {
+        const result = bumpApp({
+            appId: 'baz',
+            expectedRepository: 'https://github.com/x/baz',
+            newCommit: 'b'.repeat(40),
+            file
+        })
+        assert.equal(result.changed, true)
+        assert.equal(JSON.parse(readFileSync(file, 'utf8')).apps[2].commit, 'b'.repeat(40))
+    } finally {
+        cleanup()
+    }
+})
+
 test('app id not found → throws', () => {
     const {file, cleanup} = mkFile()
     try {
@@ -67,7 +90,7 @@ test('app id not found → throws', () => {
     }
 })
 
-test('endpoint is not docker → throws', () => {
+test('endpoint is neither docker nor jupyter → throws', () => {
     const {file, cleanup} = mkFile()
     try {
         assert.throws(
@@ -77,7 +100,7 @@ test('endpoint is not docker → throws', () => {
                 newCommit: 'a'.repeat(40),
                 file
             }),
-            /endpoint is rstudio, not docker/
+            /endpoint is rstudio, not docker or jupyter/
         )
     } finally {
         cleanup()
