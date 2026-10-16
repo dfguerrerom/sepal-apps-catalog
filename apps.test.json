@@ -663,6 +663,28 @@
       }
     },
     {
+      "hidden": true,
+      "id": "sepal-sbae2xlsx",
+      "label": "Sepal SBAE2XLSX",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/sepal-sam/sepal_phenology_sam_forestsat.ipynb",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "",
+      "tagline": "SBAE2XLSX environment",
+      "projectLink": "https://github.com/jdoblas/sbae2xlsx_civ",
+      "repository": "https://github.com/jdoblas/sbae2xlsx_civ",
+      "branch": "main",
+      "translations": {
+        "fr": {
+          "tagline": "Environnement sbae2xlsx"
+        }
+      }
+    },
+    {
       "id": "sepal-gee-bundle",
       "label": "SEPAL GEE Bundle (backend)",
       "path": "/api/app-launcher/sepal-gee-bundle",
