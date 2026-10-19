@@ -663,6 +663,23 @@
       }
     },
     {
+      "hidden": true,
+      "id": "sepal-sbae-to-excel",
+      "label": "Sampling Based Area Estimation - Create Spreadsheets",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "",
+      "cacheVenv": true,
+      "tagline": "Environment used to run the SBAE-to-Excel notebooks",
+      "projectLink": "https://github.com/jdoblas/sbae2xlsx_civ",
+      "repository": "https://github.com/jdoblas/sbae2xlsx_civ",
+      "branch": "main"
+    },
+    {
       "id": "sepal-gee-bundle",
       "label": "SEPAL GEE Bundle (backend)",
       "path": "/api/app-launcher/sepal-gee-bundle",
