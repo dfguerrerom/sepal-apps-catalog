@@ -7,7 +7,7 @@ This repository is guarded by a set of GitHub Actions workflows and Node scripts
 | Workflow | File | Trigger | Purpose |
 | --- | --- | --- | --- |
 | Validate catalog | `.github/workflows/validate.yml` | PRs and pushes to `main` that touch `apps.*.json`, `apps.schema.json`, or the workflow/scripts | Blocking gate: unit tests, formatting, schema, and commit reachability |
-| Review helper | `.github/workflows/review-helper.yml` | PRs that touch `apps.test.json` / `apps.prod.json` / `apps.dev.json` or the scripts | Posts (and updates) a single PR comment with a per-app diff and risk flags |
+| Review helper | `.github/workflows/review-helper.yml` | PRs that touch `apps.test.json` / `apps.prod.json` / `apps.dev.json` or the scripts (`pull_request_target`, so PRs from forks get the comment too; it runs `main`'s scripts and reads the PR's catalogs as data) | Posts (and updates) a single PR comment with a per-app diff and risk flags |
 | Promote app to production | `.github/workflows/promote-app.yml` | Manual (`workflow_dispatch`, pick an app) | Copies an app's pinned SHA from `apps.test.json` into `apps.prod.json` and opens a PR. Requires write access on this repo |
 | Promote app on `/promote` comment | `.github/workflows/promote-request.yml` | `issue_comment` (`/promote <app-id>` on an issue labeled `promote-request`) | Self-service variant of the above. Any user can comment; the workflow verifies the commenter owns / is a public org member of the app's source repo, then opens the same PR. A maintainer still merges. See issue #40 |
 | Update catalog from source-repo release | `.github/workflows/update-from-release.yml` | `repository_dispatch` (`bump-app`) sent by a source repo on release | Bumps an app's `commit` in `apps.test.json` and opens a PR |

@@ -12,12 +12,17 @@ if (!token) {
 
 const input = JSON.parse(readFileSync(0, 'utf8'))
 
+// Repository and commits come from the PR and are spliced into authenticated API paths, so only
+// shapes that cannot climb out of /repos/{owner}/{repo} get through.
 const parseRepo = url => {
-    const m = url.match(/^https:\/\/github\.com\/([^/]+)\/(.+?)(?:\.git)?$/)
-    return m ? {owner: m[1], repo: m[2]} : null
+    const m = url.match(/^https:\/\/github\.com\/([A-Za-z0-9-]+)\/([A-Za-z0-9_.-]+?)(?:\.git)?$/)
+    return m && !/^\.+$/.test(m[2]) ? {owner: m[1], repo: m[2]} : null
 }
 
+const SHA = /^[0-9a-f]{40}$/
+
 const compare = async (owner, repo, base, head) => {
+    if (!SHA.test(base) || !SHA.test(head)) throw new Error('commit is not a full 40-character SHA')
     const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/compare/${base}...${head}`, {
         headers: {
             Authorization: `Bearer ${token}`,
@@ -40,6 +45,11 @@ const RISK_PATTERNS = [
 const INFRA_FILES = /^(Dockerfile|docker-compose\.ya?ml|requirements\.txt|package\.json|Pipfile|(?:sepal_)?environment\.ya?ml)$/
 
 const repoLink = (label, url) => url ? `[${label}](${url})` : `\`${label}\``
+
+const FIRST_REVIEW = {
+    docker: 'the entire Dockerfile and docker-compose.yml',
+    jupyter: '`sepal_environment.yml` / `requirements.txt` (app-manager builds them as root) and the notebooks'
+}
 
 const out = []
 
@@ -100,7 +110,9 @@ for (const a of input.added) {
     const repo = repoLink(a.repository || '(no repository)', a.repository)
     const commitSuffix = a.commit ? ` @ \`${a.commit}\`` : ''
     out.push(`- Repo: ${repo}${commitSuffix}`)
-    out.push(`- ⚠️ First-time addition — review the entire Dockerfile and docker-compose.yml manually.`)
+    if (a.repository) {
+        out.push(`- ⚠️ First-time addition — review ${FIRST_REVIEW[a.endpoint] || 'the repository'} manually.`)
+    }
     out.push(``)
 }
 
