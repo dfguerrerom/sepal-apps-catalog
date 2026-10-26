@@ -20,6 +20,13 @@ test('pre-releases do not create production reminders', () => {
   assert.equal(matureRelease([{ ...oldRelease, prerelease: true }], now), null);
 });
 
+test('a release becomes overdue at exactly two days', () => {
+  const atThreshold = { ...oldRelease, published_at: '2026-10-24T12:00:00Z' };
+  const beforeThreshold = { ...oldRelease, published_at: '2026-10-24T12:00:01Z' };
+  assert.equal(matureRelease([atThreshold], now), atThreshold);
+  assert.equal(matureRelease([beforeThreshold], now), null);
+});
+
 test('creates one issue for a missing production release', () => {
   const lag = { appId: 'sepal_mgci', release: oldRelease, releaseSha: 'b'.repeat(40), prodSha: 'a'.repeat(40) };
   const planned = planIssue(null, lag);

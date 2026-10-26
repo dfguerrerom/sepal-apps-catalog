@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
 const WATCHED_APPS = ['se.plan', 'sepal_mgci', 'sepal-gee-bundle'];
-const GRACE_MS = 3 * 24 * 60 * 60 * 1000;
+const GRACE_MS = 2 * 24 * 60 * 60 * 1000;
 const CATALOG_REPO = 'dfguerrerom/sepal-apps-catalog';
 const PROMOTE_URL = `https://github.com/${CATALOG_REPO}/actions/workflows/promote-app.yml`;
 
@@ -29,7 +29,7 @@ export function planIssue(existing, lag) {
   const { appId, release, releaseSha, prodSha } = lag;
   const title = `Production release overdue: ${appId} ${release.tag_name}`;
   const body = `${marker(appId)}
-**${appId} ${release.tag_name}** was published more than three days ago and is not in the production catalog.
+**${appId} ${release.tag_name}** was published at least two days ago and is not in the production catalog.
 
 - Release: ${release.html_url}
 - Release commit: \`${releaseSha}\`
