@@ -19,12 +19,9 @@ function marker(appId) {
 
 export function planIssue(existing, lag) {
   if (!lag) {
-    if (existing?.state !== 'open') return { action: 'none' };
-    const plan = { action: 'close', number: existing.number };
-    if (Array.isArray(existing.labels)) {
-      plan.labels = existing.labels.map((label) => label.name).filter((name) => name !== 'release-hold');
-    }
-    return plan;
+    return existing?.state === 'open'
+      ? { action: 'close', number: existing.number }
+      : { action: 'none' };
   }
   const { appId, release, releaseSha, prodSha } = lag;
   const title = `Production release overdue: ${appId} ${release.tag_name}`;
@@ -36,7 +33,7 @@ export function planIssue(existing, lag) {
 - Production commit: \`${prodSha}\`
 - Promote: [open the promotion workflow](${PROMOTE_URL}) and select \`${appId}\`.
 
-This issue closes when the production pin contains the release. Add the \`release-hold\` label to pause WhatsApp reminders for an intentional delay.
+This issue closes when the production pin contains the release.
 `;
   if (!existing) return { action: 'create', title, body };
   if (existing.state === 'open' && existing.title === title && existing.body === body) {
@@ -120,7 +117,6 @@ export async function main() {
   const catalog = JSON.parse(await readFile('apps.prod.json', 'utf8'));
   const apps = new Map(catalog.apps.map((app) => [app.id, app]));
   await ensureLabel('release-lag', 'D93F0B', 'Published release overdue in production');
-  await ensureLabel('release-hold', 'BFD4F2', 'Intentional production release delay');
   const issues = await allIssues();
   for (const appId of WATCHED_APPS) {
     const app = apps.get(appId);
@@ -134,7 +130,7 @@ export async function main() {
       });
     } else if (plan.action === 'update' || plan.action === 'close') {
       const body = plan.action === 'close'
-        ? { state: 'closed', state_reason: 'completed', ...(plan.labels ? { labels: plan.labels } : {}) }
+        ? { state: 'closed', state_reason: 'completed' }
         : { title: plan.title, body: plan.body, state: 'open' };
       await github(`/repos/${CATALOG_REPO}/issues/${plan.number}`, { method: 'PATCH', body });
     }

@@ -45,11 +45,6 @@ test('resolved production lag closes its issue', () => {
   assert.deepEqual(planIssue({ state: 'open', number: 42 }, null), { action: 'close', number: 42 });
 });
 
-test('closing a resolved issue clears its hold before a future release', () => {
-  const issue = { state: 'open', number: 42, labels: [{ name: 'release-lag' }, { name: 'release-hold' }] };
-  assert.deepEqual(planIssue(issue, null), { action: 'close', number: 42, labels: ['release-lag'] });
-});
-
 test('a later release updates the same issue', () => {
   const first = { appId: 'sepal_mgci', release: oldRelease, releaseSha: 'b'.repeat(40), prodSha: 'a'.repeat(40) };
   const issue = { ...planIssue(null, first), state: 'open', number: 42 };
