@@ -152,6 +152,7 @@ Unit tests use the built-in Node test runner (`node --test`), run via `npm test 
 - an `en` key is rejected, since English lives at the entry root
 - an unknown field inside a language block is rejected
 - empty and non-string translated values are rejected
+- `cacheVenv` validates on a jupyter app, must be a real boolean, and is rejected on any other app and on a multiapp child
 - an error on a multiapp child names both the parent and the child
 - `requirements` validate on an app and on a multiapp child, including a fractional `minRamGiB`
 - a misspelt requirement is rejected, and the message names the field and the app

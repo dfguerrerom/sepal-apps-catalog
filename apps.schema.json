@@ -69,7 +69,7 @@
           },
           "cacheVenv": {
             "type": "boolean",
-            "description": "jupyter apps only: publish a compressed copy of the app environment so sandboxes run it from local disk instead of Lustre. Must be a real boolean; app-manager treats anything else as false."
+            "description": "jupyter apps only: publish a compressed copy of the app environment so sandboxes run it from local disk instead of Lustre. Must be a real boolean; app-manager treats anything else as false. Other apps and multiapp children cannot set it."
           },
           "commit": {
             "type": "string",
@@ -135,6 +135,7 @@
               "type": "object",
               "additionalProperties": true,
               "properties": {
+                "cacheVenv": false,
                 "translations": {
                   "$ref": "#/$defs/translations"
                 },
@@ -179,6 +180,25 @@
                 "required": [
                   "commit"
                 ]
+              }
+            }
+          },
+          {
+            "if": {
+              "not": {
+                "properties": {
+                  "endpoint": {
+                    "const": "jupyter"
+                  }
+                },
+                "required": [
+                  "endpoint"
+                ]
+              }
+            },
+            "then": {
+              "properties": {
+                "cacheVenv": false
               }
             }
           }

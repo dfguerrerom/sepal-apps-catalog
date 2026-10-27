@@ -34,7 +34,8 @@ Optional per-language `tagline` / `description` overrides go in a `translations`
 
 ### Jupyter app options
 
-- **`cacheVenv`** (boolean, optional, defaults to off) — when true, app-manager publishes a
+- **`cacheVenv`** (boolean, optional, defaults to off; CI rejects it on any other app and on a
+  multiapp child) — when true, app-manager publishes a
   compressed copy of the app's environment alongside it, and sandboxes unpack that onto local
   disk instead of running the environment over Lustre. It cuts the time before the app is usable
   by roughly ten times for a large geospatial environment, at the cost of a one-off unpack on the
