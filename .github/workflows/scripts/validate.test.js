@@ -93,6 +93,57 @@ test('a bad child translation names both the parent and the child', () => {
     assert.match(report({errors}), /id="child" label="Child"/)
 })
 
+test('an app with requirements is valid', () => {
+    const {valid, errors} = check(app({endpoint: 'jupyter', requirements: {minCpuCount: 4, minRamGiB: 16, minGpuCount: 1}}))
+    assert.deepEqual(errors, [])
+    assert.equal(valid, true)
+})
+
+test('a misspelt requirement is rejected, naming the field and the app', () => {
+    const {valid, errors} = check(app({requirements: {minRamGB: 16}}))
+    assert.equal(valid, false)
+    assert.match(report({errors}), /unexpected property: minRamGB/)
+    assert.match(report({errors}), /id="foo" label="Foo"/)
+})
+
+test('fractional CPU or GPU counts and negative requirements are rejected', () => {
+    assert.equal(check(app({requirements: {minCpuCount: 1.5}})).valid, false)
+    assert.equal(check(app({requirements: {minGpuCount: 0.5}})).valid, false)
+    assert.equal(check(app({requirements: {minRamGiB: -1}})).valid, false)
+})
+
+test('a fractional memory requirement is valid', () => {
+    assert.equal(check(app({requirements: {minRamGiB: 0.5}})).valid, true)
+})
+
+test('requirements on a multiapp child are valid', () => {
+    const {valid, errors} = check(
+        app({
+            id: 'bundle',
+            label: 'Bundle',
+            requirements: {minRamGiB: 8},
+            apps: [{id: 'child', label: 'Child', requirements: {minRamGiB: 32}}]
+        })
+    )
+    assert.deepEqual(errors, [])
+    assert.equal(valid, true)
+})
+
+test('a docker app cannot set requirements', () => {
+    const docker = app({
+        endpoint: 'docker',
+        repository: 'https://github.com/me/foo',
+        branch: 'main',
+        commit: '0123456789abcdef0123456789abcdef01234567',
+        port: 8769,
+        path: '/api/app-launcher/foo'
+    })
+    assert.equal(check(docker).valid, true)
+    const {valid, errors} = check({...docker, requirements: {minRamGiB: 16}})
+    assert.equal(valid, false)
+    assert.match(report({errors}), /\/apps\/0\/requirements/)
+})
+
 test('describeApp names the app for a translations path', () => {
     const data = {apps: [app({id: 'a'}), app({id: 'b', label: 'Bee'})]}
     assert.equal(describeApp(data, '/apps/1/translations/es'), '[apps[1] id="b" label="Bee"]')

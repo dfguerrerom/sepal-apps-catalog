@@ -87,6 +87,9 @@
           "googleAccountRequired": {
             "type": "boolean"
           },
+          "requirements": {
+            "$ref": "#/$defs/requirements"
+          },
           "logoRef": {
             "type": "string"
           },
@@ -134,6 +137,9 @@
               "properties": {
                 "translations": {
                   "$ref": "#/$defs/translations"
+                },
+                "requirements": {
+                  "$ref": "#/$defs/requirements"
                 }
               }
             }
@@ -164,7 +170,8 @@
                 "path": {
                   "type": "string",
                   "pattern": "^/api/app-launcher/[A-Za-z0-9_.-]+$"
-                }
+                },
+                "requirements": false
               }
             },
             "else": {
@@ -198,6 +205,28 @@
             "type": "string",
             "minLength": 1
           }
+        }
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "description": "jupyter, shiny and rstudio apps only: the smallest instance the app is recommended to run on. SEPAL's instance picker dims smaller instances and warns when one is picked, but still lets the user choose it. A multiapp child's requirements replace its parent's. Docker apps run on SEPAL's own host, so they cannot set it.",
+      "additionalProperties": false,
+      "properties": {
+        "minCpuCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Recommended minimum number of CPUs."
+        },
+        "minRamGiB": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Recommended minimum memory, in GiB."
+        },
+        "minGpuCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Recommended minimum number of GPUs. A count above zero also puts a GPU badge on the app in the app list."
         }
       }
     }

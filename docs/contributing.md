@@ -42,6 +42,21 @@ Optional per-language `tagline` / `description` overrides go in a `translations`
   It must be a real JSON boolean: app-manager reads anything else, including the string
   `"true"`, as off. Setting it to false removes the published copy again on the next pass.
 
+### Instance requirements (jupyter, shiny and rstudio apps)
+
+- **`requirements`** (object, optional) — the smallest instance the app is recommended to run on.
+  It takes `minCpuCount` and `minGpuCount` (whole numbers) and `minRamGiB` (GiB), each optional:
+
+  ```json
+  "requirements": {"minCpuCount": 4, "minRamGiB": 16}
+  ```
+
+  When a user opens the app, SEPAL's instance picker preselects an instance that meets them and
+  dims the smaller ones. The user can still pick a smaller one, with a warning. A `minGpuCount`
+  above zero also puts a GPU badge on the app in the app list. A multiapp child inherits its
+  parent's `requirements` unless it sets its own, which replace them whole. Docker apps can't set
+  it: they run on SEPAL's own host, not on a user instance.
+
 ## Updating an existing app
 
 Open a PR changing the `commit` field (and optionally `branch`) of the entry in `apps.test.json`. The bot will post a compare link showing exactly what changed upstream. Once reviewed and merged, the change is live on test.sepal.io. Promote to prod with one of the methods below.
