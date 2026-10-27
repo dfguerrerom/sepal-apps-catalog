@@ -179,6 +179,37 @@ test('the validator CLI runs when its path contains spaces', () => {
     }
 })
 
+const SHA = 'a'.repeat(40)
+const jupyter = (extra = {}) => app({endpoint: 'jupyter', repository: 'https://github.com/x/foo', ...extra})
+
+test('a jupyter entry may pin a commit on its branch', () => {
+    const {valid, errors} = check(jupyter({branch: 'main', commit: SHA}))
+    assert.deepEqual(errors, [])
+    assert.equal(valid, true)
+})
+
+test('a jupyter pin without a branch is rejected', () => {
+    const {valid, errors} = check(jupyter({commit: SHA}))
+    assert.equal(valid, false)
+    assert.match(report({errors}), /branch/)
+})
+
+test('a short jupyter pin is rejected', () => {
+    const {valid} = check(jupyter({branch: 'main', commit: SHA.slice(0, 7)}))
+    assert.equal(valid, false)
+})
+
+// app-manager pins only jupyter apps, so a commit anywhere else would look pinned and not be.
+test('a commit on an rstudio entry is rejected', () => {
+    const {valid} = check(app({endpoint: 'rstudio', branch: 'main', commit: SHA}))
+    assert.equal(valid, false)
+})
+
+test('a commit on an entry with no endpoint is rejected', () => {
+    const {valid} = check(app({branch: 'main', commit: SHA}))
+    assert.equal(valid, false)
+})
+
 test('the shipped catalogs validate against the shipped schema', () => {
     const root = new URL('../../../', import.meta.url)
     const files = ['apps.test.json', 'apps.prod.json', 'apps.dev.json'].map(file => ({

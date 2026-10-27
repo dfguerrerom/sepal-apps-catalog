@@ -74,7 +74,7 @@
           "commit": {
             "type": "string",
             "pattern": "^[0-9a-f]{40}$",
-            "description": "Full 40-character lowercase Git commit SHA. Mandatory for endpoint=docker."
+            "description": "Full 40-character lowercase Git commit SHA. Mandatory for endpoint=docker. Optional for endpoint=jupyter, where it pins the app instead of following the branch tip."
           },
           "port": {
             "type": "integer",
@@ -173,12 +173,27 @@
                 },
                 "requirements": false
               }
+            }
+          },
+          {
+            "description": "SEPAL pins only docker and jupyter entries, fetching the branch and checking out the commit.",
+            "if": {
+              "required": [
+                "commit"
+              ]
             },
-            "else": {
-              "not": {
-                "required": [
-                  "commit"
-                ]
+            "then": {
+              "required": [
+                "endpoint",
+                "branch"
+              ],
+              "properties": {
+                "endpoint": {
+                  "enum": [
+                    "docker",
+                    "jupyter"
+                  ]
+                }
               }
             }
           }

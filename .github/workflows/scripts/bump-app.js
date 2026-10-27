@@ -17,8 +17,8 @@ export function bumpApp({appId, expectedRepository, newCommit, file}) {
     if (!app) {
         throw new Error(`App not found: ${appId}`)
     }
-    if (app.endpoint !== 'docker') {
-        throw new Error(`App ${appId} endpoint is ${app.endpoint}, not docker`)
+    if (!['docker', 'jupyter'].includes(app.endpoint)) {
+        throw new Error(`App ${appId} endpoint is ${app.endpoint}, not docker or jupyter`)
     }
     if (app.repository !== expectedRepository) {
         throw new Error(`Repository mismatch for ${appId}: expected ${expectedRepository}, found ${app.repository}`)
