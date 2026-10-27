@@ -71,7 +71,7 @@ Every step is **blocking** — a failure fails the PR. Steps run in order:
 
 1. **Run script unit tests** — `npm test` (`node --test`) over `.github/workflows/scripts`. See [Tests](#tests).
 2. **Check canonical JSON formatting** — `check-format.js` verifies each file is byte-identical to canonical `JSON.stringify(parsed, null, 2) + "\n"`. Prevents diff churn from editor formatters.
-3. **Validate schema** — `validate.js` validates `apps.test.json`, `apps.prod.json` and `apps.dev.json` against `apps.schema.json` (ajv, draft 2020-12). For `endpoint: docker` apps the schema requires `port` and `path`, and `path` must match `^/api/app-launcher/[A-Za-z0-9_.-]+$`. Optional `translations` blocks are checked here too: language keys must be lowercase two-letter codes other than `en` (English belongs at the entry root) and may only hold `tagline` and `description` — see [contributing.md](./contributing.md#translations).
+3. **Validate schema** — `validate.js` validates `apps.test.json`, `apps.prod.json` and `apps.dev.json` against `apps.schema.json` (ajv, draft 2020-12). For `endpoint: docker` apps the schema requires `port` and `path`, and `path` must match `^/api/app-launcher/[A-Za-z0-9_.-]+$`. Optional `translations` blocks are checked here too: language keys must be lowercase two-letter codes other than `en` (English belongs at the entry root) and may only hold `tagline` and `description` — see [contributing.md](./contributing.md#translations). Optional `requirements` blocks may only hold `minCpuCount` and `minGpuCount` (whole numbers) and `minRamGiB`, none negative, and docker apps can't set them — see [contributing.md](./contributing.md#instance-requirements-jupyter-shiny-and-rstudio-apps).
 4. **Check docker rules** — `check-docker-rules.js` enforces cross-cutting docker rules the schema can't: `path` must equal `/api/app-launcher/<id>` exactly, and every docker `port` must be unique across all catalogs (same id appearing in several is fine; different ids sharing a port is not). On any violation it prints `Next free port: max(existing)+1` so contributors know which port to claim. See issue #41.
 5. **Validate the dev projection inputs** — runs `sync-dev.js --validate` on every validation job. Invalid, duplicate or missing ids in `dev-apps.txt`, and tags used without a definition in `apps.test.json`, fail before merge without requiring the asynchronously generated catalog to be current.
 6. **Check `apps.dev.json` matches the projection** — on pull requests that modify `apps.dev.json`, runs `sync-dev.js --check` and fails if the file is not exactly what `dev-apps.txt` + `apps.test.json` produce. The check is scoped to PRs that touch the file on purpose: running it unconditionally would fail every `apps.test.json` PR, since the dev projection is only replayed *after* that PR merges. A hand-edit is still caught, because a hand-edit necessarily puts `apps.dev.json` in the diff.
@@ -153,6 +153,10 @@ Unit tests use the built-in Node test runner (`node --test`), run via `npm test 
 - an unknown field inside a language block is rejected
 - empty and non-string translated values are rejected
 - an error on a multiapp child names both the parent and the child
+- `requirements` validate on an app and on a multiapp child, including a fractional `minRamGiB`
+- a misspelt requirement is rejected, and the message names the field and the app
+- fractional CPU or GPU counts and negative requirements are rejected
+- a docker app can't set `requirements`
 - the shipped `apps.test.json` and `apps.prod.json` validate against the shipped `apps.schema.json`
 
 `check-docker-rules.js`:
