@@ -68,6 +68,33 @@ test('non-string translated value is rejected', () => {
     assert.equal(valid, false)
 })
 
+test('a jupyter app can set cacheVenv', () => {
+    const {valid, errors} = check(app({endpoint: 'jupyter', cacheVenv: true}))
+    assert.deepEqual(errors, [])
+    assert.equal(valid, true)
+})
+
+test('cacheVenv must be a real boolean', () => {
+    assert.equal(check(app({endpoint: 'jupyter', cacheVenv: 'true'})).valid, false)
+})
+
+test('an app that is not jupyter cannot set cacheVenv, naming the field and the app', () => {
+    for (const endpoint of [{endpoint: 'shiny'}, {endpoint: 'rstudio'}, {}]) {
+        const {valid, errors} = check(app({...endpoint, cacheVenv: true}))
+        assert.equal(valid, false, JSON.stringify(endpoint))
+        assert.match(report({errors}), /\/apps\/0\/cacheVenv/)
+        assert.match(report({errors}), /id="foo" label="Foo"/)
+    }
+})
+
+test('a multiapp child cannot set cacheVenv', () => {
+    const {valid, errors} = check(
+        app({endpoint: 'jupyter', id: 'bundle', label: 'Bundle', apps: [{id: 'child', label: 'Child', cacheVenv: true}]})
+    )
+    assert.equal(valid, false)
+    assert.match(report({errors}), /id="child" label="Child"/)
+})
+
 test('translations on a multiapp child are valid', () => {
     const {valid, errors} = check(
         app({
