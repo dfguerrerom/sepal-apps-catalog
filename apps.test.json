@@ -230,7 +230,6 @@
       "projectLink": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "repository": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "branch": "main",
-      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Alertas de pérdida de cobertura forestal de GLAD-L, GLAD-S2, RADD y CCDC, depuradas por una red neuronal y convertidas en informes",
