@@ -148,6 +148,7 @@
       "projectLink": "https://github.com/sepal-contrib/sepal_pysmm",
       "repository": "https://github.com/sepal-contrib/sepal_pysmm",
       "branch": "release",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Mapas de humedad superficial del suelo a partir de datos de intensidad de Copernicus Sentinel-1",
@@ -175,6 +176,7 @@
       "projectLink": "https://github.com/sepal-contrib/planet_active_fires_explorer",
       "repository": "https://github.com/sepal-contrib/planet_active_fires_explorer",
       "branch": "release",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Incendios activos e históricos del sistema FIRMS, mostrados sobre imágenes diarias de Planet",
@@ -227,6 +229,7 @@
       "projectLink": "https://github.com/sepal-contrib/vector_manager",
       "repository": "https://github.com/sepal-contrib/vector_manager",
       "branch": "release",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Archivos vectoriales en una cuenta de SEPAL: carga, descarga, exportación a Earth Engine y generación de cuadrículas",
@@ -255,6 +258,7 @@
       "projectLink": "https://github.com/sepal-contrib/clip-time-series",
       "repository": "https://github.com/sepal-contrib/clip-time-series",
       "branch": "release",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Fichas PDF con recortes de series temporales, una secuencia por punto, para revisar muchas localizaciones a la vez",
@@ -283,6 +287,7 @@
       "projectLink": "https://github.com/sepal-contrib/sepal_smfm_biota",
       "repository": "https://github.com/sepal-contrib/sepal_smfm_biota",
       "branch": "release",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Cambio de biomasa a lo largo del tiempo con datos de radar ALOS PALSAR, mediante el método BIOTA del conjunto SMFM",
@@ -366,6 +371,7 @@
       "projectLink": "https://github.com/sepal-contrib/gwb",
       "repository": "https://github.com/sepal-contrib/gwb",
       "branch": "release",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Análisis de imágenes geoespaciales sobre datos ráster, con un subconjunto del paquete de escritorio GuidosToolbox",
@@ -394,6 +400,7 @@
       "projectLink": "https://github.com/sepal-contrib/planet-order",
       "repository": "https://github.com/sepal-contrib/planet-order",
       "branch": "release",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Exploración, solicitud y descarga de imágenes de mosaicos de Planet Labs en el espacio de trabajo de SEPAL",
@@ -452,6 +459,7 @@
       "projectLink": "https://github.com/sepal-contrib/cumsum_change",
       "repository": "https://github.com/sepal-contrib/cumsum_change",
       "branch": "release",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Detección de cambios en series temporales univariantes con un algoritmo de suma acumulada espacial, acelerado por GPU",
@@ -509,6 +517,7 @@
       "projectLink": "https://github.com/sepal-contrib/weplan",
       "repository": "https://github.com/sepal-contrib/weplan",
       "branch": "release",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Escenarios de restauración forestal precalculados para países tropicales, según beneficios climáticos, de biodiversidad y de reducción de la pobreza",
