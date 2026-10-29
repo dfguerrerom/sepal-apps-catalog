@@ -176,6 +176,7 @@
       "projectLink": "https://github.com/sepal-contrib/sepal_pysmm",
       "repository": "https://github.com/sepal-contrib/sepal_pysmm",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Mapas de humedad superficial del suelo a partir de datos de intensidad de Copernicus Sentinel-1",
@@ -203,6 +204,7 @@
       "projectLink": "https://github.com/sepal-contrib/planet_active_fires_explorer",
       "repository": "https://github.com/sepal-contrib/planet_active_fires_explorer",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Incendios activos e históricos del sistema FIRMS, mostrados sobre imágenes diarias de Planet",
@@ -229,6 +231,7 @@
       "projectLink": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "repository": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Alertas de pérdida de cobertura forestal de GLAD-L, GLAD-S2, RADD y CCDC, depuradas por una red neuronal y convertidas en informes",
@@ -255,6 +258,7 @@
       "projectLink": "https://github.com/sepal-contrib/vector_manager",
       "repository": "https://github.com/sepal-contrib/vector_manager",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Archivos vectoriales en una cuenta de SEPAL: carga, descarga, exportación a Earth Engine y generación de cuadrículas",
@@ -283,6 +287,7 @@
       "projectLink": "https://github.com/sepal-contrib/clip-time-series",
       "repository": "https://github.com/sepal-contrib/clip-time-series",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Fichas PDF con recortes de series temporales, una secuencia por punto, para revisar muchas localizaciones a la vez",
@@ -311,6 +316,7 @@
       "projectLink": "https://github.com/sepal-contrib/sepal_smfm_biota",
       "repository": "https://github.com/sepal-contrib/sepal_smfm_biota",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Cambio de biomasa a lo largo del tiempo con datos de radar ALOS PALSAR, mediante el método BIOTA del conjunto SMFM",
@@ -397,6 +403,7 @@
       "projectLink": "https://github.com/sepal-contrib/gwb",
       "repository": "https://github.com/sepal-contrib/gwb",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Análisis de imágenes geoespaciales sobre datos ráster, con un subconjunto del paquete de escritorio GuidosToolbox",
@@ -425,6 +432,7 @@
       "projectLink": "https://github.com/sepal-contrib/planet-order",
       "repository": "https://github.com/sepal-contrib/planet-order",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Exploración, solicitud y descarga de imágenes de mosaicos de Planet Labs en el espacio de trabajo de SEPAL",
@@ -454,6 +462,7 @@
       "projectLink": "https://github.com/sepal-contrib/damage_proxy_maps",
       "repository": "https://github.com/sepal-contrib/damage_proxy_maps",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Mapas indicativos de daños por detección de cambios en imágenes de radar Sentinel-1, que muestran dónde se han producido daños",
@@ -483,6 +492,7 @@
       "projectLink": "https://github.com/sepal-contrib/cumsum_change",
       "repository": "https://github.com/sepal-contrib/cumsum_change",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Detección de cambios en series temporales univariantes con un algoritmo de suma acumulada espacial, acelerado por GPU",
@@ -540,6 +550,7 @@
       "projectLink": "https://github.com/sepal-contrib/weplan",
       "repository": "https://github.com/sepal-contrib/weplan",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Escenarios de restauración forestal precalculados para países tropicales, según beneficios climáticos, de biodiversidad y de reducción de la pobreza",
@@ -587,7 +598,8 @@
       "tagline": "Sample-based area estimation from notebooks, with ensemble classification and Kozak-Neyman stratification",
       "projectLink": "https://github.com/sepal-contrib/eSBAE_notebooks",
       "repository": "https://github.com/sepal-contrib/eSBAE_notebooks",
-      "branch": "main"
+      "branch": "main",
+      "cacheVenv": true
     },
     {
       "hidden": true,
@@ -603,7 +615,8 @@
       "description": "Python for Earth Observation (PyEO) provides a modular set of Python scripts for machine learning applied to Earth observation and GIS data. It covers downloading, preprocessing, baseline composite creation, classification and validation.",
       "tagline": "Python scripts for machine learning on Earth observation data, from download and preprocessing to classification and validation",
       "projectLink": "https://github.com/clcr/pyeo",
-      "repository": "https://github.com/clcr/pyeo"
+      "repository": "https://github.com/clcr/pyeo",
+      "cacheVenv": true
     },
     {
       "id": "se.plan",
@@ -653,6 +666,7 @@
       "projectLink": "https://github.com/dfguerrerom/sepal-sam",
       "repository": "https://github.com/dfguerrerom/sepal-sam",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Entorno SAM"
