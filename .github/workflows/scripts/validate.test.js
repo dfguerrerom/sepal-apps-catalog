@@ -95,6 +95,13 @@ test('a multiapp child cannot set cacheVenv', () => {
     assert.match(report({errors}), /id="child" label="Child"/)
 })
 
+test('the legacy skip flag is rejected, naming the field and the app', () => {
+    const {valid, errors} = check(app({endpoint: 'jupyter', skip: true}))
+    assert.equal(valid, false)
+    assert.match(report({errors}), /\/apps\/0\/skip/)
+    assert.match(report({errors}), /id="foo" label="Foo"/)
+})
+
 test('translations on a multiapp child are valid', () => {
     const {valid, errors} = check(
         app({
