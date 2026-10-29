@@ -462,7 +462,6 @@
       "projectLink": "https://github.com/sepal-contrib/damage_proxy_maps",
       "repository": "https://github.com/sepal-contrib/damage_proxy_maps",
       "branch": "main",
-      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Mapas indicativos de daños por detección de cambios en imágenes de radar Sentinel-1, que muestran dónde se han producido daños",
@@ -598,8 +597,7 @@
       "tagline": "Sample-based area estimation from notebooks, with ensemble classification and Kozak-Neyman stratification",
       "projectLink": "https://github.com/sepal-contrib/eSBAE_notebooks",
       "repository": "https://github.com/sepal-contrib/eSBAE_notebooks",
-      "branch": "main",
-      "cacheVenv": true
+      "branch": "main"
     },
     {
       "hidden": true,
@@ -615,8 +613,7 @@
       "description": "Python for Earth Observation (PyEO) provides a modular set of Python scripts for machine learning applied to Earth observation and GIS data. It covers downloading, preprocessing, baseline composite creation, classification and validation.",
       "tagline": "Python scripts for machine learning on Earth observation data, from download and preprocessing to classification and validation",
       "projectLink": "https://github.com/clcr/pyeo",
-      "repository": "https://github.com/clcr/pyeo",
-      "cacheVenv": true
+      "repository": "https://github.com/clcr/pyeo"
     },
     {
       "id": "se.plan",
@@ -666,7 +663,6 @@
       "projectLink": "https://github.com/dfguerrerom/sepal-sam",
       "repository": "https://github.com/dfguerrerom/sepal-sam",
       "branch": "main",
-      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Entorno SAM"
