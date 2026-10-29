@@ -122,9 +122,7 @@
           "hidden": {
             "type": "boolean"
           },
-          "skip": {
-            "type": "boolean"
-          },
+          "skip": false,
           "single": {
             "type": "boolean"
           },

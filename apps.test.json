@@ -85,7 +85,7 @@
       "endpoint": "jupyter",
       "tags": [],
       "pinned": false,
-      "googleAccountRequired": true,
+      "googleAccountRequired": false,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
       "description": "Sampling Based Area Estimation designs statistically sound sampling strategies for area estimation and accuracy assessment. It then analyses the collected reference data to produce bias-adjusted area estimates with confidence intervals.",
@@ -94,7 +94,6 @@
       "repository": "https://github.com/sepal-contrib/sbae-design",
       "branch": "main",
       "cacheVenv": true,
-      "skip": true,
       "translations": {
         "es": {
           "tagline": "Diseño de muestreo para estimación de superficies, con estimaciones ajustadas por sesgo e intervalos de confianza",
