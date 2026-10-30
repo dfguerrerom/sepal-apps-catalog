@@ -94,6 +94,9 @@
       "repository": "https://github.com/sepal-contrib/vector_manager",
       "branch": "main",
       "cacheVenv": true,
+      "requirements": {
+        "minRamGiB": 4
+      },
       "translations": {
         "es": {
           "tagline": "Archivos vectoriales en una cuenta de SEPAL: carga, descarga, exportación a Earth Engine y generación de cuadrículas",
