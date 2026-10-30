@@ -94,6 +94,9 @@
       "repository": "https://github.com/sepal-contrib/sbae-design",
       "branch": "main",
       "cacheVenv": true,
+      "requirements": {
+        "minRamGiB": 4
+      },
       "translations": {
         "es": {
           "tagline": "Diseño de muestreo para estimación de superficies, con estimaciones ajustadas por sesgo e intervalos de confianza",
@@ -120,6 +123,9 @@
       "tagline": "Land-cover change detection in dense satellite time series, separating real change from seasonal phenology",
       "projectLink": "https://github.com/sepal-contrib/bfastspatial",
       "repository": "https://github.com/sepal-contrib/bfastspatial",
+      "requirements": {
+        "minCpuCount": 4
+      },
       "translations": {
         "es": {
           "tagline": "Detección de cambios de cobertura en series temporales densas, distinguiendo el cambio real de la fenología estacional",
@@ -147,6 +153,9 @@
       "tagline": "BFAST analysis of Landsat surface reflectance time series, at the level of individual pixels",
       "projectLink": "https://github.com/sepal-contrib/bfast-explorer",
       "repository": "https://github.com/sepal-contrib/bfast-explorer",
+      "requirements": {
+        "minRamGiB": 4
+      },
       "translations": {
         "es": {
           "tagline": "Análisis BFAST de series de reflectancia de superficie de Landsat, a nivel de píxeles individuales",
@@ -176,6 +185,9 @@
       "repository": "https://github.com/sepal-contrib/sepal_pysmm",
       "branch": "main",
       "cacheVenv": true,
+      "requirements": {
+        "minRamGiB": 8
+      },
       "translations": {
         "es": {
           "tagline": "Mapas de humedad superficial del suelo a partir de datos de intensidad de Copernicus Sentinel-1",
@@ -204,6 +216,9 @@
       "repository": "https://github.com/sepal-contrib/planet_active_fires_explorer",
       "branch": "main",
       "cacheVenv": true,
+      "requirements": {
+        "minRamGiB": 4
+      },
       "translations": {
         "es": {
           "tagline": "Incendios activos e históricos del sistema FIRMS, mostrados sobre imágenes diarias de Planet",
@@ -230,6 +245,9 @@
       "projectLink": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "repository": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "branch": "main",
+      "requirements": {
+        "minRamGiB": 4
+      },
       "translations": {
         "es": {
           "tagline": "Alertas de pérdida de cobertura forestal de GLAD-L, GLAD-S2, RADD y CCDC, depuradas por una red neuronal y convertidas en informes",
@@ -257,6 +275,9 @@
       "repository": "https://github.com/sepal-contrib/vector_manager",
       "branch": "main",
       "cacheVenv": true,
+      "requirements": {
+        "minRamGiB": 4
+      },
       "translations": {
         "es": {
           "tagline": "Archivos vectoriales en una cuenta de SEPAL: carga, descarga, exportación a Earth Engine y generación de cuadrículas",
@@ -286,6 +307,9 @@
       "repository": "https://github.com/sepal-contrib/clip-time-series",
       "branch": "main",
       "cacheVenv": true,
+      "requirements": {
+        "minRamGiB": 8
+      },
       "translations": {
         "es": {
           "tagline": "Fichas PDF con recortes de series temporales, una secuencia por punto, para revisar muchas localizaciones a la vez",
@@ -315,6 +339,9 @@
       "repository": "https://github.com/sepal-contrib/sepal_smfm_biota",
       "branch": "main",
       "cacheVenv": true,
+      "requirements": {
+        "minRamGiB": 8
+      },
       "translations": {
         "es": {
           "tagline": "Cambio de biomasa a lo largo del tiempo con datos de radar ALOS PALSAR, mediante el método BIOTA del conjunto SMFM",
@@ -342,6 +369,9 @@
       "tagline": "Deforestation detection from a time series of forest probabilities, with the DEFOREST module of the SMFM toolkit",
       "projectLink": "https://github.com/smfm-project/deforest",
       "repository": "https://github.com/smfm-project/deforest",
+      "requirements": {
+        "minRamGiB": 4
+      },
       "translations": {
         "es": {
           "tagline": "Detección de deforestación a partir de una serie temporal de probabilidades de bosque, con el módulo DEFOREST de SMFM",
@@ -402,6 +432,9 @@
       "repository": "https://github.com/sepal-contrib/gwb",
       "branch": "main",
       "cacheVenv": true,
+      "requirements": {
+        "minRamGiB": 8
+      },
       "translations": {
         "es": {
           "tagline": "Análisis de imágenes geoespaciales sobre datos ráster, con un subconjunto del paquete de escritorio GuidosToolbox",
@@ -431,6 +464,9 @@
       "repository": "https://github.com/sepal-contrib/planet-order",
       "branch": "main",
       "cacheVenv": true,
+      "requirements": {
+        "minRamGiB": 4
+      },
       "translations": {
         "es": {
           "tagline": "Exploración, solicitud y descarga de imágenes de mosaicos de Planet Labs en el espacio de trabajo de SEPAL",
@@ -490,6 +526,9 @@
       "repository": "https://github.com/sepal-contrib/cumsum_change",
       "branch": "main",
       "cacheVenv": true,
+      "requirements": {
+        "minRamGiB": 4
+      },
       "translations": {
         "es": {
           "tagline": "Detección de cambios en series temporales univariantes con un algoritmo de suma acumulada espacial, acelerado por GPU",
@@ -548,6 +587,9 @@
       "repository": "https://github.com/sepal-contrib/weplan",
       "branch": "main",
       "cacheVenv": true,
+      "requirements": {
+        "minRamGiB": 4
+      },
       "translations": {
         "es": {
           "tagline": "Escenarios de restauración forestal precalculados para países tropicales, según beneficios climáticos, de biodiversidad y de reducción de la pobreza",
@@ -856,6 +898,9 @@
       "repository": "https://github.com/sepal-contrib/spatial-risk-module",
       "branch": "main",
       "cacheVenv": true,
+      "requirements": {
+        "minRamGiB": 8
+      },
       "translations": {
         "es": {
           "tagline": "Mapas de riesgo de deforestación a partir de rásteres locales y/o de Earth Engine, con modelos de ventana móvil, JNR, iCAR, GLM y random forest",
