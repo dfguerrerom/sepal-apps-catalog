@@ -559,7 +559,7 @@
       "repository": "https://github.com/sepal-contrib/sepal_mgci",
       "port": 8766,
       "branch": "main",
-      "commit": "043015cb90d85baed864e0554afca43013d150a2",
+      "commit": "8d361e2dae38fc2a6f88ba1ae9204c00560b1138",
       "translations": {
         "es": {
           "tagline": "Subindicadores A y B del ODS 15.4.2 para las unidades de reporte de un país o una región",
