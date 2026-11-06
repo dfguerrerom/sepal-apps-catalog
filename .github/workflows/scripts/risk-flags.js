@@ -2,6 +2,7 @@
 // Usage: node risk-flags.js (reads diff-apps JSON from stdin, writes markdown to stdout)
 // Env: GITHUB_TOKEN (must be set; use the workflow's GITHUB_TOKEN)
 
+import {createHash} from 'node:crypto'
 import {readFileSync} from 'node:fs'
 
 const token = process.env.GITHUB_TOKEN
@@ -46,6 +47,10 @@ const INFRA_FILES = /^(Dockerfile|docker-compose\.ya?ml|requirements\.txt|packag
 
 const repoLink = (label, url) => url ? `[${label}](${url})` : `\`${label}\``
 
+// GitHub anchors each file in a compare view at #diff-<sha256 of its path>.
+const fileDiffLink = (compareUrl, filename) =>
+    `[\`${filename}\`](${compareUrl}#diff-${createHash('sha256').update(filename).digest('hex')})`
+
 const FIRST_REVIEW = {
     docker: 'the entire Dockerfile and docker-compose.yml',
     jupyter: '`sepal_environment.yml` / `requirements.txt` (app-manager builds them as root) and the notebooks'
@@ -86,7 +91,7 @@ for (const upd of input.updated) {
         const patch = f.patch || ''
         for (const {pattern, label} of RISK_PATTERNS) {
             if (pattern.test(patch)) {
-                flags.push(`\`${f.filename}\`: ${label}`)
+                flags.push(`${fileDiffLink(compareUrl, f.filename)}: ${label}`)
             }
         }
     }
@@ -96,7 +101,7 @@ for (const upd of input.updated) {
     out.push(`- [Compare upstream](${compareUrl})`)
     out.push(`- ${files.length} files changed (${cmp.ahead_by} commits ahead, ${cmp.behind_by} behind)`)
     if (infraFiles.length) {
-        out.push(`- ⚠️ **Infra/dependency files touched:** ${infraFiles.map(f => `\`${f.filename}\``).join(', ')}`)
+        out.push(`- ⚠️ **Infra/dependency files touched:** ${infraFiles.map(f => fileDiffLink(compareUrl, f.filename)).join(', ')}`)
     }
     if (flags.length) {
         out.push(`- 🚨 **Risk flags:**`)
