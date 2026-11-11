@@ -891,6 +891,7 @@
       "pinned": false,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
+      "logo": "https://raw.githubusercontent.com/sepal-contrib/spatial-risk-module/main/assets/deforisk-logo.png",
       "author": "The SEPAL team",
       "description": "Spatial Risk Modelling assembles predictor variables from local rasters and/or Earth Engine, then trains and compares moving window, JNR, iCAR, GLM and random forest models. It evaluates the resulting deforestation and forest degradation risk maps and exports the validated layers.",
       "tagline": "Deforestation risk maps from local rasters and/or Earth Engine, with moving window, JNR, iCAR, GLM and random forest models",
