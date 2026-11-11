@@ -928,6 +928,7 @@
       "projectLink": "https://github.com/SerafiniJose/fra-grid-gen",
       "repository": "https://github.com/SerafiniJose/fra-grid-gen",
       "branch": "main",
+      "cacheVenv": true,
       "translations": {
         "es": {
           "tagline": "Cuadrículas hexagonales ISEA3H del FRA (r17 a r21) sobre un área de interés",
