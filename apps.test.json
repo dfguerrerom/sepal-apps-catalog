@@ -923,7 +923,7 @@
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
       "author": "The SEPAL team",
-      "description": "FRA grid generator builds FRA ISEA3H hexagon grids (r17 to r21) over an area of interest and exports them as GeoPackage or Shapefile.",
+      "description": "FRA grid generator builds FRA ISEA3H hexagon grids (r17 to r21) over an area of interest and exports them as GeoPackage or Shapefile with their metadata.",
       "tagline": "FRA ISEA3H hexagon grids (r17 to r21) over an area of interest",
       "projectLink": "https://github.com/SerafiniJose/fra-grid-gen",
       "repository": "https://github.com/SerafiniJose/fra-grid-gen",
@@ -932,11 +932,11 @@
       "translations": {
         "es": {
           "tagline": "Cuadrículas hexagonales ISEA3H del FRA (r17 a r21) sobre un área de interés",
-          "description": "FRA grid generator construye cuadrículas hexagonales ISEA3H del FRA (r17 a r21) sobre un área de interés y las exporta en GeoPackage o Shapefile."
+          "description": "FRA grid generator construye cuadrículas hexagonales ISEA3H del FRA (r17 a r21) sobre un área de interés y las exporta en GeoPackage o Shapefile con sus metadatos."
         },
         "fr": {
           "tagline": "Grilles hexagonales ISEA3H de la FRA (r17 à r21) sur une zone d'intérêt",
-          "description": "FRA grid generator construit des grilles hexagonales ISEA3H de la FRA (r17 à r21) sur une zone d'intérêt et les exporte en GeoPackage ou Shapefile."
+          "description": "FRA grid generator construit des grilles hexagonales ISEA3H de la FRA (r17 à r21) sur une zone d'intérêt et les exporte en GeoPackage ou Shapefile avec leurs métadonnées."
         }
       }
     }
