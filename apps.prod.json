@@ -583,7 +583,7 @@
       "repository": "https://github.com/sepal-contrib/se.plan",
       "port": 8765,
       "branch": "main",
-      "commit": "7ead894bbfaa94b52097ca3d6e9008a7c822b17b",
+      "commit": "88c258128f5d5a3ee69529477f41e27a64768940",
       "translations": {
         "es": {
           "tagline": "Índice de aptitud para la restauración forestal de 1 a 5, ponderando datos ecológicos con beneficios, costes y riesgos",
