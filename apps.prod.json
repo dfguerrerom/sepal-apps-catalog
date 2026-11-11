@@ -530,6 +530,28 @@
       }
     },
     {
+      "id": "earthmap",
+      "label": "Earth Map",
+      "path": "https://earthmap.org/",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": false,
+      "logoRef": "openforis.png",
+      "logo": "https://earthmap.org/images/Earth-Map_Logo-2.png",
+      "author": "The Open Foris team",
+      "description": "",
+      "tagline": "Google Earth Engine analysis without writing code",
+      "projectLink": "https://github.com/openforis/earth-map",
+      "translations": {
+        "es": {
+          "tagline": "Análisis con Google Earth Engine sin programar"
+        },
+        "fr": {
+          "tagline": "Analyse avec Google Earth Engine sans programmation"
+        }
+      }
+    },
+    {
       "hidden": true,
       "id": "eSBAE_notebooks",
       "label": "Sample Based Area Estimation",
