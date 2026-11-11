@@ -912,6 +912,32 @@
           "description": "Spatial Risk Modelling rassemble des variables prédictives issues de rasters locaux et/ou d'Earth Engine, puis entraîne et compare des modèles à fenêtre mobile, JNR, iCAR, GLM et random forest. Il évalue les cartes de risque de déforestation et de dégradation forestière obtenues et exporte les couches validées."
         }
       }
+    },
+    {
+      "id": "fra-grid-gen",
+      "label": "FRA grid generator",
+      "path": "/sandbox/jupyter/voila/render/shared/apps/fra-grid-gen/ui.ipynb?voila-theme=dark",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "googleAccountRequired": true,
+      "logoRef": "sepal.png",
+      "author": "The SEPAL team",
+      "description": "FRA grid generator builds the FRA ISEA3H hexagon grid over an area of interest, at FRA RSS level r17 or one of the finer levels r18 to r21. It exports the cells as a GeoPackage and/or Shapefile with their metadata, and previews them on the map.",
+      "tagline": "FRA ISEA3H hexagon grids (r17 to r21) over an area of interest",
+      "projectLink": "https://github.com/SerafiniJose/fra-grid-gen",
+      "repository": "https://github.com/SerafiniJose/fra-grid-gen",
+      "branch": "main",
+      "translations": {
+        "es": {
+          "tagline": "Cuadrículas hexagonales ISEA3H del FRA (r17 a r21) sobre un área de interés",
+          "description": "FRA grid generator construye la cuadrícula hexagonal ISEA3H del FRA sobre un área de interés, en el nivel r17 de FRA RSS o en uno de los niveles más finos r18 a r21. Exporta las celdas en GeoPackage y/o Shapefile con sus metadatos y las muestra en el mapa."
+        },
+        "fr": {
+          "tagline": "Grilles hexagonales ISEA3H de la FRA (r17 à r21) sur une zone d'intérêt",
+          "description": "FRA grid generator construit la grille hexagonale ISEA3H de la FRA sur une zone d'intérêt, au niveau r17 de FRA RSS ou à l'un des niveaux plus fins r18 à r21. Il exporte les cellules en GeoPackage et/ou Shapefile avec leurs métadonnées et les affiche sur la carte."
+        }
+      }
     }
   ],
   "tags": [
