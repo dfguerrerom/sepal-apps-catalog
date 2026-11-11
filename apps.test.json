@@ -245,6 +245,7 @@
       "projectLink": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "repository": "https://github.com/sepal-contrib/deforestation-alerts-module",
       "branch": "main",
+      "cacheVenv": true,
       "requirements": {
         "minRamGiB": 4
       },
