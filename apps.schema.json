@@ -126,6 +126,15 @@
           "single": {
             "type": "boolean"
           },
+          "releasedOn": {
+            "$ref": "#/$defs/releasedOn"
+          },
+          "retiredOn": {
+            "$ref": "#/$defs/retiredOn"
+          },
+          "retirementReason": {
+            "$ref": "#/$defs/retirementReason"
+          },
           "apps": {
             "type": "array",
             "description": "Sub-apps of a multiapp entry. SEPAL resolves a child field first, then the parent one.",
@@ -139,10 +148,29 @@
                 },
                 "requirements": {
                   "$ref": "#/$defs/requirements"
+                },
+                "releasedOn": {
+                  "$ref": "#/$defs/releasedOn"
+                },
+                "retiredOn": {
+                  "$ref": "#/$defs/retiredOn"
+                },
+                "retirementReason": {
+                  "$ref": "#/$defs/retirementReason"
                 }
+              },
+              "dependentRequired": {
+                "retirementReason": [
+                  "retiredOn"
+                ]
               }
             }
           }
+        },
+        "dependentRequired": {
+          "retirementReason": [
+            "retiredOn"
+          ]
         },
         "allOf": [
           {
@@ -222,9 +250,28 @@
           "description": {
             "type": "string",
             "minLength": 1
+          },
+          "retirementReason": {
+            "type": "string",
+            "minLength": 1
           }
         }
       }
+    },
+    "releasedOn": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+      "description": "Day the app was first published in SEPAL (YYYY-MM-DD). Shown in the app information."
+    },
+    "retiredOn": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+      "description": "Day the app was retired (YYYY-MM-DD). Setting it stops the app from starting right away; SEPAL keeps it listed, dimmed, for 60 days after this day, then removes it from the list. A multiapp child without its own date takes the parent's, with the parent's reason."
+    },
+    "retirementReason": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Why the app was retired, shown in the app information. Requires retiredOn; can be translated in `translations`."
     },
     "requirements": {
       "type": "object",
