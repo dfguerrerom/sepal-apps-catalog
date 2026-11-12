@@ -142,11 +142,31 @@ Where the second person is genuinely unavoidable elsewhere in SEPAL, Spanish use
 - **Markdown must survive.** If the English `description` contains Markdown, the translation has to carry the same markup.
 - **Multiapp children** carry their own `translations`, overriding the child's own English `tagline` / `description`. Children do **not** inherit those two fields from their parent the way they inherit `author`, `projectLink` or the logo — SEPAL falls back to the child's `label` for a missing `tagline` and to an empty string for a missing `description`. So a child that needs translating must carry its own block.
 - **`label` is not translatable.** SEPAL's app-manager and app-launcher pass it through as a plain string. The block can grow to cover it later without breaking existing catalogs.
-- Language codes must be lowercase two-letter codes other than `en` (`es`, not `ES`, `spa` or `en`), and `tagline` / `description` are the only fields allowed inside a language block. Anything else fails validation, with the offending app named in the error.
+- Language codes must be lowercase two-letter codes other than `en` (`es`, not `ES`, `spa` or `en`), and `tagline`, `description` and `retirementReason` are the only fields allowed inside a language block. Anything else fails validation, with the offending app named in the error.
 
 SEPAL's language selector currently offers `en`, `es` and `fr`, so those are the languages worth filling in. Other codes validate but nothing reads them yet.
 
 Translations are text metadata, so **no automation copies them between catalogs** — `/promote` and the auto-bump workflow only move `commit`. Edit `apps.test.json` and `apps.prod.json` in the same PR so the two stay in sync.
+
+## Release and retirement dates
+
+`releasedOn` is the day an app was first published in SEPAL, as `YYYY-MM-DD`. SEPAL shows it in the app information.
+
+To retire an app, set `retiredOn` to the retirement day and `retirementReason` to a short explanation (it can be translated under `translations`):
+
+```json
+{
+  "id": "my-app",
+  "label": "My App",
+  "retiredOn": "2026-11-12",
+  "retirementReason": "Replaced by My New App, which covers the same analysis."
+}
+```
+
+- **The app stops starting as soon as the field is set**, whatever the date says. It stays in the list, dimmed, and its information shows the reason.
+- **60 days after `retiredOn`, SEPAL removes it from the list.** The entry can then be deleted from the catalog.
+- **Multiapp children** without their own `retiredOn` take the parent's date and reason. A child with its own date shows only its own reason.
+- `retirementReason` requires `retiredOn`. A `retiredOn` without a reason is allowed, but users then see no explanation.
 
 ## Promoting to production
 
