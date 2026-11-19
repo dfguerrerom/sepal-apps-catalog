@@ -586,6 +586,8 @@
       "author": "The SEPAL team",
       "description": "WePlan - Forests gives access to the forest restoration scenarios computed by the WePlan decision support platform for tropical and subtropical countries. Each scenario maps where restoration in the selected country would do most for climate change mitigation, biodiversity conservation and poverty alleviation.",
       "tagline": "Pre-computed forest restoration scenarios for tropical countries, ranked by climate, biodiversity and poverty benefits",
+      "retiredOn": "2026-11-19",
+      "retirementReason": "The WePlan restoration scenarios are no longer available online: the storage that held them was deleted, so the app can't load data for any country.",
       "projectLink": "https://github.com/sepal-contrib/weplan",
       "repository": "https://github.com/sepal-contrib/weplan",
       "branch": "main",
@@ -596,11 +598,13 @@
       "translations": {
         "es": {
           "tagline": "Escenarios de restauración forestal precalculados para países tropicales, según beneficios climáticos, de biodiversidad y de reducción de la pobreza",
-          "description": "WePlan - Forests da acceso a los escenarios de restauración forestal calculados por la plataforma de apoyo a la decisión WePlan para países tropicales y subtropicales. Cada escenario cartografía dónde la restauración del país seleccionado aportaría mayores beneficios de mitigación climática, biodiversidad y reducción de la pobreza."
+          "description": "WePlan - Forests da acceso a los escenarios de restauración forestal calculados por la plataforma de apoyo a la decisión WePlan para países tropicales y subtropicales. Cada escenario cartografía dónde la restauración del país seleccionado aportaría mayores beneficios de mitigación climática, biodiversidad y reducción de la pobreza.",
+          "retirementReason": "Los escenarios de restauración de WePlan ya no están disponibles en línea: el almacenamiento que los contenía se eliminó, por lo que la aplicación no puede cargar datos de ningún país."
         },
         "fr": {
           "tagline": "Scénarios de restauration forestière précalculés pour les pays tropicaux, selon les bénéfices climatiques, de biodiversité et de pauvreté",
-          "description": "WePlan - Forests donne accès aux scénarios de restauration forestière calculés par la plateforme d'aide à la décision WePlan pour les pays tropicaux et subtropicaux. Chaque scénario cartographie les lieux où la restauration apporterait le plus de bénéfices climatiques, de biodiversité et de réduction de la pauvreté dans le pays sélectionné."
+          "description": "WePlan - Forests donne accès aux scénarios de restauration forestière calculés par la plateforme d'aide à la décision WePlan pour les pays tropicaux et subtropicaux. Chaque scénario cartographie les lieux où la restauration apporterait le plus de bénéfices climatiques, de biodiversité et de réduction de la pauvreté dans le pays sélectionné.",
+          "retirementReason": "Les scénarios de restauration de WePlan ne sont plus disponibles en ligne : le stockage qui les hébergeait a été supprimé, l'application ne peut donc plus charger les données d'aucun pays."
         }
       }
     },
