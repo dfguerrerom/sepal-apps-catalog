@@ -12,6 +12,7 @@ This repository is guarded by a set of GitHub Actions workflows and Node scripts
 | Promote app on `/promote` comment | `.github/workflows/promote-request.yml` | `issue_comment` (`/promote <app-id>` on an issue labeled `promote-request`) | Self-service variant of the above. Any user can comment; the workflow verifies the commenter owns / is a public org member of the app's source repo, then opens the same PR. A maintainer still merges. See issue #40 |
 | Update catalog from source-repo release | `.github/workflows/update-from-release.yml` | `repository_dispatch` (`bump-app`) sent by a source repo on release | Bumps an app's `commit` in `apps.test.json` and opens a PR |
 | Sync dev catalog from test | `.github/workflows/sync-dev.yml` | Push to `main` touching `apps.test.json` / `dev-apps.txt` / `dev-fixtures.json`, or manual (`workflow_dispatch`) | Regenerates `apps.dev.json` from `apps.test.json` and the dev fixtures and opens a PR. One-directional: it can only write `apps.dev.json` |
+| Remove retired apps from the catalog | `.github/workflows/prune-retired.yml` | Daily schedule, or manual (`workflow_dispatch`) | Deletes apps SEPAL no longer lists (60 days after `retiredOn`) from `apps.test.json`, `apps.prod.json` and `dev-apps.txt`, and opens a PR. See [Retired apps are pruned](#retired-apps-are-pruned) |
 
 ## Self-service promotion: one-time maintainer setup
 
@@ -93,6 +94,7 @@ All scripts live in `.github/workflows/scripts` (ESM, Node 22, only dependency i
 | `risk-flags.js` (stdin → stdout) | review-helper.yml | Turns a diff into a markdown risk report (needs `GITHUB_TOKEN`) |
 | `bump-app.js` | promote-app.yml, update-from-release.yml | Mutates one app's `commit` in a catalog file, preserving canonical format. **Note: only updates `commit`, never `branch`** |
 | `sync-dev.js [--check \| --validate]` | sync-dev.yml, validate.yml, pre-commit | Regenerates `apps.dev.json` from `dev-apps.txt` + `apps.test.json` + `dev-fixtures.json`. `--check` reports drift; `--validate` checks the inputs without reading or writing `apps.dev.json` |
+| `prune-retired.js` | prune-retired.yml | Deletes apps whose listing ended (60 days after `retiredOn`) from `apps.test.json` and `apps.prod.json`, drops tags no app carries any more, removes test's pruned ids from `dev-apps.txt`, and prints a markdown summary. Writes nothing when no app has expired |
 
 > **Text metadata is never copied between `apps.test.json` and `apps.prod.json`.** `bump-app.js` — and therefore both `/promote` and the auto-bump workflow — only touches `commit`. `label`, `description`, `tagline`, `tags` and `translations` must be edited in `apps.test.json` and `apps.prod.json` explicitly. This has always been true of every metadata field; `translations` is no exception.
 >
@@ -147,6 +149,16 @@ Unit tests use the built-in Node test runner (`node --test`), run via `npm test 
 - `--validate` checks inputs without reading or writing `apps.dev.json`
 - a listed fixture is projected from `dev-fixtures.json`, in list order, and the CLI reads it from the working directory
 - a fixture reusing an `apps.test.json` id, or missing from `dev-apps.txt`, throws and names it
+
+`prune-retired.js`:
+
+- an app is removed exactly when SEPAL stops listing it, at 00:00 UTC 60 days after `retiredOn`
+- a `retiredOn` that is not a real calendar day never prunes, matching SEPAL
+- removed apps are reported with their retirement and removal days
+- a multiapp whose children all expired is removed whole; a child follows its own date when it has one, otherwise the parent's
+- tags no remaining app carries are dropped, counting multiapp children
+- `dev-apps.txt` loses the ids removed from test, never those removed from prod only
+- output is canonical, and with nothing expired no file is rewritten
 
 `validate.js`:
 
@@ -220,6 +232,13 @@ apps.test.json merged to main ──▶ sync-dev.yml ──▶ PR (sync-dev labe
                                               validate.yml + review-helper.yml run, maintainer merges
                                                                   │
                                                        local/dev deployments
+
+
+daily schedule ──▶ prune-retired.yml ──▶ PR (prune-retired label, apps.test.json / apps.prod.json / dev-apps.txt)
+                                                                  │
+                                              validate.yml + review-helper.yml run, maintainer merges
+                                                                  │
+                                                  sync-dev.yml drops the app from apps.dev.json
 ```
 
 ## One-time maintainer setup for the dev sync
@@ -231,3 +250,23 @@ gh label create sync-dev \
 ```
 
 `CATALOG_PR_TOKEN` is already configured and needs no change.
+
+## Retired apps are pruned
+
+SEPAL stops listing a retired app at 00:00 UTC, 60 days after its `retiredOn` ([contributing.md](./contributing.md#release-and-retirement-dates)). After that the entry is dead weight, so `prune-retired.yml` runs `prune-retired.js` every day:
+
+- An app is deleted from `apps.test.json` and `apps.prod.json` once its listing has ended. The rule mirrors SEPAL's GUI (`modules/gui/src/appAvailability.js` in sepal-private). If SEPAL changes the 60 days, change the script too.
+- A multiapp child is deleted when its own date expires, or the parent's when it has none. When no child is left, the whole entry goes.
+- Tags that no remaining app carries are dropped, since `check-tags.js` rejects unused tags.
+- Ids deleted from `apps.test.json` are removed from `dev-apps.txt`, since `sync-dev.js` fails on a listed id that test no longer has. `apps.dev.json` itself is left to `sync-dev.yml`, which runs when the prune PR merges.
+- `dev-fixtures.json` is never touched.
+
+A run with nothing expired writes nothing and opens no PR. A run that finds something opens or updates one PR on the `prune/retired-apps` branch, labeled `prune-retired`, listing every removal. A maintainer merges it.
+
+One-time setup:
+
+```bash
+gh label create prune-retired \
+  --description "Automated removal of retired apps from the catalog" \
+  --color C5DEF5
+```
