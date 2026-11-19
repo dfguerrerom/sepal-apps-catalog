@@ -36,17 +36,30 @@ const TEST_CATALOG = {
 }
 const SCRIPT_FILE = fileURLToPath(new URL('./sync-dev.js', import.meta.url))
 
-function mkWorkspace({list = 'rstudio\nfoo\n', catalog = TEST_CATALOG, dev = null} = {}) {
+const RETIRED_FIXTURE = {
+    id: 'retired-example',
+    label: 'Retired example',
+    endpoint: 'jupyter',
+    tags: ['TOOLS'],
+    retiredOn: '2099-12-31',
+    retirementReason: 'Dev-only fixture.'
+}
+
+function mkWorkspace({list = 'rstudio\nfoo\n', catalog = TEST_CATALOG, dev = null, fixtures = null} = {}) {
     const dir = mkdtempSync(join(tmpdir(), 'sync-dev-test-'))
     const listFile = join(dir, 'dev-apps.txt')
     const testFile = join(dir, 'apps.test.json')
     const devFile = join(dir, 'apps.dev.json')
+    const fixturesFile = join(dir, 'dev-fixtures.json')
     writeFileSync(listFile, list)
     writeFileSync(testFile, JSON.stringify(catalog, null, 2) + '\n')
     if (dev !== null) {
         writeFileSync(devFile, dev)
     }
-    return {dir, listFile, testFile, devFile, cleanup: () => rmSync(dir, {recursive: true, force: true})}
+    if (fixtures !== null) {
+        writeFileSync(fixturesFile, JSON.stringify(fixtures, null, 2) + '\n')
+    }
+    return {dir, listFile, testFile, devFile, fixturesFile, cleanup: () => rmSync(dir, {recursive: true, force: true})}
 }
 
 function runCli(ws, ...args) {
@@ -172,6 +185,48 @@ test('validate mode rejects invalid inputs without creating apps.dev.json', () =
         const result = runCli(ws, '--validate')
         assert.equal(result.status, 1)
         assert.equal(existsSync(ws.devFile), false)
+    } finally {
+        ws.cleanup()
+    }
+})
+
+test('a listed fixture id is projected from dev-fixtures.json, in list order', () => {
+    const ws = mkWorkspace({list: 'retired-example\nrstudio\n', fixtures: {apps: [RETIRED_FIXTURE]}})
+    try {
+        syncDev(ws)
+        const data = JSON.parse(readFileSync(ws.devFile, 'utf8'))
+        assert.deepEqual(data.apps.map(a => a.id), ['retired-example', 'rstudio'])
+        assert.deepEqual(data.apps[0], RETIRED_FIXTURE)
+    } finally {
+        ws.cleanup()
+    }
+})
+
+test('a fixture reusing an apps.test.json id throws, even when unlisted', () => {
+    const ws = mkWorkspace({list: 'rstudio\n', fixtures: {apps: [{...RETIRED_FIXTURE, id: 'foo'}]}})
+    try {
+        assert.throws(() => syncDev(ws), /"foo".*dev-fixtures\.json.*apps\.test\.json/)
+    } finally {
+        ws.cleanup()
+    }
+})
+
+test('a fixture missing from dev-apps.txt throws and names it', () => {
+    const ws = mkWorkspace({list: 'rstudio\n', fixtures: {apps: [RETIRED_FIXTURE]}})
+    try {
+        assert.throws(() => syncDev(ws), /"retired-example".*not listed in dev-apps\.txt/)
+    } finally {
+        ws.cleanup()
+    }
+})
+
+test('the CLI reads dev-fixtures.json from the working directory', () => {
+    const ws = mkWorkspace({list: 'rstudio\nretired-example\n', fixtures: {apps: [RETIRED_FIXTURE]}})
+    try {
+        const result = runCli(ws)
+        assert.equal(result.status, 0, result.stderr)
+        const data = JSON.parse(readFileSync(ws.devFile, 'utf8'))
+        assert.deepEqual(data.apps.map(a => a.id), ['rstudio', 'retired-example'])
     } finally {
         ws.cleanup()
     }

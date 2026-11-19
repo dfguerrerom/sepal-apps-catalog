@@ -168,6 +168,8 @@ To retire an app, set `retiredOn` to the retirement day and `retirementReason` t
 - **Multiapp children** without their own `retiredOn` take the parent's date and reason. A child with its own date shows only its own reason.
 - `retirementReason` requires `retiredOn`. A `retiredOn` without a reason is allowed, but users then see no explanation.
 
+The dev catalog always carries a retired example, `retired-example`, to check the retired view locally. It lives in `dev-fixtures.json` and its date is far in the future, so it never leaves the list.
+
 ## Promoting to production
 
 Two options — pick whichever fits:

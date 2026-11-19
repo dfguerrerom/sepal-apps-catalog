@@ -11,7 +11,7 @@ This repository is guarded by a set of GitHub Actions workflows and Node scripts
 | Promote app to production | `.github/workflows/promote-app.yml` | Manual (`workflow_dispatch`, pick an app) | Copies an app's pinned SHA from `apps.test.json` into `apps.prod.json` and opens a PR. Requires write access on this repo |
 | Promote app on `/promote` comment | `.github/workflows/promote-request.yml` | `issue_comment` (`/promote <app-id>` on an issue labeled `promote-request`) | Self-service variant of the above. Any user can comment; the workflow verifies the commenter owns / is a public org member of the app's source repo, then opens the same PR. A maintainer still merges. See issue #40 |
 | Update catalog from source-repo release | `.github/workflows/update-from-release.yml` | `repository_dispatch` (`bump-app`) sent by a source repo on release | Bumps an app's `commit` in `apps.test.json` and opens a PR |
-| Sync dev catalog from test | `.github/workflows/sync-dev.yml` | Push to `main` touching `apps.test.json` / `dev-apps.txt`, or manual (`workflow_dispatch`) | Regenerates `apps.dev.json` from `apps.test.json` and opens a PR. One-directional: it can only write `apps.dev.json` |
+| Sync dev catalog from test | `.github/workflows/sync-dev.yml` | Push to `main` touching `apps.test.json` / `dev-apps.txt` / `dev-fixtures.json`, or manual (`workflow_dispatch`) | Regenerates `apps.dev.json` from `apps.test.json` and the dev fixtures and opens a PR. One-directional: it can only write `apps.dev.json` |
 
 ## Self-service promotion: one-time maintainer setup
 
@@ -92,11 +92,11 @@ All scripts live in `.github/workflows/scripts` (ESM, Node 22, only dependency i
 | `diff-apps.js <old> <new>` | review-helper.yml | Emits `{added, removed, updated}` JSON; only docker entries are tracked for SHA `updated` |
 | `risk-flags.js` (stdin → stdout) | review-helper.yml | Turns a diff into a markdown risk report (needs `GITHUB_TOKEN`) |
 | `bump-app.js` | promote-app.yml, update-from-release.yml | Mutates one app's `commit` in a catalog file, preserving canonical format. **Note: only updates `commit`, never `branch`** |
-| `sync-dev.js [--check \| --validate]` | sync-dev.yml, validate.yml, pre-commit | Regenerates `apps.dev.json` from `dev-apps.txt` + `apps.test.json`. `--check` reports drift; `--validate` checks the inputs without reading or writing `apps.dev.json` |
+| `sync-dev.js [--check \| --validate]` | sync-dev.yml, validate.yml, pre-commit | Regenerates `apps.dev.json` from `dev-apps.txt` + `apps.test.json` + `dev-fixtures.json`. `--check` reports drift; `--validate` checks the inputs without reading or writing `apps.dev.json` |
 
 > **Text metadata is never copied between `apps.test.json` and `apps.prod.json`.** `bump-app.js` — and therefore both `/promote` and the auto-bump workflow — only touches `commit`. `label`, `description`, `tagline`, `tags` and `translations` must be edited in `apps.test.json` and `apps.prod.json` explicitly. This has always been true of every metadata field; `translations` is no exception.
 >
-> **`apps.dev.json` is the deliberate exception.** It is not hand-maintained at all — it is generated wholesale from `apps.test.json` (see [The dev catalog is generated](#the-dev-catalog-is-generated)). The rule above exists because a description change in `apps.prod.json` is user-facing on sepal.io and deserves its own review. The dev catalog serves local deployments, where being a faithful smaller copy of test is the whole point.
+> **`apps.dev.json` is the deliberate exception.** It is not hand-maintained at all — it is generated wholesale from `apps.test.json`, plus dev-only fixtures (see [The dev catalog is generated](#the-dev-catalog-is-generated)). The rule above exists because a description change in `apps.prod.json` is user-facing on sepal.io and deserves its own review. The dev catalog serves local deployments, where being a faithful smaller copy of test is the whole point.
 
 ## The dev catalog is generated
 
@@ -104,6 +104,7 @@ All scripts live in `.github/workflows/scripts` (ESM, Node 22, only dependency i
 
 - **`dev-apps.txt`** — the hand-maintained list of app ids the dev catalog carries, one per line, `#` comments allowed. Line order is catalog order.
 - **`apps.test.json`** — the source of every field. Each listed id is replaced by the top-level entry of the same id, verbatim, and the top-level `tags` array is rebuilt from test's definitions filtered to the values those entries actually use.
+- **`dev-fixtures.json`** (optional) — dev-only entries that must never reach test or prod, in catalog shape (`{"apps": [...]}`). Today it holds `retired-example`, a retired app with a far-future `retiredOn`, so the retired view can be checked locally at any time. A fixture is listed in `dev-apps.txt` like any other app. It may not reuse an id from `apps.test.json`, so every real app in dev stays a verbatim copy of test. A fixture missing from the list fails too. Its tags must be defined in `apps.test.json`. CI checks its formatting and schema like a catalog. It has no `repository`, so SEPAL's app-manager never builds it.
 
 `sync-dev.js` performs the projection. Its CLI takes no path arguments and reads no path env vars — `apps.dev.json` is the only file it can write, which is what makes the sync one-directional by construction rather than by convention.
 
@@ -144,6 +145,8 @@ Unit tests use the built-in Node test runner (`node --test`), run via `npm test 
 - re-running on an in-sync file reports `changed=false`
 - `--check` reports drift without writing
 - `--validate` checks inputs without reading or writing `apps.dev.json`
+- a listed fixture is projected from `dev-fixtures.json`, in list order, and the CLI reads it from the working directory
+- a fixture reusing an `apps.test.json` id, or missing from `dev-apps.txt`, throws and names it
 
 `validate.js`:
 
@@ -186,8 +189,8 @@ Run them on demand:
 npm test --prefix .github/workflows/scripts
 
 # formatting + schema + docker rules + dev projection (what pre-commit runs)
-node .github/workflows/scripts/check-format.js apps.test.json apps.prod.json apps.dev.json apps.schema.json
-node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json apps.dev.json
+node .github/workflows/scripts/check-format.js apps.test.json apps.prod.json apps.dev.json apps.schema.json dev-fixtures.json
+node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json apps.dev.json dev-fixtures.json
 node .github/workflows/scripts/check-docker-rules.js apps.test.json apps.prod.json apps.dev.json
 node .github/workflows/scripts/sync-dev.js --validate
 node .github/workflows/scripts/sync-dev.js --check

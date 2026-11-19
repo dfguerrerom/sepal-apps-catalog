@@ -1,0 +1,30 @@
+{
+  "apps": [
+    {
+      "id": "retired-example",
+      "label": "Retired example",
+      "endpoint": "jupyter",
+      "tags": [],
+      "pinned": false,
+      "logoRef": "sepal.png",
+      "author": "the SEPAL team",
+      "description": "Retired example is a dev-only catalog entry that shows how SEPAL lists a retired app. It has no source repository, so nothing is built for it, and it never starts.",
+      "tagline": "Dev-only placeholder for checking how a retired app is listed and explained",
+      "releasedOn": "2024-01-15",
+      "retiredOn": "2099-12-31",
+      "retirementReason": "Dev-only example of a retired app. Its retirement date lies far in the future so that it stays in the list.",
+      "translations": {
+        "es": {
+          "tagline": "Marcador de posición exclusivo de desarrollo para comprobar cómo se muestra y se explica una aplicación retirada",
+          "description": "Retired example es una entrada del catálogo exclusiva de desarrollo que muestra cómo SEPAL presenta una aplicación retirada. No tiene repositorio de origen, por lo que no se construye nada para ella y nunca se inicia.",
+          "retirementReason": "Ejemplo de aplicación retirada, exclusivo de desarrollo. Su fecha de retirada está muy lejos en el futuro para que permanezca en la lista."
+        },
+        "fr": {
+          "tagline": "Espace réservé propre au développement pour vérifier l'affichage et l'explication d'une application retirée",
+          "description": "Retired example est une entrée du catalogue propre au développement qui montre comment SEPAL présente une application retirée. Elle n'a pas de dépôt source : rien n'est construit pour elle et elle ne démarre jamais.",
+          "retirementReason": "Exemple d'application retirée, propre au développement. Sa date de retrait est fixée loin dans le futur afin qu'elle reste dans la liste."
+        }
+      }
+    }
+  ]
+}

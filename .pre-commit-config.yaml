@@ -14,14 +14,14 @@ repos:
         name: Auto-format catalog JSON to canonical form
         entry: node .github/workflows/scripts/fix-format.js
         language: system
-        files: ^apps\.(test|prod|dev|schema)\.json$
+        files: ^(apps\.(test|prod|dev|schema)|dev-fixtures)\.json$
         pass_filenames: true
 
       - id: catalog-schema
         name: Validate catalogs against apps.schema.json
-        entry: node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json apps.dev.json
+        entry: node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json apps.dev.json dev-fixtures.json
         language: system
-        files: ^apps\.(test|prod|dev|schema)\.json$
+        files: ^(apps\.(test|prod|dev|schema)|dev-fixtures)\.json$
         pass_filenames: false
 
       - id: catalog-dev-projection
@@ -35,7 +35,7 @@ repos:
         name: Validate apps.dev.json projection inputs
         entry: node .github/workflows/scripts/sync-dev.js --validate
         language: system
-        files: ^(apps\.test\.json|dev-apps\.txt|\.github/workflows/scripts/sync-dev\.js)$
+        files: ^(apps\.test\.json|dev-apps\.txt|dev-fixtures\.json|\.github/workflows/scripts/sync-dev\.js)$
         pass_filenames: false
 
       - id: catalog-docker-rules
