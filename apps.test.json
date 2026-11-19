@@ -930,6 +930,7 @@
       "pinned": false,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
+      "logo": "https://raw.githubusercontent.com/SerafiniJose/fra-grid-gen/main/assets/logo.png",
       "author": "The SEPAL team",
       "description": "FRA grid generator builds FRA ISEA3H hexagon grids (r17 to r21) over an area of interest and exports them as GeoPackage or Shapefile with their metadata.",
       "tagline": "FRA ISEA3H hexagon grids (r17 to r21) over an area of interest",
