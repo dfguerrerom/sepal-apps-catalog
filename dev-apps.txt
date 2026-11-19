@@ -1,9 +1,10 @@
 # Apps in the local/dev catalog (apps.dev.json).
 #
-# apps.dev.json is GENERATED from this file + apps.test.json by
-# .github/workflows/scripts/sync-dev.js. Do not edit apps.dev.json by hand —
+# apps.dev.json is GENERATED from this file + apps.test.json + dev-fixtures.json
+# by .github/workflows/scripts/sync-dev.js. Do not edit apps.dev.json by hand —
 # CI rejects it. To change what an app shows in dev, edit apps.test.json; to
-# change which apps dev carries, edit the list below.
+# change which apps dev carries, edit the list below. dev-fixtures.json holds
+# dev-only entries (never in test or prod); each one must be listed here too.
 #
 # One app id per line. Line order is the order they appear in the catalog.
 
@@ -12,3 +13,4 @@ jupyter-notebook
 jupyter-lab
 vector_manager
 se.plan
+retired-example # dev-fixtures.json

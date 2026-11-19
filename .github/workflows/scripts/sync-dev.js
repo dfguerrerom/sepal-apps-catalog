@@ -5,6 +5,11 @@
 // apps.test.json: every id in the list is replaced by the top-level entry of
 // the same id in apps.test.json, verbatim.
 //
+// dev-fixtures.json (optional) holds dev-only entries that must never reach
+// test or prod, such as a permanently retired example app. A listed id is
+// taken from there instead; a fixture may not reuse a test id, so every real
+// app in dev stays a verbatim copy of test.
+//
 // The CLI takes no path arguments and reads no path env vars — apps.dev.json
 // is the only file it can write, which is what keeps the sync one-directional.
 // Paths are parameters of the exported function so the tests can run against
@@ -15,6 +20,7 @@ import {readFileSync, writeFileSync} from 'node:fs'
 const LIST_FILE = 'dev-apps.txt'
 const TEST_FILE = 'apps.test.json'
 const DEV_FILE = 'apps.dev.json'
+const FIXTURES_FILE = 'dev-fixtures.json'
 
 // Same id pattern the schema enforces, so a typo in the list fails here with a
 // useful message rather than as "app not found".
@@ -52,11 +58,19 @@ function collectTagValues(apps, out = new Set()) {
     return out
 }
 
-export function project({ids, test}) {
+export function project({ids, test, fixtures = {apps: []}}) {
+    for (const fixture of fixtures.apps) {
+        if (test.apps.some(app => app.id === fixture.id)) {
+            throw new Error(`Fixture "${fixture.id}" in ${FIXTURES_FILE} reuses an id from ${TEST_FILE}`)
+        }
+        if (!ids.includes(fixture.id)) {
+            throw new Error(`Fixture "${fixture.id}" in ${FIXTURES_FILE} is not listed in ${LIST_FILE}`)
+        }
+    }
     const apps = ids.map(id => {
-        const entry = test.apps.find(app => app.id === id)
+        const entry = test.apps.find(app => app.id === id) ?? fixtures.apps.find(app => app.id === id)
         if (!entry) {
-            throw new Error(`App id "${id}" is listed in ${LIST_FILE} but absent from ${TEST_FILE}`)
+            throw new Error(`App id "${id}" is listed in ${LIST_FILE} but absent from ${TEST_FILE} and ${FIXTURES_FILE}`)
         }
         return structuredClone(entry)
     })
@@ -71,14 +85,25 @@ export function project({ids, test}) {
     return {apps, tags}
 }
 
-export function loadProjection({listFile = LIST_FILE, testFile = TEST_FILE} = {}) {
-    const ids = parseList(readFileSync(listFile, 'utf8'))
-    const test = JSON.parse(readFileSync(testFile, 'utf8'))
-    return project({ids, test})
+function readFixtures(fixturesFile) {
+    try {
+        return JSON.parse(readFileSync(fixturesFile, 'utf8'))
+    } catch (e) {
+        if (e.code === 'ENOENT') {
+            return {apps: []}
+        }
+        throw e
+    }
 }
 
-export function syncDev({listFile = LIST_FILE, testFile = TEST_FILE, devFile = DEV_FILE, check = false} = {}) {
-    const canonical = JSON.stringify(loadProjection({listFile, testFile}), null, 2) + '\n'
+export function loadProjection({listFile = LIST_FILE, testFile = TEST_FILE, fixturesFile = FIXTURES_FILE} = {}) {
+    const ids = parseList(readFileSync(listFile, 'utf8'))
+    const test = JSON.parse(readFileSync(testFile, 'utf8'))
+    return project({ids, test, fixtures: readFixtures(fixturesFile)})
+}
+
+export function syncDev({listFile = LIST_FILE, testFile = TEST_FILE, fixturesFile = FIXTURES_FILE, devFile = DEV_FILE, check = false} = {}) {
+    const canonical = JSON.stringify(loadProjection({listFile, testFile, fixturesFile}), null, 2) + '\n'
     let current = null
     try {
         current = readFileSync(devFile, 'utf8')
@@ -103,18 +128,18 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     try {
         if (validate) {
             loadProjection()
-            console.log(`${LIST_FILE} + ${TEST_FILE} produce a valid dev projection`)
+            console.log(`${LIST_FILE} + ${TEST_FILE} + ${FIXTURES_FILE} produce a valid dev projection`)
         } else {
             const {changed} = syncDev({check})
             if (!changed) {
                 console.log(`${DEV_FILE} is in sync with ${TEST_FILE}`)
             } else if (check) {
-                console.error(`${DEV_FILE} does not match the projection of ${LIST_FILE} + ${TEST_FILE}.`)
+                console.error(`${DEV_FILE} does not match the projection of ${LIST_FILE} + ${TEST_FILE} + ${FIXTURES_FILE}.`)
                 console.error(`${DEV_FILE} is generated — regenerate it with:`)
                 console.error('  node .github/workflows/scripts/sync-dev.js')
                 process.exit(1)
             } else {
-                console.log(`regenerated ${DEV_FILE} from ${LIST_FILE} + ${TEST_FILE}`)
+                console.log(`regenerated ${DEV_FILE} from ${LIST_FILE} + ${TEST_FILE} + ${FIXTURES_FILE}`)
             }
         }
     } catch (e) {

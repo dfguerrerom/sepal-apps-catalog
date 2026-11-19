@@ -6,6 +6,7 @@ on:
     paths:
       - 'apps.test.json'
       - 'dev-apps.txt'
+      - 'dev-fixtures.json'
       - '.github/workflows/scripts/sync-dev.js'
       - '.github/workflows/sync-dev.yml'
   workflow_dispatch:

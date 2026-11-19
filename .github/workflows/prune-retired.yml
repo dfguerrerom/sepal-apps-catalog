@@ -1,0 +1,89 @@
+name: Remove retired apps from the catalog
+
+on:
+  schedule:
+    - cron: '23 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: prune-retired
+  cancel-in-progress: false
+
+jobs:
+  prune:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.CATALOG_PR_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install script deps
+        run: npm ci --silent --prefix .github/workflows/scripts
+
+      - name: Remove apps SEPAL no longer lists
+        run: node .github/workflows/scripts/prune-retired.js > "$RUNNER_TEMP/pruned.md"
+
+      - name: Detect no-op
+        id: check
+        run: |
+          if git diff --quiet; then
+            echo "::notice::No retired app has reached its removal date. Nothing to do."
+            echo "noop=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "noop=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Guard blast radius
+        if: steps.check.outputs.noop == 'false'
+        run: |
+          set -euo pipefail
+          unexpected=$(git diff --name-only | grep -vxE 'apps\.(test|prod)\.json|dev-apps\.txt' || true)
+          if [ -n "$unexpected" ]; then
+            echo "::error::prune-retired changed files other than the catalogs and dev-apps.txt:"
+            echo "$unexpected"
+            exit 1
+          fi
+
+      - name: Verify catalogs
+        if: steps.check.outputs.noop == 'false'
+        run: |
+          set -euo pipefail
+          node .github/workflows/scripts/check-format.js apps.test.json apps.prod.json
+          node .github/workflows/scripts/validate.js apps.schema.json apps.test.json apps.prod.json
+          node .github/workflows/scripts/check-tags.js apps.test.json apps.prod.json
+          node .github/workflows/scripts/sync-dev.js --validate
+
+      - name: Write PR body
+        if: steps.check.outputs.noop == 'false'
+        run: |
+          {
+            echo 'These apps were retired more than 60 days ago, so SEPAL no longer lists them. This PR deletes their entries.'
+            echo
+            cat "$RUNNER_TEMP/pruned.md"
+            echo
+            echo '`apps.dev.json` is left to the dev sync, which opens its own PR once this one merges.'
+            echo
+            echo '- [ ] Verify diff and merge'
+          } > "$RUNNER_TEMP/body.md"
+
+      - name: Open or update pull request
+        if: steps.check.outputs.noop == 'false'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.CATALOG_PR_TOKEN }}
+          branch: prune/retired-apps
+          base: main
+          delete-branch: true
+          title: 'chore(catalog): remove retired apps'
+          commit-message: 'chore(catalog): remove retired apps'
+          labels: prune-retired
+          body-path: ${{ runner.temp }}/body.md

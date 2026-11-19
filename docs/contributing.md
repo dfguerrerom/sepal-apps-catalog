@@ -164,9 +164,12 @@ To retire an app, set `retiredOn` to the retirement day and `retirementReason` t
 ```
 
 - **The app stops starting as soon as the field is set**, whatever the date says. It stays in the list, dimmed, and its information shows the reason.
-- **60 days after `retiredOn`, SEPAL removes it from the list.** The entry can then be deleted from the catalog.
+- **60 days after `retiredOn`, SEPAL removes it from the list.** The next daily run of the `Remove retired apps from the catalog` workflow then opens a PR that deletes the entry from both catalogs and its id from `dev-apps.txt`. See [ci.md](./ci.md#retired-apps-are-pruned).
 - **Multiapp children** without their own `retiredOn` take the parent's date and reason. A child with its own date shows only its own reason.
 - `retirementReason` requires `retiredOn`. A `retiredOn` without a reason is allowed, but users then see no explanation.
+- `retiredOn` must be a real calendar day. SEPAL ignores a date like `2026-02-30`, so the app is not retired at all.
+
+The dev catalog always carries a retired example, `retired-example`, to check the retired view locally. It lives in `dev-fixtures.json` and its date is far in the future, so it never leaves the list.
 
 ## Promoting to production
 
