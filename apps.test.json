@@ -239,6 +239,7 @@
       "pinned": false,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
+      "logo": "https://raw.githubusercontent.com/sepal-contrib/deforestation-alerts-module/main/assets/logo.png",
       "author": "the SEPAL team",
       "description": "Deforestation alert analysis brings together forest cover loss alerts from GLAD-L, GLAD-S2, RADD and CCDC for a chosen area and period. A convolutional neural network refines the alerts, and the results can be turned into reports.",
       "tagline": "Forest cover loss alerts from GLAD-L, GLAD-S2, RADD and CCDC, refined by a neural network and turned into reports",
