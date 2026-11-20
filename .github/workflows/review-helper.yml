@@ -14,9 +14,15 @@ permissions:
   contents: read
   pull-requests: write
 
+# The job can wait minutes on upstream CI; a newer push supersedes it so its comment is never the stale one.
+concurrency:
+  group: review-helper-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   comment:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       # This job holds a write token, so it only ever runs this repository's own scripts: the
       # checkout stays on the base branch and the PR's catalogs are read below as plain data.
@@ -51,6 +57,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # One deadline for all three reports: wait at most 15 minutes for upstream CI in total.
+          export CI_DEADLINE=$(( $(date +%s) + 900 ))
           {
             echo "## test.sepal.io changes"
             echo

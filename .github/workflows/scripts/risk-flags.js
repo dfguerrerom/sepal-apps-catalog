@@ -1,6 +1,7 @@
 // .github/workflows/scripts/risk-flags.js
 // Usage: node risk-flags.js (reads diff-apps JSON from stdin, writes markdown to stdout)
 // Env: GITHUB_TOKEN (must be set; use the workflow's GITHUB_TOKEN)
+//      CI_DEADLINE (optional Unix time in seconds; wait until then for upstream workflow runs to finish)
 
 import {createHash} from 'node:crypto'
 import {readFileSync} from 'node:fs'
@@ -22,9 +23,8 @@ const parseRepo = url => {
 
 const SHA = /^[0-9a-f]{40}$/
 
-const compare = async (owner, repo, base, head) => {
-    if (!SHA.test(base) || !SHA.test(head)) throw new Error('commit is not a full 40-character SHA')
-    const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/compare/${base}...${head}`, {
+const api = async path => {
+    const res = await fetch(`https://api.github.com/repos/${path}`, {
         headers: {
             Authorization: `Bearer ${token}`,
             Accept: 'application/vnd.github+json'
@@ -32,6 +32,68 @@ const compare = async (owner, repo, base, head) => {
     })
     if (!res.ok) throw new Error(`GitHub API ${res.status}: ${await res.text()}`)
     return res.json()
+}
+
+const compare = async (owner, repo, base, head) => {
+    if (!SHA.test(base) || !SHA.test(head)) throw new Error('commit is not a full 40-character SHA')
+    return api(`${owner}/${repo}/compare/${base}...${head}`)
+}
+
+// A release starts the upstream CI only seconds before the auto-bump PR that triggers this job,
+// so the runs are polled until CI_DEADLINE instead of being reported as still running.
+const CI_DEADLINE = Number(process.env.CI_DEADLINE) || 0
+const CI_POLL_MS = 20_000
+
+const latestRuns = async (owner, repo, sha) => {
+    const {workflow_runs: runs} = await api(`${owner}/${repo}/actions/runs?head_sha=${sha}&per_page=100&exclude_pull_requests=true`)
+    const latest = new Map()
+    for (const run of runs) {
+        // GitHub's own dependency-graph runs say nothing about the release.
+        if (run.path?.startsWith('dynamic/dependabot/')) continue
+        const prev = latest.get(run.workflow_id)
+        if (!prev || run.created_at > prev.created_at) latest.set(run.workflow_id, run)
+    }
+    return [...latest.values()].sort((a, b) => (a.name || '').localeCompare(b.name || ''))
+}
+
+const upstreamRuns = async (owner, repo, sha) => {
+    if (!SHA.test(sha)) throw new Error('commit is not a full 40-character SHA')
+    for (;;) {
+        const runs = await latestRuns(owner, repo, sha)
+        const waitMs = CI_DEADLINE * 1000 - Date.now()
+        if (runs.every(r => r.status === 'completed') || waitMs <= 0) return runs
+        await new Promise(resolve => setTimeout(resolve, Math.min(CI_POLL_MS, waitMs)))
+    }
+}
+
+const RUN_ICONS = {
+    success: '✅',
+    failure: '❌',
+    timed_out: '❌',
+    startup_failure: '❌',
+    skipped: '⚪',
+    neutral: '⚪'
+}
+const runIcon = run => run.status !== 'completed' ? '⏳' : RUN_ICONS[run.conclusion] || '⚠️'
+
+// Workflow names come from the upstream repo; a code span keeps them from rendering as markdown
+// or @-mentioning anyone.
+const codeSpan = s => `\`${s.replace(/`/g, "'").replace(/\s+/g, ' ').trim()}\``
+
+const upstreamCi = async (owner, repo, sha) => {
+    const commit = `[\`${sha.slice(0, 7)}\`](https://github.com/${owner}/${repo}/commit/${sha})`
+    let runs
+    try {
+        runs = await upstreamRuns(owner, repo, sha)
+    } catch (e) {
+        return `- ⚠️ **Upstream CI** on ${commit}: failed to fetch workflow runs: ${e.message}`
+    }
+    if (!runs.length) return `- ⚪ **Upstream CI** on ${commit}: no workflow runs`
+    const icons = runs.map(runIcon)
+    const overall = ['❌', '⏳', '⚠️'].find(i => icons.includes(i)) || '✅'
+    const stillRunning = overall === '⏳' ? ' (still running when this comment was written; re-run the Review helper to refresh)' : ''
+    const list = runs.map((run, i) => `${icons[i]} [${codeSpan(run.name || run.path)}](${run.html_url})`).join(' · ')
+    return `- ${overall} **Upstream CI** on ${commit}${stillRunning}: ${list}`
 }
 
 const RISK_PATTERNS = [
@@ -100,6 +162,7 @@ for (const upd of input.updated) {
     out.push(``)
     out.push(`- [Compare upstream](${compareUrl})`)
     out.push(`- ${files.length} files changed (${cmp.ahead_by} commits ahead, ${cmp.behind_by} behind)`)
+    out.push(await upstreamCi(r.owner, r.repo, upd.newCommit))
     if (infraFiles.length) {
         out.push(`- ⚠️ **Infra/dependency files touched:** ${infraFiles.map(f => fileDiffLink(compareUrl, f.filename)).join(', ')}`)
     }
@@ -115,6 +178,8 @@ for (const a of input.added) {
     const repo = repoLink(a.repository || '(no repository)', a.repository)
     const commitSuffix = a.commit ? ` @ \`${a.commit}\`` : ''
     out.push(`- Repo: ${repo}${commitSuffix}`)
+    const r = a.repository && parseRepo(a.repository)
+    if (r && a.commit) out.push(await upstreamCi(r.owner, r.repo, a.commit))
     if (a.repository) {
         out.push(`- ⚠️ First-time addition — review ${FIRST_REVIEW[a.endpoint] || 'the repository'} manually.`)
     }
