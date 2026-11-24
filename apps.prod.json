@@ -581,6 +581,7 @@
       "pinned": true,
       "googleAccountRequired": true,
       "logoRef": "sepal.png",
+      "logo": "https://raw.githubusercontent.com/sepal-contrib/se.plan/main/assets/seplan-logo.png",
       "author": "The SEPAL team",
       "description": "se.plan combines ecological data on forest restoration with data on its benefits, costs and risks, using a weighted-sum approach. It produces a restoration suitability index from 1 to 5 for each location in an area of interest.",
       "tagline": "Forest restoration suitability index from 1 to 5, weighing ecological data against benefits, costs and risks",
